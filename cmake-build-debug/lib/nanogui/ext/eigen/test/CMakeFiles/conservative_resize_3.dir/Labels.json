@@ -1,0 +1,15 @@
+
+{
+	"sources" : 
+	[
+		
+		{
+			"file" : "/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen/test/conservative_resize.cpp"
+		}
+	],
+	"target" : 
+	{
+		"labels" : [ "BuildOfficial" ],
+		"name" : "conservative_resize_3"
+	}
+}

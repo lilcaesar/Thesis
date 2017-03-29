@@ -1,0 +1,15 @@
+
+{
+	"sources" : 
+	[
+		
+		{
+			"file" : "/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen/test/eigensolver_selfadjoint.cpp"
+		}
+	],
+	"target" : 
+	{
+		"labels" : [ "BuildOfficial" ],
+		"name" : "eigensolver_selfadjoint_1"
+	}
+}

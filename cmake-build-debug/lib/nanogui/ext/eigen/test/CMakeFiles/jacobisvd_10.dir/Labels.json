@@ -1,0 +1,15 @@
+
+{
+	"sources" : 
+	[
+		
+		{
+			"file" : "/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen/test/jacobisvd.cpp"
+		}
+	],
+	"target" : 
+	{
+		"labels" : [ "BuildOfficial" ],
+		"name" : "jacobisvd_10"
+	}
+}

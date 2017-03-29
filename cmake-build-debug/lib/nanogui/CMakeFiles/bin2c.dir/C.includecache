@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/mattia/CLionProjects/Thesis/lib/nanogui/resources/bin2c.c
+stdlib.h
+-
+stdio.h
+-
+string.h
+-
+ctype.h
+-
+
