@@ -55,7 +55,6 @@ public:
 
         //Calcolo del frustum in base alla mesh
 
-        float frustumLeft, frustumRight, frustumBottom, frustumTop, frustumNear, frustumFar;
         std::vector<double> XValues;
         std::vector<double> YValues;
         std::vector<double> ZValues;
@@ -68,14 +67,14 @@ public:
 
          std::min_element(XValues.begin(),XValues.end());
 
-        frustumLeft = (float)(*std::min_element(XValues.begin(),XValues.end()));
-        frustumRight = (float)(*std::max_element(XValues.begin(),XValues.end()));
-        frustumBottom = (float)(*std::min_element(YValues.begin(),YValues.end()));
-        frustumTop = (float)(*std::max_element(YValues.begin(),YValues.end()));
-        frustumNear = (float)(*std::max_element(ZValues.begin(),ZValues.end()));
-        frustumFar = (float)(*std::min_element(ZValues.begin(),ZValues.end()));
+        frustumLeft = (*std::min_element(XValues.begin(),XValues.end()));
+        frustumRight = (*std::max_element(XValues.begin(),XValues.end()));
+        frustumBottom = (*std::min_element(YValues.begin(),YValues.end()));
+        frustumTop = (*std::max_element(YValues.begin(),YValues.end()));
+        frustumNear = (*std::max_element(ZValues.begin(),ZValues.end()));
+        frustumFar = (*std::min_element(ZValues.begin(),ZValues.end()));
 
-        nanogui::frustum(frustumLeft*2, frustumRight, frustumBottom, frustumTop, frustumNear, frustumFar);
+        //nanogui::frustum(frustumLeft, frustumRight, frustumBottom, frustumTop, frustumNear, frustumFar);
 
         //CARICAMENTO VECTOR SU MATRIX
         Eigen::MatrixXd vertices(3, nVertices);
@@ -86,6 +85,12 @@ public:
         Eigen::MatrixXi faces(3, nFaces);
         for(int32_t i=0; i < nFaces; i++){
             faces.col(i) << tempFaces[(3*i)], tempFaces[(3*i)+1], tempFaces[(3*i)+2];
+        }
+
+
+        //TODO effettuare questa operazione con matrici corrette (del tipo x,y,z,w)
+        for (int j = 0; j < nVertices; ++j) {
+            vertices.col(j) = glFrustum(frustumLeft, frustumRight, frustumBottom, frustumTop, frustumNear, frustumFar) * vertices.col(j);
         }
 
         /* Hard coded cube*/
@@ -160,6 +165,9 @@ public:
         glDepthFunc(GL_LESS);
         glEnable(GL_DEPTH_TEST);
 
+
+
+
         /* Draw nFaces triangles starting at index 0 */
         mShader.drawIndexed(GL_TRIANGLES, 0, nFaces);
     }
@@ -167,6 +175,8 @@ private:
     nanogui::GLShader mShader;
     /*Numero di triangoli caricati dal file*/
     uint32_t nFaces;
+    /* Variabili per il calcolo del frustum*/
+    double frustumLeft, frustumRight, frustumBottom, frustumTop, frustumNear, frustumFar;
 };
 
 int main(int /* argc */, char ** /* argv */) {
