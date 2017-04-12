@@ -34,7 +34,7 @@ NightlyStartTime: 00:00:00 UTC
 
 # Commands for the build/test/submit cycle
 ConfigureCommand: "/home/mattia/Programmi/Clion/clion-2016.3.3/bin/cmake/bin/cmake" "/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen"
-MakeCommand: /home/mattia/Programmi/Clion/clion-2016.3.3/bin/cmake/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}" -- -i
+MakeCommand: /home/mattia/Programmi/Clion/clion-2016.3.3/bin/cmake/bin/cmake --build . --target buildtests --config "${CTEST_CONFIGURATION_TYPE}" -- -i  
 DefaultCTestConfigurationType: Release
 
 # version control

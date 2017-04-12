@@ -275,6 +275,21 @@ tut_arithmetic_add_sub/fast:
 .PHONY : tut_arithmetic_add_sub/fast
 
 # Convenience name for target.
+lib/nanogui/ext/eigen/doc/examples/CMakeFiles/matrixfree_cg.dir/rule:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 lib/nanogui/ext/eigen/doc/examples/CMakeFiles/matrixfree_cg.dir/rule
+.PHONY : lib/nanogui/ext/eigen/doc/examples/CMakeFiles/matrixfree_cg.dir/rule
+
+# Convenience name for target.
+matrixfree_cg: lib/nanogui/ext/eigen/doc/examples/CMakeFiles/matrixfree_cg.dir/rule
+
+.PHONY : matrixfree_cg
+
+# fast build rule for target.
+matrixfree_cg/fast:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/ext/eigen/doc/examples/CMakeFiles/matrixfree_cg.dir/build.make lib/nanogui/ext/eigen/doc/examples/CMakeFiles/matrixfree_cg.dir/build
+.PHONY : matrixfree_cg/fast
+
+# Convenience name for target.
 lib/nanogui/ext/eigen/doc/examples/CMakeFiles/function_taking_eigenbase.dir/rule:
 	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 lib/nanogui/ext/eigen/doc/examples/CMakeFiles/function_taking_eigenbase.dir/rule
 .PHONY : lib/nanogui/ext/eigen/doc/examples/CMakeFiles/function_taking_eigenbase.dir/rule
@@ -2416,6 +2431,33 @@ function_taking_ref.cpp.s:
 	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/ext/eigen/doc/examples/CMakeFiles/function_taking_ref.dir/build.make lib/nanogui/ext/eigen/doc/examples/CMakeFiles/function_taking_ref.dir/function_taking_ref.cpp.s
 .PHONY : function_taking_ref.cpp.s
 
+matrixfree_cg.o: matrixfree_cg.cpp.o
+
+.PHONY : matrixfree_cg.o
+
+# target to build an object file
+matrixfree_cg.cpp.o:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/ext/eigen/doc/examples/CMakeFiles/matrixfree_cg.dir/build.make lib/nanogui/ext/eigen/doc/examples/CMakeFiles/matrixfree_cg.dir/matrixfree_cg.cpp.o
+.PHONY : matrixfree_cg.cpp.o
+
+matrixfree_cg.i: matrixfree_cg.cpp.i
+
+.PHONY : matrixfree_cg.i
+
+# target to preprocess a source file
+matrixfree_cg.cpp.i:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/ext/eigen/doc/examples/CMakeFiles/matrixfree_cg.dir/build.make lib/nanogui/ext/eigen/doc/examples/CMakeFiles/matrixfree_cg.dir/matrixfree_cg.cpp.i
+.PHONY : matrixfree_cg.cpp.i
+
+matrixfree_cg.s: matrixfree_cg.cpp.s
+
+.PHONY : matrixfree_cg.s
+
+# target to generate assembly for a file
+matrixfree_cg.cpp.s:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/ext/eigen/doc/examples/CMakeFiles/matrixfree_cg.dir/build.make lib/nanogui/ext/eigen/doc/examples/CMakeFiles/matrixfree_cg.dir/matrixfree_cg.cpp.s
+.PHONY : matrixfree_cg.cpp.s
+
 tut_arithmetic_add_sub.o: tut_arithmetic_add_sub.cpp.o
 
 .PHONY : tut_arithmetic_add_sub.o
@@ -2650,6 +2692,7 @@ help:
 	@echo "... tut_arithmetic_matrix_mul"
 	@echo "... tut_arithmetic_dot_cross"
 	@echo "... tut_arithmetic_add_sub"
+	@echo "... matrixfree_cg"
 	@echo "... function_taking_eigenbase"
 	@echo "... function_taking_ref"
 	@echo "... Tutorial_ArrayClass_addition"
@@ -2856,6 +2899,9 @@ help:
 	@echo "... function_taking_ref.o"
 	@echo "... function_taking_ref.i"
 	@echo "... function_taking_ref.s"
+	@echo "... matrixfree_cg.o"
+	@echo "... matrixfree_cg.i"
+	@echo "... matrixfree_cg.s"
 	@echo "... tut_arithmetic_add_sub.o"
 	@echo "... tut_arithmetic_add_sub.i"
 	@echo "... tut_arithmetic_add_sub.s"

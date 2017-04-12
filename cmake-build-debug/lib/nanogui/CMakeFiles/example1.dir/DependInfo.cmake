@@ -11,8 +11,9 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 # Preprocessor definitions for this target.
 set(CMAKE_TARGET_DEFINITIONS_CXX
   "CORO_SJLJ"
-  "NANOGUI_PYTHON"
+  "GLAD_GLAPI_EXPORT"
   "NANOGUI_SHARED"
+  "NVG_SHARED"
   )
 
 # The include file search paths:

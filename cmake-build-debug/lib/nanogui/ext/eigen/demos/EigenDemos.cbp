@@ -5,7 +5,7 @@
 		<Option title="EigenDemos"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\lib\;CMake Files\lib\nanogui\;CMake Files\lib\nanogui\ext\;CMake Files\lib\nanogui\ext\eigen\;CMake Files\lib\nanogui\ext\eigen\cmake\;CMake Files\lib\nanogui\ext\eigen\scripts\;CMake Files\lib\nanogui\ext\eigen\Eigen\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Cholesky\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\CholmodSupport\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Core\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Core\products\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Core\util\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Core\arch\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Core\arch\SSE\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Core\arch\AltiVec\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Core\arch\NEON\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Core\arch\Default\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Eigen2Support\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Eigen2Support\Geometry\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Eigenvalues\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Geometry\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Geometry\arch\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Householder\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\IterativeLinearSolvers\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Jacobi\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\LU\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\LU\arch\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\MetisSupport\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\OrderingMethods\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\PaStiXSupport\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\PardisoSupport\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\QR\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\SPQRSupport\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\SVD\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\SparseCholesky\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\SparseCore\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\SparseLU\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\SparseQR\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\StlSupport\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\SuperLUSupport\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\UmfPackSupport\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\misc\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\plugins\;CMake Files\lib\nanogui\ext\eigen\doc\;CMake Files\lib\nanogui\ext\eigen\doc\examples\;CMake Files\lib\nanogui\ext\eigen\doc\special_examples\;CMake Files\lib\nanogui\ext\eigen\doc\snippets\;CMake Files\lib\nanogui\ext\eigen\unsupported\;CMake Files\lib\nanogui\ext\eigen\unsupported\doc\;CMake Files\lib\nanogui\ext\eigen\unsupported\doc\examples\;CMake Files\lib\nanogui\ext\eigen\unsupported\doc\snippets\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\AutoDiff\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\BVH\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\FFT\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\IterativeSolvers\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\MatrixFunctions\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\MoreVectorization\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\NonLinearOptimization\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\NumericalDiff\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\Polynomials\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\Skyline\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\SparseExtra\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\KroneckerProduct\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\Splines\;CMake Files\lib\nanogui\ext\eigen\unsupported\test\;CMake Files\lib\nanogui\ext\eigen\test\;CMake Files\lib\nanogui\ext\eigen\blas\;CMake Files\lib\nanogui\ext\eigen\lapack\;CMake Files\lib\nanogui\ext\eigen\demos\;CMake Files\lib\nanogui\ext\eigen\bench\;CMake Files\lib\nanogui\ext\eigen\bench\spbench\;CMake Files\lib\nanogui\ext\glfw\;CMake Files\lib\nanogui\ext\glfw\src\;CMake Files\cmake-build-debug\;CMake Files\cmake-build-debug\lib\;CMake Files\cmake-build-debug\lib\nanogui\;CMake Files\cmake-build-debug\lib\nanogui\ext\;CMake Files\cmake-build-debug\lib\nanogui\ext\eigen\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\lib\;CMake Files\lib\nanogui\;CMake Files\lib\nanogui\ext\;CMake Files\lib\nanogui\ext\eigen\;CMake Files\lib\nanogui\ext\eigen\cmake\;CMake Files\lib\nanogui\ext\eigen\scripts\;CMake Files\lib\nanogui\ext\eigen\Eigen\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Cholesky\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\CholmodSupport\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Core\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Core\products\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Core\util\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Core\arch\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Core\arch\SSE\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Core\arch\AltiVec\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Core\arch\NEON\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Core\arch\Default\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Eigen2Support\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Eigen2Support\Geometry\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Eigenvalues\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Geometry\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Geometry\arch\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Householder\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\IterativeLinearSolvers\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Jacobi\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\LU\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\LU\arch\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\MetisSupport\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\OrderingMethods\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\PaStiXSupport\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\PardisoSupport\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\QR\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\SPQRSupport\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\SVD\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\SparseCholesky\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\SparseCore\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\SparseLU\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\SparseQR\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\StlSupport\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\SuperLUSupport\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\UmfPackSupport\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\misc\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\plugins\;CMake Files\lib\nanogui\ext\eigen\doc\;CMake Files\lib\nanogui\ext\eigen\doc\examples\;CMake Files\lib\nanogui\ext\eigen\doc\special_examples\;CMake Files\lib\nanogui\ext\eigen\doc\snippets\;CMake Files\lib\nanogui\ext\eigen\unsupported\;CMake Files\lib\nanogui\ext\eigen\unsupported\doc\;CMake Files\lib\nanogui\ext\eigen\unsupported\doc\examples\;CMake Files\lib\nanogui\ext\eigen\unsupported\doc\snippets\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\AutoDiff\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\BVH\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\Eigenvalues\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\FFT\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\IterativeSolvers\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\KroneckerProduct\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\LevenbergMarquardt\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\MatrixFunctions\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\MoreVectorization\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\NonLinearOptimization\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\NumericalDiff\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\Polynomials\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\Skyline\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\SparseExtra\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\Splines\;CMake Files\lib\nanogui\ext\eigen\unsupported\test\;CMake Files\lib\nanogui\ext\eigen\test\;CMake Files\lib\nanogui\ext\eigen\blas\;CMake Files\lib\nanogui\ext\eigen\lapack\;CMake Files\lib\nanogui\ext\eigen\demos\;CMake Files\lib\nanogui\ext\eigen\bench\;CMake Files\lib\nanogui\ext\eigen\bench\spbench\;CMake Files\lib\nanogui\ext\glfw\;CMake Files\lib\nanogui\ext\glfw\CMake\;CMake Files\lib\nanogui\ext\glfw\CMake\modules\;CMake Files\lib\nanogui\ext\glfw\src\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext/eigen/demos"/>
@@ -2758,6 +2758,12 @@
 		<Unit filename="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen/unsupported/Eigen/src/BVH/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\BVH\"/>
 		</Unit>
+		<Unit filename="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen/unsupported/Eigen/src/Eigenvalues/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\Eigenvalues\"/>
+		</Unit>
+		<Unit filename="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen/unsupported/Eigen/src/Eigenvalues/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\Eigenvalues\"/>
+		</Unit>
 		<Unit filename="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen/unsupported/Eigen/src/FFT/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\FFT\"/>
 		</Unit>
@@ -2769,6 +2775,18 @@
 		</Unit>
 		<Unit filename="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen/unsupported/Eigen/src/IterativeSolvers/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\IterativeSolvers\"/>
+		</Unit>
+		<Unit filename="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen/unsupported/Eigen/src/KroneckerProduct/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\KroneckerProduct\"/>
+		</Unit>
+		<Unit filename="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen/unsupported/Eigen/src/KroneckerProduct/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\KroneckerProduct\"/>
+		</Unit>
+		<Unit filename="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen/unsupported/Eigen/src/LevenbergMarquardt/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\LevenbergMarquardt\"/>
+		</Unit>
+		<Unit filename="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen/unsupported/Eigen/src/LevenbergMarquardt/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\LevenbergMarquardt\"/>
 		</Unit>
 		<Unit filename="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen/unsupported/Eigen/src/MatrixFunctions/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\MatrixFunctions\"/>
@@ -2811,12 +2829,6 @@
 		</Unit>
 		<Unit filename="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen/unsupported/Eigen/src/SparseExtra/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\SparseExtra\"/>
-		</Unit>
-		<Unit filename="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen/unsupported/Eigen/src/KroneckerProduct/CMakeLists.txt">
-			<Option virtualFolder="CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\KroneckerProduct\"/>
-		</Unit>
-		<Unit filename="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen/unsupported/Eigen/src/KroneckerProduct/CMakeLists.txt">
-			<Option virtualFolder="CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\KroneckerProduct\"/>
 		</Unit>
 		<Unit filename="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen/unsupported/Eigen/src/Splines/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\Splines\"/>
@@ -2878,17 +2890,14 @@
 		<Unit filename="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\lib\nanogui\ext\glfw\"/>
 		</Unit>
-		<Unit filename="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/glfw3Config.cmake.in">
-			<Option virtualFolder="CMake Files\lib\nanogui\ext\glfw\src\"/>
+		<Unit filename="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/CMake/modules/FindVulkan.cmake">
+			<Option virtualFolder="CMake Files\lib\nanogui\ext\glfw\CMake\modules\"/>
 		</Unit>
-		<Unit filename="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/glfw_config.h.in">
-			<Option virtualFolder="CMake Files\lib\nanogui\ext\glfw\src\"/>
+		<Unit filename="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/CMake/modules/FindVulkan.cmake">
+			<Option virtualFolder="CMake Files\lib\nanogui\ext\glfw\CMake\modules\"/>
 		</Unit>
-		<Unit filename="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/glfw3.pc.in">
-			<Option virtualFolder="CMake Files\lib\nanogui\ext\glfw\src\"/>
-		</Unit>
-		<Unit filename="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/CMakeLists.txt">
-			<Option virtualFolder="CMake Files\lib\nanogui\ext\glfw\src\"/>
+		<Unit filename="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/CMake/modules/FindVulkan.cmake">
+			<Option virtualFolder="CMake Files\lib\nanogui\ext\glfw\CMake\modules\"/>
 		</Unit>
 		<Unit filename="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/glfw3Config.cmake.in">
 			<Option virtualFolder="CMake Files\lib\nanogui\ext\glfw\src\"/>
@@ -2914,11 +2923,17 @@
 		<Unit filename="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\lib\nanogui\ext\glfw\src\"/>
 		</Unit>
-		<Unit filename="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext/eigen/DartConfiguration.tcl">
-			<Option virtualFolder="CMake Files\cmake-build-debug\lib\nanogui\ext\eigen\"/>
+		<Unit filename="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/glfw3Config.cmake.in">
+			<Option virtualFolder="CMake Files\lib\nanogui\ext\glfw\src\"/>
 		</Unit>
-		<Unit filename="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext/eigen/DartConfiguration.tcl">
-			<Option virtualFolder="CMake Files\cmake-build-debug\lib\nanogui\ext\eigen\"/>
+		<Unit filename="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/glfw_config.h.in">
+			<Option virtualFolder="CMake Files\lib\nanogui\ext\glfw\src\"/>
+		</Unit>
+		<Unit filename="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/glfw3.pc.in">
+			<Option virtualFolder="CMake Files\lib\nanogui\ext\glfw\src\"/>
+		</Unit>
+		<Unit filename="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\lib\nanogui\ext\glfw\src\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>

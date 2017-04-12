@@ -56,27 +56,27 @@ CMAKE_BINARY_DIR = /home/mattia/CLionProjects/Thesis/cmake-build-debug
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target install
-install: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/home/mattia/Programmi/Clion/clion-2016.3.3/bin/cmake/bin/cmake -P cmake_install.cmake
-.PHONY : install
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/home/mattia/Programmi/Clion/clion-2016.3.3/bin/cmake/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
 
-# Special rule for the target install
-install/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/home/mattia/Programmi/Clion/clion-2016.3.3/bin/cmake/bin/cmake -P cmake_install.cmake
-.PHONY : install/fast
+# Special rule for the target install/local
+install/local/fast: install/local
 
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Devel\" \"Unspecified\""
-.PHONY : list_install_components
+.PHONY : install/local/fast
 
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/home/mattia/Programmi/Clion/clion-2016.3.3/bin/cmake/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
 
-.PHONY : list_install_components/fast
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
 
 # Special rule for the target edit_cache
 edit_cache:
@@ -100,27 +100,27 @@ install/strip/fast: install/strip
 
 .PHONY : install/strip/fast
 
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/home/mattia/Programmi/Clion/clion-2016.3.3/bin/cmake/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Devel\" \"Unspecified\""
+.PHONY : list_install_components
 
-# Special rule for the target install/local
-install/local/fast: install/local
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
 
-.PHONY : install/local/fast
+.PHONY : list_install_components/fast
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/home/mattia/Programmi/Clion/clion-2016.3.3/bin/cmake/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/home/mattia/Programmi/Clion/clion-2016.3.3/bin/cmake/bin/cmake -P cmake_install.cmake
+.PHONY : install
 
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/home/mattia/Programmi/Clion/clion-2016.3.3/bin/cmake/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -155,19 +155,34 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-lib/nanogui/CMakeFiles/example2.dir/rule:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 lib/nanogui/CMakeFiles/example2.dir/rule
-.PHONY : lib/nanogui/CMakeFiles/example2.dir/rule
+lib/nanogui/CMakeFiles/nanogui.dir/rule:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 lib/nanogui/CMakeFiles/nanogui.dir/rule
+.PHONY : lib/nanogui/CMakeFiles/nanogui.dir/rule
 
 # Convenience name for target.
-example2: lib/nanogui/CMakeFiles/example2.dir/rule
+nanogui: lib/nanogui/CMakeFiles/nanogui.dir/rule
 
-.PHONY : example2
+.PHONY : nanogui
 
 # fast build rule for target.
-example2/fast:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/example2.dir/build.make lib/nanogui/CMakeFiles/example2.dir/build
-.PHONY : example2/fast
+nanogui/fast:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/build
+.PHONY : nanogui/fast
+
+# Convenience name for target.
+lib/nanogui/CMakeFiles/nanogui-obj.dir/rule:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 lib/nanogui/CMakeFiles/nanogui-obj.dir/rule
+.PHONY : lib/nanogui/CMakeFiles/nanogui-obj.dir/rule
+
+# Convenience name for target.
+nanogui-obj: lib/nanogui/CMakeFiles/nanogui-obj.dir/rule
+
+.PHONY : nanogui-obj
+
+# fast build rule for target.
+nanogui-obj/fast:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/build
+.PHONY : nanogui-obj/fast
 
 # Convenience name for target.
 lib/nanogui/CMakeFiles/example1.dir/rule:
@@ -185,34 +200,49 @@ example1/fast:
 .PHONY : example1/fast
 
 # Convenience name for target.
-lib/nanogui/CMakeFiles/nanogui.dir/rule:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 lib/nanogui/CMakeFiles/nanogui.dir/rule
-.PHONY : lib/nanogui/CMakeFiles/nanogui.dir/rule
+lib/nanogui/CMakeFiles/example2.dir/rule:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 lib/nanogui/CMakeFiles/example2.dir/rule
+.PHONY : lib/nanogui/CMakeFiles/example2.dir/rule
 
 # Convenience name for target.
-nanogui: lib/nanogui/CMakeFiles/nanogui.dir/rule
+example2: lib/nanogui/CMakeFiles/example2.dir/rule
 
-.PHONY : nanogui
+.PHONY : example2
 
 # fast build rule for target.
-nanogui/fast:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/build
-.PHONY : nanogui/fast
+example2/fast:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/example2.dir/build.make lib/nanogui/CMakeFiles/example2.dir/build
+.PHONY : example2/fast
 
 # Convenience name for target.
-lib/nanogui/CMakeFiles/bin2c.dir/rule:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 lib/nanogui/CMakeFiles/bin2c.dir/rule
-.PHONY : lib/nanogui/CMakeFiles/bin2c.dir/rule
+lib/nanogui/CMakeFiles/example3.dir/rule:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 lib/nanogui/CMakeFiles/example3.dir/rule
+.PHONY : lib/nanogui/CMakeFiles/example3.dir/rule
 
 # Convenience name for target.
-bin2c: lib/nanogui/CMakeFiles/bin2c.dir/rule
+example3: lib/nanogui/CMakeFiles/example3.dir/rule
 
-.PHONY : bin2c
+.PHONY : example3
 
 # fast build rule for target.
-bin2c/fast:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/bin2c.dir/build.make lib/nanogui/CMakeFiles/bin2c.dir/build
-.PHONY : bin2c/fast
+example3/fast:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/example3.dir/build.make lib/nanogui/CMakeFiles/example3.dir/build
+.PHONY : example3/fast
+
+# Convenience name for target.
+lib/nanogui/CMakeFiles/example4.dir/rule:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 lib/nanogui/CMakeFiles/example4.dir/rule
+.PHONY : lib/nanogui/CMakeFiles/example4.dir/rule
+
+# Convenience name for target.
+example4: lib/nanogui/CMakeFiles/example4.dir/rule
+
+.PHONY : example4
+
+# fast build rule for target.
+example4/fast:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/example4.dir/build.make lib/nanogui/CMakeFiles/example4.dir/build
+.PHONY : example4/fast
 
 ext/nanovg/src/nanovg.o: ext/nanovg/src/nanovg.c.o
 
@@ -220,7 +250,7 @@ ext/nanovg/src/nanovg.o: ext/nanovg/src/nanovg.c.o
 
 # target to build an object file
 ext/nanovg/src/nanovg.c.o:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/ext/nanovg/src/nanovg.c.o
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/ext/nanovg/src/nanovg.c.o
 .PHONY : ext/nanovg/src/nanovg.c.o
 
 ext/nanovg/src/nanovg.i: ext/nanovg/src/nanovg.c.i
@@ -229,7 +259,7 @@ ext/nanovg/src/nanovg.i: ext/nanovg/src/nanovg.c.i
 
 # target to preprocess a source file
 ext/nanovg/src/nanovg.c.i:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/ext/nanovg/src/nanovg.c.i
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/ext/nanovg/src/nanovg.c.i
 .PHONY : ext/nanovg/src/nanovg.c.i
 
 ext/nanovg/src/nanovg.s: ext/nanovg/src/nanovg.c.s
@@ -238,7 +268,7 @@ ext/nanovg/src/nanovg.s: ext/nanovg/src/nanovg.c.s
 
 # target to generate assembly for a file
 ext/nanovg/src/nanovg.c.s:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/ext/nanovg/src/nanovg.c.s
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/ext/nanovg/src/nanovg.c.s
 .PHONY : ext/nanovg/src/nanovg.c.s
 
 nanogui_resources.o: nanogui_resources.cpp.o
@@ -247,7 +277,7 @@ nanogui_resources.o: nanogui_resources.cpp.o
 
 # target to build an object file
 nanogui_resources.cpp.o:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/nanogui_resources.cpp.o
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/nanogui_resources.cpp.o
 .PHONY : nanogui_resources.cpp.o
 
 nanogui_resources.i: nanogui_resources.cpp.i
@@ -256,7 +286,7 @@ nanogui_resources.i: nanogui_resources.cpp.i
 
 # target to preprocess a source file
 nanogui_resources.cpp.i:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/nanogui_resources.cpp.i
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/nanogui_resources.cpp.i
 .PHONY : nanogui_resources.cpp.i
 
 nanogui_resources.s: nanogui_resources.cpp.s
@@ -265,35 +295,8 @@ nanogui_resources.s: nanogui_resources.cpp.s
 
 # target to generate assembly for a file
 nanogui_resources.cpp.s:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/nanogui_resources.cpp.s
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/nanogui_resources.cpp.s
 .PHONY : nanogui_resources.cpp.s
-
-resources/bin2c.o: resources/bin2c.c.o
-
-.PHONY : resources/bin2c.o
-
-# target to build an object file
-resources/bin2c.c.o:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/bin2c.dir/build.make lib/nanogui/CMakeFiles/bin2c.dir/resources/bin2c.c.o
-.PHONY : resources/bin2c.c.o
-
-resources/bin2c.i: resources/bin2c.c.i
-
-.PHONY : resources/bin2c.i
-
-# target to preprocess a source file
-resources/bin2c.c.i:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/bin2c.dir/build.make lib/nanogui/CMakeFiles/bin2c.dir/resources/bin2c.c.i
-.PHONY : resources/bin2c.c.i
-
-resources/bin2c.s: resources/bin2c.c.s
-
-.PHONY : resources/bin2c.s
-
-# target to generate assembly for a file
-resources/bin2c.c.s:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/bin2c.dir/build.make lib/nanogui/CMakeFiles/bin2c.dir/resources/bin2c.c.s
-.PHONY : resources/bin2c.c.s
 
 src/button.o: src/button.cpp.o
 
@@ -301,7 +304,7 @@ src/button.o: src/button.cpp.o
 
 # target to build an object file
 src/button.cpp.o:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/button.cpp.o
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/button.cpp.o
 .PHONY : src/button.cpp.o
 
 src/button.i: src/button.cpp.i
@@ -310,7 +313,7 @@ src/button.i: src/button.cpp.i
 
 # target to preprocess a source file
 src/button.cpp.i:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/button.cpp.i
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/button.cpp.i
 .PHONY : src/button.cpp.i
 
 src/button.s: src/button.cpp.s
@@ -319,7 +322,7 @@ src/button.s: src/button.cpp.s
 
 # target to generate assembly for a file
 src/button.cpp.s:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/button.cpp.s
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/button.cpp.s
 .PHONY : src/button.cpp.s
 
 src/checkbox.o: src/checkbox.cpp.o
@@ -328,7 +331,7 @@ src/checkbox.o: src/checkbox.cpp.o
 
 # target to build an object file
 src/checkbox.cpp.o:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/checkbox.cpp.o
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/checkbox.cpp.o
 .PHONY : src/checkbox.cpp.o
 
 src/checkbox.i: src/checkbox.cpp.i
@@ -337,7 +340,7 @@ src/checkbox.i: src/checkbox.cpp.i
 
 # target to preprocess a source file
 src/checkbox.cpp.i:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/checkbox.cpp.i
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/checkbox.cpp.i
 .PHONY : src/checkbox.cpp.i
 
 src/checkbox.s: src/checkbox.cpp.s
@@ -346,7 +349,7 @@ src/checkbox.s: src/checkbox.cpp.s
 
 # target to generate assembly for a file
 src/checkbox.cpp.s:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/checkbox.cpp.s
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/checkbox.cpp.s
 .PHONY : src/checkbox.cpp.s
 
 src/colorpicker.o: src/colorpicker.cpp.o
@@ -355,7 +358,7 @@ src/colorpicker.o: src/colorpicker.cpp.o
 
 # target to build an object file
 src/colorpicker.cpp.o:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/colorpicker.cpp.o
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/colorpicker.cpp.o
 .PHONY : src/colorpicker.cpp.o
 
 src/colorpicker.i: src/colorpicker.cpp.i
@@ -364,7 +367,7 @@ src/colorpicker.i: src/colorpicker.cpp.i
 
 # target to preprocess a source file
 src/colorpicker.cpp.i:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/colorpicker.cpp.i
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/colorpicker.cpp.i
 .PHONY : src/colorpicker.cpp.i
 
 src/colorpicker.s: src/colorpicker.cpp.s
@@ -373,7 +376,7 @@ src/colorpicker.s: src/colorpicker.cpp.s
 
 # target to generate assembly for a file
 src/colorpicker.cpp.s:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/colorpicker.cpp.s
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/colorpicker.cpp.s
 .PHONY : src/colorpicker.cpp.s
 
 src/colorwheel.o: src/colorwheel.cpp.o
@@ -382,7 +385,7 @@ src/colorwheel.o: src/colorwheel.cpp.o
 
 # target to build an object file
 src/colorwheel.cpp.o:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/colorwheel.cpp.o
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/colorwheel.cpp.o
 .PHONY : src/colorwheel.cpp.o
 
 src/colorwheel.i: src/colorwheel.cpp.i
@@ -391,7 +394,7 @@ src/colorwheel.i: src/colorwheel.cpp.i
 
 # target to preprocess a source file
 src/colorwheel.cpp.i:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/colorwheel.cpp.i
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/colorwheel.cpp.i
 .PHONY : src/colorwheel.cpp.i
 
 src/colorwheel.s: src/colorwheel.cpp.s
@@ -400,7 +403,7 @@ src/colorwheel.s: src/colorwheel.cpp.s
 
 # target to generate assembly for a file
 src/colorwheel.cpp.s:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/colorwheel.cpp.s
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/colorwheel.cpp.s
 .PHONY : src/colorwheel.cpp.s
 
 src/combobox.o: src/combobox.cpp.o
@@ -409,7 +412,7 @@ src/combobox.o: src/combobox.cpp.o
 
 # target to build an object file
 src/combobox.cpp.o:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/combobox.cpp.o
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/combobox.cpp.o
 .PHONY : src/combobox.cpp.o
 
 src/combobox.i: src/combobox.cpp.i
@@ -418,7 +421,7 @@ src/combobox.i: src/combobox.cpp.i
 
 # target to preprocess a source file
 src/combobox.cpp.i:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/combobox.cpp.i
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/combobox.cpp.i
 .PHONY : src/combobox.cpp.i
 
 src/combobox.s: src/combobox.cpp.s
@@ -427,7 +430,7 @@ src/combobox.s: src/combobox.cpp.s
 
 # target to generate assembly for a file
 src/combobox.cpp.s:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/combobox.cpp.s
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/combobox.cpp.s
 .PHONY : src/combobox.cpp.s
 
 src/common.o: src/common.cpp.o
@@ -436,7 +439,7 @@ src/common.o: src/common.cpp.o
 
 # target to build an object file
 src/common.cpp.o:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/common.cpp.o
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/common.cpp.o
 .PHONY : src/common.cpp.o
 
 src/common.i: src/common.cpp.i
@@ -445,7 +448,7 @@ src/common.i: src/common.cpp.i
 
 # target to preprocess a source file
 src/common.cpp.i:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/common.cpp.i
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/common.cpp.i
 .PHONY : src/common.cpp.i
 
 src/common.s: src/common.cpp.s
@@ -454,7 +457,7 @@ src/common.s: src/common.cpp.s
 
 # target to generate assembly for a file
 src/common.cpp.s:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/common.cpp.s
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/common.cpp.s
 .PHONY : src/common.cpp.s
 
 src/example1.o: src/example1.cpp.o
@@ -511,13 +514,94 @@ src/example2.cpp.s:
 	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/example2.dir/build.make lib/nanogui/CMakeFiles/example2.dir/src/example2.cpp.s
 .PHONY : src/example2.cpp.s
 
+src/example3.o: src/example3.cpp.o
+
+.PHONY : src/example3.o
+
+# target to build an object file
+src/example3.cpp.o:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/example3.dir/build.make lib/nanogui/CMakeFiles/example3.dir/src/example3.cpp.o
+.PHONY : src/example3.cpp.o
+
+src/example3.i: src/example3.cpp.i
+
+.PHONY : src/example3.i
+
+# target to preprocess a source file
+src/example3.cpp.i:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/example3.dir/build.make lib/nanogui/CMakeFiles/example3.dir/src/example3.cpp.i
+.PHONY : src/example3.cpp.i
+
+src/example3.s: src/example3.cpp.s
+
+.PHONY : src/example3.s
+
+# target to generate assembly for a file
+src/example3.cpp.s:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/example3.dir/build.make lib/nanogui/CMakeFiles/example3.dir/src/example3.cpp.s
+.PHONY : src/example3.cpp.s
+
+src/example4.o: src/example4.cpp.o
+
+.PHONY : src/example4.o
+
+# target to build an object file
+src/example4.cpp.o:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/example4.dir/build.make lib/nanogui/CMakeFiles/example4.dir/src/example4.cpp.o
+.PHONY : src/example4.cpp.o
+
+src/example4.i: src/example4.cpp.i
+
+.PHONY : src/example4.i
+
+# target to preprocess a source file
+src/example4.cpp.i:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/example4.dir/build.make lib/nanogui/CMakeFiles/example4.dir/src/example4.cpp.i
+.PHONY : src/example4.cpp.i
+
+src/example4.s: src/example4.cpp.s
+
+.PHONY : src/example4.s
+
+# target to generate assembly for a file
+src/example4.cpp.s:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/example4.dir/build.make lib/nanogui/CMakeFiles/example4.dir/src/example4.cpp.s
+.PHONY : src/example4.cpp.s
+
+src/glcanvas.o: src/glcanvas.cpp.o
+
+.PHONY : src/glcanvas.o
+
+# target to build an object file
+src/glcanvas.cpp.o:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/glcanvas.cpp.o
+.PHONY : src/glcanvas.cpp.o
+
+src/glcanvas.i: src/glcanvas.cpp.i
+
+.PHONY : src/glcanvas.i
+
+# target to preprocess a source file
+src/glcanvas.cpp.i:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/glcanvas.cpp.i
+.PHONY : src/glcanvas.cpp.i
+
+src/glcanvas.s: src/glcanvas.cpp.s
+
+.PHONY : src/glcanvas.s
+
+# target to generate assembly for a file
+src/glcanvas.cpp.s:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/glcanvas.cpp.s
+.PHONY : src/glcanvas.cpp.s
+
 src/glutil.o: src/glutil.cpp.o
 
 .PHONY : src/glutil.o
 
 # target to build an object file
 src/glutil.cpp.o:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/glutil.cpp.o
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/glutil.cpp.o
 .PHONY : src/glutil.cpp.o
 
 src/glutil.i: src/glutil.cpp.i
@@ -526,7 +610,7 @@ src/glutil.i: src/glutil.cpp.i
 
 # target to preprocess a source file
 src/glutil.cpp.i:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/glutil.cpp.i
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/glutil.cpp.i
 .PHONY : src/glutil.cpp.i
 
 src/glutil.s: src/glutil.cpp.s
@@ -535,7 +619,7 @@ src/glutil.s: src/glutil.cpp.s
 
 # target to generate assembly for a file
 src/glutil.cpp.s:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/glutil.cpp.s
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/glutil.cpp.s
 .PHONY : src/glutil.cpp.s
 
 src/graph.o: src/graph.cpp.o
@@ -544,7 +628,7 @@ src/graph.o: src/graph.cpp.o
 
 # target to build an object file
 src/graph.cpp.o:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/graph.cpp.o
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/graph.cpp.o
 .PHONY : src/graph.cpp.o
 
 src/graph.i: src/graph.cpp.i
@@ -553,7 +637,7 @@ src/graph.i: src/graph.cpp.i
 
 # target to preprocess a source file
 src/graph.cpp.i:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/graph.cpp.i
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/graph.cpp.i
 .PHONY : src/graph.cpp.i
 
 src/graph.s: src/graph.cpp.s
@@ -562,7 +646,7 @@ src/graph.s: src/graph.cpp.s
 
 # target to generate assembly for a file
 src/graph.cpp.s:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/graph.cpp.s
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/graph.cpp.s
 .PHONY : src/graph.cpp.s
 
 src/imagepanel.o: src/imagepanel.cpp.o
@@ -571,7 +655,7 @@ src/imagepanel.o: src/imagepanel.cpp.o
 
 # target to build an object file
 src/imagepanel.cpp.o:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/imagepanel.cpp.o
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/imagepanel.cpp.o
 .PHONY : src/imagepanel.cpp.o
 
 src/imagepanel.i: src/imagepanel.cpp.i
@@ -580,7 +664,7 @@ src/imagepanel.i: src/imagepanel.cpp.i
 
 # target to preprocess a source file
 src/imagepanel.cpp.i:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/imagepanel.cpp.i
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/imagepanel.cpp.i
 .PHONY : src/imagepanel.cpp.i
 
 src/imagepanel.s: src/imagepanel.cpp.s
@@ -589,7 +673,7 @@ src/imagepanel.s: src/imagepanel.cpp.s
 
 # target to generate assembly for a file
 src/imagepanel.cpp.s:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/imagepanel.cpp.s
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/imagepanel.cpp.s
 .PHONY : src/imagepanel.cpp.s
 
 src/imageview.o: src/imageview.cpp.o
@@ -598,7 +682,7 @@ src/imageview.o: src/imageview.cpp.o
 
 # target to build an object file
 src/imageview.cpp.o:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/imageview.cpp.o
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/imageview.cpp.o
 .PHONY : src/imageview.cpp.o
 
 src/imageview.i: src/imageview.cpp.i
@@ -607,7 +691,7 @@ src/imageview.i: src/imageview.cpp.i
 
 # target to preprocess a source file
 src/imageview.cpp.i:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/imageview.cpp.i
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/imageview.cpp.i
 .PHONY : src/imageview.cpp.i
 
 src/imageview.s: src/imageview.cpp.s
@@ -616,7 +700,7 @@ src/imageview.s: src/imageview.cpp.s
 
 # target to generate assembly for a file
 src/imageview.cpp.s:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/imageview.cpp.s
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/imageview.cpp.s
 .PHONY : src/imageview.cpp.s
 
 src/label.o: src/label.cpp.o
@@ -625,7 +709,7 @@ src/label.o: src/label.cpp.o
 
 # target to build an object file
 src/label.cpp.o:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/label.cpp.o
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/label.cpp.o
 .PHONY : src/label.cpp.o
 
 src/label.i: src/label.cpp.i
@@ -634,7 +718,7 @@ src/label.i: src/label.cpp.i
 
 # target to preprocess a source file
 src/label.cpp.i:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/label.cpp.i
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/label.cpp.i
 .PHONY : src/label.cpp.i
 
 src/label.s: src/label.cpp.s
@@ -643,7 +727,7 @@ src/label.s: src/label.cpp.s
 
 # target to generate assembly for a file
 src/label.cpp.s:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/label.cpp.s
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/label.cpp.s
 .PHONY : src/label.cpp.s
 
 src/layout.o: src/layout.cpp.o
@@ -652,7 +736,7 @@ src/layout.o: src/layout.cpp.o
 
 # target to build an object file
 src/layout.cpp.o:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/layout.cpp.o
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/layout.cpp.o
 .PHONY : src/layout.cpp.o
 
 src/layout.i: src/layout.cpp.i
@@ -661,7 +745,7 @@ src/layout.i: src/layout.cpp.i
 
 # target to preprocess a source file
 src/layout.cpp.i:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/layout.cpp.i
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/layout.cpp.i
 .PHONY : src/layout.cpp.i
 
 src/layout.s: src/layout.cpp.s
@@ -670,7 +754,7 @@ src/layout.s: src/layout.cpp.s
 
 # target to generate assembly for a file
 src/layout.cpp.s:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/layout.cpp.s
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/layout.cpp.s
 .PHONY : src/layout.cpp.s
 
 src/messagedialog.o: src/messagedialog.cpp.o
@@ -679,7 +763,7 @@ src/messagedialog.o: src/messagedialog.cpp.o
 
 # target to build an object file
 src/messagedialog.cpp.o:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/messagedialog.cpp.o
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/messagedialog.cpp.o
 .PHONY : src/messagedialog.cpp.o
 
 src/messagedialog.i: src/messagedialog.cpp.i
@@ -688,7 +772,7 @@ src/messagedialog.i: src/messagedialog.cpp.i
 
 # target to preprocess a source file
 src/messagedialog.cpp.i:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/messagedialog.cpp.i
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/messagedialog.cpp.i
 .PHONY : src/messagedialog.cpp.i
 
 src/messagedialog.s: src/messagedialog.cpp.s
@@ -697,7 +781,7 @@ src/messagedialog.s: src/messagedialog.cpp.s
 
 # target to generate assembly for a file
 src/messagedialog.cpp.s:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/messagedialog.cpp.s
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/messagedialog.cpp.s
 .PHONY : src/messagedialog.cpp.s
 
 src/popup.o: src/popup.cpp.o
@@ -706,7 +790,7 @@ src/popup.o: src/popup.cpp.o
 
 # target to build an object file
 src/popup.cpp.o:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/popup.cpp.o
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/popup.cpp.o
 .PHONY : src/popup.cpp.o
 
 src/popup.i: src/popup.cpp.i
@@ -715,7 +799,7 @@ src/popup.i: src/popup.cpp.i
 
 # target to preprocess a source file
 src/popup.cpp.i:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/popup.cpp.i
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/popup.cpp.i
 .PHONY : src/popup.cpp.i
 
 src/popup.s: src/popup.cpp.s
@@ -724,7 +808,7 @@ src/popup.s: src/popup.cpp.s
 
 # target to generate assembly for a file
 src/popup.cpp.s:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/popup.cpp.s
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/popup.cpp.s
 .PHONY : src/popup.cpp.s
 
 src/popupbutton.o: src/popupbutton.cpp.o
@@ -733,7 +817,7 @@ src/popupbutton.o: src/popupbutton.cpp.o
 
 # target to build an object file
 src/popupbutton.cpp.o:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/popupbutton.cpp.o
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/popupbutton.cpp.o
 .PHONY : src/popupbutton.cpp.o
 
 src/popupbutton.i: src/popupbutton.cpp.i
@@ -742,7 +826,7 @@ src/popupbutton.i: src/popupbutton.cpp.i
 
 # target to preprocess a source file
 src/popupbutton.cpp.i:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/popupbutton.cpp.i
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/popupbutton.cpp.i
 .PHONY : src/popupbutton.cpp.i
 
 src/popupbutton.s: src/popupbutton.cpp.s
@@ -751,7 +835,7 @@ src/popupbutton.s: src/popupbutton.cpp.s
 
 # target to generate assembly for a file
 src/popupbutton.cpp.s:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/popupbutton.cpp.s
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/popupbutton.cpp.s
 .PHONY : src/popupbutton.cpp.s
 
 src/progressbar.o: src/progressbar.cpp.o
@@ -760,7 +844,7 @@ src/progressbar.o: src/progressbar.cpp.o
 
 # target to build an object file
 src/progressbar.cpp.o:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/progressbar.cpp.o
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/progressbar.cpp.o
 .PHONY : src/progressbar.cpp.o
 
 src/progressbar.i: src/progressbar.cpp.i
@@ -769,7 +853,7 @@ src/progressbar.i: src/progressbar.cpp.i
 
 # target to preprocess a source file
 src/progressbar.cpp.i:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/progressbar.cpp.i
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/progressbar.cpp.i
 .PHONY : src/progressbar.cpp.i
 
 src/progressbar.s: src/progressbar.cpp.s
@@ -778,7 +862,7 @@ src/progressbar.s: src/progressbar.cpp.s
 
 # target to generate assembly for a file
 src/progressbar.cpp.s:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/progressbar.cpp.s
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/progressbar.cpp.s
 .PHONY : src/progressbar.cpp.s
 
 src/screen.o: src/screen.cpp.o
@@ -787,7 +871,7 @@ src/screen.o: src/screen.cpp.o
 
 # target to build an object file
 src/screen.cpp.o:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/screen.cpp.o
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/screen.cpp.o
 .PHONY : src/screen.cpp.o
 
 src/screen.i: src/screen.cpp.i
@@ -796,7 +880,7 @@ src/screen.i: src/screen.cpp.i
 
 # target to preprocess a source file
 src/screen.cpp.i:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/screen.cpp.i
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/screen.cpp.i
 .PHONY : src/screen.cpp.i
 
 src/screen.s: src/screen.cpp.s
@@ -805,7 +889,7 @@ src/screen.s: src/screen.cpp.s
 
 # target to generate assembly for a file
 src/screen.cpp.s:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/screen.cpp.s
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/screen.cpp.s
 .PHONY : src/screen.cpp.s
 
 src/serializer.o: src/serializer.cpp.o
@@ -814,7 +898,7 @@ src/serializer.o: src/serializer.cpp.o
 
 # target to build an object file
 src/serializer.cpp.o:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/serializer.cpp.o
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/serializer.cpp.o
 .PHONY : src/serializer.cpp.o
 
 src/serializer.i: src/serializer.cpp.i
@@ -823,7 +907,7 @@ src/serializer.i: src/serializer.cpp.i
 
 # target to preprocess a source file
 src/serializer.cpp.i:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/serializer.cpp.i
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/serializer.cpp.i
 .PHONY : src/serializer.cpp.i
 
 src/serializer.s: src/serializer.cpp.s
@@ -832,7 +916,7 @@ src/serializer.s: src/serializer.cpp.s
 
 # target to generate assembly for a file
 src/serializer.cpp.s:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/serializer.cpp.s
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/serializer.cpp.s
 .PHONY : src/serializer.cpp.s
 
 src/slider.o: src/slider.cpp.o
@@ -841,7 +925,7 @@ src/slider.o: src/slider.cpp.o
 
 # target to build an object file
 src/slider.cpp.o:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/slider.cpp.o
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/slider.cpp.o
 .PHONY : src/slider.cpp.o
 
 src/slider.i: src/slider.cpp.i
@@ -850,7 +934,7 @@ src/slider.i: src/slider.cpp.i
 
 # target to preprocess a source file
 src/slider.cpp.i:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/slider.cpp.i
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/slider.cpp.i
 .PHONY : src/slider.cpp.i
 
 src/slider.s: src/slider.cpp.s
@@ -859,8 +943,89 @@ src/slider.s: src/slider.cpp.s
 
 # target to generate assembly for a file
 src/slider.cpp.s:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/slider.cpp.s
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/slider.cpp.s
 .PHONY : src/slider.cpp.s
+
+src/stackedwidget.o: src/stackedwidget.cpp.o
+
+.PHONY : src/stackedwidget.o
+
+# target to build an object file
+src/stackedwidget.cpp.o:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/stackedwidget.cpp.o
+.PHONY : src/stackedwidget.cpp.o
+
+src/stackedwidget.i: src/stackedwidget.cpp.i
+
+.PHONY : src/stackedwidget.i
+
+# target to preprocess a source file
+src/stackedwidget.cpp.i:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/stackedwidget.cpp.i
+.PHONY : src/stackedwidget.cpp.i
+
+src/stackedwidget.s: src/stackedwidget.cpp.s
+
+.PHONY : src/stackedwidget.s
+
+# target to generate assembly for a file
+src/stackedwidget.cpp.s:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/stackedwidget.cpp.s
+.PHONY : src/stackedwidget.cpp.s
+
+src/tabheader.o: src/tabheader.cpp.o
+
+.PHONY : src/tabheader.o
+
+# target to build an object file
+src/tabheader.cpp.o:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/tabheader.cpp.o
+.PHONY : src/tabheader.cpp.o
+
+src/tabheader.i: src/tabheader.cpp.i
+
+.PHONY : src/tabheader.i
+
+# target to preprocess a source file
+src/tabheader.cpp.i:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/tabheader.cpp.i
+.PHONY : src/tabheader.cpp.i
+
+src/tabheader.s: src/tabheader.cpp.s
+
+.PHONY : src/tabheader.s
+
+# target to generate assembly for a file
+src/tabheader.cpp.s:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/tabheader.cpp.s
+.PHONY : src/tabheader.cpp.s
+
+src/tabwidget.o: src/tabwidget.cpp.o
+
+.PHONY : src/tabwidget.o
+
+# target to build an object file
+src/tabwidget.cpp.o:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/tabwidget.cpp.o
+.PHONY : src/tabwidget.cpp.o
+
+src/tabwidget.i: src/tabwidget.cpp.i
+
+.PHONY : src/tabwidget.i
+
+# target to preprocess a source file
+src/tabwidget.cpp.i:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/tabwidget.cpp.i
+.PHONY : src/tabwidget.cpp.i
+
+src/tabwidget.s: src/tabwidget.cpp.s
+
+.PHONY : src/tabwidget.s
+
+# target to generate assembly for a file
+src/tabwidget.cpp.s:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/tabwidget.cpp.s
+.PHONY : src/tabwidget.cpp.s
 
 src/textbox.o: src/textbox.cpp.o
 
@@ -868,7 +1033,7 @@ src/textbox.o: src/textbox.cpp.o
 
 # target to build an object file
 src/textbox.cpp.o:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/textbox.cpp.o
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/textbox.cpp.o
 .PHONY : src/textbox.cpp.o
 
 src/textbox.i: src/textbox.cpp.i
@@ -877,7 +1042,7 @@ src/textbox.i: src/textbox.cpp.i
 
 # target to preprocess a source file
 src/textbox.cpp.i:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/textbox.cpp.i
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/textbox.cpp.i
 .PHONY : src/textbox.cpp.i
 
 src/textbox.s: src/textbox.cpp.s
@@ -886,7 +1051,7 @@ src/textbox.s: src/textbox.cpp.s
 
 # target to generate assembly for a file
 src/textbox.cpp.s:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/textbox.cpp.s
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/textbox.cpp.s
 .PHONY : src/textbox.cpp.s
 
 src/theme.o: src/theme.cpp.o
@@ -895,7 +1060,7 @@ src/theme.o: src/theme.cpp.o
 
 # target to build an object file
 src/theme.cpp.o:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/theme.cpp.o
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/theme.cpp.o
 .PHONY : src/theme.cpp.o
 
 src/theme.i: src/theme.cpp.i
@@ -904,7 +1069,7 @@ src/theme.i: src/theme.cpp.i
 
 # target to preprocess a source file
 src/theme.cpp.i:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/theme.cpp.i
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/theme.cpp.i
 .PHONY : src/theme.cpp.i
 
 src/theme.s: src/theme.cpp.s
@@ -913,7 +1078,7 @@ src/theme.s: src/theme.cpp.s
 
 # target to generate assembly for a file
 src/theme.cpp.s:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/theme.cpp.s
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/theme.cpp.s
 .PHONY : src/theme.cpp.s
 
 src/vscrollpanel.o: src/vscrollpanel.cpp.o
@@ -922,7 +1087,7 @@ src/vscrollpanel.o: src/vscrollpanel.cpp.o
 
 # target to build an object file
 src/vscrollpanel.cpp.o:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/vscrollpanel.cpp.o
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/vscrollpanel.cpp.o
 .PHONY : src/vscrollpanel.cpp.o
 
 src/vscrollpanel.i: src/vscrollpanel.cpp.i
@@ -931,7 +1096,7 @@ src/vscrollpanel.i: src/vscrollpanel.cpp.i
 
 # target to preprocess a source file
 src/vscrollpanel.cpp.i:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/vscrollpanel.cpp.i
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/vscrollpanel.cpp.i
 .PHONY : src/vscrollpanel.cpp.i
 
 src/vscrollpanel.s: src/vscrollpanel.cpp.s
@@ -940,7 +1105,7 @@ src/vscrollpanel.s: src/vscrollpanel.cpp.s
 
 # target to generate assembly for a file
 src/vscrollpanel.cpp.s:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/vscrollpanel.cpp.s
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/vscrollpanel.cpp.s
 .PHONY : src/vscrollpanel.cpp.s
 
 src/widget.o: src/widget.cpp.o
@@ -949,7 +1114,7 @@ src/widget.o: src/widget.cpp.o
 
 # target to build an object file
 src/widget.cpp.o:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/widget.cpp.o
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/widget.cpp.o
 .PHONY : src/widget.cpp.o
 
 src/widget.i: src/widget.cpp.i
@@ -958,7 +1123,7 @@ src/widget.i: src/widget.cpp.i
 
 # target to preprocess a source file
 src/widget.cpp.i:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/widget.cpp.i
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/widget.cpp.i
 .PHONY : src/widget.cpp.i
 
 src/widget.s: src/widget.cpp.s
@@ -967,7 +1132,7 @@ src/widget.s: src/widget.cpp.s
 
 # target to generate assembly for a file
 src/widget.cpp.s:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/widget.cpp.s
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/widget.cpp.s
 .PHONY : src/widget.cpp.s
 
 src/window.o: src/window.cpp.o
@@ -976,7 +1141,7 @@ src/window.o: src/window.cpp.o
 
 # target to build an object file
 src/window.cpp.o:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/window.cpp.o
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/window.cpp.o
 .PHONY : src/window.cpp.o
 
 src/window.i: src/window.cpp.i
@@ -985,7 +1150,7 @@ src/window.i: src/window.cpp.i
 
 # target to preprocess a source file
 src/window.cpp.i:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/window.cpp.i
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/window.cpp.i
 .PHONY : src/window.cpp.i
 
 src/window.s: src/window.cpp.s
@@ -994,7 +1159,7 @@ src/window.s: src/window.cpp.s
 
 # target to generate assembly for a file
 src/window.cpp.s:
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/src/window.cpp.s
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/src/window.cpp.s
 .PHONY : src/window.cpp.s
 
 # Help Target
@@ -1003,25 +1168,24 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... install"
-	@echo "... list_install_components"
-	@echo "... edit_cache"
-	@echo "... install/strip"
 	@echo "... install/local"
-	@echo "... example2"
-	@echo "... rebuild_cache"
-	@echo "... example1"
 	@echo "... nanogui"
-	@echo "... bin2c"
+	@echo "... nanogui-obj"
+	@echo "... example1"
+	@echo "... rebuild_cache"
+	@echo "... example2"
+	@echo "... edit_cache"
+	@echo "... example3"
+	@echo "... example4"
+	@echo "... install/strip"
+	@echo "... list_install_components"
+	@echo "... install"
 	@echo "... ext/nanovg/src/nanovg.o"
 	@echo "... ext/nanovg/src/nanovg.i"
 	@echo "... ext/nanovg/src/nanovg.s"
 	@echo "... nanogui_resources.o"
 	@echo "... nanogui_resources.i"
 	@echo "... nanogui_resources.s"
-	@echo "... resources/bin2c.o"
-	@echo "... resources/bin2c.i"
-	@echo "... resources/bin2c.s"
 	@echo "... src/button.o"
 	@echo "... src/button.i"
 	@echo "... src/button.s"
@@ -1046,6 +1210,15 @@ help:
 	@echo "... src/example2.o"
 	@echo "... src/example2.i"
 	@echo "... src/example2.s"
+	@echo "... src/example3.o"
+	@echo "... src/example3.i"
+	@echo "... src/example3.s"
+	@echo "... src/example4.o"
+	@echo "... src/example4.i"
+	@echo "... src/example4.s"
+	@echo "... src/glcanvas.o"
+	@echo "... src/glcanvas.i"
+	@echo "... src/glcanvas.s"
 	@echo "... src/glutil.o"
 	@echo "... src/glutil.i"
 	@echo "... src/glutil.s"
@@ -1085,6 +1258,15 @@ help:
 	@echo "... src/slider.o"
 	@echo "... src/slider.i"
 	@echo "... src/slider.s"
+	@echo "... src/stackedwidget.o"
+	@echo "... src/stackedwidget.i"
+	@echo "... src/stackedwidget.s"
+	@echo "... src/tabheader.o"
+	@echo "... src/tabheader.i"
+	@echo "... src/tabheader.s"
+	@echo "... src/tabwidget.o"
+	@echo "... src/tabwidget.i"
+	@echo "... src/tabwidget.s"
 	@echo "... src/textbox.o"
 	@echo "... src/textbox.i"
 	@echo "... src/textbox.s"

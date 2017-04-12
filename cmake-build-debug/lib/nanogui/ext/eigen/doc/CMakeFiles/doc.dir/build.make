@@ -56,9 +56,11 @@ include lib/nanogui/ext/eigen/doc/CMakeFiles/doc.dir/progress.make
 lib/nanogui/ext/eigen/doc/CMakeFiles/doc:
 	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext/eigen/doc && doxygen
 	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext/eigen/doc && doxygen Doxyfile-unsupported
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext/eigen/doc && /home/mattia/Programmi/Clion/clion-2016.3.3/bin/cmake/bin/cmake -E copy /home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext/eigen/doc/html/group__TopicUnalignedArrayAssert.html /home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext/eigen/doc/html/TopicUnalignedArrayAssert.html
 	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext/eigen/doc && /home/mattia/Programmi/Clion/clion-2016.3.3/bin/cmake/bin/cmake -E rename html eigen-doc
 	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext/eigen/doc && /home/mattia/Programmi/Clion/clion-2016.3.3/bin/cmake/bin/cmake -E remove eigen-doc/eigen-doc.tgz
-	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext/eigen/doc && /home/mattia/Programmi/Clion/clion-2016.3.3/bin/cmake/bin/cmake -E tar cfz eigen-doc/eigen-doc.tgz eigen-doc
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext/eigen/doc && /home/mattia/Programmi/Clion/clion-2016.3.3/bin/cmake/bin/cmake -E tar cfz eigen-doc.tgz eigen-doc
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext/eigen/doc && /home/mattia/Programmi/Clion/clion-2016.3.3/bin/cmake/bin/cmake -E rename eigen-doc.tgz eigen-doc/eigen-doc.tgz
 	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext/eigen/doc && /home/mattia/Programmi/Clion/clion-2016.3.3/bin/cmake/bin/cmake -E rename eigen-doc html
 
 doc: lib/nanogui/ext/eigen/doc/CMakeFiles/doc

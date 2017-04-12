@@ -45,15 +45,7 @@ file(INSTALL DESTINATION "/usr/local/include/eigen3" TYPE FILE FILES "/home/matt
 endif()
 
 if("${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/usr/local/share/pkgconfig/eigen3.pc")
-  if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
-    message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
-  endif()
-  if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-    message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
-  endif()
-file(INSTALL DESTINATION "/usr/local/share/pkgconfig" TYPE FILE FILES "/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext/eigen/eigen3.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/pkgconfig" TYPE FILE FILES "/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext/eigen/eigen3.pc")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)

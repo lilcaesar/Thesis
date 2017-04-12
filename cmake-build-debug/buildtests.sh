@@ -86,7 +86,9 @@ geo_alignedbox
 stdvector
 stdvector_overload
 stdlist
+stdlist_overload
 stddeque
+stddeque_overload
 resize
 sparse_vector
 sparse_basic
@@ -106,6 +108,8 @@ sizeoverflow
 prec_inverse_4x4
 vectorwiseop
 special_numbers
+rvalue_types
+mpl2only
 simplicial_cholesky
 conjugate_gradient
 bicgstab

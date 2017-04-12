@@ -35,6 +35,10 @@ CHOLMOD_INCLUDES:PATH=CHOLMOD_INCLUDES-NOTFOUND
 //Path to a library.
 CHOLMOD_LIBRARIES:FILEPATH=CHOLMOD_LIBRARIES-NOTFOUND
 
+//The directory relative to CMAKE_PREFIX_PATH where Eigen3Config.cmake
+// is installed
+CMAKEPACKAGE_INSTALL_DIR:PATH=lib/cmake/eigen3
+
 //Path to a program.
 CMAKE_AR:FILEPATH=/usr/bin/ar
 
@@ -127,8 +131,53 @@ CMAKE_Fortran_FLAGS_RELEASE:STRING=
 //Flags used by the compiler during release builds with debug info.
 CMAKE_Fortran_FLAGS_RELWITHDEBINFO:STRING=
 
+//user executables (bin)
+CMAKE_INSTALL_BINDIR:PATH=bin
+
+//read-only architecture-independent data (DATAROOTDIR)
+CMAKE_INSTALL_DATADIR:PATH=
+
+//read-only architecture-independent data root (share)
+CMAKE_INSTALL_DATAROOTDIR:PATH=share
+
+//documentation root (DATAROOTDIR/doc/PROJECT_NAME)
+CMAKE_INSTALL_DOCDIR:PATH=
+
+//C header files (include)
+CMAKE_INSTALL_INCLUDEDIR:PATH=include
+
+//info documentation (DATAROOTDIR/info)
+CMAKE_INSTALL_INFODIR:PATH=
+
+//object code libraries (lib)
+CMAKE_INSTALL_LIBDIR:PATH=lib
+
+//program executables (libexec)
+CMAKE_INSTALL_LIBEXECDIR:PATH=libexec
+
+//locale-dependent data (DATAROOTDIR/locale)
+CMAKE_INSTALL_LOCALEDIR:PATH=
+
+//modifiable single-machine data (var)
+CMAKE_INSTALL_LOCALSTATEDIR:PATH=var
+
+//man documentation (DATAROOTDIR/man)
+CMAKE_INSTALL_MANDIR:PATH=
+
+//C header files for non-gcc (/usr/include)
+CMAKE_INSTALL_OLDINCLUDEDIR:PATH=/usr/include
+
 //Install path prefix, prepended onto install directories.
 CMAKE_INSTALL_PREFIX:PATH=/usr/local
+
+//system admin executables (sbin)
+CMAKE_INSTALL_SBINDIR:PATH=sbin
+
+//modifiable architecture-independent data (com)
+CMAKE_INSTALL_SHAREDSTATEDIR:PATH=com
+
+//read-only single-machine data (etc)
+CMAKE_INSTALL_SYSCONFDIR:PATH=etc
 
 //Path to a program.
 CMAKE_LINKER:FILEPATH=/usr/bin/ld
@@ -270,6 +319,9 @@ EIGEN_TEST_32BIT:BOOL=OFF
 //Enable/Disable AltiVec in tests/examples
 EIGEN_TEST_ALTIVEC:BOOL=OFF
 
+//Test building the doxygen documentation
+EIGEN_TEST_BUILD_DOCUMENTATION:BOOL=OFF
+
 //Options passed to the build command of unit tests
 EIGEN_TEST_BUILD_FLAGS:STRING=' '
 
@@ -406,13 +458,16 @@ GLFW_LIBRARIES:STRING=/usr/lib/x86_64-linux-gnu/librt.so;/usr/lib/x86_64-linux-g
 //Value Computed by CMake
 GLFW_SOURCE_DIR:STATIC=/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw
 
+// 
+GLFW_USE_CHDIR:BOOL=OFF
+
 //Use EGL for context creation
 GLFW_USE_EGL:BOOL=OFF
 
-//Use Mir for context creation (implies EGL as well)
+//Use Mir for window creation
 GLFW_USE_MIR:BOOL=OFF
 
-//Use Wayland for context creation (implies EGL as well)
+//Use Wayland for window creation
 GLFW_USE_WAYLAND:BOOL=OFF
 
 //Path to a file.
@@ -479,10 +534,13 @@ NANOGUI_BUILD_PYTHON:BOOL=OFF
 //Build NanoGUI as a shared library?
 NANOGUI_BUILD_SHARED:BOOL=ON
 
+//Install NanoGUI on `make install`?
+NANOGUI_INSTALL:BOOL=ON
+
 //Python version to use for compiling the Python plugin
 NANOGUI_PYTHON_VERSION:STRING=
 
-//Build a Python plugin for NanoGUI?
+//Use Glad OpenGL loader library?
 NANOGUI_USE_GLAD:BOOL=OFF
 
 //Value Computed by CMake
@@ -511,6 +569,10 @@ PASTIX_INCLUDES:PATH=PASTIX_INCLUDES-NOTFOUND
 
 //Path to a library.
 PASTIX_LIBRARIES:FILEPATH=PASTIX_LIBRARIES-NOTFOUND
+
+//The directory relative to CMAKE_PREFIX_PATH where eigen3.pc is
+// installed
+PKGCONFIG_INSTALL_DIR:PATH=share/pkgconfig
 
 //pkg-config executable
 PKG_CONFIG_EXECUTABLE:FILEPATH=/usr/bin/pkg-config
@@ -580,6 +642,12 @@ UMFPACK_INCLUDES:PATH=UMFPACK_INCLUDES-NOTFOUND
 
 //Path to a library.
 UMFPACK_LIBRARIES:FILEPATH=UMFPACK_LIBRARIES-NOTFOUND
+
+//Path to a file.
+VULKAN_INCLUDE_DIR:PATH=/usr/include
+
+//Path to a library.
+VULKAN_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libvulkan.so
 
 //Path to a file.
 X11_ICE_INCLUDE_PATH:PATH=/usr/include
@@ -777,10 +845,10 @@ eigen_lapack_LIB_DEPENDS:STATIC=general;eigen_blas;
 eigen_lapack_static_LIB_DEPENDS:STATIC=
 
 //Dependencies for the target
-glfw_LIB_DEPENDS:STATIC=general;/usr/lib/x86_64-linux-gnu/librt.so;general;/usr/lib/x86_64-linux-gnu/libm.so;general;/usr/lib/x86_64-linux-gnu/libX11.so;general;-lpthread;general;/usr/lib/x86_64-linux-gnu/libXrandr.so;general;/usr/lib/x86_64-linux-gnu/libXinerama.so;general;/usr/lib/x86_64-linux-gnu/libXi.so;general;/usr/lib/x86_64-linux-gnu/libXxf86vm.so;general;/usr/lib/x86_64-linux-gnu/libXcursor.so;general;/usr/lib/x86_64-linux-gnu/libGL.so;general;dl;
+glfw_LIB_DEPENDS:STATIC=general;/usr/lib/x86_64-linux-gnu/librt.so;general;/usr/lib/x86_64-linux-gnu/libm.so;general;dl;general;/usr/lib/x86_64-linux-gnu/libX11.so;general;-lpthread;general;/usr/lib/x86_64-linux-gnu/libXrandr.so;general;/usr/lib/x86_64-linux-gnu/libXinerama.so;general;/usr/lib/x86_64-linux-gnu/libXxf86vm.so;general;/usr/lib/x86_64-linux-gnu/libXcursor.so;
 
 //Dependencies for the target
-nanogui_LIB_DEPENDS:STATIC=general;GL;general;Xxf86vm;general;Xrandr;general;Xinerama;general;Xcursor;general;Xi;general;X11;general;pthread;general;dl;general;rt;
+nanogui_LIB_DEPENDS:STATIC=general;GL;general;Xxf86vm;general;Xrandr;general;Xinerama;general;Xcursor;general;Xi;general;X11;general;pthread;general;rt;general;dl;
 
 //Path to a file.
 pkg_config_libdir:PATH=/usr/local/share
@@ -905,8 +973,38 @@ CMAKE_HAVE_SHMAT:INTERNAL=1
 //Source directory with the top level CMakeLists.txt file for this
 // project
 CMAKE_HOME_DIRECTORY:INTERNAL=/home/mattia/CLionProjects/Thesis
+//ADVANCED property for variable: CMAKE_INSTALL_BINDIR
+CMAKE_INSTALL_BINDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_DATADIR
+CMAKE_INSTALL_DATADIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_DATAROOTDIR
+CMAKE_INSTALL_DATAROOTDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_DOCDIR
+CMAKE_INSTALL_DOCDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_INCLUDEDIR
+CMAKE_INSTALL_INCLUDEDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_INFODIR
+CMAKE_INSTALL_INFODIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_LIBDIR
+CMAKE_INSTALL_LIBDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_LIBEXECDIR
+CMAKE_INSTALL_LIBEXECDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_LOCALEDIR
+CMAKE_INSTALL_LOCALEDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_LOCALSTATEDIR
+CMAKE_INSTALL_LOCALSTATEDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_MANDIR
+CMAKE_INSTALL_MANDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_OLDINCLUDEDIR
+CMAKE_INSTALL_OLDINCLUDEDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_SBINDIR
+CMAKE_INSTALL_SBINDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_SHAREDSTATEDIR
+CMAKE_INSTALL_SHAREDSTATEDIR-ADVANCED:INTERNAL=1
 //Install .so files without execute permission.
 CMAKE_INSTALL_SO_NO_EXE:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_SYSCONFDIR
+CMAKE_INSTALL_SYSCONFDIR-ADVANCED:INTERNAL=1
 //Have library ICE
 CMAKE_LIB_ICE_HAS_ICECONNECTIONNUMBER:INTERNAL=1
 //ADVANCED property for variable: CMAKE_LINKER
@@ -926,7 +1024,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=73
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=75
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -1169,6 +1267,10 @@ SVNCOMMAND-ADVANCED:INTERNAL=1
 UMFPACK_INCLUDES-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: UMFPACK_LIBRARIES
 UMFPACK_LIBRARIES-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: VULKAN_INCLUDE_DIR
+VULKAN_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: VULKAN_LIBRARY
+VULKAN_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: X11_ICE_INCLUDE_PATH
 X11_ICE_INCLUDE_PATH-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: X11_ICE_LIB
@@ -1293,6 +1395,8 @@ X11_dpms_INCLUDE_PATH-ADVANCED:INTERNAL=1
 X11_xf86misc_INCLUDE_PATH-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: X11_xf86vmode_INCLUDE_PATH
 X11_xf86vmode_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//CMAKE_INSTALL_PREFIX during last run
+_GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=/usr/local
 __pkg_config_checked_PKG_FFTW:INTERNAL=1
 //Test standard_math_library_linked_to_automatically
 standard_math_library_linked_to_automatically:INTERNAL=1
