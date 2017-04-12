@@ -6,6 +6,8 @@ set(CMAKE_CXX_STANDARD 11)
 add_subdirectory(lib/nanogui)
 include_directories(lib/nanogui/include)
 
+set_property(TARGET glfw glfw_objects nanogui PROPERTY FOLDER "dependencies")
+
 add_subdirectory(lib/nanogui/ext/eigen)
 include_directories(lib/nanogui/ext/eigen/Eigen)
 

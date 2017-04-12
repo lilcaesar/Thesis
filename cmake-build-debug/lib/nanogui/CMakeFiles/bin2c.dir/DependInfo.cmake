@@ -11,6 +11,7 @@ set(CMAKE_C_COMPILER_ID "GNU")
 # Preprocessor definitions for this target.
 set(CMAKE_TARGET_DEFINITIONS_C
   "CORO_SJLJ"
+  "NANOGUI_PYTHON"
   "NANOGUI_SHARED"
   )
 

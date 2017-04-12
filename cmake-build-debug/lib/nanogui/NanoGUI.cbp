@@ -25,6 +25,7 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add option="-DCORO_SJLJ"/>
+					<Add option="-DNANOGUI_PYTHON"/>
 					<Add option="-DNANOGUI_SHARED"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/include"/>
@@ -32,14 +33,14 @@
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/include"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/coro"/>
+					<Add directory="/usr/include/c++/6"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
+					<Add directory="/usr/include/c++/6/backward"/>
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed"/>
 					<Add directory="/usr/include/x86_64-linux-gnu"/>
 					<Add directory="/usr/include"/>
-					<Add directory="/usr/include/c++/6"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
-					<Add directory="/usr/include/c++/6/backward"/>
 				</Compiler>
 				<MakeCommands>
 					<Build command="/usr/bin/make -j8 -f &quot;/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/Makefile&quot;  VERBOSE=1 example2"/>
@@ -56,6 +57,7 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add option="-DCORO_SJLJ"/>
+					<Add option="-DNANOGUI_PYTHON"/>
 					<Add option="-DNANOGUI_SHARED"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/include"/>
@@ -63,14 +65,14 @@
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/include"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/coro"/>
+					<Add directory="/usr/include/c++/6"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
+					<Add directory="/usr/include/c++/6/backward"/>
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed"/>
 					<Add directory="/usr/include/x86_64-linux-gnu"/>
 					<Add directory="/usr/include"/>
-					<Add directory="/usr/include/c++/6"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
-					<Add directory="/usr/include/c++/6/backward"/>
 				</Compiler>
 				<MakeCommands>
 					<Build command="/usr/bin/make -j8 -f &quot;/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/Makefile&quot;  VERBOSE=1 example2/fast"/>
@@ -87,6 +89,7 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add option="-DCORO_SJLJ"/>
+					<Add option="-DNANOGUI_PYTHON"/>
 					<Add option="-DNANOGUI_SHARED"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/include"/>
@@ -94,14 +97,14 @@
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/include"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/coro"/>
+					<Add directory="/usr/include/c++/6"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
+					<Add directory="/usr/include/c++/6/backward"/>
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed"/>
 					<Add directory="/usr/include/x86_64-linux-gnu"/>
 					<Add directory="/usr/include"/>
-					<Add directory="/usr/include/c++/6"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
-					<Add directory="/usr/include/c++/6/backward"/>
 				</Compiler>
 				<MakeCommands>
 					<Build command="/usr/bin/make -j8 -f &quot;/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/Makefile&quot;  VERBOSE=1 example1"/>
@@ -118,6 +121,7 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add option="-DCORO_SJLJ"/>
+					<Add option="-DNANOGUI_PYTHON"/>
 					<Add option="-DNANOGUI_SHARED"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/include"/>
@@ -125,14 +129,14 @@
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/include"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/coro"/>
+					<Add directory="/usr/include/c++/6"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
+					<Add directory="/usr/include/c++/6/backward"/>
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed"/>
 					<Add directory="/usr/include/x86_64-linux-gnu"/>
 					<Add directory="/usr/include"/>
-					<Add directory="/usr/include/c++/6"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
-					<Add directory="/usr/include/c++/6/backward"/>
 				</Compiler>
 				<MakeCommands>
 					<Build command="/usr/bin/make -j8 -f &quot;/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/Makefile&quot;  VERBOSE=1 example1/fast"/>
@@ -151,6 +155,7 @@
 					<Add option="-DNANOGUI_BUILD"/>
 					<Add option="-D_GLFW_BUILD_DLL"/>
 					<Add option="-DCORO_SJLJ"/>
+					<Add option="-DNANOGUI_PYTHON"/>
 					<Add option="-DNANOGUI_SHARED"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/include"/>
@@ -158,14 +163,14 @@
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/include"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/coro"/>
+					<Add directory="/usr/include/c++/6"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
+					<Add directory="/usr/include/c++/6/backward"/>
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed"/>
 					<Add directory="/usr/include/x86_64-linux-gnu"/>
 					<Add directory="/usr/include"/>
-					<Add directory="/usr/include/c++/6"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
-					<Add directory="/usr/include/c++/6/backward"/>
 				</Compiler>
 				<MakeCommands>
 					<Build command="/usr/bin/make -j8 -f &quot;/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/Makefile&quot;  VERBOSE=1 nanogui"/>
@@ -184,6 +189,7 @@
 					<Add option="-DNANOGUI_BUILD"/>
 					<Add option="-D_GLFW_BUILD_DLL"/>
 					<Add option="-DCORO_SJLJ"/>
+					<Add option="-DNANOGUI_PYTHON"/>
 					<Add option="-DNANOGUI_SHARED"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/include"/>
@@ -191,14 +197,14 @@
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/include"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/coro"/>
+					<Add directory="/usr/include/c++/6"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
+					<Add directory="/usr/include/c++/6/backward"/>
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed"/>
 					<Add directory="/usr/include/x86_64-linux-gnu"/>
 					<Add directory="/usr/include"/>
-					<Add directory="/usr/include/c++/6"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
-					<Add directory="/usr/include/c++/6/backward"/>
 				</Compiler>
 				<MakeCommands>
 					<Build command="/usr/bin/make -j8 -f &quot;/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/Makefile&quot;  VERBOSE=1 nanogui/fast"/>
@@ -215,6 +221,7 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add option="-DCORO_SJLJ"/>
+					<Add option="-DNANOGUI_PYTHON"/>
 					<Add option="-DNANOGUI_SHARED"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/include"/>
@@ -222,14 +229,14 @@
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/include"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/coro"/>
+					<Add directory="/usr/include/c++/6"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
+					<Add directory="/usr/include/c++/6/backward"/>
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed"/>
 					<Add directory="/usr/include/x86_64-linux-gnu"/>
 					<Add directory="/usr/include"/>
-					<Add directory="/usr/include/c++/6"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
-					<Add directory="/usr/include/c++/6/backward"/>
 				</Compiler>
 				<MakeCommands>
 					<Build command="/usr/bin/make -j8 -f &quot;/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/Makefile&quot;  VERBOSE=1 bin2c"/>
@@ -246,6 +253,7 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add option="-DCORO_SJLJ"/>
+					<Add option="-DNANOGUI_PYTHON"/>
 					<Add option="-DNANOGUI_SHARED"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/include"/>
@@ -253,14 +261,14 @@
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/include"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/coro"/>
+					<Add directory="/usr/include/c++/6"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
+					<Add directory="/usr/include/c++/6/backward"/>
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed"/>
 					<Add directory="/usr/include/x86_64-linux-gnu"/>
 					<Add directory="/usr/include"/>
-					<Add directory="/usr/include/c++/6"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
-					<Add directory="/usr/include/c++/6/backward"/>
 				</Compiler>
 				<MakeCommands>
 					<Build command="/usr/bin/make -j8 -f &quot;/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/Makefile&quot;  VERBOSE=1 bin2c/fast"/>
@@ -279,14 +287,14 @@
 					<Add option="-D_GLFW_USE_CONFIG_H"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext_build/glfw/src"/>
+					<Add directory="/usr/include/c++/6"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
+					<Add directory="/usr/include/c++/6/backward"/>
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed"/>
 					<Add directory="/usr/include/x86_64-linux-gnu"/>
 					<Add directory="/usr/include"/>
-					<Add directory="/usr/include/c++/6"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
-					<Add directory="/usr/include/c++/6/backward"/>
 				</Compiler>
 				<MakeCommands>
 					<Build command="/usr/bin/make -j8 -f &quot;/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext_build/glfw/src/Makefile&quot;  VERBOSE=1 glfw"/>
@@ -305,14 +313,14 @@
 					<Add option="-D_GLFW_USE_CONFIG_H"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext_build/glfw/src"/>
+					<Add directory="/usr/include/c++/6"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
+					<Add directory="/usr/include/c++/6/backward"/>
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed"/>
 					<Add directory="/usr/include/x86_64-linux-gnu"/>
 					<Add directory="/usr/include"/>
-					<Add directory="/usr/include/c++/6"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
-					<Add directory="/usr/include/c++/6/backward"/>
 				</Compiler>
 				<MakeCommands>
 					<Build command="/usr/bin/make -j8 -f &quot;/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext_build/glfw/src/Makefile&quot;  VERBOSE=1 glfw/fast"/>
@@ -331,14 +339,14 @@
 					<Add option="-D_GLFW_USE_CONFIG_H"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext_build/glfw/src"/>
+					<Add directory="/usr/include/c++/6"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
+					<Add directory="/usr/include/c++/6/backward"/>
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed"/>
 					<Add directory="/usr/include/x86_64-linux-gnu"/>
 					<Add directory="/usr/include"/>
-					<Add directory="/usr/include/c++/6"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
-					<Add directory="/usr/include/c++/6/backward"/>
 				</Compiler>
 				<MakeCommands>
 					<Build command="/usr/bin/make -j8 -f &quot;/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext_build/glfw/src/Makefile&quot;  VERBOSE=1 glfw_objects"/>
@@ -357,14 +365,14 @@
 					<Add option="-D_GLFW_USE_CONFIG_H"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext_build/glfw/src"/>
+					<Add directory="/usr/include/c++/6"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
+					<Add directory="/usr/include/c++/6/backward"/>
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed"/>
 					<Add directory="/usr/include/x86_64-linux-gnu"/>
 					<Add directory="/usr/include"/>
-					<Add directory="/usr/include/c++/6"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
-					<Add directory="/usr/include/c++/6/backward"/>
 				</Compiler>
 				<MakeCommands>
 					<Build command="/usr/bin/make -j8 -f &quot;/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext_build/glfw/src/Makefile&quot;  VERBOSE=1 glfw_objects/fast"/>
@@ -374,8 +382,69 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/context.c.o">
+			<Option target="nanogui"/>
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/glx_context.c.o">
+			<Option target="nanogui"/>
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/init.c.o">
+			<Option target="nanogui"/>
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/input.c.o">
+			<Option target="nanogui"/>
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/linux_joystick.c.o">
+			<Option target="nanogui"/>
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/monitor.c.o">
+			<Option target="nanogui"/>
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/posix_time.c.o">
+			<Option target="nanogui"/>
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/posix_tls.c.o">
+			<Option target="nanogui"/>
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/window.c.o">
+			<Option target="nanogui"/>
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/x11_init.c.o">
+			<Option target="nanogui"/>
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/x11_monitor.c.o">
+			<Option target="nanogui"/>
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/x11_window.c.o">
+			<Option target="nanogui"/>
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/xkb_unicode.c.o">
+			<Option target="nanogui"/>
+			<Option target="glfw"/>
+		</Unit>
 		<Unit filename="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext_build/glfw/src/glfw_config.h">
 			<Option target="glfw_objects"/>
+		</Unit>
+		<Unit filename="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/nanogui_resources.cpp">
+			<Option target="nanogui"/>
+		</Unit>
+		<Unit filename="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/nanogui_resources.cpp.rule">
+			<Option target="nanogui"/>
+		</Unit>
+		<Unit filename="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/nanogui_resources.h">
+			<Option target="nanogui"/>
 		</Unit>
 		<Unit filename="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/include/GLFW/glfw3.h">
 			<Option target="glfw_objects"/>

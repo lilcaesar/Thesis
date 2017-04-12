@@ -30,14 +30,14 @@
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext/eigen"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen/lapack/../blas"/>
+					<Add directory="/usr/include/c++/6"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
+					<Add directory="/usr/include/c++/6/backward"/>
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed"/>
 					<Add directory="/usr/include/x86_64-linux-gnu"/>
 					<Add directory="/usr/include"/>
-					<Add directory="/usr/include/c++/6"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
-					<Add directory="/usr/include/c++/6/backward"/>
 				</Compiler>
 				<MakeCommands>
 					<Build command="/usr/bin/make -j8 -f &quot;/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext/eigen/lapack/Makefile&quot;  VERBOSE=1 eigen_lapack"/>
@@ -59,14 +59,14 @@
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext/eigen"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen/lapack/../blas"/>
+					<Add directory="/usr/include/c++/6"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
+					<Add directory="/usr/include/c++/6/backward"/>
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed"/>
 					<Add directory="/usr/include/x86_64-linux-gnu"/>
 					<Add directory="/usr/include"/>
-					<Add directory="/usr/include/c++/6"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
-					<Add directory="/usr/include/c++/6/backward"/>
 				</Compiler>
 				<MakeCommands>
 					<Build command="/usr/bin/make -j8 -f &quot;/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext/eigen/lapack/Makefile&quot;  VERBOSE=1 eigen_lapack/fast"/>
@@ -88,14 +88,14 @@
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext/eigen"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen/lapack/../blas"/>
+					<Add directory="/usr/include/c++/6"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
+					<Add directory="/usr/include/c++/6/backward"/>
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed"/>
 					<Add directory="/usr/include/x86_64-linux-gnu"/>
 					<Add directory="/usr/include"/>
-					<Add directory="/usr/include/c++/6"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
-					<Add directory="/usr/include/c++/6/backward"/>
 				</Compiler>
 				<MakeCommands>
 					<Build command="/usr/bin/make -j8 -f &quot;/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext/eigen/lapack/Makefile&quot;  VERBOSE=1 eigen_lapack_static"/>
@@ -117,14 +117,14 @@
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext/eigen"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen/lapack/../blas"/>
+					<Add directory="/usr/include/c++/6"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
+					<Add directory="/usr/include/c++/6/backward"/>
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed"/>
 					<Add directory="/usr/include/x86_64-linux-gnu"/>
 					<Add directory="/usr/include"/>
-					<Add directory="/usr/include/c++/6"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
-					<Add directory="/usr/include/c++/6/backward"/>
 				</Compiler>
 				<MakeCommands>
 					<Build command="/usr/bin/make -j8 -f &quot;/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext/eigen/lapack/Makefile&quot;  VERBOSE=1 eigen_lapack_static/fast"/>

@@ -14,7 +14,7 @@ CostDataFile:
 Site: mattia
 
 # Build name is osname-revision-compiler, i.e. Linux-2.4.2-2smp-c++
-BuildName: linux-4.8.0-41-generic-_-6.2.0-sse2-64bit
+BuildName: linux-4.8.0-46-generic-_-6.2.0-sse2-64bit
 
 # Submission information
 IsCDash: TRUE
