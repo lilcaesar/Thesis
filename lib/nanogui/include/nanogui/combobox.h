@@ -8,6 +8,7 @@
     All rights reserved. Use of this source code is governed by a
     BSD-style license that can be found in the LICENSE.txt file.
 */
+/** \file */
 
 #pragma once
 
@@ -15,6 +16,11 @@
 
 NAMESPACE_BEGIN(nanogui)
 
+/**
+ * \class ComboBox combobox.h nanogui/combobox.h
+ *
+ * \brief Simple combo box widget based on a popup button.
+ */
 class NANOGUI_EXPORT ComboBox : public PopupButton {
 public:
     /// Create an empty combo box
@@ -41,12 +47,16 @@ public:
     const std::vector<std::string> &items() const { return mItems; }
     const std::vector<std::string> &itemsShort() const { return mItemsShort; }
 
+    virtual bool scrollEvent(const Vector2i &p, const Vector2f &rel) override;
+
     virtual void save(Serializer &s) const override;
     virtual bool load(Serializer &s) override;
 protected:
     std::vector<std::string> mItems, mItemsShort;
     std::function<void(int)> mCallback;
     int mSelectedIndex;
+public:
+    EIGEN_MAKE_ALIGNED_OPERATOR_NEW
 };
 
 NAMESPACE_END(nanogui)

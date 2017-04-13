@@ -16,17 +16,19 @@
 #include <nanogui/opengl.h>
 #include <nanogui/window.h>
 #include <nanogui/popup.h>
-#include <iostream>
 #include <map>
+#include <iostream>
 
 #if defined(_WIN32)
-#define NOMINMAX
-#undef APIENTRY
-#define WIN32_LEAN_AND_MEAN
-#include <windows.h>
-#define GLFW_EXPOSE_NATIVE_WGL
-#define GLFW_EXPOSE_NATIVE_WIN32
-#include <GLFW/glfw3native.h>
+#  define NOMINMAX
+#  undef APIENTRY
+
+#  define WIN32_LEAN_AND_MEAN
+#  include <windows.h>
+
+#  define GLFW_EXPOSE_NATIVE_WGL
+#  define GLFW_EXPOSE_NATIVE_WIN32
+#  include <GLFW/glfw3native.h>
 #endif
 
 /* Allow enforcing the GL2 implementation of NanoVG */
@@ -63,6 +65,22 @@ static float get_pixel_ratio(GLFWwindow *window) {
             return std::round(dpiX / 96.0);
     }
     return 1.f;
+#elif defined(__linux__)
+    (void) window;
+
+    /* Try to read the pixel ratio from GTK */
+    FILE *fp = popen("gsettings get org.gnome.desktop.interface scaling-factor", "r");
+    if (!fp)
+        return 1;
+
+    int ratio = 1;
+    if (fscanf(fp, "uint32 %i", &ratio) != 1)
+        return 1;
+
+    if (pclose(fp) != 0)
+        return 1;
+
+    return ratio >= 1 ? ratio : 1;
 #else
     Vector2i fbSize, size;
     glfwGetFramebufferSize(window, &fbSize[0], &fbSize[1]);
@@ -70,9 +88,10 @@ static float get_pixel_ratio(GLFWwindow *window) {
     return (float)fbSize[0] / (float)size[0];
 #endif
 }
+
 Screen::Screen()
     : Widget(nullptr), mGLFWWindow(nullptr), mNVGContext(nullptr),
-      mCursor(Cursor::Arrow), mBackground(0.3f, 0.3f, 0.32f),
+      mCursor(Cursor::Arrow), mBackground(0.3f, 0.3f, 0.32f, 1.f),
       mShutdownGLFWOnDestruct(false), mFullscreen(false) {
     memset(mCursors, 0, sizeof(GLFWcursor *) * (int) Cursor::CursorCount);
 }
@@ -82,7 +101,7 @@ Screen::Screen(const Vector2i &size, const std::string &caption, bool resizable,
                int stencilBits, int nSamples,
                unsigned int glMajor, unsigned int glMinor)
     : Widget(nullptr), mGLFWWindow(nullptr), mNVGContext(nullptr),
-      mCursor(Cursor::Arrow), mBackground(0.3f, 0.3f, 0.32f), mCaption(caption),
+      mCursor(Cursor::Arrow), mBackground(0.3f, 0.3f, 0.32f, 1.f), mCaption(caption),
       mShutdownGLFWOnDestruct(false), mFullscreen(fullscreen) {
     memset(mCursors, 0, sizeof(GLFWcursor *) * (int) Cursor::CursorCount);
 
@@ -131,7 +150,7 @@ Screen::Screen(const Vector2i &size, const std::string &caption, bool resizable,
 
     glfwGetFramebufferSize(mGLFWWindow, &mFBSize[0], &mFBSize[1]);
     glViewport(0, 0, mFBSize[0], mFBSize[1]);
-    glClearColor(mBackground[0], mBackground[1], mBackground[2], 1.0f);
+    glClearColor(mBackground[0], mBackground[1], mBackground[2], mBackground[3]);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
     glfwSwapInterval(0);
     glfwSwapBuffers(mGLFWWindow);
@@ -247,9 +266,18 @@ void Screen::initialize(GLFWwindow *window, bool shutdownGLFWOnDestruct) {
 
     mPixelRatio = get_pixel_ratio(window);
 
-#if defined(_WIN32)
+#if defined(_WIN32) || defined(__linux__)
     if (mPixelRatio != 1 && !mFullscreen)
         glfwSetWindowSize(window, mSize.x() * mPixelRatio, mSize.y() * mPixelRatio);
+#endif
+
+#if defined(NANOGUI_GLAD)
+    if (!gladInitialized) {
+        gladInitialized = true;
+        if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
+            throw std::runtime_error("Could not initialize GLAD!");
+        glGetError(); // pull and ignore unhandled errors like GL_INVALID_ENUM
+    }
 #endif
 
     /* Detect framebuffer properties and set up compatible NanoVG context */
@@ -282,6 +310,10 @@ void Screen::initialize(GLFWwindow *window, bool shutdownGLFWOnDestruct) {
 
     for (int i=0; i < (int) Cursor::CursorCount; ++i)
         mCursors[i] = glfwCreateStandardCursor(GLFW_ARROW_CURSOR + i);
+
+    /// Fixes retina display-related font rendering issue (#185)
+    nvgBeginFrame(mNVGContext, mSize[0], mSize[1], mPixelRatio);
+    nvgEndFrame(mNVGContext);
 }
 
 Screen::~Screen() {
@@ -316,11 +348,16 @@ void Screen::setCaption(const std::string &caption) {
 
 void Screen::setSize(const Vector2i &size) {
     Widget::setSize(size);
+
+#if defined(_WIN32) || defined(__linux__)
+    glfwSetWindowSize(mGLFWWindow, size.x() * mPixelRatio, size.y() * mPixelRatio);
+#else
     glfwSetWindowSize(mGLFWWindow, size.x(), size.y());
+#endif
 }
 
 void Screen::drawAll() {
-    glClearColor(mBackground[0], mBackground[1], mBackground[2], 1.0f);
+    glClearColor(mBackground[0], mBackground[1], mBackground[2], mBackground[3]);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 
     drawContents();
@@ -334,25 +371,21 @@ void Screen::drawWidgets() {
         return;
 
     glfwMakeContextCurrent(mGLFWWindow);
-    float newPixelRatio = get_pixel_ratio(mGLFWWindow);
 
-#if defined(_WIN32)
-    if (mPixelRatio != newPixelRatio && !mFullscreen)
-        glfwSetWindowSize(mGLFWWindow, mSize.x() * newPixelRatio / mPixelRatio, mSize.y() * newPixelRatio / mPixelRatio);
-#endif
-
-    mPixelRatio = newPixelRatio;
     glfwGetFramebufferSize(mGLFWWindow, &mFBSize[0], &mFBSize[1]);
     glfwGetWindowSize(mGLFWWindow, &mSize[0], &mSize[1]);
 
-#if defined(_WIN32)
-    mSize /= mPixelRatio;
+#if defined(_WIN32) || defined(__linux__)
+    mSize = (mSize / mPixelRatio).cast<int>();
+    mFBSize = (mSize * mPixelRatio).cast<int>();
+#else
+    /* Recompute pixel ratio on OSX */
+    if (mSize[0])
+        mPixelRatio = (float) mFBSize[0] / (float) mSize[0];
 #endif
 
     glViewport(0, 0, mFBSize[0], mFBSize[1]);
-
-    /* Calculate pixel ratio for hi-dpi devices. */
-    mPixelRatio = (float) mFBSize[0] / (float) mSize[0];
+    glBindSampler(0, 0);
     nvgBeginFrame(mNVGContext, mSize[0], mSize[1], mPixelRatio);
 
     draw(mNVGContext);
@@ -368,20 +401,26 @@ void Screen::drawWidgets() {
             float bounds[4];
             nvgFontFace(mNVGContext, "sans");
             nvgFontSize(mNVGContext, 15.0f);
-            nvgTextAlign(mNVGContext, NVG_ALIGN_CENTER | NVG_ALIGN_TOP);
+            nvgTextAlign(mNVGContext, NVG_ALIGN_LEFT | NVG_ALIGN_TOP);
             nvgTextLineHeight(mNVGContext, 1.1f);
             Vector2i pos = widget->absolutePosition() +
                            Vector2i(widget->width() / 2, widget->height() + 10);
 
-            nvgTextBoxBounds(mNVGContext, pos.x(), pos.y(), tooltipWidth,
-                             widget->tooltip().c_str(), nullptr, bounds);
+            nvgTextBounds(mNVGContext, pos.x(), pos.y(),
+                            widget->tooltip().c_str(), nullptr, bounds);
+            int h = (bounds[2] - bounds[0]) / 2;
+            if (h > tooltipWidth / 2) {
+                nvgTextAlign(mNVGContext, NVG_ALIGN_CENTER | NVG_ALIGN_TOP);
+                nvgTextBoxBounds(mNVGContext, pos.x(), pos.y(), tooltipWidth,
+                                widget->tooltip().c_str(), nullptr, bounds);
 
+                h = (bounds[2] - bounds[0]) / 2;
+            }
             nvgGlobalAlpha(mNVGContext,
                            std::min(1.0, 2 * (elapsed - 0.5f)) * 0.8);
 
             nvgBeginPath(mNVGContext);
             nvgFillColor(mNVGContext, Color(0, 255));
-            int h = (bounds[2] - bounds[0]) / 2;
             nvgRoundedRect(mNVGContext, bounds[0] - 4 - h, bounds[1] - 4,
                            (int) (bounds[2] - bounds[0]) + 8,
                            (int) (bounds[3] - bounds[1]) + 8, 3);
@@ -421,11 +460,21 @@ bool Screen::keyboardCharacterEvent(unsigned int codepoint) {
     return false;
 }
 
+bool Screen::resizeEvent(const Vector2i& size) {
+    if (mResizeCallback) {
+        mResizeCallback(size);
+        return true;
+    }
+    return false;
+}
+
 bool Screen::cursorPosCallbackEvent(double x, double y) {
     Vector2i p((int) x, (int) y);
-#if defined(_WIN32)
+
+#if defined(_WIN32) || defined(__linux__)
     p /= mPixelRatio;
 #endif
+
     bool ret = false;
     mLastInteraction = glfwGetTime();
     try {
@@ -451,7 +500,7 @@ bool Screen::cursorPosCallbackEvent(double x, double y) {
         return ret;
     } catch (const std::exception &e) {
         std::cerr << "Caught exception in event handler: " << e.what() << std::endl;
-        abort();
+        return false;
     }
 }
 
@@ -485,7 +534,7 @@ bool Screen::mouseButtonCallbackEvent(int button, int action, int modifiers) {
             glfwSetCursor(mGLFWWindow, mCursors[(int) mCursor]);
         }
 
-        if (action == GLFW_PRESS && button == GLFW_MOUSE_BUTTON_1) {
+        if (action == GLFW_PRESS && (button == GLFW_MOUSE_BUTTON_1 || button == GLFW_MOUSE_BUTTON_2)) {
             mDragWidget = findWidget(mMousePos);
             if (mDragWidget == this)
                 mDragWidget = nullptr;
@@ -501,7 +550,7 @@ bool Screen::mouseButtonCallbackEvent(int button, int action, int modifiers) {
                                 mModifiers);
     } catch (const std::exception &e) {
         std::cerr << "Caught exception in event handler: " << e.what() << std::endl;
-        abort();
+        return false;
     }
 }
 
@@ -511,7 +560,7 @@ bool Screen::keyCallbackEvent(int key, int scancode, int action, int mods) {
         return keyboardEvent(key, scancode, action, mods);
     } catch (const std::exception &e) {
         std::cerr << "Caught exception in event handler: " << e.what() << std::endl;
-        abort();
+        return false;
     }
 }
 
@@ -522,7 +571,7 @@ bool Screen::charCallbackEvent(unsigned int codepoint) {
     } catch (const std::exception &e) {
         std::cerr << "Caught exception in event handler: " << e.what()
                   << std::endl;
-        abort();
+        return false;
     }
 }
 
@@ -548,7 +597,7 @@ bool Screen::scrollCallbackEvent(double x, double y) {
     } catch (const std::exception &e) {
         std::cerr << "Caught exception in event handler: " << e.what()
                   << std::endl;
-        abort();
+        return false;
     }
 }
 
@@ -556,7 +605,8 @@ bool Screen::resizeCallbackEvent(int, int) {
     Vector2i fbSize, size;
     glfwGetFramebufferSize(mGLFWWindow, &fbSize[0], &fbSize[1]);
     glfwGetWindowSize(mGLFWWindow, &size[0], &size[1]);
-#if defined(_WIN32)
+
+#if defined(_WIN32) || defined(__linux__)
     size /= mPixelRatio;
 #endif
 
@@ -571,7 +621,7 @@ bool Screen::resizeCallbackEvent(int, int) {
     } catch (const std::exception &e) {
         std::cerr << "Caught exception in event handler: " << e.what()
                   << std::endl;
-        abort();
+        return false;
     }
 }
 

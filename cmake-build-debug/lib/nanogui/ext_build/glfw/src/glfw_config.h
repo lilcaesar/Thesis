@@ -1,7 +1,7 @@
 //========================================================================
-// GLFW 3.1 - www.glfw.org
+// GLFW 3.2 - www.glfw.org
 //------------------------------------------------------------------------
-// Copyright (c) 2010 Camilla Berglund <elmindreda@elmindreda.org>
+// Copyright (c) 2010-2016 Camilla Berglund <elmindreda@glfw.org>
 //
 // This software is provided 'as-is', without any express or implied
 // warranty. In no event will the authors be held liable for any damages
@@ -45,23 +45,12 @@
 // Define this to 1 if building GLFW for Mir
 /* #undef _GLFW_MIR */
 
-// Define this to 1 if building GLFW for EGL
-/* #undef _GLFW_EGL */
-// Define this to 1 if building GLFW for GLX
-#define _GLFW_GLX
-// Define this to 1 if building GLFW for WGL
-/* #undef _GLFW_WGL */
-// Define this to 1 if building GLFW for NSGL
-/* #undef _GLFW_NSGL */
-
 // Define this to 1 if building as a shared library / dynamic library / DLL
 #define _GLFW_BUILD_DLL
 
 // Define this to 1 to force use of high-performance GPU on hybrid systems
 /* #undef _GLFW_USE_HYBRID_HPG */
 
-// Define this to 1 if the XInput X11 extension is available
-#define _GLFW_HAS_XINPUT
 // Define this to 1 if the Xxf86vm X11 extension is available
 #define _GLFW_HAS_XF86VM
 
@@ -71,11 +60,4 @@
 /* #undef _GLFW_USE_MENUBAR */
 // Define this to 1 if windows should use full resolution on Retina displays
 /* #undef _GLFW_USE_RETINA */
-
-// Define this to 1 if using OpenGL as the client library
-#define _GLFW_USE_OPENGL
-// Define this to 1 if using OpenGL ES 1.1 as the client library
-/* #undef _GLFW_USE_GLESV1 */
-// Define this to 1 if using OpenGL ES 2.0 as the client library
-/* #undef _GLFW_USE_GLESV2 */
 

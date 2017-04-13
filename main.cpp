@@ -10,9 +10,11 @@
 
 using namespace nanogui;
 
-class ProvaCubo : public nanogui::Screen {
+class MeshCanvas : public nanogui::GLCanvas {
 public:
-    ProvaCubo():nanogui::Screen(Eigen::Vector2i(1920,1080), "Prova Cubo titolo"){
+    MeshCanvas(Widget *parent) : nanogui::GLCanvas(parent){
+        using namespace nanogui;
+
         mShader.init(
                 /* An identifying name */
                 "a_simple_shader",
@@ -53,28 +55,15 @@ public:
         unsigned long nVertices = (tempVertices.size())/3;
         nFaces = (uint32_t) (tempFaces.size())/3;
 
-        //Calcolo del frustum in base alla mesh
+        //Cerco il vertice più grande in modulo e lo uso per la scalatura
+        double maxVertex = (*std::max_element(tempVertices.begin(), tempVertices.end()));
+        double minVertex = (*std::min_element(tempVertices.begin(), tempVertices.end()));
 
-        std::vector<double> XValues;
-        std::vector<double> YValues;
-        std::vector<double> ZValues;
+        if(maxVertex > abs(minVertex))
+            scaleFactor = 1/maxVertex;
+        else
+            scaleFactor = 1/minVertex;
 
-        for(unsigned long i=0; i < nVertices; i++){
-            XValues.push_back(tempVertices[(3*i)]);
-            YValues.push_back(tempVertices[(3*i)+1]);
-            ZValues.push_back(tempVertices[(3*i)+2]);
-        }
-
-         std::min_element(XValues.begin(),XValues.end());
-
-        frustumLeft = (*std::min_element(XValues.begin(),XValues.end()));
-        frustumRight = (*std::max_element(XValues.begin(),XValues.end()));
-        frustumBottom = (*std::min_element(YValues.begin(),YValues.end()));
-        frustumTop = (*std::max_element(YValues.begin(),YValues.end()));
-        frustumNear = (*std::max_element(ZValues.begin(),ZValues.end()));
-        frustumFar = (*std::min_element(ZValues.begin(),ZValues.end()));
-
-        //nanogui::frustum(frustumLeft, frustumRight, frustumBottom, frustumTop, frustumNear, frustumFar);
 
         //CARICAMENTO VECTOR SU MATRIX
         Eigen::MatrixXd vertices(3, nVertices);
@@ -87,66 +76,27 @@ public:
             faces.col(i) << tempFaces[(3*i)], tempFaces[(3*i)+1], tempFaces[(3*i)+2];
         }
 
-
-        //TODO effettuare questa operazione con matrici corrette (del tipo x,y,z,w)
-        for (int j = 0; j < nVertices; ++j) {
-            vertices.col(j) = glFrustum(frustumLeft, frustumRight, frustumBottom, frustumTop, frustumNear, frustumFar) * vertices.col(j);
-        }
-
-        /* Hard coded cube*/
-        /*Eigen::MatrixXd positions(3, 8);
-        positions.col(0) << -1.000000,-1.000000,-1.000000;
-        positions.col(1) << 1.000000,-1.000000,-1.000000;
-        positions.col(2) << 1.000000,-1.000000,1.000000;
-        positions.col(3) << -1.000000,-1.000000,1.000000;
-        positions.col(4) << -1.000000,1.000000,-1.000000;
-        positions.col(5) << 1.000000,1.000000,-1.000000;
-        positions.col(6) << 1.000000,1.000000,1.000000;
-        positions.col(7) << -1.000000,1.000000,1.000000;*/
-
-        //Eigen::MatrixXi indices(3, 12); /* Cube triangles indices */
-        /*indices.col(0) << 0,1,3;
-        indices.col(1) << 1,2,3;
-        indices.col(2) << 1,2,5;
-        indices.col(3) << 2,5,6;
-        indices.col(4) << 2,3,7;
-        indices.col(5) << 2,6,7;
-        indices.col(6) << 1,4,5;
-        indices.col(7) << 0,1,4;
-        indices.col(8) << 3,4,7;
-        indices.col(9) << 0,3,4;
-        indices.col(10) << 4,5,7;
-        indices.col(11) << 5,6,7;*/
-
-        /*Eigen::MatrixXd colors (3, 12);
-        colors.col(0) << 1, 0, 0;
-        colors.col(1) << 0, 1, 0;
-        colors.col(2) << 1, 1, 0;
-        colors.col(3) << 0, 0, 1;
-        colors.col(4) << 1, 0, 1;
-        colors.col(5) << 0, 1, 1;
-        colors.col(6) << 1, 1, 1;
-        colors.col(7) << 0.5, 0.5, 0.5;
-        colors.col(8) << 1, 0, 0.5;
-        colors.col(9) << 1, 0.5, 0;
-        colors.col(10) << 0.5, 1, 0;
-        colors.col(11) << 0.5, 1, 0.5;*/
-
-
         mShader.bind();
         mShader.uploadIndices(faces);
         mShader.uploadAttrib("vertices", vertices);
         //mShader.uploadAttrib("color", colors);
         //mShader.setUniform("intensity", 0.5f);
-
-        performLayout();
     }
 
-    ~ProvaCubo() {
+    ~MeshCanvas() {
         mShader.free();
     }
 
-    virtual void drawContents() {
+    void setScaleFactor(float scale){
+        scaleFactor = scale;
+    }
+
+    double getScaleFactor(){
+        return scaleFactor;
+    }
+
+
+    virtual void drawGL() override {
         using namespace nanogui;
 
         /* Draw the window contents using OpenGL */
@@ -154,9 +104,8 @@ public:
 
         Matrix4f mvp;
         mvp.setIdentity();
-        mvp.topLeftCorner<3,3>() = (Matrix3f(Eigen::AngleAxisf((float) glfwGetTime(),  Vector3f::UnitY())) * 0.5f) * (Matrix3f(Eigen::AngleAxisf((float) glfwGetTime()/2,  Vector3f::UnitZ())) * 0.5f);
-
-        mvp.row(0) *= (float) mSize.y() / (float) mSize.x();
+        Vector3f scaleVector = {scaleFactor, scaleFactor, scaleFactor};
+        mvp = scale(scaleVector);
 
         mShader.setUniform("modelViewProj", mvp);
 
@@ -165,30 +114,94 @@ public:
         glDepthFunc(GL_LESS);
         glEnable(GL_DEPTH_TEST);
 
-
-
-
         /* Draw nFaces triangles starting at index 0 */
         mShader.drawIndexed(GL_TRIANGLES, 0, nFaces);
     }
+
 private:
     nanogui::GLShader mShader;
     /*Numero di triangoli caricati dal file*/
     uint32_t nFaces;
-    /* Variabili per il calcolo del frustum*/
-    double frustumLeft, frustumRight, frustumBottom, frustumTop, frustumNear, frustumFar;
+    double scaleFactor = 1;
+};
+
+class NanoguiMeshViewer : public nanogui::Screen {
+public:
+    NanoguiMeshViewer():nanogui::Screen(Eigen::Vector2i(800,800), "Nanogui Mesh Viewer"){
+        using namespace nanogui;
+
+        Window *window = new Window(this, "Model Canvas");
+        window->setPosition(Vector2i(0,0));
+        window->setLayout(new GroupLayout());
+
+        mCanvas = new MeshCanvas(window);
+        mCanvas->setBackgroundColor({100, 100, 100, 255});
+        mCanvas->setSize({600, 600});
+
+        Widget *transformTools = new Widget(window);
+        transformTools->setLayout(new BoxLayout(Orientation::Horizontal, Alignment::Middle, 0, 5));
+
+        /*TextBox *scaleTextBox = new TextBox(transformTools);
+        scaleTextBox->setFixedSize(Vector2i(60 ,25));
+        scaleTextBox->setValue(std::to_string(mCanvas->scaleFactor));*/
+
+        /* Scale widget*/{
+            new Label(window, "Scale :", "sans-bold");
+            auto scaleFloatBox = new FloatBox<float>(window);
+            scaleFloatBox->setEditable(true);
+            scaleFloatBox->setFixedSize(Vector2i(100, 20));
+            scaleFloatBox->setValue(mCanvas->getScaleFactor());
+            scaleFloatBox->setFontSize(16);
+            scaleFloatBox->setSpinnable(true);
+            scaleFloatBox->setMinValue(0);
+            scaleFloatBox->setCallback([this]() {mCanvas->setScaleFactor(scaleFloatBox->value()); });
+        }
+
+        performLayout();
+    }
+
+    virtual bool keyboardEvent(int key, int scancode, int action, int modifiers) {
+        if (Screen::keyboardEvent(key, scancode, action, modifiers))
+            return true;
+        if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS) {
+            setVisible(false);
+            return true;
+        }
+        return false;
+    }
+
+    // Draw the widget (and all child widgets)
+    virtual void draw(NVGcontext *ctx) {
+        /* Draw the user interface */
+        Screen::draw(ctx);
+    }
+private:
+    MeshCanvas *mCanvas;
 };
 
 int main(int /* argc */, char ** /* argv */) {
-    nanogui::init();
-    {
-        nanogui::ref<ProvaCubo> app = new ProvaCubo();
+    try {
+        nanogui::init();
+        {
+            nanogui::ref<NanoguiMeshViewer> app = new NanoguiMeshViewer();
 
-        app->drawAll();
-        app->setVisible(true);
+            app->drawAll();
+            app->setVisible(true);
 
-        nanogui::mainloop();
+            nanogui::mainloop();
+        }
+
+        nanogui::shutdown();
+
+    } catch (const std::runtime_error &e) {
+        std::string error_msg = std::string("Caught a fatal error: ") + std::string(e.what());
+    #if defined(_WIN32)
+        MessageBoxA(nullptr, error_msg.c_str(), NULL, MB_ICONERROR | MB_OK);
+    #else
+        std::cerr << error_msg << std::endl;
+    #endif
+        return -1;
     }
 
-    nanogui::shutdown();
+    return 0;
 }

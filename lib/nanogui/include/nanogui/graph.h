@@ -8,6 +8,7 @@
     All rights reserved. Use of this source code is governed by a
     BSD-style license that can be found in the LICENSE.txt file.
 */
+/** \file */
 
 #pragma once
 
@@ -15,6 +16,11 @@
 
 NAMESPACE_BEGIN(nanogui)
 
+/**
+ * \class Graph graph.h nanogui/graph.h
+ *
+ * \brief Simple graph widget for showing a function plot.
+ */
 class NANOGUI_EXPORT Graph : public Widget {
 public:
     Graph(Widget *parent, const std::string &caption = "Untitled");
@@ -50,6 +56,8 @@ protected:
     std::string mCaption, mHeader, mFooter;
     Color mBackgroundColor, mForegroundColor, mTextColor;
     VectorXf mValues;
+public:
+    EIGEN_MAKE_ALIGNED_OPERATOR_NEW
 };
 
 NAMESPACE_END(nanogui)
