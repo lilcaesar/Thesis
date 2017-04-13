@@ -5,6 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
   "/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/context.c" "/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/context.c.o"
+  "/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/egl_context.c" "/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/egl_context.c.o"
   "/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/glx_context.c" "/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/glx_context.c.o"
   "/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/init.c" "/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/init.c.o"
   "/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/input.c" "/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/input.c.o"
@@ -12,6 +13,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/monitor.c" "/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/monitor.c.o"
   "/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/posix_time.c" "/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/posix_time.c.o"
   "/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/posix_tls.c" "/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/posix_tls.c.o"
+  "/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/vulkan.c" "/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/vulkan.c.o"
   "/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/window.c" "/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/window.c.o"
   "/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/x11_init.c" "/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/x11_init.c.o"
   "/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/x11_monitor.c" "/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/x11_monitor.c.o"
@@ -27,6 +29,7 @@ set(CMAKE_TARGET_DEFINITIONS_C
 
 # The include file search paths:
 set(CMAKE_C_TARGET_INCLUDE_PATH
+  "../lib/nanogui/ext/glfw/include"
   "../lib/nanogui/ext/glfw/src"
   "lib/nanogui/ext_build/glfw/src"
   )

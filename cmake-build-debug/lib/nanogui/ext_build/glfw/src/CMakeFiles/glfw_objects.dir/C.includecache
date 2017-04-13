@@ -6,46 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/deps/EGL/eglext.h
-EGL/eglplatform.h
--
-
-/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/deps/GL/glext.h
-windows.h
--
-stddef.h
--
-inttypes.h
--
-inttypes.h
--
-inttypes.h
--
-stdint.h
--
-stdint.h
--
-inttypes.h
--
-
-/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/deps/GL/glxext.h
-inttypes.h
--
-inttypes.h
--
-inttypes.h
--
-stdint.h
--
-stdint.h
--
-inttypes.h
--
-
-/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/deps/GL/wglext.h
-windows.h
--
-
 /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/include/GLFW/glfw3.h
 stddef.h
 -
@@ -106,6 +66,16 @@ string.h
 limits.h
 -
 stdio.h
+-
+
+/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/egl_context.c
+internal.h
+/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/internal.h
+stdio.h
+-
+stdlib.h
+-
+assert.h
 -
 
 /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/egl_context.h
@@ -171,16 +141,6 @@ wl_platform.h
 /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/wl_platform.h
 mir_platform.h
 /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/mir_platform.h
-
-/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/iokit_joystick.h
-IOKit/IOKitLib.h
--
-IOKit/IOCFPlugIn.h
--
-IOKit/hid/IOHIDLib.h
--
-IOKit/hid/IOHIDKeys.h
--
 
 /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/linux_joystick.c
 internal.h
@@ -266,6 +226,16 @@ internal.h
 pthread.h
 -
 
+/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/vulkan.c
+internal.h
+/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/internal.h
+assert.h
+-
+string.h
+-
+stdlib.h
+-
+
 /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/wgl_context.h
 ../deps/GL/wglext.h
 /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/deps/GL/wglext.h
@@ -288,8 +258,6 @@ wgl_context.h
 egl_context.h
 /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/egl_context.h
 
-/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/win32_tls.h
-
 /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/window.c
 internal.h
 /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/internal.h
@@ -297,8 +265,6 @@ string.h
 -
 stdlib.h
 -
-
-/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/winmm_joystick.h
 
 /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/wl_platform.h
 wayland-client.h
