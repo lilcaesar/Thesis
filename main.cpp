@@ -8,6 +8,11 @@
 #include <GL/gl.h>
 #include <importFiles.h>
 
+/*TODO
+ * -Inserire vista prospetica (al momento è ortogonale di default)
+ * -Implementare caricamento della colorazione
+ * -Normali*/
+
 using namespace nanogui;
 
 class MeshCanvas : public nanogui::GLCanvas {
@@ -55,6 +60,8 @@ public:
         unsigned long nVertices = (tempVertices.size())/3;
         nFaces = (uint32_t) (tempFaces.size())/3;
 
+        //TODO verificare che le prossime operazioni fatte prima del caricamento su matrice siano più dispendiose rispetto a farle sulle matrici stesse
+
         //Cerco il vertice più grande in modulo e lo uso per la scalatura
         double maxVertex = (*std::max_element(tempVertices.begin(), tempVertices.end()));
         double minVertex = (*std::min_element(tempVertices.begin(), tempVertices.end()));
@@ -63,7 +70,6 @@ public:
             scaleFactor = std::abs(1/maxVertex);
         else
             scaleFactor = std::abs(1/minVertex);
-
 
         //CARICAMENTO VECTOR SU MATRIX
         Eigen::MatrixXd vertices(3, nVertices);
@@ -105,7 +111,8 @@ public:
         Matrix4f mvp;
         mvp.setIdentity();
         Vector3f scaleVector = {scaleFactor, scaleFactor, scaleFactor};
-        mvp = scale(scaleVector);
+
+        mvp =scale(scaleVector);
 
         mShader.setUniform("modelViewProj", mvp);
 
@@ -138,15 +145,12 @@ public:
         mCanvas->setBackgroundColor({100, 100, 100, 255});
         mCanvas->setSize({600, 600});
 
+        new Label(window, "Transform Tools", "sans-bold");
         Widget *transformTools = new Widget(window);
         transformTools->setLayout(new BoxLayout(Orientation::Horizontal, Alignment::Middle, 0, 5));
 
-        /*TextBox *scaleTextBox = new TextBox(transformTools);
-        scaleTextBox->setFixedSize(Vector2i(60 ,25));
-        scaleTextBox->setValue(std::to_string(mCanvas->scaleFactor));*/
-
         /* Scale widget*/{
-            new Label(window, "Scale :", "sans-bold");
+            new Label(window, "Scale :", "sans");
             auto scaleFloatBox = new FloatBox<float>(window);
             scaleFloatBox->setFixedSize(Vector2i(100, 20));
             scaleFloatBox->setValue(mCanvas->getScaleFactor());
