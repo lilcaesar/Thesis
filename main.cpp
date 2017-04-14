@@ -60,9 +60,9 @@ public:
         double minVertex = (*std::min_element(tempVertices.begin(), tempVertices.end()));
 
         if(maxVertex > abs(minVertex))
-            scaleFactor = 1/maxVertex;
+            scaleFactor = std::abs(1/maxVertex);
         else
-            scaleFactor = 1/minVertex;
+            scaleFactor = std::abs(1/minVertex);
 
 
         //CARICAMENTO VECTOR SU MATRIX
@@ -148,13 +148,16 @@ public:
         /* Scale widget*/{
             new Label(window, "Scale :", "sans-bold");
             auto scaleFloatBox = new FloatBox<float>(window);
-            scaleFloatBox->setEditable(true);
             scaleFloatBox->setFixedSize(Vector2i(100, 20));
             scaleFloatBox->setValue(mCanvas->getScaleFactor());
             scaleFloatBox->setFontSize(16);
-            scaleFloatBox->setSpinnable(true);
+            scaleFloatBox->setValueIncrement(mCanvas->getScaleFactor()/10);
             scaleFloatBox->setMinValue(0);
-            scaleFloatBox->setCallback([this]() {mCanvas->setScaleFactor(scaleFloatBox->value()); });
+            scaleFloatBox->setEditable(true);
+            scaleFloatBox->setSpinnable(true);
+            scaleFloatBox->setCallback([this](float scaleValue) {
+                this->mCanvas->setScaleFactor(scaleValue);
+            });
         }
 
         performLayout();
