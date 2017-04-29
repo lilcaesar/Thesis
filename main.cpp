@@ -11,7 +11,8 @@
 /*TODO
  * -Inserire vista prospetica (al momento è ortogonale di default)
  * -Implementare caricamento della colorazione
- * -Normali*/
+ * -Normali
+ * -Illumninazione*/
 
 using namespace nanogui;
 
@@ -20,29 +21,32 @@ public:
     MeshCanvas(Widget *parent) : nanogui::GLCanvas(parent){
         using namespace nanogui;
 
-        mShader.init(
+        //TODO Eliminare il warning "did not find uniform .."
+        mShader.initFromFiles("Nanogui Shader", "./src/shader/vertexShader.vert", "./src/shader/fragmentShader.frag");
+        //mShader.init(
                 /* An identifying name */
-                "a_simple_shader",
+        //        "Nanogui Shader",
 
                 /* Vertex shader */
-                "#version 330\n"
-                        "uniform mat4 modelViewProj;\n"
-                        "out vec4 frag_color;\n"
-                        "in vec3 vertices;\n"
-                        "in vec3 color;\n"
-                        "void main() {\n"
-                        "    frag_color = 3.0 * modelViewProj * vec4(color, 1.0);\n"
-                        "    gl_Position = modelViewProj * vec4(vertices, 1.0);\n"
-                        "}",
+        //        "#version 330\n"
+        //                "uniform mat4 modelViewProj;\n"
+        //                "uniform mat4 projection;\n"
+        //                "out vec4 frag_color;\n"
+        //                "in vec3 vertices;\n"
+        //                "in vec3 color;\n"
+        //                "void main() {\n"
+        //                "    frag_color = 3.0 * modelViewProj * vec4(color, 1.0);\n"
+        //                "    gl_Position = projection * modelViewProj * vec4(vertices, 1.0);\n"
+        //                "}",
 
                 /* Fragment shader */
-                "#version 330\n"
-                        "out vec4 color;\n"
-                        "in vec4 frag_color;\n"
-                        "void main() {\n"
-                        "    color = frag_color;\n"
-                        "}"
-        );
+        //        "#version 330\n"
+         //               "out vec4 color;\n"
+        //                "in vec4 frag_color;\n"
+        //                "void main() {\n"
+        //                "    color = frag_color;\n"
+        //                "}"
+        //);
 
         //Caricamento del file
         std::vector<int> tempFaces;
@@ -70,6 +74,34 @@ public:
             scaleFactor = std::abs(1/maxVertex);
         else
             scaleFactor = std::abs(1/minVertex);
+
+
+
+
+        //Calcolo del frustum in base alla mesh
+
+        std::vector<double> XValues;
+        std::vector<double> YValues;
+        std::vector<double> ZValues;
+
+        for(unsigned long i=0; i < nVertices; i++){
+            XValues.push_back(tempVertices[(3*i)]);
+            YValues.push_back(tempVertices[(3*i)+1]);
+            ZValues.push_back(tempVertices[(3*i)+2]);
+        }
+
+        std::min_element(XValues.begin(),XValues.end());
+
+        frustumLeft = (*std::min_element(XValues.begin(),XValues.end()));
+        frustumRight = (*std::max_element(XValues.begin(),XValues.end()));
+        frustumBottom = (*std::min_element(YValues.begin(),YValues.end()));
+        frustumTop = (*std::max_element(YValues.begin(),YValues.end()));
+        frustumNear = (*std::max_element(ZValues.begin(),ZValues.end()));
+        frustumFar = (*std::min_element(ZValues.begin(),ZValues.end()));
+
+
+
+
 
         //CARICAMENTO VECTOR SU MATRIX
         Eigen::MatrixXd vertices(3, nVertices);
@@ -109,12 +141,18 @@ public:
         mShader.bind();
 
         Matrix4f mvp;
+        Matrix4f proj;
         mvp.setIdentity();
+        proj.setIdentity();
         Vector3f scaleVector = {scaleFactor, scaleFactor, scaleFactor};
 
-        mvp =scale(scaleVector);
+        proj = frustum(-10, 10, -10, 10, 10, -40);
+        proj.transposeInPlace();
+
+        mvp = scale(scaleVector);
 
         mShader.setUniform("modelViewProj", mvp);
+        mShader.setUniform("projection", proj);
 
         /* Funzioni per la gestione dello Z-buffer*/
         glClearDepth(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -130,6 +168,9 @@ private:
     /*Numero di triangoli caricati dal file*/
     uint32_t nFaces;
     double scaleFactor = 1;
+
+    /* Variabili per il calcolo del frustum*/
+    double frustumLeft, frustumRight, frustumBottom, frustumTop, frustumNear, frustumFar;
 };
 
 class NanoguiMeshViewer : public nanogui::Screen {
