@@ -6,5 +6,5 @@ C_FLAGS = -g -fPIC   -fvisibility=hidden
 
 C_DEFINES = -Dglfw_EXPORTS
 
-C_INCLUDES = 
+C_INCLUDES = -I/home/mattia/CLionProjects/Thesis/src -I/home/mattia/CLionProjects/Thesis/resources 
 

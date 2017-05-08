@@ -28,6 +28,8 @@
 					<Add option="-DNANOGUI_SHARED"/>
 					<Add option="-DNVG_SHARED"/>
 					<Add option="-DGLAD_GLAPI_EXPORT"/>
+					<Add directory="/home/mattia/CLionProjects/Thesis/src"/>
+					<Add directory="/home/mattia/CLionProjects/Thesis/resources"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/include"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/nanovg/src"/>
@@ -61,6 +63,8 @@
 					<Add option="-DNANOGUI_SHARED"/>
 					<Add option="-DNVG_SHARED"/>
 					<Add option="-DGLAD_GLAPI_EXPORT"/>
+					<Add directory="/home/mattia/CLionProjects/Thesis/src"/>
+					<Add directory="/home/mattia/CLionProjects/Thesis/resources"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/include"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/nanovg/src"/>
@@ -97,6 +101,8 @@
 					<Add option="-DCORO_SJLJ"/>
 					<Add option="-DNANOGUI_SHARED"/>
 					<Add option="-DGLAD_GLAPI_EXPORT"/>
+					<Add directory="/home/mattia/CLionProjects/Thesis/src"/>
+					<Add directory="/home/mattia/CLionProjects/Thesis/resources"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/include"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/nanovg/src"/>
@@ -133,6 +139,8 @@
 					<Add option="-DCORO_SJLJ"/>
 					<Add option="-DNANOGUI_SHARED"/>
 					<Add option="-DGLAD_GLAPI_EXPORT"/>
+					<Add directory="/home/mattia/CLionProjects/Thesis/src"/>
+					<Add directory="/home/mattia/CLionProjects/Thesis/resources"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/include"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/nanovg/src"/>
@@ -166,6 +174,8 @@
 					<Add option="-DNANOGUI_SHARED"/>
 					<Add option="-DNVG_SHARED"/>
 					<Add option="-DGLAD_GLAPI_EXPORT"/>
+					<Add directory="/home/mattia/CLionProjects/Thesis/src"/>
+					<Add directory="/home/mattia/CLionProjects/Thesis/resources"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/include"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/nanovg/src"/>
@@ -199,6 +209,8 @@
 					<Add option="-DNANOGUI_SHARED"/>
 					<Add option="-DNVG_SHARED"/>
 					<Add option="-DGLAD_GLAPI_EXPORT"/>
+					<Add directory="/home/mattia/CLionProjects/Thesis/src"/>
+					<Add directory="/home/mattia/CLionProjects/Thesis/resources"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/include"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/nanovg/src"/>
@@ -232,6 +244,8 @@
 					<Add option="-DNANOGUI_SHARED"/>
 					<Add option="-DNVG_SHARED"/>
 					<Add option="-DGLAD_GLAPI_EXPORT"/>
+					<Add directory="/home/mattia/CLionProjects/Thesis/src"/>
+					<Add directory="/home/mattia/CLionProjects/Thesis/resources"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/include"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/nanovg/src"/>
@@ -265,6 +279,8 @@
 					<Add option="-DNANOGUI_SHARED"/>
 					<Add option="-DNVG_SHARED"/>
 					<Add option="-DGLAD_GLAPI_EXPORT"/>
+					<Add directory="/home/mattia/CLionProjects/Thesis/src"/>
+					<Add directory="/home/mattia/CLionProjects/Thesis/resources"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/include"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/nanovg/src"/>
@@ -298,6 +314,8 @@
 					<Add option="-DNANOGUI_SHARED"/>
 					<Add option="-DNVG_SHARED"/>
 					<Add option="-DGLAD_GLAPI_EXPORT"/>
+					<Add directory="/home/mattia/CLionProjects/Thesis/src"/>
+					<Add directory="/home/mattia/CLionProjects/Thesis/resources"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/include"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/nanovg/src"/>
@@ -331,6 +349,8 @@
 					<Add option="-DNANOGUI_SHARED"/>
 					<Add option="-DNVG_SHARED"/>
 					<Add option="-DGLAD_GLAPI_EXPORT"/>
+					<Add directory="/home/mattia/CLionProjects/Thesis/src"/>
+					<Add directory="/home/mattia/CLionProjects/Thesis/resources"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/include"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/nanovg/src"/>
@@ -364,6 +384,8 @@
 					<Add option="-DNANOGUI_SHARED"/>
 					<Add option="-DNVG_SHARED"/>
 					<Add option="-DGLAD_GLAPI_EXPORT"/>
+					<Add directory="/home/mattia/CLionProjects/Thesis/src"/>
+					<Add directory="/home/mattia/CLionProjects/Thesis/resources"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/include"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/nanovg/src"/>
@@ -397,6 +419,8 @@
 					<Add option="-DNANOGUI_SHARED"/>
 					<Add option="-DNVG_SHARED"/>
 					<Add option="-DGLAD_GLAPI_EXPORT"/>
+					<Add directory="/home/mattia/CLionProjects/Thesis/src"/>
+					<Add directory="/home/mattia/CLionProjects/Thesis/resources"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/include"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/nanovg/src"/>
@@ -426,6 +450,8 @@
 				<Option type="3"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/home/mattia/CLionProjects/Thesis/src"/>
+					<Add directory="/home/mattia/CLionProjects/Thesis/resources"/>
 					<Add directory="/usr/include/c++/6"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
 					<Add directory="/usr/include/c++/6/backward"/>
@@ -449,6 +475,8 @@
 				<Option type="3"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/home/mattia/CLionProjects/Thesis/src"/>
+					<Add directory="/home/mattia/CLionProjects/Thesis/resources"/>
 					<Add directory="/usr/include/c++/6"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
 					<Add directory="/usr/include/c++/6/backward"/>
@@ -473,6 +501,8 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add option="-D_GLFW_USE_CONFIG_H"/>
+					<Add directory="/home/mattia/CLionProjects/Thesis/src"/>
+					<Add directory="/home/mattia/CLionProjects/Thesis/resources"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/include"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext_build/glfw/src"/>
@@ -500,6 +530,8 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add option="-D_GLFW_USE_CONFIG_H"/>
+					<Add directory="/home/mattia/CLionProjects/Thesis/src"/>
+					<Add directory="/home/mattia/CLionProjects/Thesis/resources"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/include"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext_build/glfw/src"/>

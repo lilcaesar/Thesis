@@ -12,6 +12,8 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "lib/nanogui/ext/eigen/test"
   "../lib/nanogui/ext/eigen/test"
+  "../src"
+  "../resources"
   "../lib/nanogui/include"
   "../lib/nanogui/ext/eigen"
   "lib/nanogui/ext/eigen"

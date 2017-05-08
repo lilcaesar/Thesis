@@ -17,6 +17,8 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "lib/nanogui/ext/eigen/doc/examples"
   "../lib/nanogui/ext/eigen/doc/examples"
+  "../src"
+  "../resources"
   "../lib/nanogui/include"
   "../lib/nanogui/ext/eigen"
   "lib/nanogui/ext/eigen"

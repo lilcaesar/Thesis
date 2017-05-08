@@ -21,38 +21,25 @@ public:
     MeshCanvas(Widget *parent) : nanogui::GLCanvas(parent){
         using namespace nanogui;
 
-        //TODO Eliminare il warning "did not find uniform .."
-        mShader.initFromFiles("Nanogui Shader", "./src/shader/vertexShader.vert", "./src/shader/fragmentShader.frag");
-        //mShader.init(
-                /* An identifying name */
-        //        "Nanogui Shader",
+        //Caricamento shaders
+        std::string vertexShaderFilePath, fragmentShaderFilePath;
+        std::vector<std::pair<std::string, std::string>> fileTypes;
+        fileTypes.push_back(std::make_pair("vert", "vertex shader file"));
 
-                /* Vertex shader */
-        //        "#version 330\n"
-        //                "uniform mat4 modelViewProj;\n"
-        //                "uniform mat4 projection;\n"
-        //                "out vec4 frag_color;\n"
-        //                "in vec3 vertices;\n"
-        //                "in vec3 color;\n"
-        //                "void main() {\n"
-        //                "    frag_color = 3.0 * modelViewProj * vec4(color, 1.0);\n"
-        //                "    gl_Position = projection * modelViewProj * vec4(vertices, 1.0);\n"
-        //                "}",
+        vertexShaderFilePath = nanogui::file_dialog(fileTypes, false);
 
-                /* Fragment shader */
-        //        "#version 330\n"
-         //               "out vec4 color;\n"
-        //                "in vec4 frag_color;\n"
-        //                "void main() {\n"
-        //                "    color = frag_color;\n"
-        //                "}"
-        //);
+        fileTypes.clear();
+        fileTypes.push_back(std::make_pair("frag", "fragent shader file"));
+
+        fragmentShaderFilePath = nanogui::file_dialog(fileTypes, false);
+
+        mShader.initFromFiles("Nanogui Shader", vertexShaderFilePath.c_str(), fragmentShaderFilePath.c_str());
 
         //Caricamento del file
         std::vector<int> tempFaces;
         std::vector<double> tempVertices;
 
-        std::vector<std::pair<std::string, std::string>> fileTypes;
+        fileTypes.clear();
         fileTypes.push_back(std::make_pair("obj", "obj file"));
 
         std::string filePath;
@@ -141,18 +128,18 @@ public:
         mShader.bind();
 
         Matrix4f mvp;
-        Matrix4f proj;
+        //Matrix4f proj;
         mvp.setIdentity();
-        proj.setIdentity();
+        //proj.setIdentity();
         Vector3f scaleVector = {scaleFactor, scaleFactor, scaleFactor};
 
-        proj = frustum(-10, 10, -10, 10, 10, -40);
-        proj.transposeInPlace();
+        //proj = frustum(-10, 10, -10, 10, 10, -40);
+        //proj.transposeInPlace();
 
         mvp = scale(scaleVector);
 
         mShader.setUniform("modelViewProj", mvp);
-        mShader.setUniform("projection", proj);
+        //mShader.setUniform("projection", proj);
 
         /* Funzioni per la gestione dello Z-buffer*/
         glClearDepth(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);

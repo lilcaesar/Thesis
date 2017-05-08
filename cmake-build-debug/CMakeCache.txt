@@ -631,6 +631,9 @@ SUPERLU_LIBRARIES:FILEPATH=SUPERLU_LIBRARIES-NOTFOUND
 //Path to a program.
 SVNCOMMAND:FILEPATH=SVNCOMMAND-NOTFOUND
 
+//The directory containing a CMake configuration file for StandardMathLibrary.
+StandardMathLibrary_DIR:PATH=StandardMathLibrary_DIR-NOTFOUND
+
 //Value Computed by CMake
 Thesis_BINARY_DIR:STATIC=/home/mattia/CLionProjects/Thesis/cmake-build-debug
 
@@ -648,6 +651,12 @@ VULKAN_INCLUDE_DIR:PATH=/usr/include
 
 //Path to a library.
 VULKAN_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libvulkan.so
+
+//Path to a file.
+Vulkan_INCLUDE_DIR:PATH=/usr/include
+
+//Path to a library.
+Vulkan_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libvulkan.so
 
 //Path to a file.
 X11_ICE_INCLUDE_PATH:PATH=/usr/include
@@ -1271,6 +1280,10 @@ UMFPACK_LIBRARIES-ADVANCED:INTERNAL=1
 VULKAN_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: VULKAN_LIBRARY
 VULKAN_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Vulkan_INCLUDE_DIR
+Vulkan_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Vulkan_LIBRARY
+Vulkan_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: X11_ICE_INCLUDE_PATH
 X11_ICE_INCLUDE_PATH-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: X11_ICE_LIB

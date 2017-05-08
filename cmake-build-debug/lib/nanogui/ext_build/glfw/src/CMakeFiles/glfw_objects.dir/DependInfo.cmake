@@ -29,6 +29,8 @@ set(CMAKE_TARGET_DEFINITIONS_C
 
 # The include file search paths:
 set(CMAKE_C_TARGET_INCLUDE_PATH
+  "../src"
+  "../resources"
   "../lib/nanogui/ext/glfw/include"
   "../lib/nanogui/ext/glfw/src"
   "lib/nanogui/ext_build/glfw/src"

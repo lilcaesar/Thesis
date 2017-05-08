@@ -1,0 +1,1351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="NanoGUI"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\ext\;CMake Files\ext\glfw\;CMake Files\ext\glfw\CMake\;CMake Files\ext\glfw\CMake\modules\;CMake Files\ext\glfw\src\;CMake Files\ext\pybind11\;CMake Files\ext\pybind11\tools\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/local">
+				<Option working_dir="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 install/local"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/strip">
+				<Option working_dir="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 install/strip"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="list_install_components">
+				<Option working_dir="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 list_install_components"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="nanogui">
+				<Option output="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/libnanogui.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DCORO_SJLJ"/>
+					<Add option="-DNANOGUI_PYTHON"/>
+					<Add option="-DNANOGUI_SHARED"/>
+					<Add option="-DNVG_SHARED"/>
+					<Add option="-DGLAD_GLAPI_EXPORT"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/eigen"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/glfw/include"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/nanovg/src"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/include"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/coro"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/pybind11/include"/>
+					<Add directory="/usr/include/python3.5m"/>
+					<Add directory="/usr/include/c++/6"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
+					<Add directory="/usr/include/c++/6/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 nanogui"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="nanogui/fast">
+				<Option output="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/libnanogui.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DCORO_SJLJ"/>
+					<Add option="-DNANOGUI_PYTHON"/>
+					<Add option="-DNANOGUI_SHARED"/>
+					<Add option="-DNVG_SHARED"/>
+					<Add option="-DGLAD_GLAPI_EXPORT"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/eigen"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/glfw/include"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/nanovg/src"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/include"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/coro"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/pybind11/include"/>
+					<Add directory="/usr/include/python3.5m"/>
+					<Add directory="/usr/include/c++/6"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
+					<Add directory="/usr/include/c++/6/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 nanogui/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="nanogui-obj">
+				<Option output="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/CMakeFiles/nanogui-obj.dir/nanogui-obj.objlib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DNANOGUI_BUILD"/>
+					<Add option="-D_GLFW_BUILD_DLL"/>
+					<Add option="-DCORO_SJLJ"/>
+					<Add option="-DNANOGUI_PYTHON"/>
+					<Add option="-DNANOGUI_SHARED"/>
+					<Add option="-DNVG_SHARED"/>
+					<Add option="-DGLAD_GLAPI_EXPORT"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/eigen"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/glfw/include"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/nanovg/src"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/include"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/coro"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/pybind11/include"/>
+					<Add directory="/usr/include/python3.5m"/>
+					<Add directory="/usr/include/c++/6"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
+					<Add directory="/usr/include/c++/6/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 nanogui-obj"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="nanogui-obj/fast">
+				<Option output="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/CMakeFiles/nanogui-obj.dir/nanogui-obj.objlib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DNANOGUI_BUILD"/>
+					<Add option="-D_GLFW_BUILD_DLL"/>
+					<Add option="-DCORO_SJLJ"/>
+					<Add option="-DNANOGUI_PYTHON"/>
+					<Add option="-DNANOGUI_SHARED"/>
+					<Add option="-DNVG_SHARED"/>
+					<Add option="-DGLAD_GLAPI_EXPORT"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/eigen"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/glfw/include"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/nanovg/src"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/include"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/coro"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/pybind11/include"/>
+					<Add directory="/usr/include/python3.5m"/>
+					<Add directory="/usr/include/c++/6"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
+					<Add directory="/usr/include/c++/6/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 nanogui-obj/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="example1">
+				<Option output="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/example1" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DCORO_SJLJ"/>
+					<Add option="-DNANOGUI_PYTHON"/>
+					<Add option="-DNANOGUI_SHARED"/>
+					<Add option="-DNVG_SHARED"/>
+					<Add option="-DGLAD_GLAPI_EXPORT"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/eigen"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/glfw/include"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/nanovg/src"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/include"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/coro"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/pybind11/include"/>
+					<Add directory="/usr/include/python3.5m"/>
+					<Add directory="/usr/include/c++/6"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
+					<Add directory="/usr/include/c++/6/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 example1"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="example1/fast">
+				<Option output="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/example1" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DCORO_SJLJ"/>
+					<Add option="-DNANOGUI_PYTHON"/>
+					<Add option="-DNANOGUI_SHARED"/>
+					<Add option="-DNVG_SHARED"/>
+					<Add option="-DGLAD_GLAPI_EXPORT"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/eigen"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/glfw/include"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/nanovg/src"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/include"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/coro"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/pybind11/include"/>
+					<Add directory="/usr/include/python3.5m"/>
+					<Add directory="/usr/include/c++/6"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
+					<Add directory="/usr/include/c++/6/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 example1/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="example2">
+				<Option output="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/example2" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DCORO_SJLJ"/>
+					<Add option="-DNANOGUI_PYTHON"/>
+					<Add option="-DNANOGUI_SHARED"/>
+					<Add option="-DNVG_SHARED"/>
+					<Add option="-DGLAD_GLAPI_EXPORT"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/eigen"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/glfw/include"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/nanovg/src"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/include"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/coro"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/pybind11/include"/>
+					<Add directory="/usr/include/python3.5m"/>
+					<Add directory="/usr/include/c++/6"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
+					<Add directory="/usr/include/c++/6/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 example2"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="example2/fast">
+				<Option output="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/example2" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DCORO_SJLJ"/>
+					<Add option="-DNANOGUI_PYTHON"/>
+					<Add option="-DNANOGUI_SHARED"/>
+					<Add option="-DNVG_SHARED"/>
+					<Add option="-DGLAD_GLAPI_EXPORT"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/eigen"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/glfw/include"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/nanovg/src"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/include"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/coro"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/pybind11/include"/>
+					<Add directory="/usr/include/python3.5m"/>
+					<Add directory="/usr/include/c++/6"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
+					<Add directory="/usr/include/c++/6/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 example2/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="example3">
+				<Option output="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/example3" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DCORO_SJLJ"/>
+					<Add option="-DNANOGUI_PYTHON"/>
+					<Add option="-DNANOGUI_SHARED"/>
+					<Add option="-DNVG_SHARED"/>
+					<Add option="-DGLAD_GLAPI_EXPORT"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/eigen"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/glfw/include"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/nanovg/src"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/include"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/coro"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/pybind11/include"/>
+					<Add directory="/usr/include/python3.5m"/>
+					<Add directory="/usr/include/c++/6"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
+					<Add directory="/usr/include/c++/6/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 example3"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="example3/fast">
+				<Option output="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/example3" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DCORO_SJLJ"/>
+					<Add option="-DNANOGUI_PYTHON"/>
+					<Add option="-DNANOGUI_SHARED"/>
+					<Add option="-DNVG_SHARED"/>
+					<Add option="-DGLAD_GLAPI_EXPORT"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/eigen"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/glfw/include"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/nanovg/src"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/include"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/coro"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/pybind11/include"/>
+					<Add directory="/usr/include/python3.5m"/>
+					<Add directory="/usr/include/c++/6"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
+					<Add directory="/usr/include/c++/6/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 example3/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="example4">
+				<Option output="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/example4" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DCORO_SJLJ"/>
+					<Add option="-DNANOGUI_PYTHON"/>
+					<Add option="-DNANOGUI_SHARED"/>
+					<Add option="-DNVG_SHARED"/>
+					<Add option="-DGLAD_GLAPI_EXPORT"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/eigen"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/glfw/include"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/nanovg/src"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/include"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/coro"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/pybind11/include"/>
+					<Add directory="/usr/include/python3.5m"/>
+					<Add directory="/usr/include/c++/6"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
+					<Add directory="/usr/include/c++/6/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 example4"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="example4/fast">
+				<Option output="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/example4" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DCORO_SJLJ"/>
+					<Add option="-DNANOGUI_PYTHON"/>
+					<Add option="-DNANOGUI_SHARED"/>
+					<Add option="-DNVG_SHARED"/>
+					<Add option="-DGLAD_GLAPI_EXPORT"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/eigen"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/glfw/include"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/nanovg/src"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/include"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/coro"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/pybind11/include"/>
+					<Add directory="/usr/include/python3.5m"/>
+					<Add directory="/usr/include/c++/6"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
+					<Add directory="/usr/include/c++/6/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 example4/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="nanogui-python">
+				<Option output="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/python/nanogui.cpython-35m-x86_64-linux-gnu.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DCORO_SJLJ"/>
+					<Add option="-DNANOGUI_PYTHON"/>
+					<Add option="-DNANOGUI_SHARED"/>
+					<Add option="-DNVG_SHARED"/>
+					<Add option="-DGLAD_GLAPI_EXPORT"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/eigen"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/glfw/include"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/nanovg/src"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/include"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/coro"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/pybind11/include"/>
+					<Add directory="/usr/include/python3.5m"/>
+					<Add directory="/usr/include/c++/6"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
+					<Add directory="/usr/include/c++/6/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 nanogui-python"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="nanogui-python/fast">
+				<Option output="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/python/nanogui.cpython-35m-x86_64-linux-gnu.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DCORO_SJLJ"/>
+					<Add option="-DNANOGUI_PYTHON"/>
+					<Add option="-DNANOGUI_SHARED"/>
+					<Add option="-DNVG_SHARED"/>
+					<Add option="-DGLAD_GLAPI_EXPORT"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/eigen"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/glfw/include"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/nanovg/src"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/include"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/coro"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/pybind11/include"/>
+					<Add directory="/usr/include/python3.5m"/>
+					<Add directory="/usr/include/c++/6"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
+					<Add directory="/usr/include/c++/6/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 nanogui-python/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="nanogui-python-obj">
+				<Option output="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/CMakeFiles/nanogui-python-obj.dir/nanogui-python-obj.objlib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DCORO_SJLJ"/>
+					<Add option="-DNANOGUI_PYTHON"/>
+					<Add option="-DNANOGUI_SHARED"/>
+					<Add option="-DNVG_SHARED"/>
+					<Add option="-DGLAD_GLAPI_EXPORT"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/eigen"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/glfw/include"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/nanovg/src"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/include"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/coro"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/pybind11/include"/>
+					<Add directory="/usr/include/python3.5m"/>
+					<Add directory="/usr/include/c++/6"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
+					<Add directory="/usr/include/c++/6/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 nanogui-python-obj"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="nanogui-python-obj/fast">
+				<Option output="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/CMakeFiles/nanogui-python-obj.dir/nanogui-python-obj.objlib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DCORO_SJLJ"/>
+					<Add option="-DNANOGUI_PYTHON"/>
+					<Add option="-DNANOGUI_SHARED"/>
+					<Add option="-DNVG_SHARED"/>
+					<Add option="-DGLAD_GLAPI_EXPORT"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/eigen"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/glfw/include"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/nanovg/src"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/include"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/coro"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/pybind11/include"/>
+					<Add directory="/usr/include/python3.5m"/>
+					<Add directory="/usr/include/c++/6"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
+					<Add directory="/usr/include/c++/6/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 nanogui-python-obj/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install">
+				<Option working_dir="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 install"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="mkdoc">
+				<Option working_dir="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 mkdoc"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="glfw">
+				<Option output="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/ext_build/glfw/src/libglfw.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/ext_build/glfw/src"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/6"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
+					<Add directory="/usr/include/c++/6/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/ext_build/glfw/src/Makefile&quot;  VERBOSE=1 glfw"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/ext_build/glfw/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/ext_build/glfw/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/ext_build/glfw/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="glfw/fast">
+				<Option output="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/ext_build/glfw/src/libglfw.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/ext_build/glfw/src"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/6"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
+					<Add directory="/usr/include/c++/6/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/ext_build/glfw/src/Makefile&quot;  VERBOSE=1 glfw/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/ext_build/glfw/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/ext_build/glfw/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/ext_build/glfw/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="glfw_objects">
+				<Option output="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/glfw_objects.objlib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/ext_build/glfw/src"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D_GLFW_USE_CONFIG_H"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/glfw/include"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/glfw/src"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/ext_build/glfw/src"/>
+					<Add directory="/usr/include/c++/6"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
+					<Add directory="/usr/include/c++/6/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/ext_build/glfw/src/Makefile&quot;  VERBOSE=1 glfw_objects"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/ext_build/glfw/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/ext_build/glfw/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/ext_build/glfw/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="glfw_objects/fast">
+				<Option output="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/glfw_objects.objlib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/ext_build/glfw/src"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D_GLFW_USE_CONFIG_H"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/glfw/include"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/ext/glfw/src"/>
+					<Add directory="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/ext_build/glfw/src"/>
+					<Add directory="/usr/include/c++/6"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
+					<Add directory="/usr/include/c++/6/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/ext_build/glfw/src/Makefile&quot;  VERBOSE=1 glfw_objects/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/ext_build/glfw/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/ext_build/glfw/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/ext_build/glfw/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/CMakeFiles/nanogui-obj.dir/ext/nanovg/src/nanovg.c.o">
+			<Option target="nanogui"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/CMakeFiles/nanogui-obj.dir/nanogui_resources.cpp.o">
+			<Option target="nanogui"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/CMakeFiles/nanogui-obj.dir/src/button.cpp.o">
+			<Option target="nanogui"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/CMakeFiles/nanogui-obj.dir/src/checkbox.cpp.o">
+			<Option target="nanogui"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/CMakeFiles/nanogui-obj.dir/src/colorpicker.cpp.o">
+			<Option target="nanogui"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/CMakeFiles/nanogui-obj.dir/src/colorwheel.cpp.o">
+			<Option target="nanogui"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/CMakeFiles/nanogui-obj.dir/src/combobox.cpp.o">
+			<Option target="nanogui"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/CMakeFiles/nanogui-obj.dir/src/common.cpp.o">
+			<Option target="nanogui"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/CMakeFiles/nanogui-obj.dir/src/glcanvas.cpp.o">
+			<Option target="nanogui"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/CMakeFiles/nanogui-obj.dir/src/glutil.cpp.o">
+			<Option target="nanogui"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/CMakeFiles/nanogui-obj.dir/src/graph.cpp.o">
+			<Option target="nanogui"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/CMakeFiles/nanogui-obj.dir/src/imagepanel.cpp.o">
+			<Option target="nanogui"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/CMakeFiles/nanogui-obj.dir/src/imageview.cpp.o">
+			<Option target="nanogui"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/CMakeFiles/nanogui-obj.dir/src/label.cpp.o">
+			<Option target="nanogui"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/CMakeFiles/nanogui-obj.dir/src/layout.cpp.o">
+			<Option target="nanogui"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/CMakeFiles/nanogui-obj.dir/src/messagedialog.cpp.o">
+			<Option target="nanogui"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/CMakeFiles/nanogui-obj.dir/src/popup.cpp.o">
+			<Option target="nanogui"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/CMakeFiles/nanogui-obj.dir/src/popupbutton.cpp.o">
+			<Option target="nanogui"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/CMakeFiles/nanogui-obj.dir/src/progressbar.cpp.o">
+			<Option target="nanogui"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/CMakeFiles/nanogui-obj.dir/src/screen.cpp.o">
+			<Option target="nanogui"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/CMakeFiles/nanogui-obj.dir/src/serializer.cpp.o">
+			<Option target="nanogui"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/CMakeFiles/nanogui-obj.dir/src/slider.cpp.o">
+			<Option target="nanogui"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/CMakeFiles/nanogui-obj.dir/src/stackedwidget.cpp.o">
+			<Option target="nanogui"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/CMakeFiles/nanogui-obj.dir/src/tabheader.cpp.o">
+			<Option target="nanogui"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/CMakeFiles/nanogui-obj.dir/src/tabwidget.cpp.o">
+			<Option target="nanogui"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/CMakeFiles/nanogui-obj.dir/src/textbox.cpp.o">
+			<Option target="nanogui"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/CMakeFiles/nanogui-obj.dir/src/theme.cpp.o">
+			<Option target="nanogui"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/CMakeFiles/nanogui-obj.dir/src/vscrollpanel.cpp.o">
+			<Option target="nanogui"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/CMakeFiles/nanogui-obj.dir/src/widget.cpp.o">
+			<Option target="nanogui"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/CMakeFiles/nanogui-obj.dir/src/window.cpp.o">
+			<Option target="nanogui"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/CMakeFiles/nanogui-python-obj.dir/ext/coro/coro.c.o">
+			<Option target="nanogui-python"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/CMakeFiles/nanogui-python-obj.dir/python/basics.cpp.o">
+			<Option target="nanogui-python"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/CMakeFiles/nanogui-python-obj.dir/python/button.cpp.o">
+			<Option target="nanogui-python"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/CMakeFiles/nanogui-python-obj.dir/python/constants.cpp.o">
+			<Option target="nanogui-python"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/CMakeFiles/nanogui-python-obj.dir/python/eigen.cpp.o">
+			<Option target="nanogui-python"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/CMakeFiles/nanogui-python-obj.dir/python/formhelper.cpp.o">
+			<Option target="nanogui-python"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/CMakeFiles/nanogui-python-obj.dir/python/glcanvas.cpp.o">
+			<Option target="nanogui-python"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/CMakeFiles/nanogui-python-obj.dir/python/glutil.cpp.o">
+			<Option target="nanogui-python"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/CMakeFiles/nanogui-python-obj.dir/python/layout.cpp.o">
+			<Option target="nanogui-python"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/CMakeFiles/nanogui-python-obj.dir/python/main.cpp.o">
+			<Option target="nanogui-python"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/CMakeFiles/nanogui-python-obj.dir/python/misc.cpp.o">
+			<Option target="nanogui-python"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/CMakeFiles/nanogui-python-obj.dir/python/nanovg.cpp.o">
+			<Option target="nanogui-python"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/CMakeFiles/nanogui-python-obj.dir/python/tabs.cpp.o">
+			<Option target="nanogui-python"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/CMakeFiles/nanogui-python-obj.dir/python/textbox.cpp.o">
+			<Option target="nanogui-python"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/CMakeFiles/nanogui-python-obj.dir/python/widget.cpp.o">
+			<Option target="nanogui-python"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/context.c.o">
+			<Option target="nanogui"/>
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/egl_context.c.o">
+			<Option target="nanogui"/>
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/glx_context.c.o">
+			<Option target="nanogui"/>
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/init.c.o">
+			<Option target="nanogui"/>
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/input.c.o">
+			<Option target="nanogui"/>
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/linux_joystick.c.o">
+			<Option target="nanogui"/>
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/monitor.c.o">
+			<Option target="nanogui"/>
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/posix_time.c.o">
+			<Option target="nanogui"/>
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/posix_tls.c.o">
+			<Option target="nanogui"/>
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/vulkan.c.o">
+			<Option target="nanogui"/>
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/window.c.o">
+			<Option target="nanogui"/>
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/x11_init.c.o">
+			<Option target="nanogui"/>
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/x11_monitor.c.o">
+			<Option target="nanogui"/>
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/x11_window.c.o">
+			<Option target="nanogui"/>
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/xkb_unicode.c.o">
+			<Option target="nanogui"/>
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/ext_build/glfw/src/glfw_config.h">
+			<Option target="glfw_objects"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/nanogui_resources.cpp">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/cmake-build-debug/nanogui_resources.cpp.rule">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/ext/coro/coro.c">
+			<Option target="nanogui-python-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/ext/coro/coro.h">
+			<Option target="nanogui-python-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/ext/glfw/include/GLFW/glfw3.h">
+			<Option target="glfw_objects"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/ext/glfw/include/GLFW/glfw3native.h">
+			<Option target="glfw_objects"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/ext/glfw/src/context.c">
+			<Option target="glfw_objects"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/ext/glfw/src/egl_context.c">
+			<Option target="glfw_objects"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/ext/glfw/src/egl_context.h">
+			<Option target="glfw_objects"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/ext/glfw/src/glx_context.c">
+			<Option target="glfw_objects"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/ext/glfw/src/glx_context.h">
+			<Option target="glfw_objects"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/ext/glfw/src/init.c">
+			<Option target="glfw_objects"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/ext/glfw/src/input.c">
+			<Option target="glfw_objects"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/ext/glfw/src/internal.h">
+			<Option target="glfw_objects"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/ext/glfw/src/linux_joystick.c">
+			<Option target="glfw_objects"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/ext/glfw/src/linux_joystick.h">
+			<Option target="glfw_objects"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/ext/glfw/src/monitor.c">
+			<Option target="glfw_objects"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/ext/glfw/src/posix_time.c">
+			<Option target="glfw_objects"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/ext/glfw/src/posix_time.h">
+			<Option target="glfw_objects"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/ext/glfw/src/posix_tls.c">
+			<Option target="glfw_objects"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/ext/glfw/src/posix_tls.h">
+			<Option target="glfw_objects"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/ext/glfw/src/vulkan.c">
+			<Option target="glfw_objects"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/ext/glfw/src/window.c">
+			<Option target="glfw_objects"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/ext/glfw/src/x11_init.c">
+			<Option target="glfw_objects"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/ext/glfw/src/x11_monitor.c">
+			<Option target="glfw_objects"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/ext/glfw/src/x11_platform.h">
+			<Option target="glfw_objects"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/ext/glfw/src/x11_window.c">
+			<Option target="glfw_objects"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/ext/glfw/src/xkb_unicode.c">
+			<Option target="glfw_objects"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/ext/glfw/src/xkb_unicode.h">
+			<Option target="glfw_objects"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/ext/nanovg/src/nanovg.c">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/ext/nanovg/src/nanovg.h">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/include/nanogui/button.h">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/include/nanogui/checkbox.h">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/include/nanogui/colorpicker.h">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/include/nanogui/colorwheel.h">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/include/nanogui/combobox.h">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/include/nanogui/common.h">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/include/nanogui/formhelper.h">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/include/nanogui/glcanvas.h">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/include/nanogui/glutil.h">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/include/nanogui/graph.h">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/include/nanogui/imagepanel.h">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/include/nanogui/imageview.h">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/include/nanogui/label.h">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/include/nanogui/layout.h">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/include/nanogui/messagedialog.h">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/include/nanogui/nanogui.h">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/include/nanogui/opengl.h">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/include/nanogui/popup.h">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/include/nanogui/popupbutton.h">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/include/nanogui/progressbar.h">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/include/nanogui/screen.h">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/include/nanogui/serializer/core.h">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/include/nanogui/serializer/opengl.h">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/include/nanogui/serializer/sparse.h">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/include/nanogui/slider.h">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/include/nanogui/stackedwidget.h">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/include/nanogui/tabheader.h">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/include/nanogui/tabwidget.h">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/include/nanogui/textbox.h">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/include/nanogui/theme.h">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/include/nanogui/toolbutton.h">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/include/nanogui/vscrollpanel.h">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/include/nanogui/widget.h">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/include/nanogui/window.h">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/python/basics.cpp">
+			<Option target="nanogui-python-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/python/button.cpp">
+			<Option target="nanogui-python-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/python/constants.cpp">
+			<Option target="nanogui-python-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/python/eigen.cpp">
+			<Option target="nanogui-python-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/python/formhelper.cpp">
+			<Option target="nanogui-python-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/python/glcanvas.cpp">
+			<Option target="nanogui-python-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/python/glutil.cpp">
+			<Option target="nanogui-python-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/python/layout.cpp">
+			<Option target="nanogui-python-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/python/main.cpp">
+			<Option target="nanogui-python-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/python/misc.cpp">
+			<Option target="nanogui-python-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/python/nanovg.cpp">
+			<Option target="nanogui-python-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/python/py_doc.h">
+			<Option target="nanogui-python-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/python/python.h">
+			<Option target="nanogui-python-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/python/tabs.cpp">
+			<Option target="nanogui-python-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/python/textbox.cpp">
+			<Option target="nanogui-python-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/python/widget.cpp">
+			<Option target="nanogui-python-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/src/button.cpp">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/src/checkbox.cpp">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/src/colorpicker.cpp">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/src/colorwheel.cpp">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/src/combobox.cpp">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/src/common.cpp">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/src/example1.cpp">
+			<Option target="example1"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/src/example2.cpp">
+			<Option target="example2"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/src/example3.cpp">
+			<Option target="example3"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/src/example4.cpp">
+			<Option target="example4"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/src/glcanvas.cpp">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/src/glutil.cpp">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/src/graph.cpp">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/src/imagepanel.cpp">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/src/imageview.cpp">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/src/label.cpp">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/src/layout.cpp">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/src/messagedialog.cpp">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/src/popup.cpp">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/src/popupbutton.cpp">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/src/progressbar.cpp">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/src/screen.cpp">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/src/serializer.cpp">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/src/slider.cpp">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/src/stackedwidget.cpp">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/src/tabheader.cpp">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/src/tabwidget.cpp">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/src/textbox.cpp">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/src/theme.cpp">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/src/vscrollpanel.cpp">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/src/widget.cpp">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/src/window.cpp">
+			<Option target="nanogui-obj"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/ext/glfw/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\ext\glfw\"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/ext/glfw/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\ext\glfw\"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/ext/glfw/CMake/modules/FindVulkan.cmake">
+			<Option virtualFolder="CMake Files\ext\glfw\CMake\modules\"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/ext/glfw/CMake/modules/FindVulkan.cmake">
+			<Option virtualFolder="CMake Files\ext\glfw\CMake\modules\"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/ext/glfw/src/glfw3Config.cmake.in">
+			<Option virtualFolder="CMake Files\ext\glfw\src\"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/ext/glfw/src/glfw_config.h.in">
+			<Option virtualFolder="CMake Files\ext\glfw\src\"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/ext/glfw/src/glfw3.pc.in">
+			<Option virtualFolder="CMake Files\ext\glfw\src\"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/ext/glfw/src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\ext\glfw\src\"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/ext/glfw/src/glfw3Config.cmake.in">
+			<Option virtualFolder="CMake Files\ext\glfw\src\"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/ext/glfw/src/glfw_config.h.in">
+			<Option virtualFolder="CMake Files\ext\glfw\src\"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/ext/glfw/src/glfw3.pc.in">
+			<Option virtualFolder="CMake Files\ext\glfw\src\"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/ext/glfw/src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\ext\glfw\src\"/>
+		</Unit>
+		<Unit filename="/home/mattia/Projects/Nanogui/nanogui-master/ext/pybind11/tools/FindPythonLibsNew.cmake">
+			<Option virtualFolder="CMake Files\ext\pybind11\tools\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
