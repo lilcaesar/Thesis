@@ -224,6 +224,8 @@ vector
 nanogui/widget.h
 -
 
+../src/CalculateNormals.h
+
 /home/mattia/CLionProjects/Thesis/Fabrizio/importFiles.cpp
 importFiles.h
 /home/mattia/CLionProjects/Thesis/Fabrizio/importFiles.h
@@ -258,5 +260,7 @@ nanogui/glutil.h
 GL/gl.h
 -
 importFiles.h
+-
+CalculateNormals.h
 -
 

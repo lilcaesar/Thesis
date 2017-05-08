@@ -7,6 +7,7 @@
 #include <nanogui/glutil.h>
 #include <GL/gl.h>
 #include <importFiles.h>
+#include <CalculateNormals.h>
 
 /*TODO
  * -Inserire vista prospetica (al momento è ortogonale di default)
@@ -18,7 +19,7 @@ using namespace nanogui;
 
 class MeshCanvas : public nanogui::GLCanvas {
 public:
-    MeshCanvas(Widget *parent) : nanogui::GLCanvas(parent){
+    MeshCanvas(Widget *parent) : nanogui::GLCanvas(parent) {
         using namespace nanogui;
 
         //Caricamento shaders
@@ -48,8 +49,8 @@ public:
         loadOBJ(filePath.c_str(), tempVertices, tempFaces);
 
         //Salvo il numero di vertici e facce della mesh
-        unsigned long nVertices = (tempVertices.size())/3;
-        nFaces = (uint32_t) (tempFaces.size())/3;
+        unsigned long nVertices = (tempVertices.size()) / 3;
+        nFaces = (uint32_t) (tempFaces.size()) / 3;
 
         //TODO verificare che le prossime operazioni fatte prima del caricamento su matrice siano più dispendiose rispetto a farle sulle matrici stesse
 
@@ -57,10 +58,10 @@ public:
         double maxVertex = (*std::max_element(tempVertices.begin(), tempVertices.end()));
         double minVertex = (*std::min_element(tempVertices.begin(), tempVertices.end()));
 
-        if(maxVertex > abs(minVertex))
-            scaleFactor = std::abs(1/maxVertex);
+        if (maxVertex > abs(minVertex))
+            scaleFactor = std::abs(1 / maxVertex);
         else
-            scaleFactor = std::abs(1/minVertex);
+            scaleFactor = std::abs(1 / minVertex);
 
 
 
@@ -71,20 +72,20 @@ public:
         std::vector<double> YValues;
         std::vector<double> ZValues;
 
-        for(unsigned long i=0; i < nVertices; i++){
-            XValues.push_back(tempVertices[(3*i)]);
-            YValues.push_back(tempVertices[(3*i)+1]);
-            ZValues.push_back(tempVertices[(3*i)+2]);
+        for (unsigned long i = 0; i < nVertices; i++) {
+            XValues.push_back(tempVertices[(3 * i)]);
+            YValues.push_back(tempVertices[(3 * i) + 1]);
+            ZValues.push_back(tempVertices[(3 * i) + 2]);
         }
 
-        std::min_element(XValues.begin(),XValues.end());
+        std::min_element(XValues.begin(), XValues.end());
 
-        frustumLeft = (*std::min_element(XValues.begin(),XValues.end()));
-        frustumRight = (*std::max_element(XValues.begin(),XValues.end()));
-        frustumBottom = (*std::min_element(YValues.begin(),YValues.end()));
-        frustumTop = (*std::max_element(YValues.begin(),YValues.end()));
-        frustumNear = (*std::max_element(ZValues.begin(),ZValues.end()));
-        frustumFar = (*std::min_element(ZValues.begin(),ZValues.end()));
+        frustumLeft = (*std::min_element(XValues.begin(), XValues.end()));
+        frustumRight = (*std::max_element(XValues.begin(), XValues.end()));
+        frustumBottom = (*std::min_element(YValues.begin(), YValues.end()));
+        frustumTop = (*std::max_element(YValues.begin(), YValues.end()));
+        frustumNear = (*std::max_element(ZValues.begin(), ZValues.end()));
+        frustumFar = (*std::min_element(ZValues.begin(), ZValues.end()));
 
 
 
@@ -92,13 +93,13 @@ public:
 
         //CARICAMENTO VECTOR SU MATRIX
         Eigen::MatrixXd vertices(3, nVertices);
-        for(unsigned long i=0; i < nVertices; i++){
-            vertices.col(i) << tempVertices[(3*i)], tempVertices[(3*i)+1], tempVertices[(3*i)+2];
+        for (unsigned long i = 0; i < nVertices; i++) {
+            vertices.col(i) << tempVertices[(3 * i)], tempVertices[(3 * i) + 1], tempVertices[(3 * i) + 2];
         }
 
         Eigen::MatrixXi faces(3, nFaces);
-        for(int32_t i=0; i < nFaces; i++){
-            faces.col(i) << tempFaces[(3*i)], tempFaces[(3*i)+1], tempFaces[(3*i)+2];
+        for (int32_t i = 0; i < nFaces; i++) {
+            faces.col(i) << tempFaces[(3 * i)], tempFaces[(3 * i) + 1], tempFaces[(3 * i) + 2];
         }
 
         mShader.bind();
@@ -112,11 +113,11 @@ public:
         mShader.free();
     }
 
-    void setScaleFactor(float scale){
+    void setScaleFactor(float scale) {
         scaleFactor = scale;
     }
 
-    double getScaleFactor(){
+    double getScaleFactor() {
         return scaleFactor;
     }
 
@@ -162,11 +163,11 @@ private:
 
 class NanoguiMeshViewer : public nanogui::Screen {
 public:
-    NanoguiMeshViewer():nanogui::Screen(Eigen::Vector2i(800,800), "Nanogui Mesh Viewer"){
+    NanoguiMeshViewer() : nanogui::Screen(Eigen::Vector2i(800, 800), "Nanogui Mesh Viewer") {
         using namespace nanogui;
 
         Window *window = new Window(this, "Model Canvas");
-        window->setPosition(Vector2i(0,0));
+        window->setPosition(Vector2i(0, 0));
         window->setLayout(new GroupLayout());
 
         mCanvas = new MeshCanvas(window);
@@ -183,7 +184,7 @@ public:
             scaleFloatBox->setFixedSize(Vector2i(100, 20));
             scaleFloatBox->setValue(mCanvas->getScaleFactor());
             scaleFloatBox->setFontSize(16);
-            scaleFloatBox->setValueIncrement(mCanvas->getScaleFactor()/10);
+            scaleFloatBox->setValueIncrement(mCanvas->getScaleFactor() / 10);
             scaleFloatBox->setMinValue(0);
             scaleFloatBox->setEditable(true);
             scaleFloatBox->setSpinnable(true);
@@ -210,6 +211,7 @@ public:
         /* Draw the user interface */
         Screen::draw(ctx);
     }
+
 private:
     MeshCanvas *mCanvas;
 };
@@ -230,11 +232,11 @@ int main(int /* argc */, char ** /* argv */) {
 
     } catch (const std::runtime_error &e) {
         std::string error_msg = std::string("Caught a fatal error: ") + std::string(e.what());
-    #if defined(_WIN32)
+#if defined(_WIN32)
         MessageBoxA(nullptr, error_msg.c_str(), NULL, MB_ICONERROR | MB_OK);
-    #else
+#else
         std::cerr << error_msg << std::endl;
-    #endif
+#endif
         return -1;
     }
 

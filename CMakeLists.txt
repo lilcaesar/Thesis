@@ -3,7 +3,8 @@ project(Thesis)
 
 set(CMAKE_CXX_STANDARD 11)
 
-include_directories(src resources)
+include_directories(src)
+include_directories(resources)
 file(GLOB_RECURSE data resources/*)
 file(COPY ${data} DESTINATION resources)
 
@@ -19,6 +20,7 @@ include_directories(lib/nanogui/ext/nanovg/src)
 
 include_directories(Fabrizio)
 
-set(SOURCE_FILES main.cpp Fabrizio/importFiles.cpp)
+file(GLOB SOURCE_FILES main.cpp "src/*.cpp" "Fabrizio/*.cpp")
+#set(SOURCE_FILES main.cpp Fabrizio/importFiles.cpp)
 add_executable(Thesis ${SOURCE_FILES} ${data})
 target_link_libraries(Thesis nanogui)
