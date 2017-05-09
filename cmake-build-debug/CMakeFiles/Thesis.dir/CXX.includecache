@@ -224,7 +224,7 @@ vector
 nanogui/widget.h
 -
 
-../src/CalculateNormals.h
+../src/DataBufferManager.h
 
 /home/mattia/CLionProjects/Thesis/Fabrizio/importFiles.cpp
 importFiles.h
@@ -261,6 +261,6 @@ GL/gl.h
 -
 importFiles.h
 -
-CalculateNormals.h
+DataBufferManager.h
 -
 

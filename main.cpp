@@ -7,7 +7,7 @@
 #include <nanogui/glutil.h>
 #include <GL/gl.h>
 #include <importFiles.h>
-#include <CalculateNormals.h>
+#include <vectorsOperations.h>
 
 /*TODO
  * -Inserire vista prospetica (al momento è ortogonale di default)
@@ -39,6 +39,28 @@ public:
         //Caricamento del file
         std::vector<int> tempFaces;
         std::vector<double> tempVertices;
+        std::vector<std::vector<int>> vert2face;
+        std::vector<double> tempFaceNormals;
+        std::vector<double> tempVertNormals;
+
+        std::vector<int> a(3), b(3);
+        a.push_back(20);
+        a.push_back(18);
+        a.push_back(16);
+        b.push_back(1);
+        b.push_back(2);
+        b.push_back(3);
+
+        for(int i=0; i<3; i++) {
+            std::cout << a[i] << endl;
+        }
+        for(int i=0; i<3; i++) {
+            std::cout << b[i] << endl;
+        }
+        std::cout << a-b <<endl;
+
+        loadVert2face(tempVertices, tempFaces, vert2face);
+
 
         fileTypes.clear();
         fileTypes.push_back(std::make_pair("obj", "obj file"));
