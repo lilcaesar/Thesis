@@ -224,7 +224,7 @@ vector
 nanogui/widget.h
 -
 
-../src/DataBufferManager.h
+../src/vectorsOperations.h
 
 /home/mattia/CLionProjects/Thesis/Fabrizio/importFiles.cpp
 importFiles.h
@@ -261,6 +261,6 @@ GL/gl.h
 -
 importFiles.h
 -
-DataBufferManager.h
+vectorsOperations.h
 -
 

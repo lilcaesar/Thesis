@@ -10,6 +10,7 @@
 #include <vectorsOperations.h>
 
 /*TODO
+ * -Modificare vettori temporanei in vettori di Eigen::Vector3
  * -Inserire vista prospetica (al momento è ortogonale di default)
  * -Implementare caricamento della colorazione
  * -Normali
@@ -43,25 +44,6 @@ public:
         std::vector<double> tempFaceNormals;
         std::vector<double> tempVertNormals;
 
-        std::vector<int> a(3), b(3);
-        a.push_back(20);
-        a.push_back(18);
-        a.push_back(16);
-        b.push_back(1);
-        b.push_back(2);
-        b.push_back(3);
-
-        for(int i=0; i<3; i++) {
-            std::cout << a[i] << endl;
-        }
-        for(int i=0; i<3; i++) {
-            std::cout << b[i] << endl;
-        }
-        std::cout << a-b <<endl;
-
-        loadVert2face(tempVertices, tempFaces, vert2face);
-
-
         fileTypes.clear();
         fileTypes.push_back(std::make_pair("obj", "obj file"));
 
@@ -69,6 +51,9 @@ public:
         filePath = nanogui::file_dialog(fileTypes, false);
 
         loadOBJ(filePath.c_str(), tempVertices, tempFaces);
+
+        //Calcolo i vettori vert2face, tempFaceNormals e tempVertNormals in base ai dati della mesh
+        loadDerivedVectors(tempVertices, tempFaces, vert2face, tempFaceNormals, tempVertNormals);
 
         //Salvo il numero di vertici e facce della mesh
         unsigned long nVertices = (tempVertices.size()) / 3;

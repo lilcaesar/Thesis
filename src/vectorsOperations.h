@@ -7,7 +7,9 @@
 
 using namespace std;
 
-void calculateFaceNormals(vector<double> & vertices, vector<int> & faces, vector<vector<int>> & vert2face, vector<double> & faceNormals){
+void calculateFaceNormals(vector<double> & vertices,
+                          vector<int> & faces,
+                          vector<double> & faceNormals){
     int nFaces = faces.size()/3;
     for(int f=0; f<nFaces; f++){
         int fID = f*3;
@@ -29,14 +31,30 @@ void calculateFaceNormals(vector<double> & vertices, vector<int> & faces, vector
     }
 }
 
-void calculateVertexNormals(vector<double> & vertices, vector<int> & faces, vector<vector<int>> & vert2face, vector<double> & faceNormals, vector<double> & vertexNormals){
+void calculateVertexNormals(vector<double> & vertices,
+                            vector<int> & faces,
+                            vector<vector<int>> & vert2face,
+                            vector<double> & faceNormals,
+                            vector<double> & vertexNormals){
     int nVertices = vertices.size()/3;
     int nFaces = faces.size()/3;
 
     for(int vertI=0; vertI<nVertices; vertI++){
         vector<int> nbrs = vert2face[vertI];
 
+        Eigen::Vector3d sum(0.0,0.0,0.0);
+        for(int i=0; i<(int)nbrs.size();i++){
+            Eigen::Vector3d nbr(faceNormals[nbrs[i]], faceNormals[nbrs[i]+1], faceNormals[nbrs[i]+2]);
+            sum += nbr;
+        }
 
+        sum /= nbrs.size();
+        sum.normalize();
+
+        int vID =vertI * 3;
+        vertexNormals[vID] = sum.x();
+        vertexNormals[vID+1] = sum.y();
+        vertexNormals[vID+2] = sum.z();
     }
 }
 
@@ -53,13 +71,23 @@ void loadVert2face(vector<double> & vertices,
         for(int f=0; f<nFaces; f++){
             if((faces[3*f] == v) ||
                (faces[(3*f)+1] == v) ||
-               (faces[(3*f)+1] == v)) {
+               (faces[(3*f)+2] == v)) {
                 temp.push_back(f);
             }
         }
-        vert2face[v]=temp;
+        vert2face.push_back(temp);
         temp.clear();
     }
+}
+
+void loadDerivedVectors(vector<double> & vertices,
+                        vector<int> & faces,
+                        vector<vector<int>> & vert2face,
+                        vector<double> & faceNormals,
+                        vector<double> & vertexNormals){
+    loadVert2face(vertices, faces, vert2face);
+    calculateFaceNormals(vertices, faces, faceNormals);
+    calculateVertexNormals(vertices, faces, vert2face, faceNormals, vertexNormals);
 }
 
 #endif //THESIS_CALCULATENORMALS_H
