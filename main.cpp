@@ -7,7 +7,7 @@
 #include <nanogui/glutil.h>
 #include <GL/gl.h>
 #include <importFiles.h>
-#include <vectorsOperations.h>
+#include <VectorsOperations.h>
 
 /*TODO
  * -Modificare vettori temporanei in vettori di Eigen::Vector3
