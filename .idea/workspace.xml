@@ -54,7 +54,7 @@
       <config projectName="Thesis" targetName="sparse_permutations_2" />
       <config projectName="Thesis" targetName="sparse_permutations_1" />
       <config projectName="Thesis" targetName="inverse_7" />
-      <config projectName="Thesis" targetName="diagonalmatrices_9" />
+      <config projectName="Thesis" targetName="diagonalmatrices_8" />
       <config projectName="Thesis" targetName="compile_Map_general_stride" />
       <config projectName="Thesis" targetName="class_FixedVectorBlock" />
       <config projectName="Thesis" targetName="compile_TopicAliasing_mult2" />
@@ -79,7 +79,6 @@
       <config projectName="Thesis" targetName="autodiff" />
       <config projectName="Thesis" targetName="splines" />
       <config projectName="Thesis" targetName="nanogui" />
-      <config projectName="Thesis" targetName="compile_HessenbergDecomposition_packedMatrix" />
       <config projectName="Thesis" targetName="vectorwiseop_2" />
       <config projectName="Thesis" targetName="BVH_3" />
       <config projectName="Thesis" targetName="BVH_2" />
@@ -102,6 +101,7 @@
       <config projectName="Thesis" targetName="sparselu_3" />
       <config projectName="Thesis" targetName="sparselu_2" />
       <config projectName="Thesis" targetName="sparselu_1" />
+      <config projectName="Thesis" targetName="qr_colpivoting" />
       <config projectName="Thesis" targetName="diagonal" />
       <config projectName="Thesis" targetName="compile_HouseholderQR_householderQ" />
       <config projectName="Thesis" targetName="compile_MatrixBase_cwiseEqual" />
@@ -116,7 +116,7 @@
       <config projectName="Thesis" targetName="array_for_matrix_6" />
       <config projectName="Thesis" targetName="array_for_matrix_5" />
       <config projectName="Thesis" targetName="block_3" />
-      <config projectName="Thesis" targetName="array_for_matrix_3" />
+      <config projectName="Thesis" targetName="block_2" />
       <config projectName="Thesis" targetName="block_1" />
       <config projectName="Thesis" targetName="array_for_matrix_1" />
       <config projectName="Thesis" targetName="eigensolver_generalized_real" />
@@ -129,7 +129,7 @@
       <config projectName="Thesis" targetName="sparselu" />
       <config projectName="Thesis" targetName="compile_FullPivLU_image" />
       <config projectName="Thesis" targetName="eigen_lapack" />
-      <config projectName="Thesis" targetName="real_qz_1" />
+      <config projectName="Thesis" targetName="real_qz_3" />
       <config projectName="Thesis" targetName="compile_MatrixBase_cwiseMax" />
       <config projectName="Thesis" targetName="ContinuousUpdate" />
       <config projectName="Thesis" targetName="compile_Tridiagonalization_decomposeInPlace" />
@@ -146,7 +146,7 @@
       <config projectName="Thesis" targetName="eigensolver_generalized_real_1" />
       <config projectName="Thesis" targetName="matrix_function_1" />
       <config projectName="Thesis" targetName="compile_MatrixBase_noalias" />
-      <config projectName="Thesis" targetName="compile_Tutorial_AdvancedInitialization_Block" />
+      <config projectName="Thesis" targetName="tut_arithmetic_add_sub" />
       <config projectName="Thesis" targetName="lu" />
       <config projectName="Thesis" targetName="compile_HessenbergDecomposition_compute" />
       <config projectName="Thesis" targetName="matrix_function_6" />
@@ -162,7 +162,7 @@
       <config projectName="Thesis" targetName="schur_complex_5" />
       <config projectName="Thesis" targetName="schur_complex_4" />
       <config projectName="Thesis" targetName="NonLinearOptimization" />
-      <config projectName="Thesis" targetName="compile_FullPivLU_kernel" />
+      <config projectName="Thesis" targetName="schur_complex_2" />
       <config projectName="Thesis" targetName="schur_complex_1" />
       <config projectName="Thesis" targetName="class_CwiseBinaryOp" />
       <config projectName="Thesis" targetName="example_MatrixSinh" />
@@ -244,10 +244,12 @@
       <config projectName="Thesis" targetName="TutorialLinAlgInverseDeterminant" />
       <config projectName="Thesis" targetName="compile_PartialPivLU_solve" />
       <config projectName="Thesis" targetName="compile_Jacobi_makeGivens" />
+      <config projectName="Thesis" targetName="compile_Cwise_asin" />
       <config projectName="Thesis" targetName="bdcsvd_5" />
       <config projectName="Thesis" targetName="compile_MatrixBase_setRandom" />
       <config projectName="Thesis" targetName="NightlyTest" />
-      <config projectName="Thesis" targetName="polynomialsolver_2" />
+      <config projectName="Thesis" targetName="compile_FullPivLU_kernel" />
+      <config projectName="Thesis" targetName="polynomialsolver_8" />
       <config projectName="Thesis" targetName="Tutorial_BlockOperations_block_assignment" />
       <config projectName="Thesis" targetName="alignedvector3" />
       <config projectName="Thesis" targetName="qr_fullpivoting" />
@@ -268,6 +270,7 @@
       <config projectName="Thesis" targetName="sparse_product_3" />
       <config projectName="Thesis" targetName="sparse_product_2" />
       <config projectName="Thesis" targetName="sparse_product_1" />
+      <config projectName="Thesis" targetName="tut_matrix_resize_fixed_size" />
       <config projectName="Thesis" targetName="compile_MatrixBase_template_int_bottomRows" />
       <config projectName="Thesis" targetName="stable_norm_2" />
       <config projectName="Thesis" targetName="product_trmm_121" />
@@ -290,7 +293,7 @@
       <config projectName="Thesis" targetName="test_sparseLU" />
       <config projectName="Thesis" targetName="function_taking_ref" />
       <config projectName="Thesis" targetName="integer_types" />
-      <config projectName="Thesis" targetName="rvalue_types_1" />
+      <config projectName="Thesis" targetName="rvalue_types_2" />
       <config projectName="Thesis" targetName="compile_Tridiagonalization_householderCoefficients" />
       <config projectName="Thesis" targetName="Tutorial_ReductionsVisitorsBroadcasting_visitors" />
       <config projectName="Thesis" targetName="geo_hyperplane" />
@@ -316,7 +319,6 @@
       <config projectName="Thesis" targetName="nomalloc_2" />
       <config projectName="Thesis" targetName="compile_SelfAdjointEigenSolver_eigenvalues" />
       <config projectName="Thesis" targetName="hessenberg" />
-      <config projectName="Thesis" targetName="ref_4" />
       <config projectName="Thesis" targetName="ref_5" />
       <config projectName="Thesis" targetName="compile_MatrixBase_fixedBlock_int_int" />
       <config projectName="Thesis" targetName="geo_quaternion_6" />
@@ -343,6 +345,7 @@
       <config projectName="Thesis" targetName="adjoint_2" />
       <config projectName="Thesis" targetName="adjoint_1" />
       <config projectName="Thesis" targetName="stddeque" />
+      <config projectName="Thesis" targetName="umeyama_3" />
       <config projectName="Thesis" targetName="compile_GeneralizedEigenSolver" />
       <config projectName="Thesis" targetName="umeyama_5" />
       <config projectName="Thesis" targetName="umeyama_6" />
@@ -367,7 +370,8 @@
       <config projectName="Thesis" targetName="stdlist" />
       <config projectName="Thesis" targetName="nesting_ops_3" />
       <config projectName="Thesis" targetName="product_trmv" />
-      <config projectName="Thesis" targetName="qr_colpivoting" />
+      <config projectName="Thesis" targetName="nesting_ops_1" />
+      <config projectName="Thesis" targetName="array_for_matrix_3" />
       <config projectName="Thesis" targetName="compile_Cwise_inverse" />
       <config projectName="Thesis" targetName="compile_MatrixBase_template_int_int_topLeftCorner" />
       <config projectName="Thesis" targetName="mixingtypes_3" />
@@ -378,7 +382,6 @@
       <config projectName="Thesis" targetName="DenseBase_middleCols_int" />
       <config projectName="Thesis" targetName="compile_Cwise_plus" />
       <config projectName="Thesis" targetName="compile_MatrixBase_topRightCorner_int_int" />
-      <config projectName="Thesis" targetName="geo_transformations_6" />
       <config projectName="Thesis" targetName="geo_parametrizedline_4" />
       <config projectName="Thesis" targetName="geo_parametrizedline_3" />
       <config projectName="Thesis" targetName="geo_parametrizedline_2" />
@@ -388,6 +391,8 @@
       <config projectName="Thesis" targetName="vectorwiseop" />
       <config projectName="Thesis" targetName="bdcsvd_15" />
       <config projectName="Thesis" targetName="first_aligned" />
+      <config projectName="Thesis" targetName="glfw_objects" />
+      <config projectName="Thesis" targetName="compile_Tutorial_AdvancedInitialization_Block" />
       <config projectName="Thesis" targetName="product_large_6" />
       <config projectName="Thesis" targetName="product_large_5" />
       <config projectName="Thesis" targetName="product_large_4" />
@@ -397,15 +402,13 @@
       <config projectName="Thesis" targetName="tut_arithmetic_scalar_mul_div" />
       <config projectName="Thesis" targetName="ContinuousMemCheck" />
       <config projectName="Thesis" targetName="bdcsvd" />
-      <config projectName="Thesis" targetName="compile_MatrixBase_ones" />
       <config projectName="Thesis" targetName="compile_Cwise_max" />
-      <config projectName="Thesis" targetName="stdvector_3" />
       <config projectName="Thesis" targetName="nomalloc_1" />
       <config projectName="Thesis" targetName="compile_MatrixBase_zero" />
       <config projectName="Thesis" targetName="compile_MatrixBase_asDiagonal" />
       <config projectName="Thesis" targetName="nullary_8" />
       <config projectName="Thesis" targetName="geo_homogeneous_3" />
-      <config projectName="Thesis" targetName="compile_Matrix_setZero_int_int" />
+      <config projectName="Thesis" targetName="geo_homogeneous_2" />
       <config projectName="Thesis" targetName="geo_homogeneous_1" />
       <config projectName="Thesis" targetName="nullary_4" />
       <config projectName="Thesis" targetName="nullary_3" />
@@ -414,14 +417,14 @@
       <config projectName="Thesis" targetName="real_qz_4" />
       <config projectName="Thesis" targetName="special_numbers" />
       <config projectName="Thesis" targetName="real_qz_2" />
-      <config projectName="Thesis" targetName="compile_Cwise_greater" />
+      <config projectName="Thesis" targetName="real_qz_1" />
       <config projectName="Thesis" targetName="compile_SelfAdjointEigenSolver_eigenvectors" />
       <config projectName="Thesis" targetName="compile_Jacobi_makeJacobi" />
       <config projectName="Thesis" targetName="eigensolver_selfadjoint_9" />
       <config projectName="Thesis" targetName="eigensolver_selfadjoint_8" />
       <config projectName="Thesis" targetName="eigensolver_selfadjoint_7" />
       <config projectName="Thesis" targetName="eigensolver_selfadjoint_6" />
-      <config projectName="Thesis" targetName="eigensolver_selfadjoint_5" />
+      <config projectName="Thesis" targetName="eigensolver_generalized_real_3" />
       <config projectName="Thesis" targetName="eigensolver_selfadjoint_4" />
       <config projectName="Thesis" targetName="eigensolver_selfadjoint_3" />
       <config projectName="Thesis" targetName="eigensolver_selfadjoint_2" />
@@ -452,16 +455,16 @@
       <config projectName="Thesis" targetName="sizeof" />
       <config projectName="Thesis" targetName="compile_MatrixBase_col" />
       <config projectName="Thesis" targetName="class_CwiseUnaryOp_ptrfun" />
+      <config projectName="Thesis" targetName="compile_Cwise_greater" />
       <config projectName="Thesis" targetName="rvalue_types" />
       <config projectName="Thesis" targetName="ExperimentalConfigure" />
       <config projectName="Thesis" targetName="sizeoverflow" />
       <config projectName="Thesis" targetName="compile_Cwise_not_equal" />
       <config projectName="Thesis" targetName="nesting_ops_4" />
-      <config projectName="Thesis" targetName="schur_complex_2" />
       <config projectName="Thesis" targetName="mapped_matrix_1" />
       <config projectName="Thesis" targetName="ProvaCubo" />
       <config projectName="Thesis" targetName="compile_MatrixBase_diagonal" />
-      <config projectName="Thesis" targetName="geo_alignedbox_11" />
+      <config projectName="Thesis" targetName="compile_MatrixBase_ones" />
       <config projectName="Thesis" targetName="ExperimentalStart" />
       <config projectName="Thesis" targetName="compile_Cwise_pow" />
       <config projectName="Thesis" targetName="compile_TopicAliasing_mult1" />
@@ -498,19 +501,19 @@
       <config projectName="Thesis" targetName="compile_Cwise_minus_equal" />
       <config projectName="Thesis" targetName="TutorialLinAlgExSolveLDLT" />
       <config projectName="Thesis" targetName="compile_Tutorial_AdvancedInitialization_LinSpaced" />
-      <config projectName="Thesis" targetName="visitor_3" />
-      <config projectName="Thesis" targetName="diagonalmatrices_8" />
+      <config projectName="Thesis" targetName="diagonalmatrices_9" />
+      <config projectName="Thesis" targetName="visitor_4" />
       <config projectName="Thesis" targetName="diagonalmatrices_7" />
       <config projectName="Thesis" targetName="diagonalmatrices_6" />
       <config projectName="Thesis" targetName="diagonalmatrices_5" />
       <config projectName="Thesis" targetName="diagonalmatrices_4" />
       <config projectName="Thesis" targetName="diagonalmatrices_3" />
       <config projectName="Thesis" targetName="diagonalmatrices_2" />
-      <config projectName="Thesis" targetName="glfw_objects" />
+      <config projectName="Thesis" targetName="diagonalmatrices_1" />
       <config projectName="Thesis" targetName="sparse_extra_3" />
       <config projectName="Thesis" targetName="sparse_extra_2" />
       <config projectName="Thesis" targetName="sparse_extra_1" />
-      <config projectName="Thesis" targetName="geo_homogeneous_2" />
+      <config projectName="Thesis" targetName="compile_MatrixBase_bottomLeftCorner_int_int" />
       <config projectName="Thesis" targetName="TutorialLinAlgSetThreshold" />
       <config projectName="Thesis" targetName="product_trmm_21" />
       <config projectName="Thesis" targetName="redux_8" />
@@ -528,8 +531,10 @@
       <config projectName="Thesis" targetName="NightlyMemoryCheck" />
       <config projectName="Thesis" targetName="compile_class_FullPivLU" />
       <config projectName="Thesis" targetName="adjoint_4" />
+      <config projectName="Thesis" targetName="cwiseop_4" />
       <config projectName="Thesis" targetName="eigensolver_complex_1" />
       <config projectName="Thesis" targetName="product_trmm_33" />
+      <config projectName="Thesis" targetName="product_trmm_34" />
       <config projectName="Thesis" targetName="conservative_resize_6" />
       <config projectName="Thesis" targetName="conservative_resize_5" />
       <config projectName="Thesis" targetName="conservative_resize_4" />
@@ -542,7 +547,6 @@
       <config projectName="Thesis" targetName="stddeque_3" />
       <config projectName="Thesis" targetName="stddeque_2" />
       <config projectName="Thesis" targetName="stddeque_1" />
-      <config projectName="Thesis" targetName="compile_Matrix_setRandom_int" />
       <config projectName="Thesis" targetName="class_Block" />
       <config projectName="Thesis" targetName="compile_Cwise_greater_equal" />
       <config projectName="Thesis" targetName="compile_MatrixBase_applyOnTheRight" />
@@ -583,6 +587,7 @@
       <config projectName="Thesis" targetName="geo_quaternion_1" />
       <config projectName="Thesis" targetName="polynomialsolver_10" />
       <config projectName="Thesis" targetName="smallvectors" />
+      <config projectName="Thesis" targetName="compile_Matrix_setZero_int_int" />
       <config projectName="Thesis" targetName="nullary_7" />
       <config projectName="Thesis" targetName="matrix_exponential_9" />
       <config projectName="Thesis" targetName="matrix_exponential_8" />
@@ -610,7 +615,7 @@
       <config projectName="Thesis" targetName="sparseqr_2" />
       <config projectName="Thesis" targetName="sparseqr_1" />
       <config projectName="Thesis" targetName="prec_inverse_4x4_1" />
-      <config projectName="Thesis" targetName="polynomialsolver_8" />
+      <config projectName="Thesis" targetName="ref_4" />
       <config projectName="Thesis" targetName="qr_12" />
       <config projectName="Thesis" targetName="qr_11" />
       <config projectName="Thesis" targetName="qr_10" />
@@ -623,7 +628,7 @@
       <config projectName="Thesis" targetName="NightlyMemCheck" />
       <config projectName="Thesis" targetName="cwiseop_6" />
       <config projectName="Thesis" targetName="cwiseop_5" />
-      <config projectName="Thesis" targetName="cwiseop_4" />
+      <config projectName="Thesis" targetName="geo_transformations_6" />
       <config projectName="Thesis" targetName="cwiseop_3" />
       <config projectName="Thesis" targetName="cwiseop_2" />
       <config projectName="Thesis" targetName="cwiseop_1" />
@@ -634,7 +639,6 @@
       <config projectName="Thesis" targetName="eigensolver_generic_2" />
       <config projectName="Thesis" targetName="dynalloc" />
       <config projectName="Thesis" targetName="compile_Tutorial_commainit_01" />
-      <config projectName="Thesis" targetName="block_2" />
       <config projectName="Thesis" targetName="block_4" />
       <config projectName="Thesis" targetName="block_5" />
       <config projectName="Thesis" targetName="compile_Cwise_log" />
@@ -643,7 +647,7 @@
       <config projectName="Thesis" targetName="meta" />
       <config projectName="Thesis" targetName="tut_matrix_resize" />
       <config projectName="Thesis" targetName="Tutorial_ArrayClass_accessors" />
-      <config projectName="Thesis" targetName="ExperimentalCoverage" />
+      <config projectName="Thesis" targetName="rvalue_types_1" />
       <config projectName="Thesis" targetName="eigensolver_generic_1" />
       <config projectName="Thesis" targetName="compile_Map_placement_new" />
       <config projectName="Thesis" targetName="qr_9" />
@@ -781,7 +785,6 @@
       <config projectName="Thesis" targetName="schur_real_1" />
       <config projectName="Thesis" targetName="simplicial_cholesky_1" />
       <config projectName="Thesis" targetName="compile_MatrixBase_block_int_int_int_int" />
-      <config projectName="Thesis" targetName="nesting_ops_1" />
       <config projectName="Thesis" targetName="permutationmatrices_1" />
       <config projectName="Thesis" targetName="FFT" />
       <config projectName="Thesis" targetName="swap_1" />
@@ -793,12 +796,11 @@
       <config projectName="Thesis" targetName="example3" />
       <config projectName="Thesis" targetName="example2" />
       <config projectName="Thesis" targetName="example1" />
-      <config projectName="Thesis" targetName="linearstructure_7" />
       <config projectName="Thesis" targetName="Tutorial_ReductionsVisitorsBroadcasting_colwise" />
       <config projectName="Thesis" targetName="basicstuff" />
       <config projectName="Thesis" targetName="compile_Cwise_acos" />
       <config projectName="Thesis" targetName="prec_inverse_4x4_2" />
-      <config projectName="Thesis" targetName="product_trmm_34" />
+      <config projectName="Thesis" targetName="compile_HessenbergDecomposition_packedMatrix" />
       <config projectName="Thesis" targetName="array_for_matrix_4" />
       <config projectName="Thesis" targetName="eigen_blas_static" />
       <config projectName="Thesis" targetName="permutationmatrices_2" />
@@ -807,7 +809,7 @@
       <config projectName="Thesis" targetName="Tutorial_BlockOperations_colrow" />
       <config projectName="Thesis" targetName="product_symm_6" />
       <config projectName="Thesis" targetName="stable_norm_4" />
-      <config projectName="Thesis" targetName="tut_arithmetic_add_sub" />
+      <config projectName="Thesis" targetName="stable_norm_3" />
       <config projectName="Thesis" targetName="tut_arithmetic_redux_basic" />
       <config projectName="Thesis" targetName="stable_norm_1" />
       <config projectName="Thesis" targetName="compile_Matrix_setOnes_int" />
@@ -840,11 +842,11 @@
       <config projectName="Thesis" targetName="geo_orthomethods" />
       <config projectName="Thesis" targetName="stdvector_5" />
       <config projectName="Thesis" targetName="stdvector_4" />
-      <config projectName="Thesis" targetName="diagonalmatrices_1" />
+      <config projectName="Thesis" targetName="stdvector_3" />
       <config projectName="Thesis" targetName="stdvector_2" />
       <config projectName="Thesis" targetName="stdvector_1" />
       <config projectName="Thesis" targetName="compile_SelfAdjointView_operatorNorm" />
-      <config projectName="Thesis" targetName="eigensolver_generalized_real_3" />
+      <config projectName="Thesis" targetName="ExperimentalCoverage" />
       <config projectName="Thesis" targetName="array_replicate" />
       <config projectName="Thesis" targetName="check" />
       <config projectName="Thesis" targetName="array_reverse" />
@@ -875,7 +877,7 @@
       <config projectName="Thesis" targetName="matrix_function_4" />
       <config projectName="Thesis" targetName="matrix_function_5" />
       <config projectName="Thesis" targetName="compile_MatrixBase_computeInverseAndDetWithCheck" />
-      <config projectName="Thesis" targetName="compile_Cwise_asin" />
+      <config projectName="Thesis" targetName="geo_alignedbox_11" />
       <config projectName="Thesis" targetName="QuickStart_example" />
       <config projectName="Thesis" targetName="compile_ComplexEigenSolver_compute" />
       <config projectName="Thesis" targetName="linearstructure_8" />
@@ -900,7 +902,6 @@
       <config projectName="Thesis" targetName="compile_MatrixBase_bottomRightCorner_int_int" />
       <config projectName="Thesis" targetName="eigensolver_selfadjoint" />
       <config projectName="Thesis" targetName="redux" />
-      <config projectName="Thesis" targetName="stable_norm_3" />
       <config projectName="Thesis" targetName="cholesky" />
       <config projectName="Thesis" targetName="TemplateKeyword_flexible" />
       <config projectName="Thesis" targetName="jacobi_6" />
@@ -918,7 +919,7 @@
       <config projectName="Thesis" targetName="compile_tut_arithmetic_transpose_aliasing" />
       <config projectName="Thesis" targetName="product_small" />
       <config projectName="Thesis" targetName="DenseBase_template_int_middleCols" />
-      <config projectName="Thesis" targetName="real_qz_3" />
+      <config projectName="Thesis" targetName="compile_Matrix_setRandom_int" />
       <config projectName="Thesis" targetName="example_MatrixLogarithm" />
       <config projectName="Thesis" targetName="nullary_5" />
       <config projectName="Thesis" targetName="nullary_6" />
@@ -1017,7 +1018,7 @@
       <config projectName="Thesis" targetName="polynomialsolver_5" />
       <config projectName="Thesis" targetName="polynomialsolver_4" />
       <config projectName="Thesis" targetName="polynomialsolver_3" />
-      <config projectName="Thesis" targetName="tut_matrix_resize_fixed_size" />
+      <config projectName="Thesis" targetName="polynomialsolver_2" />
       <config projectName="Thesis" targetName="polynomialsolver_1" />
       <config projectName="Thesis" targetName="kronecker_product" />
       <config projectName="Thesis" targetName="linearstructure" />
@@ -1025,7 +1026,6 @@
       <config projectName="Thesis" targetName="compile_DenseBase_LinSpaced" />
       <config projectName="Thesis" targetName="mapstride" />
       <config projectName="Thesis" targetName="compile_Tutorial_Map_rowmajor" />
-      <config projectName="Thesis" targetName="rvalue_types_2" />
       <config projectName="Thesis" targetName="all_examples" />
       <config projectName="Thesis" targetName="compile_MatrixBase_transpose" />
       <config projectName="Thesis" targetName="compile_MatrixBase_random_int" />
@@ -1047,7 +1047,7 @@
       <config projectName="Thesis" targetName="compile_MatrixBase_template_int_end" />
       <config projectName="Thesis" targetName="linearstructure_9" />
       <config projectName="Thesis" targetName="umeyama_4" />
-      <config projectName="Thesis" targetName="umeyama_3" />
+      <config projectName="Thesis" targetName="linearstructure_7" />
       <config projectName="Thesis" targetName="linearstructure_6" />
       <config projectName="Thesis" targetName="linearstructure_5" />
       <config projectName="Thesis" targetName="linearstructure_4" />
@@ -1076,7 +1076,7 @@
       <config projectName="Thesis" targetName="compile_MatrixBase_replicate_int_int" />
       <config projectName="Thesis" targetName="bdcsvd_4" />
       <config projectName="Thesis" targetName="bdcsvd_3" />
-      <config projectName="Thesis" targetName="visitor_4" />
+      <config projectName="Thesis" targetName="visitor_3" />
       <config projectName="Thesis" targetName="bdcsvd_1" />
       <config projectName="Thesis" targetName="compile_Cwise_product" />
       <config projectName="Thesis" targetName="geo_alignedbox_14" />
@@ -1085,7 +1085,6 @@
       <config projectName="Thesis" targetName="product_trmm_22" />
       <config projectName="Thesis" targetName="geo_alignedbox_10" />
       <config projectName="Thesis" targetName="compile_Tutorial_solve_singular" />
-      <config projectName="Thesis" targetName="compile_MatrixBase_bottomLeftCorner_int_int" />
       <config projectName="Thesis" targetName="polynomialutils_9" />
       <config projectName="Thesis" targetName="swap" />
       <config projectName="Thesis" targetName="polynomialutils_7" />
@@ -1106,6 +1105,7 @@
       <config projectName="Thesis" targetName="compile_MatrixBase_isIdentity" />
       <config projectName="Thesis" targetName="matrix_square_root" />
       <config projectName="Thesis" targetName="compile_Cwise_slash_equal" />
+      <config projectName="Thesis" targetName="eigensolver_selfadjoint_5" />
       <config projectName="Thesis" targetName="array_for_matrix_2" />
       <config projectName="Thesis" targetName="bicgstab_2" />
       <config projectName="Thesis" targetName="bicgstab_1" />
@@ -1137,14 +1137,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a680da8-e369-473d-8d55-67ddcf1981b9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/VectorsOperations.h" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/vectorsOperations.h" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/Thesis" afterPath="$PROJECT_DIR$/cmake-build-debug/Thesis" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Thesis.dir/CXX.includecache" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Thesis.dir/CXX.includecache" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Thesis.dir/depend.internal" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Thesis.dir/depend.internal" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Thesis.dir/depend.make" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Thesis.dir/depend.make" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.cpp" afterPath="$PROJECT_DIR$/main.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/VectorsOperations.h" afterPath="$PROJECT_DIR$/src/VectorsOperations.h" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <ignored path="$PROJECT_DIR$/lib/nanogui/ext/eigen/CMakeFiles/" />
@@ -1171,10 +1166,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
+            <state relative-caret-position="192">
               <caret line="58" column="0" lean-forward="false" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
@@ -1183,11 +1178,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="VectorsOperations.h" pinned="false" current-in-tab="false">
+      <file leaf-file-name="VectorsOperations.h" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/VectorsOperations.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="59" column="53" lean-forward="false" selection-start-line="59" selection-start-column="53" selection-end-line="59" selection-end-column="53" />
+            <state relative-caret-position="140">
+              <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -1267,10 +1262,10 @@
   </component>
   <component name="OCFindUsagesOptions" text="false" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="64" />
-    <option name="y" value="-11" />
-    <option name="width" value="1857" />
-    <option name="height" value="1092" />
+    <option name="x" value="65" />
+    <option name="y" value="24" />
+    <option name="width" value="1853" />
+    <option name="height" value="1048" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -1746,26 +1741,28 @@
       <workItem from="1494404323319" duration="5652000" />
       <workItem from="1494420382030" duration="3802000" />
       <workItem from="1494424462767" duration="3346000" />
+      <workItem from="1494495832028" duration="2751000" />
+      <workItem from="1494511122069" duration="3605000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="94490000" />
+    <option name="totallyTimeSpent" value="100846000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
+    <frame x="65" y="24" width="1853" height="1048" extended-state="0" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.124528304" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12466271" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3282365" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22222222" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34074074" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2217701" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2874618" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2867725" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45158002" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36190477" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1784,7 +1781,29 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="57" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/main.cpp</url>
+          <line>101</line>
+          <option name="timeStamp" value="64" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/main.cpp</url>
+          <line>106</line>
+          <option name="timeStamp" value="65" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/main.cpp</url>
+          <line>111</line>
+          <option name="timeStamp" value="66" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/main.cpp</url>
+          <line>58</line>
+          <option name="timeStamp" value="67" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="68" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -2143,7 +2162,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="452">
           <caret line="643" column="31" lean-forward="false" selection-start-line="643" selection-start-column="31" selection-end-line="643" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2151,25 +2169,24 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2">
           <caret line="264" column="26" lean-forward="true" selection-start-line="264" selection-start-column="26" selection-end-line="264" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/VectorsOperations.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="59" column="53" lean-forward="false" selection-start-line="59" selection-start-column="53" selection-end-line="59" selection-end-column="53" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
+        <state relative-caret-position="192">
           <caret line="58" column="0" lean-forward="false" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/VectorsOperations.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

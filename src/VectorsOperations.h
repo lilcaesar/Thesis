@@ -72,11 +72,19 @@ inline void calculateVertexNormals(vector<double> &vertices,
 inline void loadVert2face(vector<double> &vertices,
                    vector<int> &faces,
                    vector<vector<int>> &vert2face) {
-
     int nVertices, nFaces;
     nVertices = vertices.size() / 3;
     nFaces = faces.size() / 3;
-    vector<int> temp;
+
+    vert2face.resize(nVertices);
+
+    for(int f = 0; f<nFaces; f++){
+        vert2face[faces[(f*3)]].push_back(f);
+        vert2face[faces[(f*3)+1]].push_back(f);
+        vert2face[faces[(f*3)+2]].push_back(f);
+    }
+
+    /*vector<int> temp;
 
     for (int v = 0; v < nVertices; v++) {
         for (int f = 0; f < nFaces; f++) {
@@ -88,10 +96,10 @@ inline void loadVert2face(vector<double> &vertices,
         }
         vert2face.push_back(temp);
         temp.clear();
-    }
+    }*/
 }
 
-void loadDerivedVectors(vector<double> &vertices,
+inline void loadDerivedVectors(vector<double> &vertices,
                         vector<int> &faces,
                         vector<vector<int>> &vert2face,
                         vector<double> &faceNormals,
