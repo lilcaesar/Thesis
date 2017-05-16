@@ -8,6 +8,7 @@
 #include <GL/gl.h>
 #include <importFiles.h>
 #include <VectorsOperations.h>
+#include <GL/glu.h>
 
 /*TODO
  * -Modificare vettori temporanei in vettori di Eigen::Vector3
@@ -85,14 +86,12 @@ public:
             ZValues.push_back(tempVertices[(3 * i) + 2]);
         }
 
-        std::min_element(XValues.begin(), XValues.end());
-
-        frustumLeft = (*std::min_element(XValues.begin(), XValues.end()));
-        frustumRight = (*std::max_element(XValues.begin(), XValues.end()));
-        frustumBottom = (*std::min_element(YValues.begin(), YValues.end()));
-        frustumTop = (*std::max_element(YValues.begin(), YValues.end()));
-        frustumNear = (*std::max_element(ZValues.begin(), ZValues.end()));
-        frustumFar = (*std::min_element(ZValues.begin(), ZValues.end()));
+        minXValue = (*std::min_element(XValues.begin(), XValues.end()));
+        maxXValue = (*std::max_element(XValues.begin(), XValues.end()));
+        minYValue = (*std::min_element(YValues.begin(), YValues.end()));
+        maxYValue = (*std::max_element(YValues.begin(), YValues.end()));
+        minZValue = (*std::max_element(ZValues.begin(), ZValues.end()));
+        maxZValue = (*std::min_element(ZValues.begin(), ZValues.end()));
 
 
 
@@ -100,8 +99,10 @@ public:
 
         //CARICAMENTO VECTOR SU MATRIX
         Eigen::MatrixXd vertices(3, nVertices);
+        Eigen::MatrixXd normals(3, nVertices);
         for (unsigned long i = 0; i < nVertices; i++) {
             vertices.col(i) << tempVertices[(3 * i)], tempVertices[(3 * i) + 1], tempVertices[(3 * i) + 2];
+            normals.col(i) << tempVertNormals[(3 * i)], tempVertNormals[(3 * i) + 1], tempVertNormals[(3 * i) + 2];
         }
 
         Eigen::MatrixXi faces(3, nFaces);
@@ -109,10 +110,14 @@ public:
             faces.col(i) << tempFaces[(3 * i)], tempFaces[(3 * i) + 1], tempFaces[(3 * i) + 2];
         }
 
+        Eigen::Vector3d lightPosition(4.0, 4.0, 4.0);
+
         mShader.bind();
         mShader.uploadIndices(faces);
         mShader.uploadAttrib("vertices", vertices);
+        //mShader.uploadAttrib("normals", normals);
         //mShader.uploadAttrib("color", colors);
+        mShader.setUniform("lightPosition", lightPosition);
         //mShader.setUniform("intensity", 0.5f);
     }
 
@@ -128,6 +133,11 @@ public:
         return scaleFactor;
     }
 
+    //TODO Calcolare correttamente la traslazione in Z
+    Vector3f getTranslationToCenter() {
+        return Vector3f(-(minXValue+maxXValue)/2,-(minYValue+maxYValue)/2,-(minZValue+maxZValue)/2 -1.5);
+    }
+
 
     virtual void drawGL() override {
         using namespace nanogui;
@@ -136,17 +146,25 @@ public:
         mShader.bind();
 
         Matrix4f mvp;
-        //Matrix4f proj;
+        Matrix4f model;
+        Matrix4f proj;
         mvp.setIdentity();
-        //proj.setIdentity();
+        model.setIdentity();
+        proj.setIdentity();
         Vector3f scaleVector = {scaleFactor, scaleFactor, scaleFactor};
+        Vector3f translateVector = getTranslationToCenter();
 
-        //proj = frustum(-10, 10, -10, 10, 10, -40);
-        //proj.transposeInPlace();
+        //TODO Calcolare correttamente il frustum
+        proj = frustum(-1, 1, -1, 1, 1, 30);
+        proj.transposeInPlace();
 
-        mvp = scale(scaleVector);
+
+        model = (translate(translateVector)) * (scale(scaleVector));
+
+        mvp = proj * /* view * */model;
 
         mShader.setUniform("modelViewProj", mvp);
+        //mShader.setUniform("modelMatrix", model);
         //mShader.setUniform("projection", proj);
 
         /* Funzioni per la gestione dello Z-buffer*/
@@ -165,7 +183,7 @@ private:
     double scaleFactor = 1;
 
     /* Variabili per il calcolo del frustum*/
-    double frustumLeft, frustumRight, frustumBottom, frustumTop, frustumNear, frustumFar;
+    double minXValue, maxXValue, minYValue, maxYValue, minZValue, maxZValue;
 };
 
 class NanoguiMeshViewer : public nanogui::Screen {
