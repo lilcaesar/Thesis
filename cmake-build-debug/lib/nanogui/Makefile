@@ -67,27 +67,17 @@ install/local/fast: install/local
 
 .PHONY : install/local/fast
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/home/mattia/Programmi/Clion/clion-2016.3.3/bin/cmake/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/home/mattia/Programmi/Clion/clion-2016.3.3/bin/cmake/bin/cmake -P cmake_install.cmake
+.PHONY : install
 
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/home/mattia/Programmi/Clion/clion-2016.3.3/bin/cmake/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/home/mattia/Programmi/Clion/clion-2016.3.3/bin/cmake/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
 
 # Special rule for the target install/strip
 install/strip: preinstall
@@ -110,17 +100,27 @@ list_install_components/fast: list_install_components
 
 .PHONY : list_install_components/fast
 
-# Special rule for the target install
-install: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/home/mattia/Programmi/Clion/clion-2016.3.3/bin/cmake/bin/cmake -P cmake_install.cmake
-.PHONY : install
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/home/mattia/Programmi/Clion/clion-2016.3.3/bin/cmake/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
 
-# Special rule for the target install
-install/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/home/mattia/Programmi/Clion/clion-2016.3.3/bin/cmake/bin/cmake -P cmake_install.cmake
-.PHONY : install/fast
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/home/mattia/Programmi/Clion/clion-2016.3.3/bin/cmake/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -244,6 +244,63 @@ example4/fast:
 	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/example4.dir/build.make lib/nanogui/CMakeFiles/example4.dir/build
 .PHONY : example4/fast
 
+# Convenience name for target.
+lib/nanogui/CMakeFiles/nanogui-python.dir/rule:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 lib/nanogui/CMakeFiles/nanogui-python.dir/rule
+.PHONY : lib/nanogui/CMakeFiles/nanogui-python.dir/rule
+
+# Convenience name for target.
+nanogui-python: lib/nanogui/CMakeFiles/nanogui-python.dir/rule
+
+.PHONY : nanogui-python
+
+# fast build rule for target.
+nanogui-python/fast:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-python.dir/build.make lib/nanogui/CMakeFiles/nanogui-python.dir/build
+.PHONY : nanogui-python/fast
+
+# Convenience name for target.
+lib/nanogui/CMakeFiles/nanogui-python-obj.dir/rule:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 lib/nanogui/CMakeFiles/nanogui-python-obj.dir/rule
+.PHONY : lib/nanogui/CMakeFiles/nanogui-python-obj.dir/rule
+
+# Convenience name for target.
+nanogui-python-obj: lib/nanogui/CMakeFiles/nanogui-python-obj.dir/rule
+
+.PHONY : nanogui-python-obj
+
+# fast build rule for target.
+nanogui-python-obj/fast:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-python-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-python-obj.dir/build
+.PHONY : nanogui-python-obj/fast
+
+ext/coro/coro.o: ext/coro/coro.c.o
+
+.PHONY : ext/coro/coro.o
+
+# target to build an object file
+ext/coro/coro.c.o:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-python-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-python-obj.dir/ext/coro/coro.c.o
+.PHONY : ext/coro/coro.c.o
+
+ext/coro/coro.i: ext/coro/coro.c.i
+
+.PHONY : ext/coro/coro.i
+
+# target to preprocess a source file
+ext/coro/coro.c.i:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-python-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-python-obj.dir/ext/coro/coro.c.i
+.PHONY : ext/coro/coro.c.i
+
+ext/coro/coro.s: ext/coro/coro.c.s
+
+.PHONY : ext/coro/coro.s
+
+# target to generate assembly for a file
+ext/coro/coro.c.s:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-python-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-python-obj.dir/ext/coro/coro.c.s
+.PHONY : ext/coro/coro.c.s
+
 ext/nanovg/src/nanovg.o: ext/nanovg/src/nanovg.c.o
 
 .PHONY : ext/nanovg/src/nanovg.o
@@ -297,6 +354,384 @@ nanogui_resources.s: nanogui_resources.cpp.s
 nanogui_resources.cpp.s:
 	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/nanogui_resources.cpp.s
 .PHONY : nanogui_resources.cpp.s
+
+python/basics.o: python/basics.cpp.o
+
+.PHONY : python/basics.o
+
+# target to build an object file
+python/basics.cpp.o:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-python-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-python-obj.dir/python/basics.cpp.o
+.PHONY : python/basics.cpp.o
+
+python/basics.i: python/basics.cpp.i
+
+.PHONY : python/basics.i
+
+# target to preprocess a source file
+python/basics.cpp.i:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-python-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-python-obj.dir/python/basics.cpp.i
+.PHONY : python/basics.cpp.i
+
+python/basics.s: python/basics.cpp.s
+
+.PHONY : python/basics.s
+
+# target to generate assembly for a file
+python/basics.cpp.s:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-python-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-python-obj.dir/python/basics.cpp.s
+.PHONY : python/basics.cpp.s
+
+python/button.o: python/button.cpp.o
+
+.PHONY : python/button.o
+
+# target to build an object file
+python/button.cpp.o:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-python-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-python-obj.dir/python/button.cpp.o
+.PHONY : python/button.cpp.o
+
+python/button.i: python/button.cpp.i
+
+.PHONY : python/button.i
+
+# target to preprocess a source file
+python/button.cpp.i:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-python-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-python-obj.dir/python/button.cpp.i
+.PHONY : python/button.cpp.i
+
+python/button.s: python/button.cpp.s
+
+.PHONY : python/button.s
+
+# target to generate assembly for a file
+python/button.cpp.s:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-python-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-python-obj.dir/python/button.cpp.s
+.PHONY : python/button.cpp.s
+
+python/constants.o: python/constants.cpp.o
+
+.PHONY : python/constants.o
+
+# target to build an object file
+python/constants.cpp.o:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-python-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-python-obj.dir/python/constants.cpp.o
+.PHONY : python/constants.cpp.o
+
+python/constants.i: python/constants.cpp.i
+
+.PHONY : python/constants.i
+
+# target to preprocess a source file
+python/constants.cpp.i:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-python-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-python-obj.dir/python/constants.cpp.i
+.PHONY : python/constants.cpp.i
+
+python/constants.s: python/constants.cpp.s
+
+.PHONY : python/constants.s
+
+# target to generate assembly for a file
+python/constants.cpp.s:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-python-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-python-obj.dir/python/constants.cpp.s
+.PHONY : python/constants.cpp.s
+
+python/eigen.o: python/eigen.cpp.o
+
+.PHONY : python/eigen.o
+
+# target to build an object file
+python/eigen.cpp.o:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-python-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-python-obj.dir/python/eigen.cpp.o
+.PHONY : python/eigen.cpp.o
+
+python/eigen.i: python/eigen.cpp.i
+
+.PHONY : python/eigen.i
+
+# target to preprocess a source file
+python/eigen.cpp.i:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-python-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-python-obj.dir/python/eigen.cpp.i
+.PHONY : python/eigen.cpp.i
+
+python/eigen.s: python/eigen.cpp.s
+
+.PHONY : python/eigen.s
+
+# target to generate assembly for a file
+python/eigen.cpp.s:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-python-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-python-obj.dir/python/eigen.cpp.s
+.PHONY : python/eigen.cpp.s
+
+python/formhelper.o: python/formhelper.cpp.o
+
+.PHONY : python/formhelper.o
+
+# target to build an object file
+python/formhelper.cpp.o:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-python-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-python-obj.dir/python/formhelper.cpp.o
+.PHONY : python/formhelper.cpp.o
+
+python/formhelper.i: python/formhelper.cpp.i
+
+.PHONY : python/formhelper.i
+
+# target to preprocess a source file
+python/formhelper.cpp.i:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-python-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-python-obj.dir/python/formhelper.cpp.i
+.PHONY : python/formhelper.cpp.i
+
+python/formhelper.s: python/formhelper.cpp.s
+
+.PHONY : python/formhelper.s
+
+# target to generate assembly for a file
+python/formhelper.cpp.s:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-python-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-python-obj.dir/python/formhelper.cpp.s
+.PHONY : python/formhelper.cpp.s
+
+python/glcanvas.o: python/glcanvas.cpp.o
+
+.PHONY : python/glcanvas.o
+
+# target to build an object file
+python/glcanvas.cpp.o:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-python-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-python-obj.dir/python/glcanvas.cpp.o
+.PHONY : python/glcanvas.cpp.o
+
+python/glcanvas.i: python/glcanvas.cpp.i
+
+.PHONY : python/glcanvas.i
+
+# target to preprocess a source file
+python/glcanvas.cpp.i:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-python-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-python-obj.dir/python/glcanvas.cpp.i
+.PHONY : python/glcanvas.cpp.i
+
+python/glcanvas.s: python/glcanvas.cpp.s
+
+.PHONY : python/glcanvas.s
+
+# target to generate assembly for a file
+python/glcanvas.cpp.s:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-python-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-python-obj.dir/python/glcanvas.cpp.s
+.PHONY : python/glcanvas.cpp.s
+
+python/glutil.o: python/glutil.cpp.o
+
+.PHONY : python/glutil.o
+
+# target to build an object file
+python/glutil.cpp.o:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-python-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-python-obj.dir/python/glutil.cpp.o
+.PHONY : python/glutil.cpp.o
+
+python/glutil.i: python/glutil.cpp.i
+
+.PHONY : python/glutil.i
+
+# target to preprocess a source file
+python/glutil.cpp.i:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-python-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-python-obj.dir/python/glutil.cpp.i
+.PHONY : python/glutil.cpp.i
+
+python/glutil.s: python/glutil.cpp.s
+
+.PHONY : python/glutil.s
+
+# target to generate assembly for a file
+python/glutil.cpp.s:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-python-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-python-obj.dir/python/glutil.cpp.s
+.PHONY : python/glutil.cpp.s
+
+python/layout.o: python/layout.cpp.o
+
+.PHONY : python/layout.o
+
+# target to build an object file
+python/layout.cpp.o:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-python-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-python-obj.dir/python/layout.cpp.o
+.PHONY : python/layout.cpp.o
+
+python/layout.i: python/layout.cpp.i
+
+.PHONY : python/layout.i
+
+# target to preprocess a source file
+python/layout.cpp.i:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-python-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-python-obj.dir/python/layout.cpp.i
+.PHONY : python/layout.cpp.i
+
+python/layout.s: python/layout.cpp.s
+
+.PHONY : python/layout.s
+
+# target to generate assembly for a file
+python/layout.cpp.s:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-python-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-python-obj.dir/python/layout.cpp.s
+.PHONY : python/layout.cpp.s
+
+python/main.o: python/main.cpp.o
+
+.PHONY : python/main.o
+
+# target to build an object file
+python/main.cpp.o:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-python-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-python-obj.dir/python/main.cpp.o
+.PHONY : python/main.cpp.o
+
+python/main.i: python/main.cpp.i
+
+.PHONY : python/main.i
+
+# target to preprocess a source file
+python/main.cpp.i:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-python-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-python-obj.dir/python/main.cpp.i
+.PHONY : python/main.cpp.i
+
+python/main.s: python/main.cpp.s
+
+.PHONY : python/main.s
+
+# target to generate assembly for a file
+python/main.cpp.s:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-python-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-python-obj.dir/python/main.cpp.s
+.PHONY : python/main.cpp.s
+
+python/misc.o: python/misc.cpp.o
+
+.PHONY : python/misc.o
+
+# target to build an object file
+python/misc.cpp.o:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-python-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-python-obj.dir/python/misc.cpp.o
+.PHONY : python/misc.cpp.o
+
+python/misc.i: python/misc.cpp.i
+
+.PHONY : python/misc.i
+
+# target to preprocess a source file
+python/misc.cpp.i:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-python-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-python-obj.dir/python/misc.cpp.i
+.PHONY : python/misc.cpp.i
+
+python/misc.s: python/misc.cpp.s
+
+.PHONY : python/misc.s
+
+# target to generate assembly for a file
+python/misc.cpp.s:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-python-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-python-obj.dir/python/misc.cpp.s
+.PHONY : python/misc.cpp.s
+
+python/nanovg.o: python/nanovg.cpp.o
+
+.PHONY : python/nanovg.o
+
+# target to build an object file
+python/nanovg.cpp.o:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-python-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-python-obj.dir/python/nanovg.cpp.o
+.PHONY : python/nanovg.cpp.o
+
+python/nanovg.i: python/nanovg.cpp.i
+
+.PHONY : python/nanovg.i
+
+# target to preprocess a source file
+python/nanovg.cpp.i:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-python-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-python-obj.dir/python/nanovg.cpp.i
+.PHONY : python/nanovg.cpp.i
+
+python/nanovg.s: python/nanovg.cpp.s
+
+.PHONY : python/nanovg.s
+
+# target to generate assembly for a file
+python/nanovg.cpp.s:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-python-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-python-obj.dir/python/nanovg.cpp.s
+.PHONY : python/nanovg.cpp.s
+
+python/tabs.o: python/tabs.cpp.o
+
+.PHONY : python/tabs.o
+
+# target to build an object file
+python/tabs.cpp.o:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-python-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-python-obj.dir/python/tabs.cpp.o
+.PHONY : python/tabs.cpp.o
+
+python/tabs.i: python/tabs.cpp.i
+
+.PHONY : python/tabs.i
+
+# target to preprocess a source file
+python/tabs.cpp.i:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-python-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-python-obj.dir/python/tabs.cpp.i
+.PHONY : python/tabs.cpp.i
+
+python/tabs.s: python/tabs.cpp.s
+
+.PHONY : python/tabs.s
+
+# target to generate assembly for a file
+python/tabs.cpp.s:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-python-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-python-obj.dir/python/tabs.cpp.s
+.PHONY : python/tabs.cpp.s
+
+python/textbox.o: python/textbox.cpp.o
+
+.PHONY : python/textbox.o
+
+# target to build an object file
+python/textbox.cpp.o:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-python-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-python-obj.dir/python/textbox.cpp.o
+.PHONY : python/textbox.cpp.o
+
+python/textbox.i: python/textbox.cpp.i
+
+.PHONY : python/textbox.i
+
+# target to preprocess a source file
+python/textbox.cpp.i:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-python-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-python-obj.dir/python/textbox.cpp.i
+.PHONY : python/textbox.cpp.i
+
+python/textbox.s: python/textbox.cpp.s
+
+.PHONY : python/textbox.s
+
+# target to generate assembly for a file
+python/textbox.cpp.s:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-python-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-python-obj.dir/python/textbox.cpp.s
+.PHONY : python/textbox.cpp.s
+
+python/widget.o: python/widget.cpp.o
+
+.PHONY : python/widget.o
+
+# target to build an object file
+python/widget.cpp.o:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-python-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-python-obj.dir/python/widget.cpp.o
+.PHONY : python/widget.cpp.o
+
+python/widget.i: python/widget.cpp.i
+
+.PHONY : python/widget.i
+
+# target to preprocess a source file
+python/widget.cpp.i:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-python-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-python-obj.dir/python/widget.cpp.i
+.PHONY : python/widget.cpp.i
+
+python/widget.s: python/widget.cpp.s
+
+.PHONY : python/widget.s
+
+# target to generate assembly for a file
+python/widget.cpp.s:
+	cd /home/mattia/CLionProjects/Thesis/cmake-build-debug && $(MAKE) -f lib/nanogui/CMakeFiles/nanogui-python-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-python-obj.dir/python/widget.cpp.s
+.PHONY : python/widget.cpp.s
 
 src/button.o: src/button.cpp.o
 
@@ -1169,6 +1604,9 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... install/local"
+	@echo "... install"
+	@echo "... install/strip"
+	@echo "... list_install_components"
 	@echo "... nanogui"
 	@echo "... nanogui-obj"
 	@echo "... example1"
@@ -1177,15 +1615,59 @@ help:
 	@echo "... edit_cache"
 	@echo "... example3"
 	@echo "... example4"
-	@echo "... install/strip"
-	@echo "... list_install_components"
-	@echo "... install"
+	@echo "... nanogui-python"
+	@echo "... nanogui-python-obj"
+	@echo "... ext/coro/coro.o"
+	@echo "... ext/coro/coro.i"
+	@echo "... ext/coro/coro.s"
 	@echo "... ext/nanovg/src/nanovg.o"
 	@echo "... ext/nanovg/src/nanovg.i"
 	@echo "... ext/nanovg/src/nanovg.s"
 	@echo "... nanogui_resources.o"
 	@echo "... nanogui_resources.i"
 	@echo "... nanogui_resources.s"
+	@echo "... python/basics.o"
+	@echo "... python/basics.i"
+	@echo "... python/basics.s"
+	@echo "... python/button.o"
+	@echo "... python/button.i"
+	@echo "... python/button.s"
+	@echo "... python/constants.o"
+	@echo "... python/constants.i"
+	@echo "... python/constants.s"
+	@echo "... python/eigen.o"
+	@echo "... python/eigen.i"
+	@echo "... python/eigen.s"
+	@echo "... python/formhelper.o"
+	@echo "... python/formhelper.i"
+	@echo "... python/formhelper.s"
+	@echo "... python/glcanvas.o"
+	@echo "... python/glcanvas.i"
+	@echo "... python/glcanvas.s"
+	@echo "... python/glutil.o"
+	@echo "... python/glutil.i"
+	@echo "... python/glutil.s"
+	@echo "... python/layout.o"
+	@echo "... python/layout.i"
+	@echo "... python/layout.s"
+	@echo "... python/main.o"
+	@echo "... python/main.i"
+	@echo "... python/main.s"
+	@echo "... python/misc.o"
+	@echo "... python/misc.i"
+	@echo "... python/misc.s"
+	@echo "... python/nanovg.o"
+	@echo "... python/nanovg.i"
+	@echo "... python/nanovg.s"
+	@echo "... python/tabs.o"
+	@echo "... python/tabs.i"
+	@echo "... python/tabs.s"
+	@echo "... python/textbox.o"
+	@echo "... python/textbox.i"
+	@echo "... python/textbox.s"
+	@echo "... python/widget.o"
+	@echo "... python/widget.i"
+	@echo "... python/widget.s"
 	@echo "... src/button.o"
 	@echo "... src/button.i"
 	@echo "... src/button.s"

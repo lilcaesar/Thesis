@@ -2,7 +2,7 @@
 set(CTEST_SOURCE_DIRECTORY  "/home/mattia/CLionProjects/Thesis")
 set(CTEST_BINARY_DIRECTORY  "/home/mattia/CLionProjects/Thesis/cmake-build-debug")
 set(CTEST_CMAKE_GENERATOR   "Unix Makefiles")
-set(CTEST_BUILD_NAME        "linux-4.8.0-46-generic-_-6.2.0-sse2-64bit")
+set(CTEST_BUILD_NAME        "linux-4.8.0-49-generic-_-6.2.0-sse2-64bit")
 set(CTEST_SITE              "mattia")
 
 set(MODEL Experimental)

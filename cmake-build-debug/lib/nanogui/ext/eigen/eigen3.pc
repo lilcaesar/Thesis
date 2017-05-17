@@ -6,4 +6,4 @@ Description: A C++ template library for linear algebra: vectors, matrices, and r
 Requires:
 Version: 3.2.9
 Libs:
-Cflags: -I${prefix}//usr/local/include/eigen3
+Cflags: -I${prefix}/include/eigen3

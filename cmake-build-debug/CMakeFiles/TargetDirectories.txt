@@ -6,6 +6,9 @@
 /home/mattia/CLionProjects/Thesis/cmake-build-debug/CMakeFiles/install/local.dir
 /home/mattia/CLionProjects/Thesis/cmake-build-debug/CMakeFiles/Thesis.dir
 /home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/CMakeFiles/install/local.dir
+/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/CMakeFiles/install.dir
+/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/CMakeFiles/install/strip.dir
+/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/CMakeFiles/list_install_components.dir
 /home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/CMakeFiles/nanogui.dir
 /home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/CMakeFiles/nanogui-obj.dir
 /home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/CMakeFiles/example1.dir
@@ -14,9 +17,8 @@
 /home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/CMakeFiles/edit_cache.dir
 /home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/CMakeFiles/example3.dir
 /home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/CMakeFiles/example4.dir
-/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/CMakeFiles/install/strip.dir
-/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/CMakeFiles/list_install_components.dir
-/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/CMakeFiles/install.dir
+/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/CMakeFiles/nanogui-python.dir
+/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/CMakeFiles/nanogui-python-obj.dir
 /home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext_build/glfw/CMakeFiles/install/strip.dir
 /home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext_build/glfw/CMakeFiles/install/local.dir
 /home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext_build/glfw/CMakeFiles/install.dir

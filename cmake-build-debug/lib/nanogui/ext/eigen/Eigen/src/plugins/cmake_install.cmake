@@ -33,15 +33,7 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 endif()
 
 if("${CMAKE_INSTALL_COMPONENT}" STREQUAL "Devel" OR NOT CMAKE_INSTALL_COMPONENT)
-  list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/usr/local/include/eigen3/Eigen/src/plugins/ArrayCwiseBinaryOps.h;/usr/local/include/eigen3/Eigen/src/plugins/ArrayCwiseUnaryOps.h;/usr/local/include/eigen3/Eigen/src/plugins/BlockMethods.h;/usr/local/include/eigen3/Eigen/src/plugins/CommonCwiseBinaryOps.h;/usr/local/include/eigen3/Eigen/src/plugins/CommonCwiseUnaryOps.h;/usr/local/include/eigen3/Eigen/src/plugins/MatrixCwiseBinaryOps.h;/usr/local/include/eigen3/Eigen/src/plugins/MatrixCwiseUnaryOps.h")
-  if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
-    message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
-  endif()
-  if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-    message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
-  endif()
-file(INSTALL DESTINATION "/usr/local/include/eigen3/Eigen/src/plugins" TYPE FILE FILES
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/eigen3/Eigen/src/plugins" TYPE FILE FILES
     "/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen/Eigen/src/plugins/ArrayCwiseBinaryOps.h"
     "/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen/Eigen/src/plugins/ArrayCwiseUnaryOps.h"
     "/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen/Eigen/src/plugins/BlockMethods.h"

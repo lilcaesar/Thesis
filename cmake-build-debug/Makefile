@@ -246,6 +246,32 @@ example4/fast:
 .PHONY : example4/fast
 
 #=============================================================================
+# Target rules for targets named nanogui-python
+
+# Build rule for target.
+nanogui-python: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 nanogui-python
+.PHONY : nanogui-python
+
+# fast build rule for target.
+nanogui-python/fast:
+	$(MAKE) -f lib/nanogui/CMakeFiles/nanogui-python.dir/build.make lib/nanogui/CMakeFiles/nanogui-python.dir/build
+.PHONY : nanogui-python/fast
+
+#=============================================================================
+# Target rules for targets named nanogui-python-obj
+
+# Build rule for target.
+nanogui-python-obj: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 nanogui-python-obj
+.PHONY : nanogui-python-obj
+
+# fast build rule for target.
+nanogui-python-obj/fast:
+	$(MAKE) -f lib/nanogui/CMakeFiles/nanogui-python-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-python-obj.dir/build
+.PHONY : nanogui-python-obj/fast
+
+#=============================================================================
 # Target rules for targets named glfw
 
 # Build rule for target.
@@ -14839,6 +14865,8 @@ help:
 	@echo "... example2"
 	@echo "... example3"
 	@echo "... example4"
+	@echo "... nanogui-python"
+	@echo "... nanogui-python-obj"
 	@echo "... glfw"
 	@echo "... glfw_objects"
 	@echo "... ContinuousSubmit"

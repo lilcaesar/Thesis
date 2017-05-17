@@ -304,9 +304,6 @@ EIGEN_DEFAULT_TO_ROW_MAJOR:BOOL=OFF
 //Enable failtests.
 EIGEN_FAILTEST:BOOL=OFF
 
-//The directory where we install the header files (optional)
-EIGEN_INCLUDE_INSTALL_DIR:PATH=
-
 //Disable checking of assertions using exceptions
 EIGEN_NO_ASSERTION_CHECKING:BOOL=OFF
 
@@ -323,7 +320,7 @@ EIGEN_TEST_ALTIVEC:BOOL=OFF
 EIGEN_TEST_BUILD_DOCUMENTATION:BOOL=OFF
 
 //Options passed to the build command of unit tests
-EIGEN_TEST_BUILD_FLAGS:STRING=' '
+EIGEN_TEST_BUILD_FLAGS:STRING=
 
 //Enables all C++0x features.
 EIGEN_TEST_C++0x:BOOL=OFF
@@ -452,17 +449,11 @@ GLFW_DOCUMENT_INTERNALS:BOOL=OFF
 //Generate installation target
 GLFW_INSTALL:BOOL=OFF
 
-//Dependencies of GLFW
-GLFW_LIBRARIES:STRING=/usr/lib/x86_64-linux-gnu/librt.so;/usr/lib/x86_64-linux-gnu/libm.so;/usr/lib/x86_64-linux-gnu/libX11.so;-lpthread;/usr/lib/x86_64-linux-gnu/libXrandr.so;/usr/lib/x86_64-linux-gnu/libXinerama.so;/usr/lib/x86_64-linux-gnu/libXi.so;/usr/lib/x86_64-linux-gnu/libXxf86vm.so;/usr/lib/x86_64-linux-gnu/libXcursor.so;/usr/lib/x86_64-linux-gnu/libGL.so;dl
-
 //Value Computed by CMake
 GLFW_SOURCE_DIR:STATIC=/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw
 
 // 
 GLFW_USE_CHDIR:BOOL=OFF
-
-//Use EGL for context creation
-GLFW_USE_EGL:BOOL=OFF
 
 //Use Mir for window creation
 GLFW_USE_MIR:BOOL=OFF
@@ -492,10 +483,11 @@ GMP_LIBRARIES:FILEPATH=GMP_LIBRARIES-NOTFOUND
 GOOGLEHASH_INCLUDES:PATH=GOOGLEHASH_INCLUDES-NOTFOUND
 
 //Path to a program.
-HEAD_EXE:FILEPATH=/usr/bin/head
-
-//Path to a program.
 HGCOMMAND:FILEPATH=HGCOMMAND-NOTFOUND
+
+//The directory relative to CMAKE_PREFIX_PATH where Eigen header
+// files are installed
+INCLUDE_INSTALL_DIR:PATH=include/eigen3
 
 //Takes an empty string or 64. Directory where lib will be installed:
 // lib or lib64
@@ -529,7 +521,7 @@ MPFR_LIBRARIES:FILEPATH=MPFR_LIBRARIES-NOTFOUND
 NANOGUI_BUILD_EXAMPLE:BOOL=ON
 
 //Build a Python plugin for NanoGUI?
-NANOGUI_BUILD_PYTHON:BOOL=OFF
+NANOGUI_BUILD_PYTHON:BOOL=ON
 
 //Build NanoGUI as a shared library?
 NANOGUI_BUILD_SHARED:BOOL=ON
@@ -577,14 +569,11 @@ PKGCONFIG_INSTALL_DIR:PATH=share/pkgconfig
 //pkg-config executable
 PKG_CONFIG_EXECUTABLE:FILEPATH=/usr/bin/pkg-config
 
+//Path to a program.
+PYTHON_EXECUTABLE:FILEPATH=/usr/bin/python3.5
+
 //Path to a library.
 PYTHON_LIBRARY:FILEPATH=PYTHON_LIBRARY-NOTFOUND
-
-//Path to a library.
-PYTHON_LIBRARY_DEBUG:FILEPATH=PYTHON_LIBRARY_DEBUG-NOTFOUND
-
-//Path to a library.
-PYTHON_LIBRARY_RELEASE:FILEPATH=PYTHON_LIBRARY_RELEASE-NOTFOUND
 
 //Path to a program.
 ProcessorCount_cmd_getconf:FILEPATH=/usr/bin/getconf
@@ -631,9 +620,6 @@ SUPERLU_LIBRARIES:FILEPATH=SUPERLU_LIBRARIES-NOTFOUND
 //Path to a program.
 SVNCOMMAND:FILEPATH=SVNCOMMAND-NOTFOUND
 
-//The directory containing a CMake configuration file for StandardMathLibrary.
-StandardMathLibrary_DIR:PATH=StandardMathLibrary_DIR-NOTFOUND
-
 //Value Computed by CMake
 Thesis_BINARY_DIR:STATIC=/home/mattia/CLionProjects/Thesis/cmake-build-debug
 
@@ -651,12 +637,6 @@ VULKAN_INCLUDE_DIR:PATH=/usr/include
 
 //Path to a library.
 VULKAN_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libvulkan.so
-
-//Path to a file.
-Vulkan_INCLUDE_DIR:PATH=/usr/include
-
-//Path to a library.
-Vulkan_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libvulkan.so
 
 //Path to a file.
 X11_ICE_INCLUDE_PATH:PATH=/usr/include
@@ -857,10 +837,10 @@ eigen_lapack_static_LIB_DEPENDS:STATIC=
 glfw_LIB_DEPENDS:STATIC=general;/usr/lib/x86_64-linux-gnu/librt.so;general;/usr/lib/x86_64-linux-gnu/libm.so;general;dl;general;/usr/lib/x86_64-linux-gnu/libX11.so;general;-lpthread;general;/usr/lib/x86_64-linux-gnu/libXrandr.so;general;/usr/lib/x86_64-linux-gnu/libXinerama.so;general;/usr/lib/x86_64-linux-gnu/libXxf86vm.so;general;/usr/lib/x86_64-linux-gnu/libXcursor.so;
 
 //Dependencies for the target
-nanogui_LIB_DEPENDS:STATIC=general;GL;general;Xxf86vm;general;Xrandr;general;Xinerama;general;Xcursor;general;Xi;general;X11;general;pthread;general;rt;general;dl;
+nanogui-python_LIB_DEPENDS:STATIC=general;nanogui;general;GL;general;Xxf86vm;general;Xrandr;general;Xinerama;general;Xcursor;general;Xi;general;X11;general;pthread;general;rt;general;dl;
 
-//Path to a file.
-pkg_config_libdir:PATH=/usr/local/share
+//Dependencies for the target
+nanogui_LIB_DEPENDS:STATIC=general;GL;general;Xxf86vm;general;Xrandr;general;Xinerama;general;Xcursor;general;Xi;general;X11;general;pthread;general;rt;general;dl;
 
 
 ########################
@@ -886,7 +866,7 @@ CMAKE_CACHE_MAJOR_VERSION:INTERNAL=3
 //Minor version of cmake used to create the current loaded cache
 CMAKE_CACHE_MINOR_VERSION:INTERNAL=7
 //Patch version of cmake used to create the current loaded cache
-CMAKE_CACHE_PATCH_VERSION:INTERNAL=1
+CMAKE_CACHE_PATCH_VERSION:INTERNAL=2
 //ADVANCED property for variable: CMAKE_COLOR_MAKEFILE
 CMAKE_COLOR_MAKEFILE-ADVANCED:INTERNAL=1
 //Path to CMake executable.
@@ -1148,8 +1128,12 @@ FFTW_LIB-ADVANCED:INTERNAL=1
 FIND_PACKAGE_MESSAGE_DETAILS_GLUT:INTERNAL=[/usr/lib/x86_64-linux-gnu/libglut.so][/usr/include][v()]
 //Details about finding OpenGL
 FIND_PACKAGE_MESSAGE_DETAILS_OpenGL:INTERNAL=[/usr/lib/x86_64-linux-gnu/libGL.so][/usr/include][v()]
+//Details about finding PYTHON
+FIND_PACKAGE_MESSAGE_DETAILS_PYTHON:INTERNAL=/usr/bin/python3.5
 //Details about finding PkgConfig
 FIND_PACKAGE_MESSAGE_DETAILS_PkgConfig:INTERNAL=[/usr/bin/pkg-config][v0.29.1()]
+//Details about finding PythonInterp
+FIND_PACKAGE_MESSAGE_DETAILS_PythonInterp:INTERNAL=[/usr/bin/python3.5][v3.5.2()]
 //Details about finding Threads
 FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
 //Details about finding X11
@@ -1180,8 +1164,6 @@ HAS_CPP11_FLAG:INTERNAL=1
 HAS_CPP14_FLAG:INTERNAL=1
 //ADVANCED property for variable: HGCOMMAND
 HGCOMMAND-ADVANCED:INTERNAL=1
-//The directory where we install the header files (internal)
-INCLUDE_INSTALL_DIR:INTERNAL=/usr/local/include/eigen3
 //ADVANCED property for variable: MAKECOMMAND
 MAKECOMMAND-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: MATH_LIBRARY
@@ -1238,12 +1220,10 @@ PKG_FFTW_fftw3_INCLUDEDIR:INTERNAL=
 PKG_FFTW_fftw3_LIBDIR:INTERNAL=
 PKG_FFTW_fftw3_PREFIX:INTERNAL=
 PKG_FFTW_fftw3_VERSION:INTERNAL=
+//ADVANCED property for variable: PYTHON_EXECUTABLE
+PYTHON_EXECUTABLE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: PYTHON_LIBRARY
 PYTHON_LIBRARY-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: PYTHON_LIBRARY_DEBUG
-PYTHON_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: PYTHON_LIBRARY_RELEASE
-PYTHON_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: ProcessorCount_cmd_getconf
 ProcessorCount_cmd_getconf-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: ProcessorCount_cmd_sysctl
@@ -1280,10 +1260,6 @@ UMFPACK_LIBRARIES-ADVANCED:INTERNAL=1
 VULKAN_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: VULKAN_LIBRARY
 VULKAN_LIBRARY-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: Vulkan_INCLUDE_DIR
-Vulkan_INCLUDE_DIR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: Vulkan_LIBRARY
-Vulkan_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: X11_ICE_INCLUDE_PATH
 X11_ICE_INCLUDE_PATH-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: X11_ICE_LIB

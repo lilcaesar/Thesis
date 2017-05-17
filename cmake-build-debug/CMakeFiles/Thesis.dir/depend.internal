@@ -16,6 +16,7 @@ CMakeFiles/Thesis.dir/main.cpp.o
  ../lib/nanogui/include/nanogui/compat.h
  ../lib/nanogui/include/nanogui/entypo.h
  ../lib/nanogui/include/nanogui/formhelper.h
+ ../lib/nanogui/include/nanogui/glcanvas.h
  ../lib/nanogui/include/nanogui/glutil.h
  ../lib/nanogui/include/nanogui/graph.h
  ../lib/nanogui/include/nanogui/imagepanel.h
@@ -31,6 +32,9 @@ CMakeFiles/Thesis.dir/main.cpp.o
  ../lib/nanogui/include/nanogui/progressbar.h
  ../lib/nanogui/include/nanogui/screen.h
  ../lib/nanogui/include/nanogui/slider.h
+ ../lib/nanogui/include/nanogui/stackedwidget.h
+ ../lib/nanogui/include/nanogui/tabheader.h
+ ../lib/nanogui/include/nanogui/tabwidget.h
  ../lib/nanogui/include/nanogui/textbox.h
  ../lib/nanogui/include/nanogui/theme.h
  ../lib/nanogui/include/nanogui/toolbutton.h

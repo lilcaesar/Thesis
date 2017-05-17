@@ -33,15 +33,7 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 endif()
 
 if("${CMAKE_INSTALL_COMPONENT}" STREQUAL "Devel" OR NOT CMAKE_INSTALL_COMPONENT)
-  list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/usr/local/include/eigen3/unsupported/Eigen/src/IterativeSolvers/ConstrainedConjGrad.h;/usr/local/include/eigen3/unsupported/Eigen/src/IterativeSolvers/DGMRES.h;/usr/local/include/eigen3/unsupported/Eigen/src/IterativeSolvers/GMRES.h;/usr/local/include/eigen3/unsupported/Eigen/src/IterativeSolvers/IncompleteCholesky.h;/usr/local/include/eigen3/unsupported/Eigen/src/IterativeSolvers/IncompleteLU.h;/usr/local/include/eigen3/unsupported/Eigen/src/IterativeSolvers/IterationController.h;/usr/local/include/eigen3/unsupported/Eigen/src/IterativeSolvers/MINRES.h;/usr/local/include/eigen3/unsupported/Eigen/src/IterativeSolvers/Scaling.h")
-  if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
-    message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
-  endif()
-  if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-    message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
-  endif()
-file(INSTALL DESTINATION "/usr/local/include/eigen3/unsupported/Eigen/src/IterativeSolvers" TYPE FILE FILES
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/eigen3/unsupported/Eigen/src/IterativeSolvers" TYPE FILE FILES
     "/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen/unsupported/Eigen/src/IterativeSolvers/ConstrainedConjGrad.h"
     "/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen/unsupported/Eigen/src/IterativeSolvers/DGMRES.h"
     "/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen/unsupported/Eigen/src/IterativeSolvers/GMRES.h"

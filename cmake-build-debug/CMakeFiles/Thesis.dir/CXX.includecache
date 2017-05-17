@@ -66,6 +66,16 @@ nanogui/layout.h
 cassert
 -
 
+../lib/nanogui/include/nanogui/glcanvas.h
+iostream
+-
+nanogui/widget.h
+-
+nanogui/opengl.h
+-
+nanogui/glutil.h
+-
+
 ../lib/nanogui/include/nanogui/glutil.h
 nanogui/opengl.h
 -
@@ -84,6 +94,10 @@ nanogui/widget.h
 
 ../lib/nanogui/include/nanogui/imageview.h
 nanogui/widget.h
+-
+nanogui/glutil.h
+-
+functional
 -
 
 ../lib/nanogui/include/nanogui/label.h
@@ -151,6 +165,14 @@ nanogui/graph.h
 -
 nanogui/formhelper.h
 -
+nanogui/stackedwidget.h
+-
+nanogui/tabheader.h
+-
+nanogui/tabwidget.h
+-
+nanogui/glcanvas.h
+-
 
 ../lib/nanogui/include/nanogui/object.h
 nanogui/common.h
@@ -190,6 +212,30 @@ nanogui/widget.h
 
 ../lib/nanogui/include/nanogui/slider.h
 nanogui/widget.h
+-
+
+../lib/nanogui/include/nanogui/stackedwidget.h
+nanogui/widget.h
+-
+
+../lib/nanogui/include/nanogui/tabheader.h
+nanogui/widget.h
+-
+vector
+-
+string
+-
+functional
+-
+utility
+-
+iterator
+-
+
+../lib/nanogui/include/nanogui/tabwidget.h
+nanogui/widget.h
+-
+functional
 -
 
 ../lib/nanogui/include/nanogui/textbox.h

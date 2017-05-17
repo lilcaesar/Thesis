@@ -62,20 +62,6 @@ public:
 
         //TODO verificare che le prossime operazioni fatte prima del caricamento su matrice siano più dispendiose rispetto a farle sulle matrici stesse
 
-        //Cerco il vertice più grande in modulo e lo uso per la scalatura
-        double maxVertex = (*std::max_element(tempVertices.begin(), tempVertices.end()));
-        double minVertex = (*std::min_element(tempVertices.begin(), tempVertices.end()));
-
-        if (maxVertex > abs(minVertex))
-            scaleFactor = std::abs(1 / maxVertex);
-        else
-            scaleFactor = std::abs(1 / minVertex);
-
-
-
-
-        //Calcolo del frustum in base alla mesh
-
         std::vector<double> XValues;
         std::vector<double> YValues;
         std::vector<double> ZValues;
@@ -92,10 +78,6 @@ public:
         maxYValue = (*std::max_element(YValues.begin(), YValues.end()));
         minZValue = (*std::max_element(ZValues.begin(), ZValues.end()));
         maxZValue = (*std::min_element(ZValues.begin(), ZValues.end()));
-
-
-
-
 
         //CARICAMENTO VECTOR SU MATRIX
         Eigen::MatrixXd vertices(3, nVertices);
@@ -125,17 +107,26 @@ public:
         mShader.free();
     }
 
-    void setScaleFactor(float scale) {
-        scaleFactor = scale;
+    void setTranslationFactor(float x, float y, float z) {
+        Vector3f tr = {x, y, z};
+        translation = tr;
     }
 
-    double getScaleFactor() {
-        return scaleFactor;
+    Vector3f getTranslationFactor() {
+        return translation;
     }
 
-    //TODO Calcolare correttamente la traslazione in Z
+    Vector4f getModelSphere(){
+        float x, y, z, radius;
+        x=(minXValue+maxXValue)/2;
+        y=(minYValue+maxYValue)/2;
+        z=(minZValue+maxZValue)/2;
+        radius = sqrt(pow(maxXValue-x, 2) + pow(maxYValue-x, 2) + pow(maxZValue-x, 2));
+        return Vector4f(x, y, z, radius);
+    }
+
     Vector3f getTranslationToCenter() {
-        return Vector3f(-(minXValue+maxXValue)/2,-(minYValue+maxYValue)/2,-(minZValue+maxZValue)/2 -1.5);
+        return Vector3f(-(minXValue+maxXValue)/2,-(minYValue+maxYValue)/2,-(minZValue+maxZValue)/2);
     }
 
 
@@ -145,23 +136,38 @@ public:
         /* Draw the window contents using OpenGL */
         mShader.bind();
 
-        Matrix4f mvp;
-        Matrix4f model;
-        Matrix4f proj;
+        Matrix4f mvp, model, view, proj, lookAtMatrix;
         mvp.setIdentity();
         model.setIdentity();
+        view.setIdentity();
         proj.setIdentity();
-        Vector3f scaleVector = {scaleFactor, scaleFactor, scaleFactor};
-        Vector3f translateVector = getTranslationToCenter();
+        lookAtMatrix.setIdentity();
+        Vector3f translateVector = getTranslationToCenter() + translation;
 
-        //TODO Calcolare correttamente il frustum
-        proj = frustum(-1, 1, -1, 1, 1, 30);
+        Vector4f modelSphere = getModelSphere();        // x,y,z,radius
+
+        float FOV, camDistance, dNear, dFar, radius, px, py, pz;
+
+        FOV = 50;
+        px = modelSphere[0];
+        py = modelSphere[1];
+        pz = modelSphere [2];
+        radius = modelSphere[3];
+        camDistance = radius/tan(FOV);
+        dNear = camDistance - radius;
+        dFar = camDistance + radius;
+
+        proj = frustum(-radius, radius, radius, -radius, dNear, dFar);
         proj.transposeInPlace();
 
+        lookAtMatrix = lookAt(Eigen::Vector3f(0, 0, -camDistance), Eigen::Vector3f(0, 0, 0), Eigen::Vector3f(0,1,0));
 
-        model = (translate(translateVector)) * (scale(scaleVector));
+        model = translate(translateVector);
 
-        mvp = proj * /* view * */model;
+        view = lookAtMatrix;
+        view.transposeInPlace();
+
+        mvp = proj *  view * model;
 
         mShader.setUniform("modelViewProj", mvp);
         //mShader.setUniform("modelMatrix", model);
@@ -180,9 +186,10 @@ private:
     nanogui::GLShader mShader;
     /*Numero di triangoli caricati dal file*/
     uint32_t nFaces;
-    double scaleFactor = 1;
 
-    /* Variabili per il calcolo del frustum*/
+    Vector3f translation = {0, 0, 0};
+
+    /* Variabili per il calcolo della traslazione */
     double minXValue, maxXValue, minYValue, maxYValue, minZValue, maxZValue;
 };
 
@@ -203,18 +210,44 @@ public:
         Widget *transformTools = new Widget(window);
         transformTools->setLayout(new BoxLayout(Orientation::Horizontal, Alignment::Middle, 0, 5));
 
-        /* Scale widget*/{
-            new Label(window, "Scale :", "sans");
+        /* Translation widget*/
+        {
+            new Label(window, "Translate x:", "sans");
             auto scaleFloatBox = new FloatBox<float>(window);
             scaleFloatBox->setFixedSize(Vector2i(100, 20));
-            scaleFloatBox->setValue(mCanvas->getScaleFactor());
+            scaleFloatBox->setValue(mCanvas->getTranslationFactor()[0]);
             scaleFloatBox->setFontSize(16);
-            scaleFloatBox->setValueIncrement(mCanvas->getScaleFactor() / 10);
-            scaleFloatBox->setMinValue(0);
+            scaleFloatBox->setValueIncrement(0.1);
             scaleFloatBox->setEditable(true);
             scaleFloatBox->setSpinnable(true);
-            scaleFloatBox->setCallback([this](float scaleValue) {
-                this->mCanvas->setScaleFactor(scaleValue);
+            scaleFloatBox->setCallback([this](float translationValue) {
+                this->mCanvas->setTranslationFactor(translationValue, mCanvas->getTranslationFactor()[1], mCanvas->getTranslationFactor()[2]);
+            });
+        }
+        {
+            new Label(window, "Translate y:", "sans");
+            auto scaleFloatBox = new FloatBox<float>(window);
+            scaleFloatBox->setFixedSize(Vector2i(100, 20));
+            scaleFloatBox->setValue(mCanvas->getTranslationFactor()[1]);
+            scaleFloatBox->setFontSize(16);
+            scaleFloatBox->setValueIncrement(0.1);
+            scaleFloatBox->setEditable(true);
+            scaleFloatBox->setSpinnable(true);
+            scaleFloatBox->setCallback([this](float translationValue) {
+                this->mCanvas->setTranslationFactor(mCanvas->getTranslationFactor()[0], translationValue, mCanvas->getTranslationFactor()[2]);
+            });
+        }
+        {
+            new Label(window, "Translate z:", "sans");
+            auto scaleFloatBox = new FloatBox<float>(window);
+            scaleFloatBox->setFixedSize(Vector2i(100, 20));
+            scaleFloatBox->setValue(mCanvas->getTranslationFactor()[2]);
+            scaleFloatBox->setFontSize(16);
+            scaleFloatBox->setValueIncrement(0.1);
+            scaleFloatBox->setEditable(true);
+            scaleFloatBox->setSpinnable(true);
+            scaleFloatBox->setCallback([this](float translationValue) {
+                this->mCanvas->setTranslationFactor(mCanvas->getTranslationFactor()[0], mCanvas->getTranslationFactor()[1], translationValue);
             });
         }
 

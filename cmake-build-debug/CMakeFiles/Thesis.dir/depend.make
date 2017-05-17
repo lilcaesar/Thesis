@@ -15,6 +15,7 @@ CMakeFiles/Thesis.dir/main.cpp.o: ../lib/nanogui/include/nanogui/common.h
 CMakeFiles/Thesis.dir/main.cpp.o: ../lib/nanogui/include/nanogui/compat.h
 CMakeFiles/Thesis.dir/main.cpp.o: ../lib/nanogui/include/nanogui/entypo.h
 CMakeFiles/Thesis.dir/main.cpp.o: ../lib/nanogui/include/nanogui/formhelper.h
+CMakeFiles/Thesis.dir/main.cpp.o: ../lib/nanogui/include/nanogui/glcanvas.h
 CMakeFiles/Thesis.dir/main.cpp.o: ../lib/nanogui/include/nanogui/glutil.h
 CMakeFiles/Thesis.dir/main.cpp.o: ../lib/nanogui/include/nanogui/graph.h
 CMakeFiles/Thesis.dir/main.cpp.o: ../lib/nanogui/include/nanogui/imagepanel.h
@@ -30,6 +31,9 @@ CMakeFiles/Thesis.dir/main.cpp.o: ../lib/nanogui/include/nanogui/popupbutton.h
 CMakeFiles/Thesis.dir/main.cpp.o: ../lib/nanogui/include/nanogui/progressbar.h
 CMakeFiles/Thesis.dir/main.cpp.o: ../lib/nanogui/include/nanogui/screen.h
 CMakeFiles/Thesis.dir/main.cpp.o: ../lib/nanogui/include/nanogui/slider.h
+CMakeFiles/Thesis.dir/main.cpp.o: ../lib/nanogui/include/nanogui/stackedwidget.h
+CMakeFiles/Thesis.dir/main.cpp.o: ../lib/nanogui/include/nanogui/tabheader.h
+CMakeFiles/Thesis.dir/main.cpp.o: ../lib/nanogui/include/nanogui/tabwidget.h
 CMakeFiles/Thesis.dir/main.cpp.o: ../lib/nanogui/include/nanogui/textbox.h
 CMakeFiles/Thesis.dir/main.cpp.o: ../lib/nanogui/include/nanogui/theme.h
 CMakeFiles/Thesis.dir/main.cpp.o: ../lib/nanogui/include/nanogui/toolbutton.h
