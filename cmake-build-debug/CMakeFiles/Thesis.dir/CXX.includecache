@@ -299,6 +299,8 @@ string
 -
 fstream
 -
+math.h
+-
 nanogui/nanogui.h
 -
 nanogui/glutil.h

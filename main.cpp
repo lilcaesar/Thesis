@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <math.h>
 #include <nanogui/nanogui.h>
 #include <nanogui/glutil.h>
 #include <GL/gl.h>
@@ -99,7 +100,7 @@ public:
         mShader.uploadAttrib("vertices", vertices);
         //mShader.uploadAttrib("normals", normals);
         //mShader.uploadAttrib("color", colors);
-        mShader.setUniform("lightPosition", lightPosition);
+        //mShader.setUniform("lightPosition", lightPosition);
         //mShader.setUniform("intensity", 0.5f);
     }
 
@@ -136,38 +137,40 @@ public:
         /* Draw the window contents using OpenGL */
         mShader.bind();
 
-        Matrix4f mvp, model, view, proj, lookAtMatrix;
+        Matrix4f mvp, model, view, proj, worldView;
         mvp.setIdentity();
         model.setIdentity();
         view.setIdentity();
         proj.setIdentity();
-        lookAtMatrix.setIdentity();
+        worldView.setIdentity();
+        //richiamare getTranslationToCenter() solo se è presente un'unica mesh
         Vector3f translateVector = getTranslationToCenter() + translation;
 
         Vector4f modelSphere = getModelSphere();        // x,y,z,radius
 
-        float FOV, camDistance, dNear, dFar, radius, px, py, pz;
+        float FOV, fovRadiants, camDistance, dNear, dFar, radius, px, py, pz;
 
-        FOV = 50;
+        FOV = 30;
+        fovRadiants = FOV * M_PI / 180;
         px = modelSphere[0];
         py = modelSphere[1];
         pz = modelSphere [2];
         radius = modelSphere[3];
-        camDistance = radius/tan(FOV);
+        camDistance = radius/(tan(fovRadiants));
         dNear = camDistance - radius;
         dFar = camDistance + radius;
 
-        proj = frustum(-radius, radius, radius, -radius, dNear, dFar);
-        proj.transposeInPlace();
+        worldView = lookAt(Eigen::Vector3f(0, 0, camDistance), Eigen::Vector3f(px, py, pz), Eigen::Vector3f(0,1,0));
 
-        lookAtMatrix = lookAt(Eigen::Vector3f(0, 0, -camDistance), Eigen::Vector3f(0, 0, 0), Eigen::Vector3f(0,1,0));
+        proj = frustum(-radius, radius, -radius, radius, dNear, dFar);
+        proj.transposeInPlace();
 
         model = translate(translateVector);
 
-        view = lookAtMatrix;
+        view = worldView;
         view.transposeInPlace();
 
-        mvp = proj *  view * model;
+        mvp = proj * view * model;
 
         mShader.setUniform("modelViewProj", mvp);
         //mShader.setUniform("modelMatrix", model);
@@ -187,6 +190,7 @@ private:
     /*Numero di triangoli caricati dal file*/
     uint32_t nFaces;
 
+    //Vettore di traslazione
     Vector3f translation = {0, 0, 0};
 
     /* Variabili per il calcolo della traslazione */
@@ -195,7 +199,7 @@ private:
 
 class NanoguiMeshViewer : public nanogui::Screen {
 public:
-    NanoguiMeshViewer() : nanogui::Screen(Eigen::Vector2i(800, 800), "Nanogui Mesh Viewer") {
+    NanoguiMeshViewer() : nanogui::Screen(Eigen::Vector2i(1000, 1000), "Nanogui Mesh Viewer") {
         using namespace nanogui;
 
         Window *window = new Window(this, "Model Canvas");
