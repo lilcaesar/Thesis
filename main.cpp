@@ -79,9 +79,14 @@ public:
         maxYValue = (*std::max_element(YValues.begin(), YValues.end()));
         minZValue = (*std::max_element(ZValues.begin(), ZValues.end()));
         maxZValue = (*std::min_element(ZValues.begin(), ZValues.end()));
+        std::vector<double> maxVector = {maxXValue, maxYValue, maxZValue};
+        std::vector<double> minVector = {minXValue, minYValue, minZValue};
+        maxValue = (*std::max_element(maxVector.begin(), maxVector.end()));
+        minValue = (*std::min_element(minVector.begin(), minVector.end()));
+
 
         //CARICAMENTO VECTOR SU MATRIX
-        Eigen::MatrixXd vertices(3, nVertices);
+        vertices.resize(3, nVertices);
         Eigen::MatrixXd normals(3, nVertices);
         for (unsigned long i = 0; i < nVertices; i++) {
             vertices.col(i) << tempVertices[(3 * i)], tempVertices[(3 * i) + 1], tempVertices[(3 * i) + 2];
@@ -126,9 +131,18 @@ public:
         return Vector4f(x, y, z, radius);
     }
 
-    Vector3f getTranslationToCenter() {
-        return Vector3f(-(minXValue+maxXValue)/2,-(minYValue+maxYValue)/2,-(minZValue+maxZValue)/2);
+    void getTranslationToCenter(float &zoom, Vector3f &shift) {
+        float shiftX, shiftY, shiftZ;
+        shiftX = -(minXValue+maxXValue)/2;
+        shiftY = -(minYValue+maxYValue)/2;
+        shiftZ = -(minZValue+maxZValue)/2;
+        shift = Vector3f(shiftX, shiftY, shiftZ);
+        zoom = 2.0 / abs(maxValue - minValue);
     }
+
+    /*Vector3f getTranslationToCenter() {
+        return Vector3f(-(minXValue+maxXValue)/2,-(minYValue+maxYValue)/2,-(minZValue+maxZValue)/2);
+    }*/
 
 
     virtual void drawGL() override {
@@ -137,6 +151,7 @@ public:
         /* Draw the window contents using OpenGL */
         mShader.bind();
 
+
         Matrix4f mvp, model, view, proj, worldView;
         mvp.setIdentity();
         model.setIdentity();
@@ -144,9 +159,35 @@ public:
         proj.setIdentity();
         worldView.setIdentity();
         //richiamare getTranslationToCenter() solo se è presente un'unica mesh
-        Vector3f translateVector = getTranslationToCenter() + translation;
 
-        Vector4f modelSphere = getModelSphere();        // x,y,z,radius
+        float model_zoom = 1;
+        float camera_dnear = 1.0;
+        float camera_dfar = 100;
+        float camera_zoom = 1.0;
+        float cameraViewAngle = 75;
+        Vector3f translateVector(0,0,0), cameraEye(0,0,0), cameraCenter(0,0,-5), cameraUp(0,1,0);
+
+
+        getTranslationToCenter(model_zoom, translateVector);
+        translateVector+= translation;
+
+        view = lookAt(cameraEye, cameraCenter, cameraUp);
+        view.transposeInPlace();
+
+        float width = 600;
+        float heigth = 600;
+        float fH = tan(cameraViewAngle/360 * M_PI) * camera_dnear;
+        float fW = fH * width/heigth;
+        proj = frustum(-fW, fW, -fH, fH, camera_dnear, camera_dfar);
+        proj *= translate(Vector3f(0, 0, -1.5));
+        proj.transposeInPlace();
+
+        model.topLeftCorner(3,3) *= camera_zoom;
+        model.topLeftCorner(3,3) *= model_zoom;
+        model *= translate(translateVector);
+
+        /*Vector4f modelSphere = getModelSphere();        // x,y,z,radius
+        Vector3f translateVector = getTranslationToCenter() + translation;
 
         float FOV, fovRadiants, camDistance, dNear, dFar, radius, px, py, pz;
 
@@ -168,7 +209,7 @@ public:
         model = translate(translateVector);
 
         view = worldView;
-        view.transposeInPlace();
+        view.transposeInPlace();*/
 
         mvp = proj * view * model;
 
@@ -190,11 +231,14 @@ private:
     /*Numero di triangoli caricati dal file*/
     uint32_t nFaces;
 
+    //Matrice di vertici
+    Eigen::MatrixXd vertices;
+
     //Vettore di traslazione
     Vector3f translation = {0, 0, 0};
 
     /* Variabili per il calcolo della traslazione */
-    double minXValue, maxXValue, minYValue, maxYValue, minZValue, maxZValue;
+    double minXValue, maxXValue, minYValue, maxYValue, minZValue, maxZValue, maxValue, minValue;
 };
 
 class NanoguiMeshViewer : public nanogui::Screen {
