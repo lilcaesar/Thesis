@@ -13,16 +13,172 @@
 
 /*TODO
  * -Modificare vettori temporanei in vettori di Eigen::Vector3
- * -Inserire vista prospetica (al momento è ortogonale di default)
  * -Implementare caricamento della colorazione
  * -Normali
  * -Illumninazione*/
 
 using namespace nanogui;
 
-class MeshCanvas : public nanogui::GLCanvas {
+class NanoguiMeshViewer : public nanogui::Screen {
 public:
-    MeshCanvas(Widget *parent) : nanogui::GLCanvas(parent) {
+    NanoguiMeshViewer() : nanogui::Screen(Eigen::Vector2i(1000, 1000), "Nanogui Mesh Viewer") {
+        using namespace nanogui;
+
+        Window *window = new Window(this, "Transform Tools");
+        window = new Window(this, "Frustum tools");
+        window->setPosition(Vector2i(850, 0));
+        window->setLayout(new GroupLayout());
+
+        new Label(window, "Field of view", "sans-bold");
+        Widget *frustumTools = new Widget(window);
+        frustumTools->setLayout(new BoxLayout(Orientation::Horizontal, Alignment::Middle, 0, 5));
+        {
+            new Label(window, "Field of view:", "sans");
+            auto fovFloatBox = new FloatBox<float>(window);
+            fovFloatBox->setFixedSize(Vector2i(100, 20));
+            fovFloatBox->setValue(cameraViewAngle);
+            fovFloatBox->setFontSize(16);
+            fovFloatBox->setMinMaxValues(30, 90);
+            fovFloatBox->setValueIncrement(1);
+            fovFloatBox->setEditable(true);
+            fovFloatBox->setSpinnable(true);
+            fovFloatBox->setCallback([this](float fieldOfView) {
+                this->cameraViewAngle = fieldOfView;
+            });
+        }
+        {
+            new Label(window, "Near plane:", "sans");
+            auto nearPlaneFloatBox = new FloatBox<float>(window);
+            nearPlaneFloatBox->setFixedSize(Vector2i(100, 20));
+            nearPlaneFloatBox->setValue(camera_dnear);
+            nearPlaneFloatBox->setFontSize(16);
+            nearPlaneFloatBox->setMinMaxValues(0.1, 20);
+            nearPlaneFloatBox->setValueIncrement(0.1);
+            nearPlaneFloatBox->setEditable(true);
+            nearPlaneFloatBox->setSpinnable(true);
+            nearPlaneFloatBox->setCallback([this](float nearPlane) {
+                this->camera_dnear = nearPlane;
+            });
+        }
+        {
+            new Label(window, "Far plane:", "sans");
+            auto farPlaneFloatBox = new FloatBox<float>(window);
+            farPlaneFloatBox->setFixedSize(Vector2i(100, 20));
+            farPlaneFloatBox->setValue(camera_dfar);
+            farPlaneFloatBox->setFontSize(16);
+            farPlaneFloatBox->setMinMaxValues(1, 100);
+            farPlaneFloatBox->setValueIncrement(1);
+            farPlaneFloatBox->setEditable(true);
+            farPlaneFloatBox->setSpinnable(true);
+            farPlaneFloatBox->setCallback([this](float farPlane) {
+                this->camera_dfar = farPlane;
+            });
+        }
+        {
+            new Label(window, "Camera zoom:", "sans");
+            auto cameraZoomFloatBox = new FloatBox<float>(window);
+            cameraZoomFloatBox->setFixedSize(Vector2i(100, 20));
+            cameraZoomFloatBox->setValue(camera_zoom);
+            cameraZoomFloatBox->setFontSize(16);
+            cameraZoomFloatBox->setMinValue(0);
+            cameraZoomFloatBox->setValueIncrement(camera_zoom/10);
+            cameraZoomFloatBox->setEditable(true);
+            cameraZoomFloatBox->setSpinnable(true);
+            cameraZoomFloatBox->setCallback([this](float cZoom) {
+                this->camera_zoom = cZoom;
+            });
+        }
+
+        new Label(window, "Camera Translation", "sans-bold");
+        Widget *cameraTranslationTools = new Widget(window);
+        cameraTranslationTools->setLayout(new BoxLayout(Orientation::Horizontal, Alignment::Middle, 0, 5));
+
+        {
+            new Label(window, "Translate cam x:", "sans");
+            auto scaleFloatBox = new FloatBox<float>(window);
+            scaleFloatBox->setFixedSize(Vector2i(100, 20));
+            scaleFloatBox->setValue(camx);
+            scaleFloatBox->setFontSize(16);
+            scaleFloatBox->setValueIncrement(0.1);
+            scaleFloatBox->setEditable(true);
+            scaleFloatBox->setSpinnable(true);
+            scaleFloatBox->setCallback([this](float translationValue) {
+                this->camx = translationValue;
+            });
+        }
+        {
+            new Label(window, "Translate cam y:", "sans");
+            auto scaleFloatBox = new FloatBox<float>(window);
+            scaleFloatBox->setFixedSize(Vector2i(100, 20));
+            scaleFloatBox->setValue(camy);
+            scaleFloatBox->setFontSize(16);
+            scaleFloatBox->setValueIncrement(0.1);
+            scaleFloatBox->setEditable(true);
+            scaleFloatBox->setSpinnable(true);
+            scaleFloatBox->setCallback([this](float translationValue) {
+                this->camy = translationValue;
+            });
+        }
+        {
+            new Label(window, "Translate cam z:", "sans");
+            auto scaleFloatBox = new FloatBox<float>(window);
+            scaleFloatBox->setFixedSize(Vector2i(100, 20));
+            scaleFloatBox->setValue(camz);
+            scaleFloatBox->setFontSize(16);
+            scaleFloatBox->setValueIncrement(0.1);
+            scaleFloatBox->setEditable(true);
+            scaleFloatBox->setSpinnable(true);
+            scaleFloatBox->setCallback([this](float translationValue) {
+                this->camz = translationValue;
+            });
+        }
+
+        new Label(window, "Target Translation", "sans-bold");
+        Widget *targetranslationTools = new Widget(window);
+        targetranslationTools->setLayout(new BoxLayout(Orientation::Horizontal, Alignment::Middle, 0, 5));
+
+        {
+            new Label(window, "Translate tar x:", "sans");
+            auto scaleFloatBox = new FloatBox<float>(window);
+            scaleFloatBox->setFixedSize(Vector2i(100, 20));
+            scaleFloatBox->setValue(tarx);
+            scaleFloatBox->setFontSize(16);
+            scaleFloatBox->setValueIncrement(0.1);
+            scaleFloatBox->setEditable(true);
+            scaleFloatBox->setSpinnable(true);
+            scaleFloatBox->setCallback([this](float translationValue) {
+                this->tarx = translationValue;
+            });
+        }
+        {
+            new Label(window, "Translate tar y:", "sans");
+            auto scaleFloatBox = new FloatBox<float>(window);
+            scaleFloatBox->setFixedSize(Vector2i(100, 20));
+            scaleFloatBox->setValue(tary);
+            scaleFloatBox->setFontSize(16);
+            scaleFloatBox->setValueIncrement(0.1);
+            scaleFloatBox->setEditable(true);
+            scaleFloatBox->setSpinnable(true);
+            scaleFloatBox->setCallback([this](float translationValue) {
+                this->tary = translationValue;
+            });
+        }
+        {
+            new Label(window, "Translate tar z:", "sans");
+            auto scaleFloatBox = new FloatBox<float>(window);
+            scaleFloatBox->setFixedSize(Vector2i(100, 20));
+            scaleFloatBox->setValue(tarz);
+            scaleFloatBox->setFontSize(16);
+            scaleFloatBox->setValueIncrement(0.1);
+            scaleFloatBox->setEditable(true);
+            scaleFloatBox->setSpinnable(true);
+            scaleFloatBox->setCallback([this](float translationValue) {
+                this->tarz = translationValue;
+            });
+        }
+
+        performLayout();
+
         using namespace nanogui;
 
         //Caricamento shaders
@@ -60,8 +216,6 @@ public:
         //Salvo il numero di vertici e facce della mesh
         unsigned long nVertices = (tempVertices.size()) / 3;
         nFaces = (uint32_t) (tempFaces.size()) / 3;
-
-        //TODO verificare che le prossime operazioni fatte prima del caricamento su matrice siano più dispendiose rispetto a farle sulle matrici stesse
 
         std::vector<double> XValues;
         std::vector<double> YValues;
@@ -103,203 +257,10 @@ public:
         mShader.bind();
         mShader.uploadIndices(faces);
         mShader.uploadAttrib("vertices", vertices);
-        //mShader.uploadAttrib("normals", normals);
+        mShader.uploadAttrib("normals", normals);
         //mShader.uploadAttrib("color", colors);
-        //mShader.setUniform("lightPosition", lightPosition);
+        mShader.setUniform("lightPosition", lightPosition);
         //mShader.setUniform("intensity", 0.5f);
-    }
-
-    ~MeshCanvas() {
-        mShader.free();
-    }
-
-    void setTranslationFactor(float x, float y, float z) {
-        Vector3f tr = {x, y, z};
-        translation = tr;
-    }
-
-    Vector3f getTranslationFactor() {
-        return translation;
-    }
-
-    Vector4f getModelSphere(){
-        float x, y, z, radius;
-        x=(minXValue+maxXValue)/2;
-        y=(minYValue+maxYValue)/2;
-        z=(minZValue+maxZValue)/2;
-        radius = sqrt(pow(maxXValue-x, 2) + pow(maxYValue-x, 2) + pow(maxZValue-x, 2));
-        return Vector4f(x, y, z, radius);
-    }
-
-    void getTranslationToCenter(float &zoom, Vector3f &shift) {
-        float shiftX, shiftY, shiftZ;
-        shiftX = -(minXValue+maxXValue)/2;
-        shiftY = -(minYValue+maxYValue)/2;
-        shiftZ = -(minZValue+maxZValue)/2;
-        shift = Vector3f(shiftX, shiftY, shiftZ);
-        zoom = 2.0 / abs(maxValue - minValue);
-    }
-
-    /*Vector3f getTranslationToCenter() {
-        return Vector3f(-(minXValue+maxXValue)/2,-(minYValue+maxYValue)/2,-(minZValue+maxZValue)/2);
-    }*/
-
-
-    virtual void drawGL() override {
-        using namespace nanogui;
-
-        /* Draw the window contents using OpenGL */
-        mShader.bind();
-
-
-        Matrix4f mvp, model, view, proj, worldView;
-        mvp.setIdentity();
-        model.setIdentity();
-        view.setIdentity();
-        proj.setIdentity();
-        worldView.setIdentity();
-        //richiamare getTranslationToCenter() solo se è presente un'unica mesh
-
-        float model_zoom = 1;
-        float camera_dnear = 1.0;
-        float camera_dfar = 100;
-        float camera_zoom = 1.0;
-        float cameraViewAngle = 75;
-        Vector3f translateVector(0,0,0), cameraEye(0,0,0), cameraCenter(0,0,-5), cameraUp(0,1,0);
-
-
-        getTranslationToCenter(model_zoom, translateVector);
-        translateVector+= translation;
-
-        view = lookAt(cameraEye, cameraCenter, cameraUp);
-        view.transposeInPlace();
-
-        float width = 600;
-        float heigth = 600;
-        float fH = tan(cameraViewAngle/360 * M_PI) * camera_dnear;
-        float fW = fH * width/heigth;
-        proj = frustum(-fW, fW, -fH, fH, camera_dnear, camera_dfar);
-        proj *= translate(Vector3f(0, 0, -1.5));
-        proj.transposeInPlace();
-
-        model.topLeftCorner(3,3) *= camera_zoom;
-        model.topLeftCorner(3,3) *= model_zoom;
-        model *= translate(translateVector);
-
-        /*Vector4f modelSphere = getModelSphere();        // x,y,z,radius
-        Vector3f translateVector = getTranslationToCenter() + translation;
-
-        float FOV, fovRadiants, camDistance, dNear, dFar, radius, px, py, pz;
-
-        FOV = 30;
-        fovRadiants = FOV * M_PI / 180;
-        px = modelSphere[0];
-        py = modelSphere[1];
-        pz = modelSphere [2];
-        radius = modelSphere[3];
-        camDistance = radius/(tan(fovRadiants));
-        dNear = camDistance - radius;
-        dFar = camDistance + radius;
-
-        worldView = lookAt(Eigen::Vector3f(0, 0, camDistance), Eigen::Vector3f(px, py, pz), Eigen::Vector3f(0,1,0));
-
-        proj = frustum(-radius, radius, -radius, radius, dNear, dFar);
-        proj.transposeInPlace();
-
-        model = translate(translateVector);
-
-        view = worldView;
-        view.transposeInPlace();*/
-
-        mvp = proj * view * model;
-
-        mShader.setUniform("modelViewProj", mvp);
-        //mShader.setUniform("modelMatrix", model);
-        //mShader.setUniform("projection", proj);
-
-        /* Funzioni per la gestione dello Z-buffer*/
-        glClearDepth(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        glDepthFunc(GL_LESS);
-        glEnable(GL_DEPTH_TEST);
-
-        /* Draw nFaces triangles starting at index 0 */
-        mShader.drawIndexed(GL_TRIANGLES, 0, nFaces);
-    }
-
-private:
-    nanogui::GLShader mShader;
-    /*Numero di triangoli caricati dal file*/
-    uint32_t nFaces;
-
-    //Matrice di vertici
-    Eigen::MatrixXd vertices;
-
-    //Vettore di traslazione
-    Vector3f translation = {0, 0, 0};
-
-    /* Variabili per il calcolo della traslazione */
-    double minXValue, maxXValue, minYValue, maxYValue, minZValue, maxZValue, maxValue, minValue;
-};
-
-class NanoguiMeshViewer : public nanogui::Screen {
-public:
-    NanoguiMeshViewer() : nanogui::Screen(Eigen::Vector2i(1000, 1000), "Nanogui Mesh Viewer") {
-        using namespace nanogui;
-
-        Window *window = new Window(this, "Model Canvas");
-        window->setPosition(Vector2i(0, 0));
-        window->setLayout(new GroupLayout());
-
-        mCanvas = new MeshCanvas(window);
-        mCanvas->setBackgroundColor({100, 100, 100, 255});
-        mCanvas->setSize({600, 600});
-
-        new Label(window, "Transform Tools", "sans-bold");
-        Widget *transformTools = new Widget(window);
-        transformTools->setLayout(new BoxLayout(Orientation::Horizontal, Alignment::Middle, 0, 5));
-
-        /* Translation widget*/
-        {
-            new Label(window, "Translate x:", "sans");
-            auto scaleFloatBox = new FloatBox<float>(window);
-            scaleFloatBox->setFixedSize(Vector2i(100, 20));
-            scaleFloatBox->setValue(mCanvas->getTranslationFactor()[0]);
-            scaleFloatBox->setFontSize(16);
-            scaleFloatBox->setValueIncrement(0.1);
-            scaleFloatBox->setEditable(true);
-            scaleFloatBox->setSpinnable(true);
-            scaleFloatBox->setCallback([this](float translationValue) {
-                this->mCanvas->setTranslationFactor(translationValue, mCanvas->getTranslationFactor()[1], mCanvas->getTranslationFactor()[2]);
-            });
-        }
-        {
-            new Label(window, "Translate y:", "sans");
-            auto scaleFloatBox = new FloatBox<float>(window);
-            scaleFloatBox->setFixedSize(Vector2i(100, 20));
-            scaleFloatBox->setValue(mCanvas->getTranslationFactor()[1]);
-            scaleFloatBox->setFontSize(16);
-            scaleFloatBox->setValueIncrement(0.1);
-            scaleFloatBox->setEditable(true);
-            scaleFloatBox->setSpinnable(true);
-            scaleFloatBox->setCallback([this](float translationValue) {
-                this->mCanvas->setTranslationFactor(mCanvas->getTranslationFactor()[0], translationValue, mCanvas->getTranslationFactor()[2]);
-            });
-        }
-        {
-            new Label(window, "Translate z:", "sans");
-            auto scaleFloatBox = new FloatBox<float>(window);
-            scaleFloatBox->setFixedSize(Vector2i(100, 20));
-            scaleFloatBox->setValue(mCanvas->getTranslationFactor()[2]);
-            scaleFloatBox->setFontSize(16);
-            scaleFloatBox->setValueIncrement(0.1);
-            scaleFloatBox->setEditable(true);
-            scaleFloatBox->setSpinnable(true);
-            scaleFloatBox->setCallback([this](float translationValue) {
-                this->mCanvas->setTranslationFactor(mCanvas->getTranslationFactor()[0], mCanvas->getTranslationFactor()[1], translationValue);
-            });
-        }
-
-        performLayout();
     }
 
     virtual bool keyboardEvent(int key, int scancode, int action, int modifiers) {
@@ -318,8 +279,71 @@ public:
         Screen::draw(ctx);
     }
 
+    float getScaleFactor(){
+        return 1/abs(maxValue - minValue);
+    }
+
+    Vector3f getTranslationToCenter() {
+        return Vector3f(-(minXValue+maxXValue)/2,-(minYValue+maxYValue)/2,-(minZValue+maxZValue)/2);
+    }
+
+    virtual void drawContents(){
+        using namespace nanogui;
+
+        /* Draw the window contents using OpenGL */
+        mShader.bind();
+
+
+        Matrix4f model, view, proj;
+        model.setIdentity();
+        view.setIdentity();
+        proj.setIdentity();
+
+        Vector3f translateVector= getTranslationToCenter() + Vector3f(tarx,tary,tarz);
+
+        float scaleFactor = getScaleFactor();
+        float near = camera_dnear;
+        float far = camera_dfar;
+        float top = tan((cameraViewAngle)/360.*M_PI)*near;
+        float right = top * 1000/1000;
+
+        proj = frustum(-right,right,-top,top,near,far);
+
+        view = lookAt(Vector3f(camx,camy,camz),Vector3f(tarx,tary,tarz),Vector3f(0,1,0));
+
+        model= scale(Vector3f(camera_zoom,camera_zoom,camera_zoom)) * scale(Vector3f(scaleFactor,scaleFactor,scaleFactor)) * translate(translateVector);
+
+        mShader.setUniform("model", model);
+        mShader.setUniform("proj", proj);
+        mShader.setUniform("view", view);
+
+        /* Funzioni per la gestione dello Z-buffer*/
+        glClearDepth(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        glDepthFunc(GL_LESS);
+        glEnable(GL_DEPTH_TEST);
+
+        /* Draw nFaces triangles starting at index 0 */
+        mShader.drawIndexed(GL_TRIANGLES, 0, nFaces);
+    }
+
 private:
-    MeshCanvas *mCanvas;
+    //MeshCanvas *mCanvas;
+    nanogui::GLShader mShader;
+    /*Numero di triangoli caricati dal file*/
+    uint32_t nFaces;
+
+    //Matrice di vertici
+    Eigen::MatrixXd vertices;
+
+    /* Variabili per il calcolo della traslazione */
+    double minXValue, maxXValue, minYValue, maxYValue, minZValue, maxZValue, maxValue, minValue;
+
+    float cameraViewAngle = 45;
+    float camera_dnear = 0.1;
+    float camera_dfar = 100;
+    float camera_zoom = 1.0;
+    float camx = 0, camy = 0, camz = 1.5;
+    float tarx = 0, tary = 0, tarz = 0;
 };
 
 int main(int /* argc */, char ** /* argv */) {

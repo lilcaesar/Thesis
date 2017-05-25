@@ -6,10 +6,12 @@ in vec3 vertices;
 
 out vec4 frag_color;
 
-uniform mat4 modelViewProj;
-//uniform mat4 projection;
+uniform mat4 proj;
+uniform mat4 model;
+uniform mat4 view;
 
 void main() {
+    mat4 mvp = proj * view * model;
     frag_color = vec4(1.0, 1.0, 1.0, 1.0);
-    gl_Position = /*projection **/ modelViewProj * vec4(vertices, 1.0);
+    gl_Position = mvp * vec4(vertices, 1.0);
 }
