@@ -241,7 +241,7 @@ public:
 
         //CARICAMENTO VECTOR SU MATRIX
         vertices.resize(3, nVertices);
-        Eigen::MatrixXd normals(3, nVertices);
+        normals.resize(3, nVertices);
         for (unsigned long i = 0; i < nVertices; i++) {
             vertices.col(i) << tempVertices[(3 * i)], tempVertices[(3 * i) + 1], tempVertices[(3 * i) + 2];
             normals.col(i) << tempVertNormals[(3 * i)], tempVertNormals[(3 * i) + 1], tempVertNormals[(3 * i) + 2];
@@ -252,14 +252,12 @@ public:
             faces.col(i) << tempFaces[(3 * i)], tempFaces[(3 * i) + 1], tempFaces[(3 * i) + 2];
         }
 
-        Eigen::Vector3d lightPosition(4.0, 4.0, 4.0);
-
         mShader.bind();
         mShader.uploadIndices(faces);
         mShader.uploadAttrib("vertices", vertices);
         mShader.uploadAttrib("normals", normals);
+        mShader.setUniform("lightPosition_worldspace", lightPosition);
         //mShader.uploadAttrib("color", colors);
-        mShader.setUniform("lightPosition", lightPosition);
         //mShader.setUniform("intensity", 0.5f);
     }
 
@@ -334,6 +332,10 @@ private:
 
     //Matrice di vertici
     Eigen::MatrixXd vertices;
+    Eigen::MatrixXd normals;
+
+    //Luce
+    Eigen::Vector3d lightPosition= {4.0,4.0,4.0};
 
     /* Variabili per il calcolo della traslazione */
     double minXValue, maxXValue, minYValue, maxYValue, minZValue, maxZValue, maxValue, minValue;
