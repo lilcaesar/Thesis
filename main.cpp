@@ -24,8 +24,7 @@ public:
     NanoguiMeshViewer() : nanogui::Screen(Eigen::Vector2i(1000, 1000), "Nanogui Mesh Viewer") {
         using namespace nanogui;
 
-        Window *window = new Window(this, "Transform Tools");
-        window = new Window(this, "Frustum tools");
+        Window *window = new Window(this, "Frustum tools");
         window->setPosition(Vector2i(850, 0));
         window->setLayout(new GroupLayout());
 
@@ -208,10 +207,11 @@ public:
         std::string filePath;
         filePath = nanogui::file_dialog(fileTypes, false);
 
-        loadOBJ(filePath.c_str(), tempVertices, tempFaces);
+        hasNormals = loadOBJ(filePath.c_str(), tempVertices, tempFaces, tempVertNormals);
 
         //Calcolo i vettori vert2face, tempFaceNormals e tempVertNormals in base ai dati della mesh
-        loadDerivedVectors(tempVertices, tempFaces, vert2face, tempFaceNormals, tempVertNormals);
+        if(!hasNormals)
+            loadDerivedVectors(tempVertices, tempFaces, vert2face, tempFaceNormals, tempVertNormals);
 
         //Salvo il numero di vertici e facce della mesh
         unsigned long nVertices = (tempVertices.size()) / 3;
@@ -244,7 +244,9 @@ public:
         normals.resize(3, nVertices);
         for (unsigned long i = 0; i < nVertices; i++) {
             vertices.col(i) << tempVertices[(3 * i)], tempVertices[(3 * i) + 1], tempVertices[(3 * i) + 2];
-            normals.col(i) << tempVertNormals[(3 * i)], tempVertNormals[(3 * i) + 1], tempVertNormals[(3 * i) + 2];
+            normals.col(i) << tempVertNormals[(3 * i)],
+                    tempVertNormals[(3 * i) + 1],
+                    tempVertNormals[(3 * i) + 2];
         }
 
         Eigen::MatrixXi faces(3, nFaces);
@@ -288,6 +290,12 @@ public:
     virtual void drawContents(){
         using namespace nanogui;
 
+        /* Funzioni per la gestione dello Z-buffer*/
+        glGetError();
+        glEnable(GL_BLEND | GL_DEPTH_TEST);
+        glDepthFunc(GL_LESS);
+        glEnable(GL_CULL_FACE);
+
         /* Draw the window contents using OpenGL */
         mShader.bind();
 
@@ -315,11 +323,6 @@ public:
         mShader.setUniform("proj", proj);
         mShader.setUniform("view", view);
 
-        /* Funzioni per la gestione dello Z-buffer*/
-        glClearDepth(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        glDepthFunc(GL_LESS);
-        glEnable(GL_DEPTH_TEST);
-
         /* Draw nFaces triangles starting at index 0 */
         mShader.drawIndexed(GL_TRIANGLES, 0, nFaces);
     }
@@ -329,6 +332,8 @@ private:
     nanogui::GLShader mShader;
     /*Numero di triangoli caricati dal file*/
     uint32_t nFaces;
+
+    bool hasNormals;
 
     //Matrice di vertici
     Eigen::MatrixXd vertices;

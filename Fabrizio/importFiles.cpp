@@ -9,7 +9,8 @@ using namespace std;
 
 void load    (const char            * filename,
               std::vector<double>   & vertices,
-              std::vector<int>      & faces   )
+              std::vector<int>      & faces,
+              std::vector<double>   & normals)
 {
    string str(filename);
    string filetype = str.substr(str.size()-3,3);
@@ -17,7 +18,7 @@ void load    (const char            * filename,
    if ( filetype.compare("obj") == 0 ||
         filetype.compare("OBJ") == 0    )
    {
-      loadOBJ(filename, vertices, faces);
+      loadOBJ(filename, vertices, faces, normals);
    }
    else
    if ( filetype.compare("ply") == 0 ||
@@ -38,49 +39,67 @@ void load    (const char            * filename,
    }
 }
 
-void loadOBJ (const char            * filename,
+bool loadOBJ (const char            * filename,
               std::vector<double>   & vertices,
-              std::vector<int>      & faces   )
+              std::vector<int>      & faces,
+              std::vector<double>   & normals)
 {
    //CODE FROM CAGELAB TO REWRITE AS SOON AS POSSIBLE!!! ONLY FOR TEMPORARY USE
 
-   ifstream file(filename);
+    ifstream file(filename);
+    bool  hasNormals = false;
 
-   if (!file.is_open())
-   {
-      cerr << "ERROR : " << __FILE__ << ", line " << __LINE__ << " : load_OBJ() : couldn't open input file " << filename << endl;
-      exit(-1);
-   }
+    if (!file.is_open())
+    {
+        cerr << "ERROR : " << __FILE__ << ", line " << __LINE__ << " : load_OBJ() : couldn't open input file " << filename << endl;
+        exit(-1);
+    }
 
-   string line;
-   while (getline(file, line))
-   {
-      istringstream iss(line);
+    string line;
+    while (getline(file, line))
+    {
+        istringstream iss(line);
 
-      string token;
-      iss >> token;
-      if (token.size() > 1) continue; // vn,fn  .... I don't care
-
-      if (token[0] == 'v')
-      {
-         double x, y, z;
-         iss >> x >> y >> z;
-         vertices.push_back(x);
-         vertices.push_back(y);
-         vertices.push_back(z);
-         //cout << "v " << x << " " << y << " " << z << endl;
-      }
-      else if (token[0] == 'f')
-      {
-         int v0, v1, v2;
-         iss >> v0 >> v1 >> v2;
-         faces.push_back(v0-1);
-         faces.push_back(v1-1);
-         faces.push_back(v2-1);
-         //cout << "f " << v0 << " " << v1 << " " << v2 << endl;
-      }
-   }
-   file.close();
+        string token;
+        iss >> token;
+        if (token.size() > 1) {
+            if(token == "vn"){
+                hasNormals = true;
+                double x, y, z;
+                iss >> x >> y >> z;
+                normals.push_back(x);
+                normals.push_back(y);
+                normals.push_back(z);
+                //cout << "v " << x << " " << y << " " << z << endl;
+            }
+            else {
+                continue; // vn,fn  .... I don't care
+            }
+        }
+        else {
+            if (token[0] == 'v') {
+                double x, y, z;
+                iss >> x >> y >> z;
+                vertices.push_back(x);
+                vertices.push_back(y);
+                vertices.push_back(z);
+                //cout << "v " << x << " " << y << " " << z << endl;
+            } else if (token[0] == 'f') {
+                int v0, v1, v2, n;
+                char c;
+                if (hasNormals)
+                    iss >> v0 >> c >> c >> n >> v1 >> c >> c >> n >> v2;
+                else
+                    iss >> v0 >> v1 >> v2;
+                faces.push_back(v0 - 1);
+                faces.push_back(v1 - 1);
+                faces.push_back(v2 - 1);
+                //cout << "f " << v0 << " " << v1 << " " << v2 << endl;
+            }
+        }
+    }
+    file.close();
+    return hasNormals;
 }
 
 void loadPLY ( const char     * filename,

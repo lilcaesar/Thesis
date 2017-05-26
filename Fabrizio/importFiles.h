@@ -3,13 +3,15 @@
 
 #include <vector>
 
-void load    (const char                * filename,
-              std::vector<double>       & vertices,
-              std::vector<int>          & faces   );
+void load    (const char            * filename,
+              std::vector<double>   & vertices,
+              std::vector<int>      & faces,
+              std::vector<double>   & normals);
 
-void loadOBJ (const char                * filename,
-              std::vector<double>       & vertices,
-              std::vector<int>          & faces   );
+bool loadOBJ (const char            * filename,
+              std::vector<double>   & vertices,
+              std::vector<int>      & faces,
+              std::vector<double>   & normals);
 
 void loadPLY (const char                * filename,
               std::vector<double>       & vertices,

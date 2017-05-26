@@ -35,5 +35,5 @@ void main() {
     //Position of vertices in clip space (mvp * vertices)
     gl_Position = mvp * vec4(vertices, 1.0);
 
-    frag_color = vec4(1.0, 0.0, 0.0, 1.0);
+    frag_color = vec4(0.5, 0.5, 0.5, 1.0);
 }
