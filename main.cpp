@@ -175,10 +175,15 @@ public:
                 this->tarz = translationValue;
             });
         }
+        /* Wireframe widget */ {
+            new Label(window, "Wireframe :", "sans-bold");
+            CheckBox *cb = new CheckBox(window, "Wireframe");
+            cb->setChecked(wireframe);
+            cb->setFontSize(16);
+            cb->setCallback([this](bool state) { this->wireframe = state;});
+        }
 
         performLayout();
-
-        using namespace nanogui;
 
         //Caricamento shaders
         std::string vertexShaderFilePath, fragmentShaderFilePath;
@@ -290,11 +295,18 @@ public:
     virtual void drawContents(){
         using namespace nanogui;
 
-        /* Funzioni per la gestione dello Z-buffer*/
-        glGetError();
-        glEnable(GL_BLEND | GL_DEPTH_TEST);
+        // Enable depth test
+        glEnable(GL_DEPTH_TEST);
+        // Accept fragment if it closer to the camera than the former one
         glDepthFunc(GL_LESS);
+
+        // Cull triangles which normal is not towards the camera
         glEnable(GL_CULL_FACE);
+
+        if(wireframe)
+            glPolygonMode(GL_FRONT_AND_BACK,GL_LINE);
+        else
+            glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
 
         /* Draw the window contents using OpenGL */
         mShader.bind();
@@ -333,7 +345,7 @@ private:
     /*Numero di triangoli caricati dal file*/
     uint32_t nFaces;
 
-    bool hasNormals;
+    bool hasNormals, wireframe=false;
 
     //Matrice di vertici
     Eigen::MatrixXd vertices;
