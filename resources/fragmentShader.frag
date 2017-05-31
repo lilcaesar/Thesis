@@ -5,18 +5,18 @@ in vec3 Normal_cameraspace;
 in vec3 EyeDirection_cameraspace;
 in vec3 LightDirection_cameraspace;
 
-out vec3 color;
+out vec4 color;
 
 uniform vec3 LightPosition_worldspace;
 
 in vec4 frag_color;
 void main() {
     vec3 LightColor = vec3(1,1,1);
-    float LightPower = 50.0f;
+    float LightPower = 0.1f;
 
     // Material properties
     vec3 MaterialDiffuseColor = (frag_color).rgb;
-    vec3 MaterialAmbientColor = vec3(0.1,0.1,0.1) * MaterialDiffuseColor;
+    vec3 MaterialAmbientColor = vec3(0.5,0.5,0.5) * MaterialDiffuseColor;
     vec3 MaterialSpecularColor = vec3(0.3,0.3,0.3);
 
     // Distance to the light
@@ -43,11 +43,12 @@ void main() {
     //  - Looking elsewhere -> < 1
     float cosAlpha = clamp( dot( E,R ), 0,1 );
 
-    color =
+    color = vec4(
     		// Ambient : simulates indirect lighting
     		MaterialAmbientColor +
     		// Diffuse : "color" of the object
     		MaterialDiffuseColor * LightColor * LightPower * cosTheta / (distance*distance) +
     		// Specular : reflective highlight, like a mirror
-    		MaterialSpecularColor * LightColor * LightPower * pow(cosAlpha,5) / (distance*distance);
+    		MaterialSpecularColor * LightColor * LightPower * pow(cosAlpha,5) / (distance*distance)
+    		,1.0);
 }

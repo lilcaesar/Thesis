@@ -180,24 +180,10 @@ public:
             CheckBox *cb = new CheckBox(window, "Wireframe");
             cb->setChecked(wireframe);
             cb->setFontSize(16);
-            cb->setCallback([this](bool state) { this->wireframe = state;});
+            cb->setCallback([this](bool state) { this->previousWireframe = state;});
         }
 
         performLayout();
-
-        //Caricamento shaders
-        std::string vertexShaderFilePath, fragmentShaderFilePath;
-        std::vector<std::pair<std::string, std::string>> fileTypes;
-        fileTypes.push_back(std::make_pair("vert", "vertex shader file"));
-
-        vertexShaderFilePath = nanogui::file_dialog(fileTypes, false);
-
-        fileTypes.clear();
-        fileTypes.push_back(std::make_pair("frag", "fragent shader file"));
-
-        fragmentShaderFilePath = nanogui::file_dialog(fileTypes, false);
-
-        mShader.initFromFiles("Nanogui Shader", vertexShaderFilePath.c_str(), fragmentShaderFilePath.c_str());
 
         //Caricamento del file
         std::vector<int> tempFaces;
@@ -206,9 +192,12 @@ public:
         std::vector<double> tempFaceNormals;
         std::vector<double> tempVertNormals;
 
-        fileTypes.clear();
-        fileTypes.push_back(std::make_pair("obj", "obj file"));
+        vertexShaderFilePath = "./resources/vertexShader.vert";
+        fragmentShaderFilePath = "./resources/fragmentShader.frag";
+        mShader.initFromFiles("Nanogui Shader", vertexShaderFilePath.c_str(), fragmentShaderFilePath.c_str());
 
+        std::vector<std::pair<std::string, std::string>> fileTypes;
+        fileTypes.push_back(std::make_pair("obj", "obj file"));
         std::string filePath;
         filePath = nanogui::file_dialog(fileTypes, false);
 
@@ -254,18 +243,20 @@ public:
                     tempVertNormals[(3 * i) + 2];
         }
 
-        Eigen::MatrixXi faces(3, nFaces);
+        faces.resize(3, nFaces);
+        barycentric.resize(3, nFaces*3);
         for (int32_t i = 0; i < nFaces; i++) {
             faces.col(i) << tempFaces[(3 * i)], tempFaces[(3 * i) + 1], tempFaces[(3 * i) + 2];
+            barycentric.col(i*3) << 1, 0, 0;
+            barycentric.col((i*3)+1) << 0, 1, 0;
+            barycentric.col((i*3)+2) << 0, 0, 1;
         }
 
         mShader.bind();
-        mShader.uploadIndices(faces);
-        mShader.uploadAttrib("vertices", vertices);
         mShader.uploadAttrib("normals", normals);
         mShader.setUniform("lightPosition_worldspace", lightPosition);
-        //mShader.uploadAttrib("color", colors);
-        //mShader.setUniform("intensity", 0.5f);
+        mShader.uploadIndices(faces);
+        mShader.uploadAttrib("vertices", vertices);
     }
 
     virtual bool keyboardEvent(int key, int scancode, int action, int modifiers) {
@@ -303,10 +294,33 @@ public:
         // Cull triangles which normal is not towards the camera
         glEnable(GL_CULL_FACE);
 
-        if(wireframe)
-            glPolygonMode(GL_FRONT_AND_BACK,GL_LINE);
-        else
-            glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
+        //Caricamento shaders
+        if(previousWireframe && !wireframe){
+            wireframe=true;
+            mShader.free();
+            vertexShaderFilePath = "./resources/vertexWireframe.vert";
+            fragmentShaderFilePath = "./resources/fragmentWireframe.frag";
+            mShader.initFromFiles("Nanogui Shader", vertexShaderFilePath.c_str(), fragmentShaderFilePath.c_str());
+            mShader.bind();
+            mShader.uploadAttrib("barycentric", barycentric);
+            mShader.uploadIndices(faces);
+            mShader.uploadAttrib("vertices", vertices);
+        }
+        if(!previousWireframe && wireframe){
+            wireframe=false;
+            mShader.free();
+            vertexShaderFilePath = "./resources/vertexShader.vert";
+            fragmentShaderFilePath = "./resources/fragmentShader.frag";
+            mShader.initFromFiles("Nanogui Shader", vertexShaderFilePath.c_str(), fragmentShaderFilePath.c_str());
+            mShader.bind();
+            mShader.uploadAttrib("normals", normals);
+            mShader.setUniform("lightPosition_worldspace", lightPosition);
+            mShader.uploadIndices(faces);
+            mShader.uploadAttrib("vertices", vertices);
+        }
+
+        //mShader.uploadAttrib("color", colors);
+        //mShader.setUniform("intensity", 0.5f);
 
         /* Draw the window contents using OpenGL */
         mShader.bind();
@@ -345,11 +359,15 @@ private:
     /*Numero di triangoli caricati dal file*/
     uint32_t nFaces;
 
-    bool hasNormals, wireframe=false;
+    std::string vertexShaderFilePath, fragmentShaderFilePath;
+
+    bool hasNormals, wireframe= false, previousWireframe=false;
 
     //Matrice di vertici
     Eigen::MatrixXd vertices;
     Eigen::MatrixXd normals;
+    Eigen::MatrixXi faces;
+    Eigen::MatrixXi barycentric;
 
     //Luce
     Eigen::Vector3d lightPosition= {4.0,4.0,4.0};
@@ -370,7 +388,6 @@ int main(int /* argc */, char ** /* argv */) {
         nanogui::init();
         {
             nanogui::ref<NanoguiMeshViewer> app = new NanoguiMeshViewer();
-
             app->drawAll();
             app->setVisible(true);
 
