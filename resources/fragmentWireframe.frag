@@ -1,20 +1,13 @@
 #version 330
+#extension GL_EXT_gpu_shader4 : enable
 
-varying vec3 vBC;
-in vec4 frag_color;
+in vec3 dist;
 
-out vec4 color;
-float edgeFactor(){
-        vec3 d = fwidth(vBC);
-        vec3 a3 = smoothstep(vec3(0.0), d*1.5, vBC);
-        return min(min(a3.x, a3.y), a3.z);
-}
+const vec4 WIRE_COL = vec4(1.0,0.0,0.0,1);
+const vec4 FILL_COL = vec4(1,1,1,1);
 
 void main(void) {
-        if(gl_FrontFacing){
-            gl_FragColor = vec4(0.0, 0.0, 0.0, (1.0-edgeFactor())*0.95);
-        }
-        else{
-            gl_FragColor = vec4(0.0, 0.0, 0.0, (1.0-edgeFactor())*0.7);
-        }
+    float d = min(dist[0],min(dist[1],dist[2]));
+    float I = exp2(-2*d*d);
+    gl_FragColor = I*WIRE_COL + (1.0 - I)*FILL_COL;
 }

@@ -244,12 +244,8 @@ public:
         }
 
         faces.resize(3, nFaces);
-        barycentric.resize(3, nFaces*3);
         for (int32_t i = 0; i < nFaces; i++) {
             faces.col(i) << tempFaces[(3 * i)], tempFaces[(3 * i) + 1], tempFaces[(3 * i) + 2];
-            barycentric.col(i*3) << 1, 0, 0;
-            barycentric.col((i*3)+1) << 0, 1, 0;
-            barycentric.col((i*3)+2) << 0, 0, 1;
         }
 
         mShader.bind();
@@ -300,9 +296,9 @@ public:
             mShader.free();
             vertexShaderFilePath = "./resources/vertexWireframe.vert";
             fragmentShaderFilePath = "./resources/fragmentWireframe.frag";
-            mShader.initFromFiles("Nanogui Shader", vertexShaderFilePath.c_str(), fragmentShaderFilePath.c_str());
+            geometryShaderFilePath = "./resources/geometryWireframe.frag";
+            mShader.initFromFiles("Nanogui Shader", vertexShaderFilePath.c_str(), fragmentShaderFilePath.c_str(), geometryShaderFilePath.c_str());
             mShader.bind();
-            mShader.uploadAttrib("barycentric", barycentric);
             mShader.uploadIndices(faces);
             mShader.uploadAttrib("vertices", vertices);
         }
@@ -359,7 +355,7 @@ private:
     /*Numero di triangoli caricati dal file*/
     uint32_t nFaces;
 
-    std::string vertexShaderFilePath, fragmentShaderFilePath;
+    std::string vertexShaderFilePath, fragmentShaderFilePath,geometryShaderFilePath;
 
     bool hasNormals, wireframe= false, previousWireframe=false;
 
@@ -367,7 +363,6 @@ private:
     Eigen::MatrixXd vertices;
     Eigen::MatrixXd normals;
     Eigen::MatrixXi faces;
-    Eigen::MatrixXi barycentric;
 
     //Luce
     Eigen::Vector3d lightPosition= {4.0,4.0,4.0};
