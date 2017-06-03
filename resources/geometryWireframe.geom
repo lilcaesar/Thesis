@@ -1,30 +1,49 @@
-#version 330
-#extension GL_EXT_gpu_shader4 : enable
+#version 400
 
-uniform vec2 WIN_SCALE;
+layout( triangles ) in;
+layout( triangle_strip, max_vertices = 3 ) out;
 
-out vec3 dist;
+out vec3 GNormal;
+out vec3 GPosition;
+noperspective out vec3 GEdgeDistance;
 
-void main(void){
-    vec2 p0 = WIN_SCALE * gl_PositionIn[0].xy/gl_PositionIn[0].w;
-    vec2 p1 = WIN_SCALE * gl_PositionIn[1].xy/gl_PositionIn[1].w;
-    vec2 p2 = WIN_SCALE * gl_PositionIn[2].xy/gl_PositionIn[2].w;
+in vec3 VNormal[];
+in vec3 VPosition[];
 
-    vec2 v0 = p2-p1;
-    vec2 v1 = p2-p0;
-    vec2 v2 = p1-p0;
-    float area = abs(v1.x*v2.y - v1.y * v2.x);
+uniform mat4 ViewportMatrix;  // Viewport matrix
 
-    dist = vec3(area/length(v0),0,0);
-    gl_Position = gl_PositionIn[0];
+void main()
+{
+    // Transform each vertex into viewport space
+    vec2 p0 = vec2(ViewportMatrix * (gl_in[0].gl_Position / gl_in[0].gl_Position.w));
+    vec2 p1 = vec2(ViewportMatrix * (gl_in[1].gl_Position / gl_in[1].gl_Position.w));
+    vec2 p2 = vec2(ViewportMatrix * (gl_in[2].gl_Position / gl_in[2].gl_Position.w));
+
+    float a = length(p1 - p2);
+    float b = length(p2 - p0);
+    float c = length(p1 - p0);
+    float alpha = acos( (b*b + c*c - a*a) / (2.0*b*c) );
+    float beta = acos( (a*a + c*c - b*b) / (2.0*a*c) );
+    float ha = abs( c * sin( beta ) );
+    float hb = abs( c * sin( alpha ) );
+    float hc = abs( b * sin( alpha ) );
+
+    GEdgeDistance = vec3( ha, 0, 0 );
+    GNormal = VNormal[0];
+    GPosition = VPosition[0];
+    gl_Position = gl_in[0].gl_Position;
     EmitVertex();
 
-    dist = vec3(0,area/length(v1),0);
-    gl_Position = gl_PositionIn[1];
+    GEdgeDistance = vec3( 0, hb, 0 );
+    GNormal = VNormal[1];
+    GPosition = VPosition[1];
+    gl_Position = gl_in[1].gl_Position;
     EmitVertex();
 
-    dist = vec3(0,0,area/length(v2));
-    gl_Position = gl_PositionIn[2];
+    GEdgeDistance = vec3( 0, 0, hc );
+    GNormal = VNormal[2];
+    GPosition = VPosition[2];
+    gl_Position = gl_in[2].gl_Position;
     EmitVertex();
 
     EndPrimitive();

@@ -290,42 +290,15 @@ public:
         // Cull triangles which normal is not towards the camera
         glEnable(GL_CULL_FACE);
 
-        //Caricamento shaders
-        if(previousWireframe && !wireframe){
-            wireframe=true;
-            mShader.free();
-            vertexShaderFilePath = "./resources/vertexWireframe.vert";
-            fragmentShaderFilePath = "./resources/fragmentWireframe.frag";
-            geometryShaderFilePath = "./resources/geometryWireframe.frag";
-            mShader.initFromFiles("Nanogui Shader", vertexShaderFilePath.c_str(), fragmentShaderFilePath.c_str(), geometryShaderFilePath.c_str());
-            mShader.bind();
-            mShader.uploadIndices(faces);
-            mShader.uploadAttrib("vertices", vertices);
-        }
-        if(!previousWireframe && wireframe){
-            wireframe=false;
-            mShader.free();
-            vertexShaderFilePath = "./resources/vertexShader.vert";
-            fragmentShaderFilePath = "./resources/fragmentShader.frag";
-            mShader.initFromFiles("Nanogui Shader", vertexShaderFilePath.c_str(), fragmentShaderFilePath.c_str());
-            mShader.bind();
-            mShader.uploadAttrib("normals", normals);
-            mShader.setUniform("lightPosition_worldspace", lightPosition);
-            mShader.uploadIndices(faces);
-            mShader.uploadAttrib("vertices", vertices);
-        }
-
-        //mShader.uploadAttrib("color", colors);
-        //mShader.setUniform("intensity", 0.5f);
-
         /* Draw the window contents using OpenGL */
         mShader.bind();
 
-
-        Matrix4f model, view, proj;
+        Matrix4f model, view, proj, modelView, viewportMatrix;
+        Matrix4f normalMatrix;
         model.setIdentity();
         view.setIdentity();
         proj.setIdentity();
+        modelView.setIdentity();
 
         Vector3f translateVector= getTranslationToCenter() + Vector3f(tarx,tary,tarz);
 
@@ -341,6 +314,51 @@ public:
 
         model= scale(Vector3f(camera_zoom,camera_zoom,camera_zoom)) * scale(Vector3f(scaleFactor,scaleFactor,scaleFactor)) * translate(translateVector);
 
+        modelView = view * model;
+
+        viewportMatrix <<500.0,0.0,0.0,0.0,0.0,500.0,0.0,0.0,0.0,0.0,1.0,0.0,500.0, 500.0, 0.0, 1.0;
+
+        normalMatrix = modelView.inverse();
+        normalMatrix.transposeInPlace();
+        //Caricamento shaders
+        if(previousWireframe && !wireframe){
+            wireframe=true;
+            mShader.free();
+            vertexShaderFilePath = "./resources/vertexWireframe.vert";
+            fragmentShaderFilePath = "./resources/fragmentWireframe.frag";
+            geometryShaderFilePath = "./resources/geometryWireframe.geom";
+            mShader.initFromFiles("Nanogui Shader", vertexShaderFilePath.c_str(), fragmentShaderFilePath.c_str(), geometryShaderFilePath.c_str());
+            mShader.bind();
+            mShader.uploadIndices(faces);
+            mShader.uploadAttrib("VertexPosition", vertices);
+            mShader.uploadAttrib("VertexNormal", normals);
+            mShader.setUniform("NormalMatrix", normalMatrix);
+            mShader.setUniform("ModelViewMatrix", modelView);
+            mShader.setUniform("ViewportMatrix", viewportMatrix);
+            mShader.setUniform("ProjectionMatrix", proj);
+
+            mShader.setUniform("Line.Width", 0.75f);
+            mShader.setUniform("Line.Color", Vector4f(0.05f,0.0f,0.05f,1.0f));
+            mShader.setUniform("Material.Kd", Vector3f(0.7f, 0.7f, 0.7f));
+            mShader.setUniform("Light.Position", Vector4f(0.0f,0.0f,0.0f, 1.0f));
+            mShader.setUniform("Material.Ka", Vector3f(0.2f, 0.2f, 0.2f));
+            mShader.setUniform("Light.Intensity", Vector3f(1.0f, 1.0f, 1.0f));
+            mShader.setUniform("Material.Ks", Vector3f(0.8f, 0.8f, 0.8f));
+            mShader.setUniform("Material.Shininess", 100.0f);
+        }
+        if(!previousWireframe && wireframe){
+            wireframe=false;
+            mShader.free();
+            vertexShaderFilePath = "./resources/vertexShader.vert";
+            fragmentShaderFilePath = "./resources/fragmentShader.frag";
+            mShader.initFromFiles("Nanogui Shader", vertexShaderFilePath.c_str(), fragmentShaderFilePath.c_str());
+            mShader.bind();
+            mShader.uploadAttrib("normals", normals);
+            mShader.setUniform("lightPosition_worldspace", lightPosition);
+            mShader.uploadIndices(faces);
+            mShader.uploadAttrib("vertices", vertices);
+        }
+
         mShader.setUniform("model", model);
         mShader.setUniform("proj", proj);
         mShader.setUniform("view", view);
@@ -350,7 +368,6 @@ public:
     }
 
 private:
-    //MeshCanvas *mCanvas;
     nanogui::GLShader mShader;
     /*Numero di triangoli caricati dal file*/
     uint32_t nFaces;
