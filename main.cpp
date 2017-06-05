@@ -180,7 +180,18 @@ public:
             CheckBox *cb = new CheckBox(window, "Wireframe");
             cb->setChecked(wireframe);
             cb->setFontSize(16);
-            cb->setCallback([this](bool state) { this->previousWireframe = state;});
+            cb->setCallback([this](bool state) {
+                this->previousWireframe = state;
+            });
+        }
+        {
+            new Label(window, "Filled :", "sans-bold");
+            CheckBox *filledCB = new CheckBox(window, "Filled");
+            filledCB->setChecked(filled);
+            filledCB->setFontSize(16);
+            filledCB->setCallback([this](bool state) {
+                this->filled = state;
+            });
         }
 
         performLayout();
@@ -282,13 +293,40 @@ public:
     virtual void drawContents(){
         using namespace nanogui;
 
-        // Enable depth test
-        glEnable(GL_DEPTH_TEST);
-        // Accept fragment if it closer to the camera than the former one
-        glDepthFunc(GL_LESS);
+//        // Enable depth test
+//        glEnable(GL_DEPTH_TEST);
+//        // Accept fragment if it closer to the camera than the former one
+//        glDepthFunc(GL_LESS);
+//
+//        // Cull triangles which normal is not towards the camera
+//        glEnable(GL_CULL_FACE);
 
-        // Cull triangles which normal is not towards the camera
-        glEnable(GL_CULL_FACE);
+        if(!wireframe){
+            glEnable(GL_DEPTH_TEST);
+            glDepthFunc(GL_LESS);
+            glEnable(GL_CULL_FACE);
+            depth = cull = true;
+        }
+        else if(!filled && wireframe){
+            glDisable(GL_DEPTH_TEST);
+            glDisable(GL_CULL_FACE);
+            alphaWireframe = -1.0f;
+            depth = cull = false;
+        }
+        else if(filled && wireframe){
+            alphaWireframe = 1.0f;
+            glEnable(GL_DEPTH_TEST);
+            glDepthFunc(GL_LESS);
+            glEnable(GL_CULL_FACE);
+            depth = cull = true;
+        }
+//        else{
+//            glEnable(GL_DEPTH_TEST);
+//            glDepthFunc(GL_LESS);
+//            glEnable(GL_CULL_FACE);
+//        }
+
+        cout << wireframe << filled << depth<< cull<<endl;
 
         /* Draw the window contents using OpenGL */
         mShader.bind();
@@ -320,6 +358,8 @@ public:
 
         normalMatrix = modelView.inverse();
         normalMatrix.transposeInPlace();
+
+
         //Caricamento shaders
         if(previousWireframe && !wireframe){
             wireframe=true;
@@ -335,7 +375,8 @@ public:
             mShader.setUniform("NormalMatrix", normalMatrix);
             mShader.setUniform("ModelViewMatrix", modelView);
             mShader.setUniform("ViewportMatrix", viewportMatrix);
-            mShader.setUniform("ProjectionMatrix", proj);
+
+            mShader.setUniform("filled", alphaWireframe);
 
             mShader.setUniform("Line.Width", 0.75f);
             mShader.setUniform("Line.Color", Vector4f(0.05f,0.0f,0.05f,1.0f));
@@ -374,7 +415,7 @@ private:
 
     std::string vertexShaderFilePath, fragmentShaderFilePath,geometryShaderFilePath;
 
-    bool hasNormals, wireframe= false, previousWireframe=false;
+    bool hasNormals, wireframe= false, previousWireframe=false, filled=true, depth = true, cull = true;
 
     //Matrice di vertici
     Eigen::MatrixXd vertices;
@@ -387,6 +428,7 @@ private:
     /* Variabili per il calcolo della traslazione */
     double minXValue, maxXValue, minYValue, maxYValue, minZValue, maxZValue, maxValue, minValue;
 
+    float alphaWireframe;
     float cameraViewAngle = 45;
     float camera_dnear = 0.1;
     float camera_dfar = 100;

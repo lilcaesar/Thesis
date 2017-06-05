@@ -19,6 +19,8 @@ uniform struct LineInfo {
   vec4 Color;
 } Line;
 
+uniform float filled;
+
 in vec3 GPosition;
 in vec3 GNormal;
 noperspective in vec3 GEdgeDistance;
@@ -48,15 +50,22 @@ void main() {
     // Find the smallest distance
     float d = min( GEdgeDistance.x, GEdgeDistance.y );
     d = min( d, GEdgeDistance.z );
-
     float mixVal;
-    if( d < Line.Width - 1 ) {
-        mixVal = 1.0;
-    } else if( d > Line.Width + 1 ) {
-        mixVal = 0.0;
-    } else {
-        float x = d - (Line.Width - 1);
-        mixVal = exp2(-2.0 * (x*x));
+    if(filled>0.0){
+        if( d < Line.Width - 1 ) {
+            mixVal = 1.0;
+        } else if( d > Line.Width + 1 ) {
+            mixVal = 0.0;
+        } else {
+            float x = d - (Line.Width - 1);
+            mixVal = exp2(-2.0 * (x*x));
+        }
+        FragColor = mix( color, Line.Color, mixVal );
+    }else{
+        if( d > Line.Width + 1 ) {
+            FragColor = vec4(0.0,0.0,0.0,0.0);
+        }else{
+            FragColor = Line.Color;
+        }
     }
-    FragColor = mix( color, Line.Color, mixVal );
 }
