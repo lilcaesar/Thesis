@@ -21,8 +21,11 @@ using namespace nanogui;
 
 class NanoguiMeshViewer : public nanogui::Screen {
 public:
+
     NanoguiMeshViewer() : nanogui::Screen(Eigen::Vector2i(1000, 1000), "Nanogui Mesh Viewer") {
         using namespace nanogui;
+
+        this->setBackground(Color(180,180,255,255));
 
         Window *window = new Window(this, "Frustum tools");
         window->setPosition(Vector2i(850, 0));
@@ -37,7 +40,7 @@ public:
             fovFloatBox->setFixedSize(Vector2i(100, 20));
             fovFloatBox->setValue(cameraViewAngle);
             fovFloatBox->setFontSize(16);
-            fovFloatBox->setMinMaxValues(30, 90);
+            fovFloatBox->setMinMaxValues(1, 179);//max 179 per evitare capovolgimento mesh
             fovFloatBox->setValueIncrement(1);
             fovFloatBox->setEditable(true);
             fovFloatBox->setSpinnable(true);
@@ -307,14 +310,12 @@ public:
             glDisable(GL_DEPTH_TEST);
             glDisable(GL_CULL_FACE);
             shaderStateChange = true;
-            depth = cull = false;
         }
         else if(filled && wireframe){
             glEnable(GL_DEPTH_TEST);
             glDepthFunc(GL_LESS);
             glEnable(GL_CULL_FACE);
             shaderStateChange = true;
-            depth = cull = true;
         }
         else{
             glEnable(GL_DEPTH_TEST);
@@ -322,8 +323,6 @@ public:
             glEnable(GL_CULL_FACE);
             shaderStateChange = true;
         }
-
-        cout << wireframe << filled << depth<< cull<<endl;
 
         /* Draw the window contents using OpenGL */
         mShader.bind();
@@ -341,7 +340,7 @@ public:
         float near = camera_dnear;
         float far = camera_dfar;
         float top = tan((cameraViewAngle)/360.*M_PI)*near;
-        float right = top * 1000/1000;
+        float right = top * width()/height();
 
         proj = frustum(-right,right,-top,top,near,far);
 
@@ -351,7 +350,7 @@ public:
 
         modelView = view * model;
 
-        viewportMatrix <<500.0,0.0,0.0,0.0,0.0,500.0,0.0,0.0,0.0,0.0,1.0,0.0,500.0, 500.0, 0.0, 1.0;
+        viewportMatrix <<width()/2,0.0,0.0,0.0,0.0,height()/2,0.0,0.0,0.0,0.0,1.0,0.0,width()/2, height()/2, 0.0, 1.0;
 
         normalMatrix = modelView.inverse();
         normalMatrix.transposeInPlace();
@@ -375,9 +374,9 @@ public:
 
             mShader.setUniform("filled", alphaWireframe);
 
-            mShader.setUniform("Line.Width", 0.75f);
-            mShader.setUniform("Line.Color", Vector4f(0.05f,0.0f,0.05f,1.0f));
-            mShader.setUniform("Material.Kd", Vector3f(0.7f, 0.7f, 0.7f));
+            mShader.setUniform("Line.Width", 0.5f);
+            mShader.setUniform("Line.Color", Vector4f(0.0f,0.0f,0.0f,1.0f));
+            mShader.setUniform("Material.Kd", Vector3f(0.4f, 0.4f, 0.4f));
             mShader.setUniform("Light.Position", Vector4f(0.0f,0.0f,0.0f, 1.0f));
             mShader.setUniform("Material.Ka", Vector3f(0.2f, 0.2f, 0.2f));
             mShader.setUniform("Light.Intensity", Vector3f(1.0f, 1.0f, 1.0f));
@@ -412,7 +411,7 @@ private:
 
     std::string vertexShaderFilePath, fragmentShaderFilePath,geometryShaderFilePath;
 
-    bool hasNormals, wireframe= false, shaderStateChange=false, filled=true, depth = true, cull = true;
+    bool hasNormals, wireframe= false, shaderStateChange=false, filled=true;
 
     //Matrice di vertici
     Eigen::MatrixXd vertices;

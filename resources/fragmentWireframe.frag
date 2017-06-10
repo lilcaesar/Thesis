@@ -62,10 +62,14 @@ void main() {
         }
         FragColor = mix( color, Line.Color, mixVal );
     }else{
-        if( d > Line.Width + 1 ) {
-            FragColor = vec4(0.0,0.0,0.0,0.0);
-        }else{
-            FragColor = Line.Color;
+        if( d < Line.Width - 1 ) {
+            mixVal = 1.0;
+        } else if( d > Line.Width + 1 ) {
+            mixVal = 0.0;
+        } else {
+            float x = d - (Line.Width - 1);
+            mixVal = exp2(-2.0 * (x*x));
         }
+        FragColor = mix( vec4(0.0,0.0,0.0,0.0), Line.Color, mixVal );
     }
 }
