@@ -36,15 +36,15 @@ public:
         frustumTools->setLayout(new BoxLayout(Orientation::Horizontal, Alignment::Middle, 0, 5));
         {
             new Label(window, "Field of view:", "sans");
-            auto fovFloatBox = new FloatBox<float>(window);
-            fovFloatBox->setFixedSize(Vector2i(100, 20));
-            fovFloatBox->setValue(cameraViewAngle);
-            fovFloatBox->setFontSize(16);
-            fovFloatBox->setMinMaxValues(1, 179);//max 179 per evitare capovolgimento mesh
-            fovFloatBox->setValueIncrement(1);
-            fovFloatBox->setEditable(true);
-            fovFloatBox->setSpinnable(true);
-            fovFloatBox->setCallback([this](float fieldOfView) {
+            auto fovIntBox = new IntBox<int>(window);
+            fovIntBox->setFixedSize(Vector2i(100, 20));
+            fovIntBox->setValue(cameraViewAngle);
+            fovIntBox->setFontSize(16);
+            fovIntBox->setMinMaxValues(1, 179);//max 179 per evitare capovolgimento mesh
+            fovIntBox->setValueIncrement(1);
+            fovIntBox->setEditable(true);
+            fovIntBox->setSpinnable(true);
+            fovIntBox->setCallback([this](int fieldOfView) {
                 this->cameraViewAngle = fieldOfView;
             });
         }
@@ -285,6 +285,13 @@ public:
         return false;
     }
 
+    bool scrollEvent(const Vector2i &p, const Vector2f &rel) {
+        if (!Screen::scrollEvent(p, rel)) {
+            cameraViewAngle = std::max(1, cameraViewAngle - (rel.y() > 0 ? 1 : -1));
+        }
+        return true;
+    }
+
     // Draw the widget (and all child widgets)
     virtual void draw(NVGcontext *ctx) {
         /* Draw the user interface */
@@ -425,7 +432,7 @@ private:
     double minXValue, maxXValue, minYValue, maxYValue, minZValue, maxZValue, maxValue, minValue;
 
     float alphaWireframe;
-    float cameraViewAngle = 45;
+    int cameraViewAngle = 45;
     float camera_dnear = 0.1;
     float camera_dfar = 100;
     float camera_zoom = 1.0;
