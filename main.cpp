@@ -181,7 +181,8 @@ public:
             cb->setChecked(wireframe);
             cb->setFontSize(16);
             cb->setCallback([this](bool state) {
-                this->previousWireframe = state;
+                this->wireframe = state;
+                this->shaderStateChange = true;
             });
         }
         {
@@ -191,6 +192,11 @@ public:
             filledCB->setFontSize(16);
             filledCB->setCallback([this](bool state) {
                 this->filled = state;
+                this->shaderStateChange=true;
+                if(filled)
+                    this->alphaWireframe = 1.0f;
+                else
+                    this->alphaWireframe = -1.0f;
             });
         }
 
@@ -293,38 +299,29 @@ public:
     virtual void drawContents(){
         using namespace nanogui;
 
-//        // Enable depth test
-//        glEnable(GL_DEPTH_TEST);
-//        // Accept fragment if it closer to the camera than the former one
-//        glDepthFunc(GL_LESS);
-//
-//        // Cull triangles which normal is not towards the camera
-//        glEnable(GL_CULL_FACE);
+//        glEnable(GL_DEPTH_TEST) ->  Enable depth test
+//        glDepthFunc(GL_LESS) -> Accept fragment if it closer to the camera than the former one
+//        glEnable(GL_CULL_FACE) -> Cull triangles which normal is not towards the camera
 
-        if(!wireframe){
-            glEnable(GL_DEPTH_TEST);
-            glDepthFunc(GL_LESS);
-            glEnable(GL_CULL_FACE);
-            depth = cull = true;
-        }
-        else if(!filled && wireframe){
+        if(!filled && wireframe){
             glDisable(GL_DEPTH_TEST);
             glDisable(GL_CULL_FACE);
-            alphaWireframe = -1.0f;
+            shaderStateChange = true;
             depth = cull = false;
         }
         else if(filled && wireframe){
-            alphaWireframe = 1.0f;
             glEnable(GL_DEPTH_TEST);
             glDepthFunc(GL_LESS);
             glEnable(GL_CULL_FACE);
+            shaderStateChange = true;
             depth = cull = true;
         }
-//        else{
-//            glEnable(GL_DEPTH_TEST);
-//            glDepthFunc(GL_LESS);
-//            glEnable(GL_CULL_FACE);
-//        }
+        else{
+            glEnable(GL_DEPTH_TEST);
+            glDepthFunc(GL_LESS);
+            glEnable(GL_CULL_FACE);
+            shaderStateChange = true;
+        }
 
         cout << wireframe << filled << depth<< cull<<endl;
 
@@ -361,8 +358,8 @@ public:
 
 
         //Caricamento shaders
-        if(previousWireframe && !wireframe){
-            wireframe=true;
+        if(shaderStateChange && wireframe){
+            shaderStateChange = false;
             mShader.free();
             vertexShaderFilePath = "./resources/vertexWireframe.vert";
             fragmentShaderFilePath = "./resources/fragmentWireframe.frag";
@@ -387,8 +384,8 @@ public:
             mShader.setUniform("Material.Ks", Vector3f(0.8f, 0.8f, 0.8f));
             mShader.setUniform("Material.Shininess", 100.0f);
         }
-        if(!previousWireframe && wireframe){
-            wireframe=false;
+        if(shaderStateChange && !wireframe){
+            shaderStateChange = false;
             mShader.free();
             vertexShaderFilePath = "./resources/vertexShader.vert";
             fragmentShaderFilePath = "./resources/fragmentShader.frag";
@@ -415,7 +412,7 @@ private:
 
     std::string vertexShaderFilePath, fragmentShaderFilePath,geometryShaderFilePath;
 
-    bool hasNormals, wireframe= false, previousWireframe=false, filled=true, depth = true, cull = true;
+    bool hasNormals, wireframe= false, shaderStateChange=false, filled=true, depth = true, cull = true;
 
     //Matrice di vertici
     Eigen::MatrixXd vertices;
