@@ -31,63 +31,35 @@ public:
         window->setPosition(Vector2i(850, 0));
         window->setLayout(new GroupLayout());
 
-        new Label(window, "Field of view", "sans-bold");
+        new Label(window, "Frustum Tools", "sans-bold");
         Widget *frustumTools = new Widget(window);
         frustumTools->setLayout(new BoxLayout(Orientation::Horizontal, Alignment::Middle, 0, 5));
-        {
-            new Label(window, "Field of view:", "sans");
-            auto fovIntBox = new IntBox<int>(window);
-            fovIntBox->setFixedSize(Vector2i(100, 20));
-            fovIntBox->setValue(cameraViewAngle);
-            fovIntBox->setFontSize(16);
-            fovIntBox->setMinMaxValues(1, 179);//max 179 per evitare capovolgimento mesh
-            fovIntBox->setValueIncrement(1);
-            fovIntBox->setEditable(true);
-            fovIntBox->setSpinnable(true);
-            fovIntBox->setCallback([this](int fieldOfView) {
-                this->cameraViewAngle = fieldOfView;
-            });
-        }
         {
             new Label(window, "Near plane:", "sans");
             auto nearPlaneFloatBox = new FloatBox<float>(window);
             nearPlaneFloatBox->setFixedSize(Vector2i(100, 20));
-            nearPlaneFloatBox->setValue(camera_dnear);
+            nearPlaneFloatBox->setValue(nanoguiCamera.camera_dnear);
             nearPlaneFloatBox->setFontSize(16);
             nearPlaneFloatBox->setMinMaxValues(0.1, 20);
             nearPlaneFloatBox->setValueIncrement(0.1);
             nearPlaneFloatBox->setEditable(true);
             nearPlaneFloatBox->setSpinnable(true);
             nearPlaneFloatBox->setCallback([this](float nearPlane) {
-                this->camera_dnear = nearPlane;
+                this->nanoguiCamera.camera_dnear = nearPlane;
             });
         }
         {
             new Label(window, "Far plane:", "sans");
             auto farPlaneFloatBox = new FloatBox<float>(window);
             farPlaneFloatBox->setFixedSize(Vector2i(100, 20));
-            farPlaneFloatBox->setValue(camera_dfar);
+            farPlaneFloatBox->setValue(nanoguiCamera.camera_dfar);
             farPlaneFloatBox->setFontSize(16);
             farPlaneFloatBox->setMinMaxValues(1, 100);
             farPlaneFloatBox->setValueIncrement(1);
             farPlaneFloatBox->setEditable(true);
             farPlaneFloatBox->setSpinnable(true);
             farPlaneFloatBox->setCallback([this](float farPlane) {
-                this->camera_dfar = farPlane;
-            });
-        }
-        {
-            new Label(window, "Camera zoom:", "sans");
-            auto cameraZoomFloatBox = new FloatBox<float>(window);
-            cameraZoomFloatBox->setFixedSize(Vector2i(100, 20));
-            cameraZoomFloatBox->setValue(camera_zoom);
-            cameraZoomFloatBox->setFontSize(16);
-            cameraZoomFloatBox->setMinValue(0);
-            cameraZoomFloatBox->setValueIncrement(camera_zoom/10);
-            cameraZoomFloatBox->setEditable(true);
-            cameraZoomFloatBox->setSpinnable(true);
-            cameraZoomFloatBox->setCallback([this](float cZoom) {
-                this->camera_zoom = cZoom;
+                this->nanoguiCamera.camera_dfar = farPlane;
             });
         }
 
@@ -99,39 +71,39 @@ public:
             new Label(window, "Translate cam x:", "sans");
             auto scaleFloatBox = new FloatBox<float>(window);
             scaleFloatBox->setFixedSize(Vector2i(100, 20));
-            scaleFloatBox->setValue(camx);
+            scaleFloatBox->setValue(nanoguiCamera.camPos[0]);
             scaleFloatBox->setFontSize(16);
             scaleFloatBox->setValueIncrement(0.1);
             scaleFloatBox->setEditable(true);
             scaleFloatBox->setSpinnable(true);
             scaleFloatBox->setCallback([this](float translationValue) {
-                this->camx = translationValue;
+                this->nanoguiCamera.camPos[0] = translationValue;
             });
         }
         {
             new Label(window, "Translate cam y:", "sans");
             auto scaleFloatBox = new FloatBox<float>(window);
             scaleFloatBox->setFixedSize(Vector2i(100, 20));
-            scaleFloatBox->setValue(camy);
+            scaleFloatBox->setValue(nanoguiCamera.camPos[1]);
             scaleFloatBox->setFontSize(16);
             scaleFloatBox->setValueIncrement(0.1);
             scaleFloatBox->setEditable(true);
             scaleFloatBox->setSpinnable(true);
             scaleFloatBox->setCallback([this](float translationValue) {
-                this->camy = translationValue;
+                this->nanoguiCamera.camPos[1] = translationValue;
             });
         }
         {
             new Label(window, "Translate cam z:", "sans");
             auto scaleFloatBox = new FloatBox<float>(window);
             scaleFloatBox->setFixedSize(Vector2i(100, 20));
-            scaleFloatBox->setValue(camz);
+            scaleFloatBox->setValue(nanoguiCamera.camPos[2]);
             scaleFloatBox->setFontSize(16);
             scaleFloatBox->setValueIncrement(0.1);
             scaleFloatBox->setEditable(true);
             scaleFloatBox->setSpinnable(true);
             scaleFloatBox->setCallback([this](float translationValue) {
-                this->camz = translationValue;
+                this->nanoguiCamera.camPos[2] = translationValue;
             });
         }
 
@@ -287,7 +259,7 @@ public:
 
     bool scrollEvent(const Vector2i &p, const Vector2f &rel) {
         if (!Screen::scrollEvent(p, rel)) {
-            cameraViewAngle = std::max(1, cameraViewAngle - (rel.y() > 0 ? 1 : -1));
+            nanoguiCamera.zoom = std::max(0.1, nanoguiCamera.zoom * (rel.y() > 0 ? 1.1 : 0.9));
         }
         return true;
     }
@@ -344,16 +316,16 @@ public:
         Vector3f translateVector= getTranslationToCenter() + Vector3f(tarx,tary,tarz);
 
         float scaleFactor = getScaleFactor();
-        float near = camera_dnear;
-        float far = camera_dfar;
-        float top = tan((cameraViewAngle)/360.*M_PI)*near;
+        float near = nanoguiCamera.camera_dnear;
+        float far = nanoguiCamera.camera_dfar;
+        float top = tan((nanoguiCamera.cameraViewAngle)/360.*M_PI)*near;
         float right = top * width()/height();
 
         proj = frustum(-right,right,-top,top,near,far);
 
-        view = lookAt(Vector3f(camx,camy,camz),Vector3f(tarx,tary,tarz),Vector3f(0,1,0));
+        view = lookAt(nanoguiCamera.camPos, nanoguiCamera.camTar, nanoguiCamera.camUp);
 
-        model= scale(Vector3f(camera_zoom,camera_zoom,camera_zoom)) * scale(Vector3f(scaleFactor,scaleFactor,scaleFactor)) * translate(translateVector);
+        model= translate(translateVector) /** rotate()*/* scale(Vector3f(scaleFactor*nanoguiCamera.zoom,scaleFactor*nanoguiCamera.zoom,scaleFactor*nanoguiCamera.zoom));
 
         modelView = view * model;
 
@@ -412,6 +384,15 @@ public:
     }
 
 private:
+    struct NanoguiCamera{
+        int cameraViewAngle = 45;
+        float zoom = 1.0;
+        float camera_dnear = 0.1;
+        float camera_dfar = 100;
+        Vector3f camPos = {0, 0, 1.5};
+        Vector3f camTar = {0, 0, 0};
+        Vector3f camUp = {0, 1, 0};
+    };
     nanogui::GLShader mShader;
     /*Numero di triangoli caricati dal file*/
     uint32_t nFaces;
@@ -432,11 +413,7 @@ private:
     double minXValue, maxXValue, minYValue, maxYValue, minZValue, maxZValue, maxValue, minValue;
 
     float alphaWireframe;
-    int cameraViewAngle = 45;
-    float camera_dnear = 0.1;
-    float camera_dfar = 100;
-    float camera_zoom = 1.0;
-    float camx = 0, camy = 0, camz = 1.5;
+    NanoguiCamera nanoguiCamera;
     float tarx = 0, tary = 0, tarz = 0;
 };
 
