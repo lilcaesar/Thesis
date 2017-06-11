@@ -257,6 +257,28 @@ public:
         return false;
     }
 
+    bool mouseButtonEvent(const Vector2i &p, int button, bool down, int modifiers){
+        if(!Screen::mouseButtonEvent(p, button, down, modifiers)){
+            if(button == GLFW_MOUSE_BUTTON_1 && modifiers == 0){ // Rotazione
+                nanoguiCamera.arcball.button(p, down);
+            }
+            //else if(){}  //Traslazione
+        }
+        if(button == GLFW_MOUSE_BUTTON_1 && !down){ //Interrompo il tracking per la rotazione
+            nanoguiCamera.arcball.button(p,false);
+        }
+        return true;
+    }
+
+    bool mouseMotionEvent(const Vector2i &p, const Vector2i &rel, int button, int modifiers){
+        if(Screen::mouseMotionEvent(p, rel, button, modifiers)){
+            if(nanoguiCamera.arcball.motion(p)){         //Passo informazioni sulla posizione del mouse alla trackball
+                //
+            }
+        }
+        return true;
+    }
+
     bool scrollEvent(const Vector2i &p, const Vector2f &rel) {
         if (!Screen::scrollEvent(p, rel)) {
             nanoguiCamera.zoom = std::max(0.1, nanoguiCamera.zoom * (rel.y() > 0 ? 1.1 : 0.9));
@@ -325,11 +347,22 @@ public:
 
         view = lookAt(nanoguiCamera.camPos, nanoguiCamera.camTar, nanoguiCamera.camUp);
 
-        model= translate(translateVector) /** rotate()*/* scale(Vector3f(scaleFactor*nanoguiCamera.zoom,scaleFactor*nanoguiCamera.zoom,scaleFactor*nanoguiCamera.zoom));
+        //Uso funzioni Eigen per traslazione e scalatura per evitare il segmentation fault descritto sotto
+        Eigen::Affine3f translation(Eigen::Translation3f(translateVector[0],translateVector[1],translateVector[2]));
+        Eigen::Affine3f scale(Eigen::Scaling(scaleFactor*nanoguiCamera.zoom));
+
+        model = translation.matrix() * nanoguiCamera.arcball.matrix() * scale.matrix();
+
+        /*TODO Perchè la combinazione (translateNanogui||scaleNanogui)&&arcball.matrix causa segmentation fault prima in scale e poi in translate???? (senza arcball funzione)*/
+        //model= translate(translateVector) * scale(Vector3f(scaleFactor*nanoguiCamera.zoom,scaleFactor*nanoguiCamera.zoom,scaleFactor*nanoguiCamera.zoom));
 
         modelView = view * model;
 
-        viewportMatrix <<width()/2,0.0,0.0,0.0,0.0,height()/2,0.0,0.0,0.0,0.0,1.0,0.0,width()/2, height()/2, 0.0, 1.0;
+        viewportMatrix <<
+                        width()/2,0.0,0.0,0.0,
+                        0.0,height()/2,0.0,0.0,
+                        0.0,0.0,1.0,0.0,
+                        width()/2, height()/2, 0.0, 1.0;
 
         normalMatrix = modelView.inverse();
         normalMatrix.transposeInPlace();
@@ -392,6 +425,7 @@ private:
         Vector3f camPos = {0, 0, 1.5};
         Vector3f camTar = {0, 0, 0};
         Vector3f camUp = {0, 1, 0};
+        Arcball arcball;                        //Per la gestione della vista tramite mouse
     };
     nanogui::GLShader mShader;
     /*Numero di triangoli caricati dal file*/
