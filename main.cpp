@@ -31,7 +31,7 @@ public:
         window->setPosition(Vector2i(850, 0));
         window->setLayout(new GroupLayout());
 
-        new Label(window, "Frustum Tools", "sans-bold");
+        new Label(window, "Tools", "sans-bold");
         Widget *frustumTools = new Widget(window);
         frustumTools->setLayout(new BoxLayout(Orientation::Horizontal, Alignment::Middle, 0, 5));
         {
@@ -387,18 +387,20 @@ public:
         Eigen::Affine3f translation(Eigen::Translation3f(nanoguiCamera.translation[0],nanoguiCamera.translation[1],nanoguiCamera.translation[2]));
         Eigen::Affine3f scale(Eigen::Scaling(scaleFactor*nanoguiCamera.zoom));
 
-        model = nanoguiCamera.arcball.matrix() * scale.matrix() * translation.matrix();
-        cout << nanoguiCamera.translation << endl<< getTranslationToCenter()<<endl<<endl;
+        model = nanoguiCamera.arcball.matrix();
+        model *= scale.matrix();
+        model *= translation.matrix();
 
         /*TODO Perchè la combinazione (translateNanogui||scaleNanogui)&&arcball.matrix causa segmentation fault prima in scale e poi in translate???? (senza arcball funzione)*/
         //model= translate(translateVector) * scale(Vector3f(scaleFactor*nanoguiCamera.zoom,scaleFactor*nanoguiCamera.zoom,scaleFactor*nanoguiCamera.zoom));
     }
 
     void refreshArcball(){
+        Vector3f mesh_center = getMeshCenter();
         nanoguiCamera.arcball = Arcball();
         nanoguiCamera.arcball.setSize(mSize);           //Assegno la dimensione del monitor
         nanoguiCamera.modelZoom = getScaleFactor();
-        nanoguiCamera.translation = getTranslationToCenter();
+        nanoguiCamera.translation = -Vector3f(mesh_center.x(), mesh_center.y(), mesh_center.z());
     }
 
 private:

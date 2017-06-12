@@ -45,13 +45,26 @@ void meshMatricesInitializer(Eigen::MatrixXd &vertices, Eigen::MatrixXd &normals
     maxXValue = (*std::max_element(XValues.begin(), XValues.end()));
     minYValue = (*std::min_element(YValues.begin(), YValues.end()));
     maxYValue = (*std::max_element(YValues.begin(), YValues.end()));
-    minZValue = (*std::max_element(ZValues.begin(), ZValues.end()));
-    maxZValue = (*std::min_element(ZValues.begin(), ZValues.end()));
-    std::vector<double> maxVector = {maxXValue, maxYValue, maxZValue};
-    std::vector<double> minVector = {minXValue, minYValue, minZValue};
-    maxValue = (*std::max_element(maxVector.begin(), maxVector.end()));
-    minValue = (*std::min_element(minVector.begin(), minVector.end()));
+    minZValue = (*std::min_element(ZValues.begin(), ZValues.end()));
+    maxZValue = (*std::max_element(ZValues.begin(), ZValues.end()));
 
+    if((maxXValue-minXValue) > (maxYValue-minYValue)){
+        if((maxXValue-minXValue)>(maxZValue-minZValue)){
+            maxValue = maxXValue;
+            minValue = minXValue;
+        }else{
+            maxValue = maxZValue;
+            minValue = minZValue;
+        }
+    }else{
+        if((maxYValue-minYValue)>(maxZValue-minZValue)){
+            maxValue = maxYValue;
+            minValue = minYValue;
+        }else{
+            maxValue = maxZValue;
+            minValue = minZValue;
+        }
+    }
 
 //CARICAMENTO VECTOR SU MATRIX
     vertices.resize(3, nVertices);
