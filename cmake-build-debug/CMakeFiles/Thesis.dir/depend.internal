@@ -41,5 +41,6 @@ CMakeFiles/Thesis.dir/main.cpp.o
  ../lib/nanogui/include/nanogui/vscrollpanel.h
  ../lib/nanogui/include/nanogui/widget.h
  ../lib/nanogui/include/nanogui/window.h
+ ../src/MeshMatricesInitializer.h
  ../src/VectorsOperations.h
  /home/mattia/CLionProjects/Thesis/main.cpp

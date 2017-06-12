@@ -40,6 +40,7 @@ CMakeFiles/Thesis.dir/main.cpp.o: ../lib/nanogui/include/nanogui/toolbutton.h
 CMakeFiles/Thesis.dir/main.cpp.o: ../lib/nanogui/include/nanogui/vscrollpanel.h
 CMakeFiles/Thesis.dir/main.cpp.o: ../lib/nanogui/include/nanogui/widget.h
 CMakeFiles/Thesis.dir/main.cpp.o: ../lib/nanogui/include/nanogui/window.h
+CMakeFiles/Thesis.dir/main.cpp.o: ../src/MeshMatricesInitializer.h
 CMakeFiles/Thesis.dir/main.cpp.o: ../src/VectorsOperations.h
 CMakeFiles/Thesis.dir/main.cpp.o: ../main.cpp
 

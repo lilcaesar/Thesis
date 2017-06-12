@@ -270,6 +270,10 @@ vector
 nanogui/widget.h
 -
 
+../src/MeshMatricesInitializer.h
+importFiles.h
+-
+
 ../src/VectorsOperations.h
 
 /home/mattia/CLionProjects/Thesis/Fabrizio/importFiles.cpp
@@ -307,9 +311,9 @@ nanogui/glutil.h
 -
 GL/gl.h
 -
-importFiles.h
--
 VectorsOperations.h
+-
+MeshMatricesInitializer.h
 -
 GL/glu.h
 -

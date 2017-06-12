@@ -7,8 +7,8 @@
 #include <nanogui/nanogui.h>
 #include <nanogui/glutil.h>
 #include <GL/gl.h>
-#include <importFiles.h>
 #include <VectorsOperations.h>
+#include <MeshMatricesInitializer.h>
 #include <GL/glu.h>
 
 /*TODO
@@ -178,67 +178,13 @@ public:
         performLayout();
 
         //Caricamento del file
-        std::vector<int> tempFaces;
-        std::vector<double> tempVertices;
-        std::vector<std::vector<int>> vert2face;
-        std::vector<double> tempFaceNormals;
-        std::vector<double> tempVertNormals;
+        meshMatricesInitializer(vertices, normals, faces, nFaces, minXValue, minYValue, minZValue, maxXValue, maxYValue, maxZValue, minValue, maxValue);
+
+        refreshArcball();
 
         vertexShaderFilePath = "./resources/vertexShader.vert";
         fragmentShaderFilePath = "./resources/fragmentShader.frag";
         mShader.initFromFiles("Nanogui Shader", vertexShaderFilePath.c_str(), fragmentShaderFilePath.c_str());
-
-        std::vector<std::pair<std::string, std::string>> fileTypes;
-        fileTypes.push_back(std::make_pair("obj", "obj file"));
-        std::string filePath;
-        filePath = nanogui::file_dialog(fileTypes, false);
-
-        hasNormals = loadOBJ(filePath.c_str(), tempVertices, tempFaces, tempVertNormals);
-
-        //Calcolo i vettori vert2face, tempFaceNormals e tempVertNormals in base ai dati della mesh
-        if(!hasNormals)
-            loadDerivedVectors(tempVertices, tempFaces, vert2face, tempFaceNormals, tempVertNormals);
-
-        //Salvo il numero di vertici e facce della mesh
-        unsigned long nVertices = (tempVertices.size()) / 3;
-        nFaces = (uint32_t) (tempFaces.size()) / 3;
-
-        std::vector<double> XValues;
-        std::vector<double> YValues;
-        std::vector<double> ZValues;
-
-        for (unsigned long i = 0; i < nVertices; i++) {
-            XValues.push_back(tempVertices[(3 * i)]);
-            YValues.push_back(tempVertices[(3 * i) + 1]);
-            ZValues.push_back(tempVertices[(3 * i) + 2]);
-        }
-
-        minXValue = (*std::min_element(XValues.begin(), XValues.end()));
-        maxXValue = (*std::max_element(XValues.begin(), XValues.end()));
-        minYValue = (*std::min_element(YValues.begin(), YValues.end()));
-        maxYValue = (*std::max_element(YValues.begin(), YValues.end()));
-        minZValue = (*std::max_element(ZValues.begin(), ZValues.end()));
-        maxZValue = (*std::min_element(ZValues.begin(), ZValues.end()));
-        std::vector<double> maxVector = {maxXValue, maxYValue, maxZValue};
-        std::vector<double> minVector = {minXValue, minYValue, minZValue};
-        maxValue = (*std::max_element(maxVector.begin(), maxVector.end()));
-        minValue = (*std::min_element(minVector.begin(), minVector.end()));
-
-
-        //CARICAMENTO VECTOR SU MATRIX
-        vertices.resize(3, nVertices);
-        normals.resize(3, nVertices);
-        for (unsigned long i = 0; i < nVertices; i++) {
-            vertices.col(i) << tempVertices[(3 * i)], tempVertices[(3 * i) + 1], tempVertices[(3 * i) + 2];
-            normals.col(i) << tempVertNormals[(3 * i)],
-                    tempVertNormals[(3 * i) + 1],
-                    tempVertNormals[(3 * i) + 2];
-        }
-
-        faces.resize(3, nFaces);
-        for (int32_t i = 0; i < nFaces; i++) {
-            faces.col(i) << tempFaces[(3 * i)], tempFaces[(3 * i) + 1], tempFaces[(3 * i) + 2];
-        }
 
         mShader.bind();
         mShader.uploadAttrib("normals", normals);
@@ -261,19 +207,43 @@ public:
         if(!Screen::mouseButtonEvent(p, button, down, modifiers)){
             if(button == GLFW_MOUSE_BUTTON_1 && modifiers == 0){ // Rotazione
                 nanoguiCamera.arcball.button(p, down);
-            }
-            //else if(){}  //Traslazione
+            } else if (button == GLFW_MOUSE_BUTTON_2 ||
+                       (button == GLFW_MOUSE_BUTTON_1 && modifiers == GLFW_MOD_SHIFT)) {
+                nanoguiCamera.translationStart = nanoguiCamera.translation;
+                isTranslating = true;
+                screenTranslationStart = p;
+            }  //Traslazione
         }
         if(button == GLFW_MOUSE_BUTTON_1 && !down){ //Interrompo il tracking per la rotazione
             nanoguiCamera.arcball.button(p,false);
+        }
+        if (!down) {
+            isTranslating = false;
         }
         return true;
     }
 
     bool mouseMotionEvent(const Vector2i &p, const Vector2i &rel, int button, int modifiers){
-        if(Screen::mouseMotionEvent(p, rel, button, modifiers)){
+        if(!Screen::mouseMotionEvent(p, rel, button, modifiers)){
             if(nanoguiCamera.arcball.motion(p)){         //Passo informazioni sulla posizione del mouse alla trackball
                 //
+            }else if (isTranslating) {
+                Eigen::Matrix4f modelEvent, viewEvent, projEvent;
+                modelEvent = model;
+                viewEvent = view;
+                projEvent = proj;
+                Eigen::Vector3f mesh_center = getMeshCenter();
+                float zval = nanogui::project(Vector3f(mesh_center.x(),
+                                                       mesh_center.y(),
+                                                       mesh_center.z()),
+                                              viewEvent * modelEvent, projEvent, mSize).z();
+                Eigen::Vector3f pos1 = nanogui::unproject(
+                        Eigen::Vector3f(p.x(), mSize.y() - p.y(), zval),
+                        viewEvent * modelEvent, projEvent, mSize);
+                Eigen::Vector3f pos0 = nanogui::unproject(
+                        Eigen::Vector3f(screenTranslationStart.x(), mSize.y() -
+                                                              screenTranslationStart.y(), zval), viewEvent * modelEvent, projEvent, mSize);
+                nanoguiCamera.translation = nanoguiCamera.translationStart + (pos1-pos0);
             }
         }
         return true;
@@ -298,6 +268,10 @@ public:
 
     Vector3f getTranslationToCenter() {
         return Vector3f(-(minXValue+maxXValue)/2,-(minYValue+maxYValue)/2,-(minZValue+maxZValue)/2);
+    }
+
+    Vector3f getMeshCenter() {
+        return Vector3f((minXValue+maxXValue)/2,(minYValue+maxYValue)/2,(minZValue+maxZValue)/2);
     }
 
     virtual void drawContents(){
@@ -328,33 +302,13 @@ public:
         /* Draw the window contents using OpenGL */
         mShader.bind();
 
-        Matrix4f model, view, proj, modelView, viewportMatrix;
-        Matrix4f normalMatrix;
+        Matrix4f modelView, viewportMatrix, normalMatrix;
         model.setIdentity();
         view.setIdentity();
         proj.setIdentity();
         modelView.setIdentity();
 
-        Vector3f translateVector= getTranslationToCenter() + Vector3f(tarx,tary,tarz);
-
-        float scaleFactor = getScaleFactor();
-        float near = nanoguiCamera.camera_dnear;
-        float far = nanoguiCamera.camera_dfar;
-        float top = tan((nanoguiCamera.cameraViewAngle)/360.*M_PI)*near;
-        float right = top * width()/height();
-
-        proj = frustum(-right,right,-top,top,near,far);
-
-        view = lookAt(nanoguiCamera.camPos, nanoguiCamera.camTar, nanoguiCamera.camUp);
-
-        //Uso funzioni Eigen per traslazione e scalatura per evitare il segmentation fault descritto sotto
-        Eigen::Affine3f translation(Eigen::Translation3f(translateVector[0],translateVector[1],translateVector[2]));
-        Eigen::Affine3f scale(Eigen::Scaling(scaleFactor*nanoguiCamera.zoom));
-
-        model = translation.matrix() * nanoguiCamera.arcball.matrix() * scale.matrix();
-
-        /*TODO Perchè la combinazione (translateNanogui||scaleNanogui)&&arcball.matrix causa segmentation fault prima in scale e poi in translate???? (senza arcball funzione)*/
-        //model= translate(translateVector) * scale(Vector3f(scaleFactor*nanoguiCamera.zoom,scaleFactor*nanoguiCamera.zoom,scaleFactor*nanoguiCamera.zoom));
+        calculateMVPMatrices(model, view, proj);
 
         modelView = view * model;
 
@@ -416,29 +370,70 @@ public:
         mShader.drawIndexed(GL_TRIANGLES, 0, nFaces);
     }
 
+    void calculateMVPMatrices(Matrix4f &model, Matrix4f &view, Matrix4f &proj){
+        Vector3f translateVector= getTranslationToCenter() + Vector3f(tarx,tary,tarz);
+
+        float scaleFactor = getScaleFactor();
+        float near = nanoguiCamera.camera_dnear;
+        float far = nanoguiCamera.camera_dfar;
+        float top = tan((nanoguiCamera.cameraViewAngle)/360.*M_PI)*near;
+        float right = top * width()/height();
+
+        proj = frustum(-right,right,-top,top,near,far);
+
+        view = lookAt(nanoguiCamera.camPos, nanoguiCamera.camTar, nanoguiCamera.camUp);
+
+        //Uso funzioni Eigen per traslazione e scalatura per evitare il segmentation fault descritto sotto
+        Eigen::Affine3f translation(Eigen::Translation3f(nanoguiCamera.translation[0],nanoguiCamera.translation[1],nanoguiCamera.translation[2]));
+        Eigen::Affine3f scale(Eigen::Scaling(scaleFactor*nanoguiCamera.zoom));
+
+        model = nanoguiCamera.arcball.matrix() * scale.matrix() * translation.matrix();
+        cout << nanoguiCamera.translation << endl<< getTranslationToCenter()<<endl<<endl;
+
+        /*TODO Perchè la combinazione (translateNanogui||scaleNanogui)&&arcball.matrix causa segmentation fault prima in scale e poi in translate???? (senza arcball funzione)*/
+        //model= translate(translateVector) * scale(Vector3f(scaleFactor*nanoguiCamera.zoom,scaleFactor*nanoguiCamera.zoom,scaleFactor*nanoguiCamera.zoom));
+    }
+
+    void refreshArcball(){
+        nanoguiCamera.arcball = Arcball();
+        nanoguiCamera.arcball.setSize(mSize);           //Assegno la dimensione del monitor
+        nanoguiCamera.modelZoom = getScaleFactor();
+        nanoguiCamera.translation = getTranslationToCenter();
+    }
+
 private:
     struct NanoguiCamera{
         int cameraViewAngle = 45;
         float zoom = 1.0;
+        float modelZoom = 1.0;
         float camera_dnear = 0.1;
         float camera_dfar = 100;
         Vector3f camPos = {0, 0, 1.5};
         Vector3f camTar = {0, 0, 0};
         Vector3f camUp = {0, 1, 0};
-        Arcball arcball;                        //Per la gestione della vista tramite mouse
+        Arcball arcball;                                        //Per la gestione della vista tramite mouse
+        Vector3f translation = Vector3f::Zero();                //Per la traslazione su schermo
+        Vector3f translationStart = Vector3f::Zero();
     };
     nanogui::GLShader mShader;
     /*Numero di triangoli caricati dal file*/
     uint32_t nFaces;
 
-    std::string vertexShaderFilePath, fragmentShaderFilePath,geometryShaderFilePath;
+    std::string vertexShaderFilePath, fragmentShaderFilePath,geometryShaderFilePath="";
 
-    bool hasNormals, wireframe= false, shaderStateChange=false, filled=true;
+    bool wireframe= false, shaderStateChange=false, filled=true;
+    bool isTranslating = false;
 
     //Matrice di vertici
     Eigen::MatrixXd vertices;
     Eigen::MatrixXd normals;
     Eigen::MatrixXi faces;
+
+    //Matrici per MVP
+    Matrix4f  model, view, proj;
+
+    //Vettore per la gestione della traslazione col mouse
+    Vector2i screenTranslationStart = Vector2i(0, 0);
 
     //Luce
     Eigen::Vector3d lightPosition= {4.0,4.0,4.0};
