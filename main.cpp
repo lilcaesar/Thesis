@@ -28,7 +28,7 @@ public:
         this->setBackground(Color(180,180,255,255));
 
         Window *window = new Window(this, "Frustum tools");
-        window->setPosition(Vector2i(850, 0));
+        window->setPosition(Vector2i(0, 0));
         window->setLayout(new GroupLayout());
 
         new Label(window, "Tools", "sans-bold");
@@ -178,7 +178,7 @@ public:
         performLayout();
 
         //Caricamento del file
-        meshMatricesInitializer(vertices, normals, faces, nFaces, minXValue, minYValue, minZValue, maxXValue, maxYValue, maxZValue, minValue, maxValue);
+        meshMatricesInitializer(vertices, normals, faces, nFaces,minXValue,maxXValue,minYValue,maxYValue,minZValue, maxZValue, minValue, maxValue, maxDistance);
 
         refreshArcball();
 
@@ -263,7 +263,7 @@ public:
     }
 
     float getScaleFactor(){
-        return 1/abs(maxValue - minValue);
+        return 1/(maxDistance);
     }
 
     Vector3f getTranslationToCenter() {
@@ -301,6 +301,9 @@ public:
 
         /* Draw the window contents using OpenGL */
         mShader.bind();
+
+        //Aggiorno la grandezza dello schermo fornita alla arcball
+        nanoguiCamera.arcball.setSize(mSize);
 
         Matrix4f modelView, viewportMatrix, normalMatrix;
         model.setIdentity();
@@ -423,7 +426,7 @@ private:
 
     std::string vertexShaderFilePath, fragmentShaderFilePath,geometryShaderFilePath="";
 
-    bool wireframe= false, shaderStateChange=false, filled=true;
+    bool wireframe= false, shaderStateChange=false, filled=false;
     bool isTranslating = false;
 
     //Matrice di vertici
@@ -441,7 +444,7 @@ private:
     Eigen::Vector3d lightPosition= {4.0,4.0,4.0};
 
     /* Variabili per il calcolo della traslazione */
-    double minXValue, maxXValue, minYValue, maxYValue, minZValue, maxZValue, maxValue, minValue;
+    double minXValue, maxXValue, minYValue, maxYValue, minZValue, maxZValue, maxValue, minValue, maxDistance;
 
     float alphaWireframe;
     NanoguiCamera nanoguiCamera;

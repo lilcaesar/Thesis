@@ -9,7 +9,7 @@
 
 void meshMatricesInitializer(Eigen::MatrixXd &vertices, Eigen::MatrixXd &normals, Eigen::MatrixXi &faces, uint32_t &nFaces,
                              double &minXValue,double &maxXValue,double &minYValue,double &maxYValue,
-                             double &minZValue,double &maxZValue,double &maxValue,double &minValue){
+                             double &minZValue,double &maxZValue,double &maxValue,double &minValue, double &maxDistance){
     std::vector<int> tempFaces;
     std::vector<double> tempVertices;
     std::vector<std::vector<int>> vert2face;
@@ -48,21 +48,22 @@ void meshMatricesInitializer(Eigen::MatrixXd &vertices, Eigen::MatrixXd &normals
     minZValue = (*std::min_element(ZValues.begin(), ZValues.end()));
     maxZValue = (*std::max_element(ZValues.begin(), ZValues.end()));
 
+    std::vector<double> maxVector = {maxXValue, maxYValue, maxZValue};
+    std::vector<double> minVector = {minXValue, minYValue, minZValue};
+    maxValue = (*std::max_element(maxVector.begin(), maxVector.end()));
+    minValue = (*std::min_element(minVector.begin(), minVector.end()));
+
     if((maxXValue-minXValue) > (maxYValue-minYValue)){
         if((maxXValue-minXValue)>(maxZValue-minZValue)){
-            maxValue = maxXValue;
-            minValue = minXValue;
+            maxDistance = maxXValue - minXValue;
         }else{
-            maxValue = maxZValue;
-            minValue = minZValue;
+            maxDistance = maxZValue - minZValue;
         }
     }else{
         if((maxYValue-minYValue)>(maxZValue-minZValue)){
-            maxValue = maxYValue;
-            minValue = minYValue;
+            maxDistance = maxYValue - minYValue;
         }else{
-            maxValue = maxZValue;
-            minValue = minZValue;
+            maxDistance = maxZValue - minZValue;
         }
     }
 
