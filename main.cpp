@@ -228,22 +228,9 @@ public:
             if(nanoguiCamera.arcball.motion(p)){         //Passo informazioni sulla posizione del mouse alla trackball
                 //
             }else if (isTranslating) {
-                Eigen::Matrix4f modelEvent, viewEvent, projEvent;
-                modelEvent = model;
-                viewEvent = view;
-                projEvent = proj;
-                Eigen::Vector3f mesh_center = getMeshCenter();
-                float zval = nanogui::project(Vector3f(mesh_center.x(),
-                                                       mesh_center.y(),
-                                                       mesh_center.z()),
-                                              viewEvent * modelEvent, projEvent, mSize).z();
-                Eigen::Vector3f pos1 = nanogui::unproject(
-                        Eigen::Vector3f(p.x(), mSize.y() - p.y(), zval),
-                        viewEvent * modelEvent, projEvent, mSize);
-                Eigen::Vector3f pos0 = nanogui::unproject(
-                        Eigen::Vector3f(screenTranslationStart.x(), mSize.y() -
-                                                              screenTranslationStart.y(), zval), viewEvent * modelEvent, projEvent, mSize);
-                nanoguiCamera.translation = nanoguiCamera.translationStart + (pos1-pos0);
+                Vector3f delta(p.x()-screenTranslationStart.x(), -(p.y()-screenTranslationStart.y()),0);
+                delta /= mSize.x()/2;
+                nanoguiCamera.translation = nanoguiCamera.translationStart + delta;
             }
         }
         return true;
@@ -384,10 +371,10 @@ public:
 
         proj = frustum(-right,right,-top,top,near,far);
 
-        view = lookAt(nanoguiCamera.camPos, nanoguiCamera.camTar, nanoguiCamera.camUp);
+        view = lookAt(nanoguiCamera.camPos-nanoguiCamera.translation, nanoguiCamera.camTar-nanoguiCamera.translation, nanoguiCamera.camUp);
 
         //Uso funzioni Eigen per traslazione e scalatura per evitare il segmentation fault descritto sotto
-        Eigen::Affine3f translation(Eigen::Translation3f(nanoguiCamera.translation[0],nanoguiCamera.translation[1],nanoguiCamera.translation[2]));
+        Eigen::Affine3f translation(Eigen::Translation3f(getTranslationToCenter()[0],getTranslationToCenter()[1],getTranslationToCenter()[2]));
         Eigen::Affine3f scale(Eigen::Scaling(scaleFactor*nanoguiCamera.zoom));
 
         model = nanoguiCamera.arcball.matrix();
@@ -403,7 +390,6 @@ public:
         nanoguiCamera.arcball = Arcball();
         nanoguiCamera.arcball.setSize(mSize);           //Assegno la dimensione del monitor
         nanoguiCamera.modelZoom = getScaleFactor();
-        nanoguiCamera.translation = -Vector3f(mesh_center.x(), mesh_center.y(), mesh_center.z());
     }
 
 private:
