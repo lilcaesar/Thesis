@@ -4,11 +4,13 @@ layout( triangles ) in;
 layout( triangle_strip, max_vertices = 3 ) out;
 
 out vec3 GNormal;
-out vec3 GPosition;
+out vec3 GlightDir;
+out vec3 GviewDir;
 noperspective out vec3 GEdgeDistance;
 
 in vec3 VNormal[];
-in vec3 VPosition[];
+in vec3 lightDir[];
+in vec3 viewDir[];
 
 uniform mat4 ViewportMatrix;  // Viewport matrix
 
@@ -30,19 +32,22 @@ void main()
 
     GEdgeDistance = vec3( ha, 0, 0 );
     GNormal = VNormal[0];
-    GPosition = VPosition[0];
+    GlightDir = lightDir[0];
+    GviewDir = viewDir[0];
     gl_Position = gl_in[0].gl_Position;
     EmitVertex();
 
     GEdgeDistance = vec3( 0, hb, 0 );
     GNormal = VNormal[1];
-    GPosition = VPosition[1];
+    GlightDir = lightDir[1];
+    GviewDir = viewDir[1];
     gl_Position = gl_in[1].gl_Position;
     EmitVertex();
 
     GEdgeDistance = vec3( 0, 0, hc );
     GNormal = VNormal[2];
-    GPosition = VPosition[2];
+    GlightDir = lightDir[2];
+    GviewDir = viewDir[2];
     gl_Position = gl_in[2].gl_Position;
     EmitVertex();
 

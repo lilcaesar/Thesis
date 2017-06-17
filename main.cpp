@@ -27,129 +27,9 @@ public:
 
         this->setBackground(Color(180,180,255,255));
 
-        Window *window = new Window(this, "Frustum tools");
+        Window *window = new Window(this, "Tools");
         window->setPosition(Vector2i(0, 0));
         window->setLayout(new GroupLayout());
-
-        new Label(window, "Tools", "sans-bold");
-        Widget *frustumTools = new Widget(window);
-        frustumTools->setLayout(new BoxLayout(Orientation::Horizontal, Alignment::Middle, 0, 5));
-        {
-            new Label(window, "Near plane:", "sans");
-            auto nearPlaneFloatBox = new FloatBox<float>(window);
-            nearPlaneFloatBox->setFixedSize(Vector2i(100, 20));
-            nearPlaneFloatBox->setValue(nanoguiCamera.camera_dnear);
-            nearPlaneFloatBox->setFontSize(16);
-            nearPlaneFloatBox->setMinMaxValues(0.1, 20);
-            nearPlaneFloatBox->setValueIncrement(0.1);
-            nearPlaneFloatBox->setEditable(true);
-            nearPlaneFloatBox->setSpinnable(true);
-            nearPlaneFloatBox->setCallback([this](float nearPlane) {
-                this->nanoguiCamera.camera_dnear = nearPlane;
-            });
-        }
-        {
-            new Label(window, "Far plane:", "sans");
-            auto farPlaneFloatBox = new FloatBox<float>(window);
-            farPlaneFloatBox->setFixedSize(Vector2i(100, 20));
-            farPlaneFloatBox->setValue(nanoguiCamera.camera_dfar);
-            farPlaneFloatBox->setFontSize(16);
-            farPlaneFloatBox->setMinMaxValues(1, 100);
-            farPlaneFloatBox->setValueIncrement(1);
-            farPlaneFloatBox->setEditable(true);
-            farPlaneFloatBox->setSpinnable(true);
-            farPlaneFloatBox->setCallback([this](float farPlane) {
-                this->nanoguiCamera.camera_dfar = farPlane;
-            });
-        }
-
-        new Label(window, "Camera Translation", "sans-bold");
-        Widget *cameraTranslationTools = new Widget(window);
-        cameraTranslationTools->setLayout(new BoxLayout(Orientation::Horizontal, Alignment::Middle, 0, 5));
-
-        {
-            new Label(window, "Translate cam x:", "sans");
-            auto scaleFloatBox = new FloatBox<float>(window);
-            scaleFloatBox->setFixedSize(Vector2i(100, 20));
-            scaleFloatBox->setValue(nanoguiCamera.camPos[0]);
-            scaleFloatBox->setFontSize(16);
-            scaleFloatBox->setValueIncrement(0.1);
-            scaleFloatBox->setEditable(true);
-            scaleFloatBox->setSpinnable(true);
-            scaleFloatBox->setCallback([this](float translationValue) {
-                this->nanoguiCamera.camPos[0] = translationValue;
-            });
-        }
-        {
-            new Label(window, "Translate cam y:", "sans");
-            auto scaleFloatBox = new FloatBox<float>(window);
-            scaleFloatBox->setFixedSize(Vector2i(100, 20));
-            scaleFloatBox->setValue(nanoguiCamera.camPos[1]);
-            scaleFloatBox->setFontSize(16);
-            scaleFloatBox->setValueIncrement(0.1);
-            scaleFloatBox->setEditable(true);
-            scaleFloatBox->setSpinnable(true);
-            scaleFloatBox->setCallback([this](float translationValue) {
-                this->nanoguiCamera.camPos[1] = translationValue;
-            });
-        }
-        {
-            new Label(window, "Translate cam z:", "sans");
-            auto scaleFloatBox = new FloatBox<float>(window);
-            scaleFloatBox->setFixedSize(Vector2i(100, 20));
-            scaleFloatBox->setValue(nanoguiCamera.camPos[2]);
-            scaleFloatBox->setFontSize(16);
-            scaleFloatBox->setValueIncrement(0.1);
-            scaleFloatBox->setEditable(true);
-            scaleFloatBox->setSpinnable(true);
-            scaleFloatBox->setCallback([this](float translationValue) {
-                this->nanoguiCamera.camPos[2] = translationValue;
-            });
-        }
-
-        new Label(window, "Target Translation", "sans-bold");
-        Widget *targetranslationTools = new Widget(window);
-        targetranslationTools->setLayout(new BoxLayout(Orientation::Horizontal, Alignment::Middle, 0, 5));
-
-        {
-            new Label(window, "Translate tar x:", "sans");
-            auto scaleFloatBox = new FloatBox<float>(window);
-            scaleFloatBox->setFixedSize(Vector2i(100, 20));
-            scaleFloatBox->setValue(tarx);
-            scaleFloatBox->setFontSize(16);
-            scaleFloatBox->setValueIncrement(0.1);
-            scaleFloatBox->setEditable(true);
-            scaleFloatBox->setSpinnable(true);
-            scaleFloatBox->setCallback([this](float translationValue) {
-                this->tarx = translationValue;
-            });
-        }
-        {
-            new Label(window, "Translate tar y:", "sans");
-            auto scaleFloatBox = new FloatBox<float>(window);
-            scaleFloatBox->setFixedSize(Vector2i(100, 20));
-            scaleFloatBox->setValue(tary);
-            scaleFloatBox->setFontSize(16);
-            scaleFloatBox->setValueIncrement(0.1);
-            scaleFloatBox->setEditable(true);
-            scaleFloatBox->setSpinnable(true);
-            scaleFloatBox->setCallback([this](float translationValue) {
-                this->tary = translationValue;
-            });
-        }
-        {
-            new Label(window, "Translate tar z:", "sans");
-            auto scaleFloatBox = new FloatBox<float>(window);
-            scaleFloatBox->setFixedSize(Vector2i(100, 20));
-            scaleFloatBox->setValue(tarz);
-            scaleFloatBox->setFontSize(16);
-            scaleFloatBox->setValueIncrement(0.1);
-            scaleFloatBox->setEditable(true);
-            scaleFloatBox->setSpinnable(true);
-            scaleFloatBox->setCallback([this](float translationValue) {
-                this->tarz = translationValue;
-            });
-        }
         /* Wireframe widget */ {
             new Label(window, "Wireframe :", "sans-bold");
             CheckBox *cb = new CheckBox(window, "Wireframe");
@@ -263,7 +143,6 @@ public:
 
     virtual void drawContents(){
         using namespace nanogui;
-
 //        glEnable(GL_DEPTH_TEST) ->  Enable depth test
 //        glDepthFunc(GL_LESS) -> Accept fragment if it closer to the camera than the former one
 //        glEnable(GL_CULL_FACE) -> Cull triangles which normal is not towards the camera
@@ -324,8 +203,8 @@ public:
             mShader.uploadIndices(faces);
             mShader.uploadAttrib("VertexPosition", vertices);
             mShader.uploadAttrib("VertexNormal", normals);
-            mShader.setUniform("NormalMatrix", normalMatrix);
-            mShader.setUniform("ModelViewMatrix", modelView);
+//            mShader.setUniform("NormalMatrix", normalMatrix);
+//            mShader.setUniform("ModelViewMatrix", modelView);
             mShader.setUniform("ViewportMatrix", viewportMatrix);
 
             mShader.setUniform("filled", alphaWireframe);
@@ -333,11 +212,11 @@ public:
             mShader.setUniform("Line.Width", 0.5f);
             mShader.setUniform("Line.Color", Vector4f(0.0f,0.0f,0.0f,1.0f));
             mShader.setUniform("Material.Kd", Vector3f(0.4f, 0.4f, 0.4f));
-            mShader.setUniform("Light.Position", Vector4f(0.0f,0.0f,0.0f, 1.0f));
-            mShader.setUniform("Material.Ka", Vector3f(0.2f, 0.2f, 0.2f));
-            mShader.setUniform("Light.Intensity", Vector3f(1.0f, 1.0f, 1.0f));
-            mShader.setUniform("Material.Ks", Vector3f(0.8f, 0.8f, 0.8f));
-            mShader.setUniform("Material.Shininess", 100.0f);
+//            mShader.setUniform("Light.Position", Vector4f(0.0f,0.0f,0.0f, 1.0f));
+//            mShader.setUniform("Material.Ka", Vector3f(0.2f, 0.2f, 0.2f));
+//            mShader.setUniform("Light.Intensity", Vector3f(1.0f, 1.0f, 1.0f));
+//            mShader.setUniform("Material.Ks", Vector3f(0.8f, 0.8f, 0.8f));
+//            mShader.setUniform("Material.Shininess", 100.0f);
         }
         if(shaderStateChange && !wireframe){
             shaderStateChange = false;
@@ -347,6 +226,7 @@ public:
             mShader.initFromFiles("Nanogui Shader", vertexShaderFilePath.c_str(), fragmentShaderFilePath.c_str());
             mShader.bind();
             mShader.uploadAttrib("normals", normals);
+            mShader.setUniform("color", Vector4f(0.5,0.5,0.5,1.0));
             mShader.setUniform("lightPosition_worldspace", lightPosition);
             mShader.uploadIndices(faces);
             mShader.uploadAttrib("vertices", vertices);
@@ -412,7 +292,7 @@ private:
 
     std::string vertexShaderFilePath, fragmentShaderFilePath,geometryShaderFilePath="";
 
-    bool wireframe= false, shaderStateChange=false, filled=false;
+    bool wireframe= false, shaderStateChange=false, filled= true;
     bool isTranslating = false;
 
     //Matrice di vertici
