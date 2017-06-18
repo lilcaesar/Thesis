@@ -1,7 +1,7 @@
 #version 400
 
 struct MaterialInfo {
-  vec3 Kd;            // Diffuse reflectivity
+  vec4 Kd;            // Diffuse reflectivity
 };
 uniform MaterialInfo Material;
 
@@ -11,6 +11,7 @@ uniform struct LineInfo {
 } Line;
 
 uniform float filled;
+uniform float flatColor;
 
 in vec3 GNormal;
 in vec3 GlightDir;
@@ -34,22 +35,34 @@ void main() {
         col += vec3(pow(max(dot(reflection, normalizedView),0.0), 90.0));
     }
     col *= Material.Kd.xyz;
-    vec4 color = vec4( col, 1.0 );
+    vec4 color = vec4( col, Material.Kd.a );
 
     // Find the smallest distance
     float d = min( GEdgeDistance.x, GEdgeDistance.y );
     d = min( d, GEdgeDistance.z );
     float mixVal;
     if(filled>0.0){
-        if( d < Line.Width - 1 ) {
-            mixVal = 1.0;
-        } else if( d > Line.Width + 1 ) {
-            mixVal = 0.0;
-        } else {
-            float x = d - (Line.Width - 1);
-            mixVal = exp2(-2.0 * (x*x));
+        if(flatColor>0.0){
+            if( d < Line.Width - 1 ) {
+                mixVal = 1.0;
+            } else if( d > Line.Width + 1 ) {
+                mixVal = 0.0;
+            } else {
+                float x = d - (Line.Width - 1);
+                mixVal = exp2(-2.0 * (x*x));
+            }
+            FragColor = mix( Material.Kd, Line.Color, mixVal );
+        }else{
+            if( d < Line.Width - 1 ) {
+                mixVal = 1.0;
+            } else if( d > Line.Width + 1 ) {
+                mixVal = 0.0;
+            } else {
+                float x = d - (Line.Width - 1);
+                mixVal = exp2(-2.0 * (x*x));
+            }
+            FragColor = mix( color, Line.Color, mixVal );
         }
-        FragColor = mix( color, Line.Color, mixVal );
     }else{
         if( d < Line.Width - 1 ) {
             mixVal = 1.0;

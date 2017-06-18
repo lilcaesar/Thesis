@@ -27,12 +27,17 @@ public:
 
         this->setBackground(Color(180,180,255,255));
 
-        Window *window = new Window(this, "Tools");
+        Window *window = new Window(this, "Mesh Tools");
         window->setPosition(Vector2i(0, 0));
         window->setLayout(new GroupLayout());
+
+        PopupButton *popupBtn = new PopupButton(window, "Shading Styles");
+        Popup *popup = popupBtn->popup();
+        popup->setLayout(new GroupLayout());
+
         /* Wireframe widget */ {
-            new Label(window, "Wireframe :", "sans-bold");
-            CheckBox *cb = new CheckBox(window, "Wireframe");
+            new Label(popup, "Wireframe :", "sans-bold");
+            CheckBox *cb = new CheckBox(popup, "Wireframe");
             cb->setChecked(wireframe);
             cb->setFontSize(16);
             cb->setCallback([this](bool state) {
@@ -41,8 +46,8 @@ public:
             });
         }
         {
-            new Label(window, "Filled :", "sans-bold");
-            CheckBox *filledCB = new CheckBox(window, "Filled");
+            new Label(popup, "Filled :", "sans-bold");
+            CheckBox *filledCB = new CheckBox(popup, "Filled");
             filledCB->setChecked(filled);
             filledCB->setFontSize(16);
             filledCB->setCallback([this](bool state) {
@@ -54,6 +59,48 @@ public:
                     this->alphaWireframe = -1.0f;
             });
         }
+        {
+            new Label(popup, "Flat Coloration :", "sans-bold");
+            CheckBox *filledCB = new CheckBox(popup, "Flat");
+            filledCB->setChecked(flat);
+            filledCB->setFontSize(16);
+            filledCB->setCallback([this](bool state) {
+                this->flat = state;
+                this->shaderStateChange=true;
+                if(flat)
+                    this->flatColoration = 1.0f;
+                else
+                    this->flatColoration = -1.0f;
+            });
+        }
+
+        popupBtn = new PopupButton(window, "Colors");
+        popup = popupBtn->popup();
+        popup->setLayout(new GroupLayout());
+
+        new Label(popup, "Background color");
+        ColorWheel *colorwheel = new ColorWheel(popup);
+        colorwheel->setColor(this->background());
+        colorwheel->setCallback([this](Color state){
+            this->setBackground(state);
+            this->shaderStateChange = true;
+        });
+
+        new Label(popup, "Mesh color");
+        colorwheel = new ColorWheel(popup);
+        colorwheel->setColor(this->meshColor);
+        colorwheel->setCallback([this](Color state){
+            this->meshColor = state;
+            this->shaderStateChange = true;
+        });
+
+        new Label(popup, "Wireframe color");
+        colorwheel = new ColorWheel(popup);
+        colorwheel->setColor(this->wireframeColor);
+        colorwheel->setCallback([this](Color state){
+            this->wireframeColor = state;
+            this->shaderStateChange = true;
+        });
 
         performLayout();
 
@@ -208,10 +255,11 @@ public:
             mShader.setUniform("ViewportMatrix", viewportMatrix);
 
             mShader.setUniform("filled", alphaWireframe);
+            mShader.setUniform("flatColor", flatColoration);
 
             mShader.setUniform("Line.Width", 0.5f);
-            mShader.setUniform("Line.Color", Vector4f(0.0f,0.0f,0.0f,1.0f));
-            mShader.setUniform("Material.Kd", Vector3f(0.4f, 0.4f, 0.4f));
+            mShader.setUniform("Line.Color", Vector4f(wireframeColor));
+            mShader.setUniform("Material.Kd", Vector4f(meshColor));
 //            mShader.setUniform("Light.Position", Vector4f(0.0f,0.0f,0.0f, 1.0f));
 //            mShader.setUniform("Material.Ka", Vector3f(0.2f, 0.2f, 0.2f));
 //            mShader.setUniform("Light.Intensity", Vector3f(1.0f, 1.0f, 1.0f));
@@ -226,7 +274,7 @@ public:
             mShader.initFromFiles("Nanogui Shader", vertexShaderFilePath.c_str(), fragmentShaderFilePath.c_str());
             mShader.bind();
             mShader.uploadAttrib("normals", normals);
-            mShader.setUniform("color", Vector4f(0.5,0.5,0.5,1.0));
+            mShader.setUniform("color", Vector4f(meshColor));
             mShader.setUniform("lightPosition_worldspace", lightPosition);
             mShader.uploadIndices(faces);
             mShader.uploadAttrib("vertices", vertices);
@@ -292,7 +340,7 @@ private:
 
     std::string vertexShaderFilePath, fragmentShaderFilePath,geometryShaderFilePath="";
 
-    bool wireframe= false, shaderStateChange=false, filled= true;
+    bool wireframe= false, shaderStateChange=false, filled= true, flat = false;
     bool isTranslating = false;
 
     //Matrice di vertici
@@ -313,8 +361,12 @@ private:
     double minXValue, maxXValue, minYValue, maxYValue, minZValue, maxZValue, maxValue, minValue, maxDistance;
 
     float alphaWireframe;
+    float flatColoration=-1.0;
     NanoguiCamera nanoguiCamera;
     float tarx = 0, tary = 0, tarz = 0;
+
+    Color meshColor = {0.5f,0.5f,0.5f,1.0f};
+    Color wireframeColor = {0.0f,0.0f,0.0f,1.0f};
 };
 
 int main(int /* argc */, char ** /* argv */) {
