@@ -31,19 +31,54 @@ public:
         window->setPosition(Vector2i(0, 0));
         window->setLayout(new GroupLayout());
 
+        Button *loadMeshButton = new Button(window, "Load Mesh");
+        loadMeshButton->setCallback([this](){
+            //Caricamento del file
+            meshMatricesInitializer(vertices, normals, faces, nFaces,minXValue,maxXValue,minYValue,maxYValue,minZValue, maxZValue, minValue, maxValue, maxDistance);
+
+            refreshArcball();
+
+            vertexShaderFilePath = "./resources/vertexShader.vert";
+            fragmentShaderFilePath = "./resources/fragmentShader.frag";
+            mShader.initFromFiles("Nanogui Shader", vertexShaderFilePath.c_str(), fragmentShaderFilePath.c_str());
+
+            mShader.bind();
+            mShader.uploadAttrib("normals", normals);
+            mShader.setUniform("lightPosition_worldspace", lightPosition);
+            mShader.uploadIndices(faces);
+            mShader.uploadAttrib("vertices", vertices);
+        });
+
         PopupButton *popupBtn = new PopupButton(window, "Shading Styles");
         Popup *popup = popupBtn->popup();
         popup->setLayout(new GroupLayout());
+        popup->setTooltip("Select type of shading for the mesh");
 
         /* Wireframe widget */ {
             new Label(popup, "Wireframe :", "sans-bold");
-            CheckBox *cb = new CheckBox(popup, "Wireframe");
-            cb->setChecked(wireframe);
-            cb->setFontSize(16);
-            cb->setCallback([this](bool state) {
+            CheckBox *wireframeCB = new CheckBox(popup, "Wireframe");
+            wireframeCB->setChecked(wireframe);
+            wireframeCB->setFontSize(16);
+            wireframeCB->setCallback([this](bool state) {
                 this->wireframe = state;
                 this->shaderStateChange = true;
             });
+            wireframeCB->setTooltip("Toggle wireframe shading on the mesh");
+        }
+        {
+            new Label(popup, "Flat Coloration :", "sans-bold");
+            CheckBox *flatCB = new CheckBox(popup, "Flat");
+            flatCB->setChecked(flat);
+            flatCB->setFontSize(16);
+            flatCB->setCallback([this](bool state) {
+                this->flat = state;
+                this->shaderStateChange=true;
+                if(flat)
+                    this->flatColoration = 1.0f;
+                else
+                    this->flatColoration = -1.0f;
+            });
+            flatCB->setTooltip("Toggle flat coloration on the inner area of the triangles during filled wireframe shading");
         }
         {
             new Label(popup, "Filled :", "sans-bold");
@@ -58,25 +93,13 @@ public:
                 else
                     this->alphaWireframe = -1.0f;
             });
-        }
-        {
-            new Label(popup, "Flat Coloration :", "sans-bold");
-            CheckBox *filledCB = new CheckBox(popup, "Flat");
-            filledCB->setChecked(flat);
-            filledCB->setFontSize(16);
-            filledCB->setCallback([this](bool state) {
-                this->flat = state;
-                this->shaderStateChange=true;
-                if(flat)
-                    this->flatColoration = 1.0f;
-                else
-                    this->flatColoration = -1.0f;
-            });
+            filledCB->setTooltip("Toggle filled version of wireframe shading");
         }
 
         popupBtn = new PopupButton(window, "Colors");
         popup = popupBtn->popup();
         popup->setLayout(new GroupLayout());
+        popup->setTooltip("Color settings for mesh and background");
 
         new Label(popup, "Background color");
         ColorWheel *colorwheel = new ColorWheel(popup);
@@ -102,22 +125,29 @@ public:
             this->shaderStateChange = true;
         });
 
+        popupBtn = new PopupButton(window, "Camera settings");
+        popup = popupBtn->popup();
+        popup->setLayout(new GroupLayout());
+        popup->setTooltip("Tools for the camera");
+        {
+            new Label(popup, "Perspective View :", "sans-bold");
+            CheckBox *perspectiveCB = new CheckBox(popup, "Perspective");
+            perspectiveCB->setChecked(perspective);
+            perspectiveCB->setFontSize(16);
+            perspectiveCB->setCallback([this](bool state) {
+                this->perspective = state;
+            });
+            perspectiveCB->setTooltip("Toggle perspective view for the canvas");
+        }
+
+        Button *help = new Button(window, "Help");
+        help->setCallback([&] {
+            auto dlg = new MessageDialog(this, MessageDialog::Type::Information, "Starting informations", "This is an information message");
+            dlg->setCallback([](int result) { cout << "Dialog result: " << result << endl; });
+        });
+        auto dlg = new MessageDialog(this, MessageDialog::Type::Information, "Starting informations", "This is an information message");
+
         performLayout();
-
-        //Caricamento del file
-        meshMatricesInitializer(vertices, normals, faces, nFaces,minXValue,maxXValue,minYValue,maxYValue,minZValue, maxZValue, minValue, maxValue, maxDistance);
-
-        refreshArcball();
-
-        vertexShaderFilePath = "./resources/vertexShader.vert";
-        fragmentShaderFilePath = "./resources/fragmentShader.frag";
-        mShader.initFromFiles("Nanogui Shader", vertexShaderFilePath.c_str(), fragmentShaderFilePath.c_str());
-
-        mShader.bind();
-        mShader.uploadAttrib("normals", normals);
-        mShader.setUniform("lightPosition_worldspace", lightPosition);
-        mShader.uploadIndices(faces);
-        mShader.uploadAttrib("vertices", vertices);
     }
 
     virtual bool keyboardEvent(int key, int scancode, int action, int modifiers) {
@@ -132,7 +162,9 @@ public:
 
     bool mouseButtonEvent(const Vector2i &p, int button, bool down, int modifiers){
         if(!Screen::mouseButtonEvent(p, button, down, modifiers)){
-            if(button == GLFW_MOUSE_BUTTON_1 && modifiers == 0){ // Rotazione
+            if(button == GLFW_MOUSE_BUTTON_MIDDLE && modifiers == 0){
+                lightArcball.button(p,down);
+            }else if(button == GLFW_MOUSE_BUTTON_1 && modifiers == 0){ // Rotazione mesh
                 nanoguiCamera.arcball.button(p, down);
             } else if (button == GLFW_MOUSE_BUTTON_2 ||
                        (button == GLFW_MOUSE_BUTTON_1 && modifiers == GLFW_MOD_SHIFT)) {
@@ -141,8 +173,11 @@ public:
                 screenTranslationStart = p;
             }  //Traslazione
         }
-        if(button == GLFW_MOUSE_BUTTON_1 && !down){ //Interrompo il tracking per la rotazione
+        if(button == GLFW_MOUSE_BUTTON_1 && !down){ //Interrompo il tracking per la rotazione della mesh
             nanoguiCamera.arcball.button(p,false);
+        }
+        if(button == GLFW_MOUSE_BUTTON_MIDDLE && !down){ //Interrompo il tracking per la rotazione della luce
+            lightArcball.button(p,false);
         }
         if (!down) {
             isTranslating = false;
@@ -152,7 +187,7 @@ public:
 
     bool mouseMotionEvent(const Vector2i &p, const Vector2i &rel, int button, int modifiers){
         if(!Screen::mouseMotionEvent(p, rel, button, modifiers)){
-            if(nanoguiCamera.arcball.motion(p)){         //Passo informazioni sulla posizione del mouse alla trackball
+            if(nanoguiCamera.arcball.motion(p) || lightArcball.motion(p)){         //Passo informazioni sulla posizione del mouse alla trackball
                 //
             }else if (isTranslating) {
                 Vector3f delta(p.x()-screenTranslationStart.x(), -(p.y()-screenTranslationStart.y()),0);
@@ -215,8 +250,9 @@ public:
         /* Draw the window contents using OpenGL */
         mShader.bind();
 
-        //Aggiorno la grandezza dello schermo fornita alla arcball
+        //Aggiorno la grandezza dello schermo fornita alle arcball
         nanoguiCamera.arcball.setSize(mSize);
+        lightArcball.setSize(mSize);
 
         Matrix4f modelView, viewportMatrix, normalMatrix;
         model.setIdentity();
@@ -237,6 +273,8 @@ public:
         normalMatrix = modelView.inverse();
         normalMatrix.transposeInPlace();
 
+        Vector3f lightPositionVector = lightArcball.matrix().block<3,3>(0,0) * lightPosition;
+
 
         //Caricamento shaders
         if(shaderStateChange && wireframe){
@@ -250,8 +288,6 @@ public:
             mShader.uploadIndices(faces);
             mShader.uploadAttrib("VertexPosition", vertices);
             mShader.uploadAttrib("VertexNormal", normals);
-//            mShader.setUniform("NormalMatrix", normalMatrix);
-//            mShader.setUniform("ModelViewMatrix", modelView);
             mShader.setUniform("ViewportMatrix", viewportMatrix);
 
             mShader.setUniform("filled", alphaWireframe);
@@ -260,11 +296,6 @@ public:
             mShader.setUniform("Line.Width", 0.5f);
             mShader.setUniform("Line.Color", Vector4f(wireframeColor));
             mShader.setUniform("Material.Kd", Vector4f(meshColor));
-//            mShader.setUniform("Light.Position", Vector4f(0.0f,0.0f,0.0f, 1.0f));
-//            mShader.setUniform("Material.Ka", Vector3f(0.2f, 0.2f, 0.2f));
-//            mShader.setUniform("Light.Intensity", Vector3f(1.0f, 1.0f, 1.0f));
-//            mShader.setUniform("Material.Ks", Vector3f(0.8f, 0.8f, 0.8f));
-//            mShader.setUniform("Material.Shininess", 100.0f);
         }
         if(shaderStateChange && !wireframe){
             shaderStateChange = false;
@@ -275,7 +306,7 @@ public:
             mShader.bind();
             mShader.uploadAttrib("normals", normals);
             mShader.setUniform("color", Vector4f(meshColor));
-            mShader.setUniform("lightPosition_worldspace", lightPosition);
+            mShader.setUniform("lightPosition_worldspace", lightPositionVector);
             mShader.uploadIndices(faces);
             mShader.uploadAttrib("vertices", vertices);
         }
@@ -297,7 +328,10 @@ public:
         float top = tan((nanoguiCamera.cameraViewAngle)/360.*M_PI)*near;
         float right = top * width()/height();
 
-        proj = frustum(-right,right,-top,top,near,far);
+        if(perspective){
+            proj = frustum(-right,right,-top,top,near,far);}
+        else{
+            proj = ortho(-right*14,right*14,-top*14,top*14,near,far);}
 
         view = lookAt(nanoguiCamera.camPos-nanoguiCamera.translation, nanoguiCamera.camTar-nanoguiCamera.translation, nanoguiCamera.camUp);
 
@@ -316,7 +350,9 @@ public:
     void refreshArcball(){
         Vector3f mesh_center = getMeshCenter();
         nanoguiCamera.arcball = Arcball();
+        lightArcball = Arcball();
         nanoguiCamera.arcball.setSize(mSize);           //Assegno la dimensione del monitor
+        lightArcball.setSize(mSize);
         nanoguiCamera.modelZoom = getScaleFactor();
     }
 
@@ -335,12 +371,15 @@ private:
         Vector3f translationStart = Vector3f::Zero();
     };
     nanogui::GLShader mShader;
+
+    Arcball lightArcball;
+
     /*Numero di triangoli caricati dal file*/
     uint32_t nFaces;
 
     std::string vertexShaderFilePath, fragmentShaderFilePath,geometryShaderFilePath="";
 
-    bool wireframe= false, shaderStateChange=false, filled= true, flat = false;
+    bool wireframe= false, shaderStateChange=false, filled= false, flat = false, perspective = true;
     bool isTranslating = false;
 
     //Matrice di vertici
@@ -355,7 +394,7 @@ private:
     Vector2i screenTranslationStart = Vector2i(0, 0);
 
     //Luce
-    Eigen::Vector3d lightPosition= {4.0,4.0,4.0};
+    Eigen::Vector3f lightPosition= {4.0,4.0,4.0};
 
     /* Variabili per il calcolo della traslazione */
     double minXValue, maxXValue, minYValue, maxYValue, minZValue, maxZValue, maxValue, minValue, maxDistance;
