@@ -12,7 +12,6 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 set(CMAKE_TARGET_DEFINITIONS_CXX
   "CORO_SJLJ"
   "GLAD_GLAPI_EXPORT"
-  "NANOGUI_PYTHON"
   "NANOGUI_SHARED"
   "NVG_SHARED"
   )
@@ -21,14 +20,13 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../src"
   "../resources"
+  "../lib/nanogui/ext/eigen/Eigen"
+  "../lib/nanogui/ext/nanovg/src"
   "../lib/nanogui/ext/eigen"
   "../lib/nanogui/ext/glfw/include"
-  "../lib/nanogui/ext/nanovg/src"
   "../lib/nanogui/include"
   "lib/nanogui"
   "../lib/nanogui/ext/coro"
-  "../lib/nanogui/ext/pybind11/include"
-  "/usr/include/python3.5m"
   )
 
 # Targets to which this target links.

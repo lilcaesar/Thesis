@@ -6,5 +6,5 @@ CXX_FLAGS =  -fexceptions -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-su
 
 CXX_DEFINES = -Deigen_lapack_EXPORTS
 
-CXX_INCLUDES = -I/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext/eigen/lapack -I/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen/lapack -I/home/mattia/CLionProjects/Thesis/src -I/home/mattia/CLionProjects/Thesis/resources -I/home/mattia/CLionProjects/Thesis/lib/nanogui/include -I/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen -I/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext/eigen -I/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen/lapack/../blas 
+CXX_INCLUDES = -I/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext/eigen/lapack -I/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen/lapack -I/home/mattia/CLionProjects/Thesis/src -I/home/mattia/CLionProjects/Thesis/resources -I/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen -I/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext/eigen -I/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen/lapack/../blas 
 

@@ -14,7 +14,7 @@ CostDataFile:
 Site: mattia
 
 # Build name is osname-revision-compiler, i.e. Linux-2.4.2-2smp-c++
-BuildName: linux-4.8.0-49-generic-_-6.2.0-sse2-64bit
+BuildName: linux-4.8.0-54-generic-_-6.2.0-sse2-64bit
 
 # Submission information
 IsCDash: TRUE
@@ -64,9 +64,9 @@ P4UpdateOptions:
 P4UpdateCustom: 
 
 # Generic update command
-UpdateCommand: /usr/bin/git
+UpdateCommand: 
 UpdateOptions: 
-UpdateType: git
+UpdateType: 
 
 # Compiler info
 Compiler: /usr/bin/c++

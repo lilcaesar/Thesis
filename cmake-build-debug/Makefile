@@ -168,136 +168,6 @@ Thesis/fast:
 .PHONY : Thesis/fast
 
 #=============================================================================
-# Target rules for targets named nanogui
-
-# Build rule for target.
-nanogui: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 nanogui
-.PHONY : nanogui
-
-# fast build rule for target.
-nanogui/fast:
-	$(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/build
-.PHONY : nanogui/fast
-
-#=============================================================================
-# Target rules for targets named nanogui-obj
-
-# Build rule for target.
-nanogui-obj: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 nanogui-obj
-.PHONY : nanogui-obj
-
-# fast build rule for target.
-nanogui-obj/fast:
-	$(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/build
-.PHONY : nanogui-obj/fast
-
-#=============================================================================
-# Target rules for targets named example1
-
-# Build rule for target.
-example1: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 example1
-.PHONY : example1
-
-# fast build rule for target.
-example1/fast:
-	$(MAKE) -f lib/nanogui/CMakeFiles/example1.dir/build.make lib/nanogui/CMakeFiles/example1.dir/build
-.PHONY : example1/fast
-
-#=============================================================================
-# Target rules for targets named example2
-
-# Build rule for target.
-example2: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 example2
-.PHONY : example2
-
-# fast build rule for target.
-example2/fast:
-	$(MAKE) -f lib/nanogui/CMakeFiles/example2.dir/build.make lib/nanogui/CMakeFiles/example2.dir/build
-.PHONY : example2/fast
-
-#=============================================================================
-# Target rules for targets named example3
-
-# Build rule for target.
-example3: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 example3
-.PHONY : example3
-
-# fast build rule for target.
-example3/fast:
-	$(MAKE) -f lib/nanogui/CMakeFiles/example3.dir/build.make lib/nanogui/CMakeFiles/example3.dir/build
-.PHONY : example3/fast
-
-#=============================================================================
-# Target rules for targets named example4
-
-# Build rule for target.
-example4: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 example4
-.PHONY : example4
-
-# fast build rule for target.
-example4/fast:
-	$(MAKE) -f lib/nanogui/CMakeFiles/example4.dir/build.make lib/nanogui/CMakeFiles/example4.dir/build
-.PHONY : example4/fast
-
-#=============================================================================
-# Target rules for targets named nanogui-python
-
-# Build rule for target.
-nanogui-python: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 nanogui-python
-.PHONY : nanogui-python
-
-# fast build rule for target.
-nanogui-python/fast:
-	$(MAKE) -f lib/nanogui/CMakeFiles/nanogui-python.dir/build.make lib/nanogui/CMakeFiles/nanogui-python.dir/build
-.PHONY : nanogui-python/fast
-
-#=============================================================================
-# Target rules for targets named nanogui-python-obj
-
-# Build rule for target.
-nanogui-python-obj: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 nanogui-python-obj
-.PHONY : nanogui-python-obj
-
-# fast build rule for target.
-nanogui-python-obj/fast:
-	$(MAKE) -f lib/nanogui/CMakeFiles/nanogui-python-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-python-obj.dir/build
-.PHONY : nanogui-python-obj/fast
-
-#=============================================================================
-# Target rules for targets named glfw
-
-# Build rule for target.
-glfw: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 glfw
-.PHONY : glfw
-
-# fast build rule for target.
-glfw/fast:
-	$(MAKE) -f lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw.dir/build.make lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw.dir/build
-.PHONY : glfw/fast
-
-#=============================================================================
-# Target rules for targets named glfw_objects
-
-# Build rule for target.
-glfw_objects: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 glfw_objects
-.PHONY : glfw_objects
-
-# fast build rule for target.
-glfw_objects/fast:
-	$(MAKE) -f lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/build.make lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/build
-.PHONY : glfw_objects/fast
-
-#=============================================================================
 # Target rules for targets named ContinuousSubmit
 
 # Build rule for target.
@@ -14792,6 +14662,110 @@ spbenchsolver/fast:
 	$(MAKE) -f lib/nanogui/ext/eigen/bench/spbench/CMakeFiles/spbenchsolver.dir/build.make lib/nanogui/ext/eigen/bench/spbench/CMakeFiles/spbenchsolver.dir/build
 .PHONY : spbenchsolver/fast
 
+#=============================================================================
+# Target rules for targets named nanogui
+
+# Build rule for target.
+nanogui: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 nanogui
+.PHONY : nanogui
+
+# fast build rule for target.
+nanogui/fast:
+	$(MAKE) -f lib/nanogui/CMakeFiles/nanogui.dir/build.make lib/nanogui/CMakeFiles/nanogui.dir/build
+.PHONY : nanogui/fast
+
+#=============================================================================
+# Target rules for targets named nanogui-obj
+
+# Build rule for target.
+nanogui-obj: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 nanogui-obj
+.PHONY : nanogui-obj
+
+# fast build rule for target.
+nanogui-obj/fast:
+	$(MAKE) -f lib/nanogui/CMakeFiles/nanogui-obj.dir/build.make lib/nanogui/CMakeFiles/nanogui-obj.dir/build
+.PHONY : nanogui-obj/fast
+
+#=============================================================================
+# Target rules for targets named example1
+
+# Build rule for target.
+example1: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 example1
+.PHONY : example1
+
+# fast build rule for target.
+example1/fast:
+	$(MAKE) -f lib/nanogui/CMakeFiles/example1.dir/build.make lib/nanogui/CMakeFiles/example1.dir/build
+.PHONY : example1/fast
+
+#=============================================================================
+# Target rules for targets named example2
+
+# Build rule for target.
+example2: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 example2
+.PHONY : example2
+
+# fast build rule for target.
+example2/fast:
+	$(MAKE) -f lib/nanogui/CMakeFiles/example2.dir/build.make lib/nanogui/CMakeFiles/example2.dir/build
+.PHONY : example2/fast
+
+#=============================================================================
+# Target rules for targets named example3
+
+# Build rule for target.
+example3: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 example3
+.PHONY : example3
+
+# fast build rule for target.
+example3/fast:
+	$(MAKE) -f lib/nanogui/CMakeFiles/example3.dir/build.make lib/nanogui/CMakeFiles/example3.dir/build
+.PHONY : example3/fast
+
+#=============================================================================
+# Target rules for targets named example4
+
+# Build rule for target.
+example4: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 example4
+.PHONY : example4
+
+# fast build rule for target.
+example4/fast:
+	$(MAKE) -f lib/nanogui/CMakeFiles/example4.dir/build.make lib/nanogui/CMakeFiles/example4.dir/build
+.PHONY : example4/fast
+
+#=============================================================================
+# Target rules for targets named glfw
+
+# Build rule for target.
+glfw: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 glfw
+.PHONY : glfw
+
+# fast build rule for target.
+glfw/fast:
+	$(MAKE) -f lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw.dir/build.make lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw.dir/build
+.PHONY : glfw/fast
+
+#=============================================================================
+# Target rules for targets named glfw_objects
+
+# Build rule for target.
+glfw_objects: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 glfw_objects
+.PHONY : glfw_objects
+
+# fast build rule for target.
+glfw_objects/fast:
+	$(MAKE) -f lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/build.make lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/build
+.PHONY : glfw_objects/fast
+
 Fabrizio/importFiles.o: Fabrizio/importFiles.cpp.o
 
 .PHONY : Fabrizio/importFiles.o
@@ -14859,16 +14833,6 @@ help:
 	@echo "... install/strip"
 	@echo "... install/local"
 	@echo "... Thesis"
-	@echo "... nanogui"
-	@echo "... nanogui-obj"
-	@echo "... example1"
-	@echo "... example2"
-	@echo "... example3"
-	@echo "... example4"
-	@echo "... nanogui-python"
-	@echo "... nanogui-python-obj"
-	@echo "... glfw"
-	@echo "... glfw_objects"
 	@echo "... ContinuousSubmit"
 	@echo "... ContinuousTest"
 	@echo "... ContinuousBuild"
@@ -15984,6 +15948,14 @@ help:
 	@echo "... test_sparseLU"
 	@echo "... spsolver"
 	@echo "... spbenchsolver"
+	@echo "... nanogui"
+	@echo "... nanogui-obj"
+	@echo "... example1"
+	@echo "... example2"
+	@echo "... example3"
+	@echo "... example4"
+	@echo "... glfw"
+	@echo "... glfw_objects"
 	@echo "... Fabrizio/importFiles.o"
 	@echo "... Fabrizio/importFiles.i"
 	@echo "... Fabrizio/importFiles.s"

@@ -6,5 +6,5 @@ CXX_FLAGS = -g   -std=gnu++11
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/mattia/CLionProjects/Thesis/src -I/home/mattia/CLionProjects/Thesis/resources -I/home/mattia/CLionProjects/Thesis/lib/nanogui/include -I/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen/Eigen -I/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/nanovg/src -I/home/mattia/CLionProjects/Thesis/Fabrizio 
+CXX_INCLUDES = -I/home/mattia/CLionProjects/Thesis/src -I/home/mattia/CLionProjects/Thesis/resources -I/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen/Eigen -I/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/nanovg/src -I/home/mattia/CLionProjects/Thesis/lib/nanogui/include -I/home/mattia/CLionProjects/Thesis/Fabrizio 
 

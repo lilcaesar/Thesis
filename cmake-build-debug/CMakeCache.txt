@@ -521,7 +521,7 @@ MPFR_LIBRARIES:FILEPATH=MPFR_LIBRARIES-NOTFOUND
 NANOGUI_BUILD_EXAMPLE:BOOL=ON
 
 //Build a Python plugin for NanoGUI?
-NANOGUI_BUILD_PYTHON:BOOL=ON
+NANOGUI_BUILD_PYTHON:BOOL=OFF
 
 //Build NanoGUI as a shared library?
 NANOGUI_BUILD_SHARED:BOOL=ON
@@ -570,16 +570,13 @@ PKGCONFIG_INSTALL_DIR:PATH=share/pkgconfig
 PKG_CONFIG_EXECUTABLE:FILEPATH=/usr/bin/pkg-config
 
 //Path to a program.
-PYTHON_EXECUTABLE:FILEPATH=/usr/bin/python3.5
-
-//Path to a library.
-PYTHON_LIBRARY:FILEPATH=PYTHON_LIBRARY-NOTFOUND
-
-//Path to a program.
 ProcessorCount_cmd_getconf:FILEPATH=/usr/bin/getconf
 
 //Path to a program.
 ProcessorCount_cmd_sysctl:FILEPATH=/sbin/sysctl
+
+//The directory containing a CMake configuration file for PythonLibsNew.
+PythonLibsNew_DIR:PATH=PythonLibsNew_DIR-NOTFOUND
 
 QT_QMAKE_EXECUTABLE:FILEPATH=NOTFOUND
 
@@ -620,6 +617,9 @@ SUPERLU_LIBRARIES:FILEPATH=SUPERLU_LIBRARIES-NOTFOUND
 //Path to a program.
 SVNCOMMAND:FILEPATH=SVNCOMMAND-NOTFOUND
 
+//The directory containing a CMake configuration file for StandardMathLibrary.
+StandardMathLibrary_DIR:PATH=StandardMathLibrary_DIR-NOTFOUND
+
 //Value Computed by CMake
 Thesis_BINARY_DIR:STATIC=/home/mattia/CLionProjects/Thesis/cmake-build-debug
 
@@ -637,6 +637,12 @@ VULKAN_INCLUDE_DIR:PATH=/usr/include
 
 //Path to a library.
 VULKAN_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libvulkan.so
+
+//Path to a file.
+Vulkan_INCLUDE_DIR:PATH=/usr/include
+
+//Path to a library.
+Vulkan_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libvulkan.so
 
 //Path to a file.
 X11_ICE_INCLUDE_PATH:PATH=/usr/include
@@ -835,9 +841,6 @@ eigen_lapack_static_LIB_DEPENDS:STATIC=
 
 //Dependencies for the target
 glfw_LIB_DEPENDS:STATIC=general;/usr/lib/x86_64-linux-gnu/librt.so;general;/usr/lib/x86_64-linux-gnu/libm.so;general;dl;general;/usr/lib/x86_64-linux-gnu/libX11.so;general;-lpthread;general;/usr/lib/x86_64-linux-gnu/libXrandr.so;general;/usr/lib/x86_64-linux-gnu/libXinerama.so;general;/usr/lib/x86_64-linux-gnu/libXxf86vm.so;general;/usr/lib/x86_64-linux-gnu/libXcursor.so;
-
-//Dependencies for the target
-nanogui-python_LIB_DEPENDS:STATIC=general;nanogui;general;GL;general;Xxf86vm;general;Xrandr;general;Xinerama;general;Xcursor;general;Xi;general;X11;general;pthread;general;rt;general;dl;
 
 //Dependencies for the target
 nanogui_LIB_DEPENDS:STATIC=general;GL;general;Xxf86vm;general;Xrandr;general;Xinerama;general;Xcursor;general;Xi;general;X11;general;pthread;general;rt;general;dl;
@@ -1128,12 +1131,8 @@ FFTW_LIB-ADVANCED:INTERNAL=1
 FIND_PACKAGE_MESSAGE_DETAILS_GLUT:INTERNAL=[/usr/lib/x86_64-linux-gnu/libglut.so][/usr/include][v()]
 //Details about finding OpenGL
 FIND_PACKAGE_MESSAGE_DETAILS_OpenGL:INTERNAL=[/usr/lib/x86_64-linux-gnu/libGL.so][/usr/include][v()]
-//Details about finding PYTHON
-FIND_PACKAGE_MESSAGE_DETAILS_PYTHON:INTERNAL=/usr/bin/python3.5
 //Details about finding PkgConfig
 FIND_PACKAGE_MESSAGE_DETAILS_PkgConfig:INTERNAL=[/usr/bin/pkg-config][v0.29.1()]
-//Details about finding PythonInterp
-FIND_PACKAGE_MESSAGE_DETAILS_PythonInterp:INTERNAL=[/usr/bin/python3.5][v3.5.2()]
 //Details about finding Threads
 FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
 //Details about finding X11
@@ -1220,10 +1219,6 @@ PKG_FFTW_fftw3_INCLUDEDIR:INTERNAL=
 PKG_FFTW_fftw3_LIBDIR:INTERNAL=
 PKG_FFTW_fftw3_PREFIX:INTERNAL=
 PKG_FFTW_fftw3_VERSION:INTERNAL=
-//ADVANCED property for variable: PYTHON_EXECUTABLE
-PYTHON_EXECUTABLE-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: PYTHON_LIBRARY
-PYTHON_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: ProcessorCount_cmd_getconf
 ProcessorCount_cmd_getconf-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: ProcessorCount_cmd_sysctl
@@ -1260,6 +1255,10 @@ UMFPACK_LIBRARIES-ADVANCED:INTERNAL=1
 VULKAN_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: VULKAN_LIBRARY
 VULKAN_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Vulkan_INCLUDE_DIR
+Vulkan_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Vulkan_LIBRARY
+Vulkan_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: X11_ICE_INCLUDE_PATH
 X11_ICE_INCLUDE_PATH-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: X11_ICE_LIB

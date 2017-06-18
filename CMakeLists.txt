@@ -8,15 +8,15 @@ include_directories(resources)
 file(GLOB_RECURSE data resources/*)
 file(COPY ${data} DESTINATION resources)
 
-add_subdirectory(lib/nanogui)
-include_directories(lib/nanogui/include)
-
-set_property(TARGET glfw glfw_objects nanogui PROPERTY FOLDER "dependencies")
-
 add_subdirectory(lib/nanogui/ext/eigen)
 include_directories(lib/nanogui/ext/eigen/Eigen)
 
 include_directories(lib/nanogui/ext/nanovg/src)
+
+add_subdirectory(lib/nanogui)
+include_directories(lib/nanogui/include)
+
+set_property(TARGET glfw glfw_objects nanogui PROPERTY FOLDER "dependencies")
 
 include_directories(Fabrizio)
 

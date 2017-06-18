@@ -31,6 +31,8 @@ set(CMAKE_TARGET_DEFINITIONS_C
 set(CMAKE_C_TARGET_INCLUDE_PATH
   "../src"
   "../resources"
+  "../lib/nanogui/ext/eigen/Eigen"
+  "../lib/nanogui/ext/nanovg/src"
   "../lib/nanogui/ext/glfw/include"
   "../lib/nanogui/ext/glfw/src"
   "lib/nanogui/ext_build/glfw/src"

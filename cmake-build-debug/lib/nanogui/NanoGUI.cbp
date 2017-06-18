@@ -5,7 +5,7 @@
 		<Option title="NanoGUI"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\lib\;CMake Files\lib\nanogui\;CMake Files\lib\nanogui\ext\;CMake Files\lib\nanogui\ext\eigen\;CMake Files\lib\nanogui\ext\eigen\cmake\;CMake Files\lib\nanogui\ext\eigen\scripts\;CMake Files\lib\nanogui\ext\eigen\Eigen\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Cholesky\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\CholmodSupport\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Core\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Core\products\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Core\util\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Core\arch\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Core\arch\SSE\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Core\arch\AltiVec\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Core\arch\NEON\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Core\arch\Default\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Eigen2Support\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Eigen2Support\Geometry\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Eigenvalues\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Geometry\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Geometry\arch\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Householder\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\IterativeLinearSolvers\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Jacobi\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\LU\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\LU\arch\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\MetisSupport\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\OrderingMethods\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\PaStiXSupport\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\PardisoSupport\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\QR\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\SPQRSupport\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\SVD\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\SparseCholesky\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\SparseCore\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\SparseLU\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\SparseQR\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\StlSupport\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\SuperLUSupport\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\UmfPackSupport\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\misc\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\plugins\;CMake Files\lib\nanogui\ext\eigen\doc\;CMake Files\lib\nanogui\ext\eigen\doc\examples\;CMake Files\lib\nanogui\ext\eigen\doc\special_examples\;CMake Files\lib\nanogui\ext\eigen\doc\snippets\;CMake Files\lib\nanogui\ext\eigen\unsupported\;CMake Files\lib\nanogui\ext\eigen\unsupported\doc\;CMake Files\lib\nanogui\ext\eigen\unsupported\doc\examples\;CMake Files\lib\nanogui\ext\eigen\unsupported\doc\snippets\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\AutoDiff\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\BVH\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\Eigenvalues\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\FFT\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\IterativeSolvers\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\KroneckerProduct\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\LevenbergMarquardt\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\MatrixFunctions\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\MoreVectorization\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\NonLinearOptimization\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\NumericalDiff\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\Polynomials\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\Skyline\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\SparseExtra\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\Splines\;CMake Files\lib\nanogui\ext\eigen\unsupported\test\;CMake Files\lib\nanogui\ext\eigen\test\;CMake Files\lib\nanogui\ext\eigen\blas\;CMake Files\lib\nanogui\ext\eigen\lapack\;CMake Files\lib\nanogui\ext\eigen\demos\;CMake Files\lib\nanogui\ext\eigen\bench\;CMake Files\lib\nanogui\ext\eigen\bench\spbench\;CMake Files\lib\nanogui\ext\glfw\;CMake Files\lib\nanogui\ext\glfw\CMake\;CMake Files\lib\nanogui\ext\glfw\CMake\modules\;CMake Files\lib\nanogui\ext\glfw\src\;CMake Files\lib\nanogui\ext\pybind11\;CMake Files\lib\nanogui\ext\pybind11\tools\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\lib\;CMake Files\lib\nanogui\;CMake Files\lib\nanogui\ext\;CMake Files\lib\nanogui\ext\eigen\;CMake Files\lib\nanogui\ext\eigen\cmake\;CMake Files\lib\nanogui\ext\eigen\scripts\;CMake Files\lib\nanogui\ext\eigen\Eigen\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Cholesky\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\CholmodSupport\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Core\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Core\products\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Core\util\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Core\arch\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Core\arch\SSE\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Core\arch\AltiVec\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Core\arch\NEON\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Core\arch\Default\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Eigen2Support\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Eigen2Support\Geometry\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Eigenvalues\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Geometry\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Geometry\arch\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Householder\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\IterativeLinearSolvers\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\Jacobi\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\LU\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\LU\arch\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\MetisSupport\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\OrderingMethods\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\PaStiXSupport\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\PardisoSupport\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\QR\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\SPQRSupport\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\SVD\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\SparseCholesky\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\SparseCore\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\SparseLU\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\SparseQR\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\StlSupport\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\SuperLUSupport\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\UmfPackSupport\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\misc\;CMake Files\lib\nanogui\ext\eigen\Eigen\src\plugins\;CMake Files\lib\nanogui\ext\eigen\doc\;CMake Files\lib\nanogui\ext\eigen\doc\examples\;CMake Files\lib\nanogui\ext\eigen\doc\special_examples\;CMake Files\lib\nanogui\ext\eigen\doc\snippets\;CMake Files\lib\nanogui\ext\eigen\unsupported\;CMake Files\lib\nanogui\ext\eigen\unsupported\doc\;CMake Files\lib\nanogui\ext\eigen\unsupported\doc\examples\;CMake Files\lib\nanogui\ext\eigen\unsupported\doc\snippets\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\AutoDiff\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\BVH\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\Eigenvalues\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\FFT\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\IterativeSolvers\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\KroneckerProduct\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\LevenbergMarquardt\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\MatrixFunctions\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\MoreVectorization\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\NonLinearOptimization\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\NumericalDiff\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\Polynomials\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\Skyline\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\SparseExtra\;CMake Files\lib\nanogui\ext\eigen\unsupported\Eigen\src\Splines\;CMake Files\lib\nanogui\ext\eigen\unsupported\test\;CMake Files\lib\nanogui\ext\eigen\test\;CMake Files\lib\nanogui\ext\eigen\blas\;CMake Files\lib\nanogui\ext\eigen\lapack\;CMake Files\lib\nanogui\ext\eigen\demos\;CMake Files\lib\nanogui\ext\eigen\bench\;CMake Files\lib\nanogui\ext\eigen\bench\spbench\;CMake Files\lib\nanogui\ext\glfw\;CMake Files\lib\nanogui\ext\glfw\CMake\;CMake Files\lib\nanogui\ext\glfw\CMake\modules\;CMake Files\lib\nanogui\ext\glfw\src\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui"/>
@@ -25,20 +25,18 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add option="-DCORO_SJLJ"/>
-					<Add option="-DNANOGUI_PYTHON"/>
 					<Add option="-DNANOGUI_SHARED"/>
 					<Add option="-DNVG_SHARED"/>
 					<Add option="-DGLAD_GLAPI_EXPORT"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/src"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/resources"/>
+					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen/Eigen"/>
+					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/nanovg/src"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/include"/>
-					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/nanovg/src"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/include"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/coro"/>
-					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/pybind11/include"/>
-					<Add directory="/usr/include/python3.5m"/>
 					<Add directory="/usr/include/c++/6"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
 					<Add directory="/usr/include/c++/6/backward"/>
@@ -63,20 +61,18 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add option="-DCORO_SJLJ"/>
-					<Add option="-DNANOGUI_PYTHON"/>
 					<Add option="-DNANOGUI_SHARED"/>
 					<Add option="-DNVG_SHARED"/>
 					<Add option="-DGLAD_GLAPI_EXPORT"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/src"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/resources"/>
+					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen/Eigen"/>
+					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/nanovg/src"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/include"/>
-					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/nanovg/src"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/include"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/coro"/>
-					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/pybind11/include"/>
-					<Add directory="/usr/include/python3.5m"/>
 					<Add directory="/usr/include/c++/6"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
 					<Add directory="/usr/include/c++/6/backward"/>
@@ -105,19 +101,17 @@
 					<Add option="-D_GLFW_BUILD_DLL"/>
 					<Add option="-DNVG_SHARED"/>
 					<Add option="-DCORO_SJLJ"/>
-					<Add option="-DNANOGUI_PYTHON"/>
 					<Add option="-DNANOGUI_SHARED"/>
 					<Add option="-DGLAD_GLAPI_EXPORT"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/src"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/resources"/>
+					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen/Eigen"/>
+					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/nanovg/src"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/include"/>
-					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/nanovg/src"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/include"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/coro"/>
-					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/pybind11/include"/>
-					<Add directory="/usr/include/python3.5m"/>
 					<Add directory="/usr/include/c++/6"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
 					<Add directory="/usr/include/c++/6/backward"/>
@@ -146,19 +140,17 @@
 					<Add option="-D_GLFW_BUILD_DLL"/>
 					<Add option="-DNVG_SHARED"/>
 					<Add option="-DCORO_SJLJ"/>
-					<Add option="-DNANOGUI_PYTHON"/>
 					<Add option="-DNANOGUI_SHARED"/>
 					<Add option="-DGLAD_GLAPI_EXPORT"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/src"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/resources"/>
+					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen/Eigen"/>
+					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/nanovg/src"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/include"/>
-					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/nanovg/src"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/include"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/coro"/>
-					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/pybind11/include"/>
-					<Add directory="/usr/include/python3.5m"/>
 					<Add directory="/usr/include/c++/6"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
 					<Add directory="/usr/include/c++/6/backward"/>
@@ -183,20 +175,18 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add option="-DCORO_SJLJ"/>
-					<Add option="-DNANOGUI_PYTHON"/>
 					<Add option="-DNANOGUI_SHARED"/>
 					<Add option="-DNVG_SHARED"/>
 					<Add option="-DGLAD_GLAPI_EXPORT"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/src"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/resources"/>
+					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen/Eigen"/>
+					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/nanovg/src"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/include"/>
-					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/nanovg/src"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/include"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/coro"/>
-					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/pybind11/include"/>
-					<Add directory="/usr/include/python3.5m"/>
 					<Add directory="/usr/include/c++/6"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
 					<Add directory="/usr/include/c++/6/backward"/>
@@ -221,20 +211,18 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add option="-DCORO_SJLJ"/>
-					<Add option="-DNANOGUI_PYTHON"/>
 					<Add option="-DNANOGUI_SHARED"/>
 					<Add option="-DNVG_SHARED"/>
 					<Add option="-DGLAD_GLAPI_EXPORT"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/src"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/resources"/>
+					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen/Eigen"/>
+					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/nanovg/src"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/include"/>
-					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/nanovg/src"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/include"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/coro"/>
-					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/pybind11/include"/>
-					<Add directory="/usr/include/python3.5m"/>
 					<Add directory="/usr/include/c++/6"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
 					<Add directory="/usr/include/c++/6/backward"/>
@@ -259,20 +247,18 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add option="-DCORO_SJLJ"/>
-					<Add option="-DNANOGUI_PYTHON"/>
 					<Add option="-DNANOGUI_SHARED"/>
 					<Add option="-DNVG_SHARED"/>
 					<Add option="-DGLAD_GLAPI_EXPORT"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/src"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/resources"/>
+					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen/Eigen"/>
+					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/nanovg/src"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/include"/>
-					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/nanovg/src"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/include"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/coro"/>
-					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/pybind11/include"/>
-					<Add directory="/usr/include/python3.5m"/>
 					<Add directory="/usr/include/c++/6"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
 					<Add directory="/usr/include/c++/6/backward"/>
@@ -297,20 +283,18 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add option="-DCORO_SJLJ"/>
-					<Add option="-DNANOGUI_PYTHON"/>
 					<Add option="-DNANOGUI_SHARED"/>
 					<Add option="-DNVG_SHARED"/>
 					<Add option="-DGLAD_GLAPI_EXPORT"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/src"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/resources"/>
+					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen/Eigen"/>
+					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/nanovg/src"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/include"/>
-					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/nanovg/src"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/include"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/coro"/>
-					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/pybind11/include"/>
-					<Add directory="/usr/include/python3.5m"/>
 					<Add directory="/usr/include/c++/6"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
 					<Add directory="/usr/include/c++/6/backward"/>
@@ -335,20 +319,18 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add option="-DCORO_SJLJ"/>
-					<Add option="-DNANOGUI_PYTHON"/>
 					<Add option="-DNANOGUI_SHARED"/>
 					<Add option="-DNVG_SHARED"/>
 					<Add option="-DGLAD_GLAPI_EXPORT"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/src"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/resources"/>
+					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen/Eigen"/>
+					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/nanovg/src"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/include"/>
-					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/nanovg/src"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/include"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/coro"/>
-					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/pybind11/include"/>
-					<Add directory="/usr/include/python3.5m"/>
 					<Add directory="/usr/include/c++/6"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
 					<Add directory="/usr/include/c++/6/backward"/>
@@ -373,20 +355,18 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add option="-DCORO_SJLJ"/>
-					<Add option="-DNANOGUI_PYTHON"/>
 					<Add option="-DNANOGUI_SHARED"/>
 					<Add option="-DNVG_SHARED"/>
 					<Add option="-DGLAD_GLAPI_EXPORT"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/src"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/resources"/>
+					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen/Eigen"/>
+					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/nanovg/src"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/include"/>
-					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/nanovg/src"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/include"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/coro"/>
-					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/pybind11/include"/>
-					<Add directory="/usr/include/python3.5m"/>
 					<Add directory="/usr/include/c++/6"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
 					<Add directory="/usr/include/c++/6/backward"/>
@@ -411,20 +391,18 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add option="-DCORO_SJLJ"/>
-					<Add option="-DNANOGUI_PYTHON"/>
 					<Add option="-DNANOGUI_SHARED"/>
 					<Add option="-DNVG_SHARED"/>
 					<Add option="-DGLAD_GLAPI_EXPORT"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/src"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/resources"/>
+					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen/Eigen"/>
+					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/nanovg/src"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/include"/>
-					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/nanovg/src"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/include"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/coro"/>
-					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/pybind11/include"/>
-					<Add directory="/usr/include/python3.5m"/>
 					<Add directory="/usr/include/c++/6"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
 					<Add directory="/usr/include/c++/6/backward"/>
@@ -449,20 +427,18 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add option="-DCORO_SJLJ"/>
-					<Add option="-DNANOGUI_PYTHON"/>
 					<Add option="-DNANOGUI_SHARED"/>
 					<Add option="-DNVG_SHARED"/>
 					<Add option="-DGLAD_GLAPI_EXPORT"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/src"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/resources"/>
+					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen/Eigen"/>
+					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/nanovg/src"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/include"/>
-					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/nanovg/src"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/include"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/coro"/>
-					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/pybind11/include"/>
-					<Add directory="/usr/include/python3.5m"/>
 					<Add directory="/usr/include/c++/6"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
 					<Add directory="/usr/include/c++/6/backward"/>
@@ -479,158 +455,6 @@
 					<DistClean command="/usr/bin/make -j8 -f &quot;/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="nanogui-python">
-				<Option output="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/python/nanogui.cpython-35m-x86_64-linux-gnu.so" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui"/>
-				<Option object_output="./"/>
-				<Option type="3"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add option="-DCORO_SJLJ"/>
-					<Add option="-DNANOGUI_PYTHON"/>
-					<Add option="-DNANOGUI_SHARED"/>
-					<Add option="-DNVG_SHARED"/>
-					<Add option="-DGLAD_GLAPI_EXPORT"/>
-					<Add directory="/home/mattia/CLionProjects/Thesis/src"/>
-					<Add directory="/home/mattia/CLionProjects/Thesis/resources"/>
-					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen"/>
-					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/include"/>
-					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/nanovg/src"/>
-					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/include"/>
-					<Add directory="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui"/>
-					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/coro"/>
-					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/pybind11/include"/>
-					<Add directory="/usr/include/python3.5m"/>
-					<Add directory="/usr/include/c++/6"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
-					<Add directory="/usr/include/c++/6/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/Makefile&quot;  VERBOSE=1 nanogui-python"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="nanogui-python/fast">
-				<Option output="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/python/nanogui.cpython-35m-x86_64-linux-gnu.so" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui"/>
-				<Option object_output="./"/>
-				<Option type="3"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add option="-DCORO_SJLJ"/>
-					<Add option="-DNANOGUI_PYTHON"/>
-					<Add option="-DNANOGUI_SHARED"/>
-					<Add option="-DNVG_SHARED"/>
-					<Add option="-DGLAD_GLAPI_EXPORT"/>
-					<Add directory="/home/mattia/CLionProjects/Thesis/src"/>
-					<Add directory="/home/mattia/CLionProjects/Thesis/resources"/>
-					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen"/>
-					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/include"/>
-					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/nanovg/src"/>
-					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/include"/>
-					<Add directory="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui"/>
-					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/coro"/>
-					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/pybind11/include"/>
-					<Add directory="/usr/include/python3.5m"/>
-					<Add directory="/usr/include/c++/6"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
-					<Add directory="/usr/include/c++/6/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/Makefile&quot;  VERBOSE=1 nanogui-python/fast"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="nanogui-python-obj">
-				<Option output="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/CMakeFiles/nanogui-python-obj.dir/nanogui-python-obj.objlib" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui"/>
-				<Option object_output="./"/>
-				<Option type="2"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add option="-DCORO_SJLJ"/>
-					<Add option="-DNANOGUI_PYTHON"/>
-					<Add option="-DNANOGUI_SHARED"/>
-					<Add option="-DNVG_SHARED"/>
-					<Add option="-DGLAD_GLAPI_EXPORT"/>
-					<Add directory="/home/mattia/CLionProjects/Thesis/src"/>
-					<Add directory="/home/mattia/CLionProjects/Thesis/resources"/>
-					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen"/>
-					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/include"/>
-					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/nanovg/src"/>
-					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/include"/>
-					<Add directory="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui"/>
-					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/coro"/>
-					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/pybind11/include"/>
-					<Add directory="/usr/include/python3.5m"/>
-					<Add directory="/usr/include/c++/6"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
-					<Add directory="/usr/include/c++/6/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/Makefile&quot;  VERBOSE=1 nanogui-python-obj"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="nanogui-python-obj/fast">
-				<Option output="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/CMakeFiles/nanogui-python-obj.dir/nanogui-python-obj.objlib" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui"/>
-				<Option object_output="./"/>
-				<Option type="2"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add option="-DCORO_SJLJ"/>
-					<Add option="-DNANOGUI_PYTHON"/>
-					<Add option="-DNANOGUI_SHARED"/>
-					<Add option="-DNVG_SHARED"/>
-					<Add option="-DGLAD_GLAPI_EXPORT"/>
-					<Add directory="/home/mattia/CLionProjects/Thesis/src"/>
-					<Add directory="/home/mattia/CLionProjects/Thesis/resources"/>
-					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen"/>
-					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/include"/>
-					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/nanovg/src"/>
-					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/include"/>
-					<Add directory="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui"/>
-					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/coro"/>
-					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/pybind11/include"/>
-					<Add directory="/usr/include/python3.5m"/>
-					<Add directory="/usr/include/c++/6"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
-					<Add directory="/usr/include/c++/6/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/Makefile&quot;  VERBOSE=1 nanogui-python-obj/fast"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
 			<Target title="glfw">
 				<Option output="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext_build/glfw/src/libglfw.so" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext_build/glfw/src"/>
@@ -640,6 +464,8 @@
 				<Compiler>
 					<Add directory="/home/mattia/CLionProjects/Thesis/src"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/resources"/>
+					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen/Eigen"/>
+					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/nanovg/src"/>
 					<Add directory="/usr/include/c++/6"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
 					<Add directory="/usr/include/c++/6/backward"/>
@@ -665,6 +491,8 @@
 				<Compiler>
 					<Add directory="/home/mattia/CLionProjects/Thesis/src"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/resources"/>
+					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen/Eigen"/>
+					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/nanovg/src"/>
 					<Add directory="/usr/include/c++/6"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
 					<Add directory="/usr/include/c++/6/backward"/>
@@ -691,6 +519,8 @@
 					<Add option="-D_GLFW_USE_CONFIG_H"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/src"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/resources"/>
+					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen/Eigen"/>
+					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/nanovg/src"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/include"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext_build/glfw/src"/>
@@ -720,6 +550,8 @@
 					<Add option="-D_GLFW_USE_CONFIG_H"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/src"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/resources"/>
+					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen/Eigen"/>
+					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/nanovg/src"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/include"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src"/>
 					<Add directory="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext_build/glfw/src"/>
@@ -830,51 +662,6 @@
 		<Unit filename="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/CMakeFiles/nanogui-obj.dir/src/window.cpp.o">
 			<Option target="nanogui"/>
 		</Unit>
-		<Unit filename="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/CMakeFiles/nanogui-python-obj.dir/ext/coro/coro.c.o">
-			<Option target="nanogui-python"/>
-		</Unit>
-		<Unit filename="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/CMakeFiles/nanogui-python-obj.dir/python/basics.cpp.o">
-			<Option target="nanogui-python"/>
-		</Unit>
-		<Unit filename="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/CMakeFiles/nanogui-python-obj.dir/python/button.cpp.o">
-			<Option target="nanogui-python"/>
-		</Unit>
-		<Unit filename="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/CMakeFiles/nanogui-python-obj.dir/python/constants.cpp.o">
-			<Option target="nanogui-python"/>
-		</Unit>
-		<Unit filename="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/CMakeFiles/nanogui-python-obj.dir/python/eigen.cpp.o">
-			<Option target="nanogui-python"/>
-		</Unit>
-		<Unit filename="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/CMakeFiles/nanogui-python-obj.dir/python/formhelper.cpp.o">
-			<Option target="nanogui-python"/>
-		</Unit>
-		<Unit filename="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/CMakeFiles/nanogui-python-obj.dir/python/glcanvas.cpp.o">
-			<Option target="nanogui-python"/>
-		</Unit>
-		<Unit filename="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/CMakeFiles/nanogui-python-obj.dir/python/glutil.cpp.o">
-			<Option target="nanogui-python"/>
-		</Unit>
-		<Unit filename="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/CMakeFiles/nanogui-python-obj.dir/python/layout.cpp.o">
-			<Option target="nanogui-python"/>
-		</Unit>
-		<Unit filename="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/CMakeFiles/nanogui-python-obj.dir/python/main.cpp.o">
-			<Option target="nanogui-python"/>
-		</Unit>
-		<Unit filename="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/CMakeFiles/nanogui-python-obj.dir/python/misc.cpp.o">
-			<Option target="nanogui-python"/>
-		</Unit>
-		<Unit filename="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/CMakeFiles/nanogui-python-obj.dir/python/nanovg.cpp.o">
-			<Option target="nanogui-python"/>
-		</Unit>
-		<Unit filename="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/CMakeFiles/nanogui-python-obj.dir/python/tabs.cpp.o">
-			<Option target="nanogui-python"/>
-		</Unit>
-		<Unit filename="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/CMakeFiles/nanogui-python-obj.dir/python/textbox.cpp.o">
-			<Option target="nanogui-python"/>
-		</Unit>
-		<Unit filename="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/CMakeFiles/nanogui-python-obj.dir/python/widget.cpp.o">
-			<Option target="nanogui-python"/>
-		</Unit>
 		<Unit filename="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/context.c.o">
 			<Option target="nanogui"/>
 			<Option target="glfw"/>
@@ -946,12 +733,6 @@
 		</Unit>
 		<Unit filename="/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/nanogui_resources.h">
 			<Option target="nanogui-obj"/>
-		</Unit>
-		<Unit filename="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/coro/coro.c">
-			<Option target="nanogui-python-obj"/>
-		</Unit>
-		<Unit filename="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/coro/coro.h">
-			<Option target="nanogui-python-obj"/>
 		</Unit>
 		<Unit filename="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/include/GLFW/glfw3.h">
 			<Option target="glfw_objects"/>
@@ -1135,54 +916,6 @@
 		</Unit>
 		<Unit filename="/home/mattia/CLionProjects/Thesis/lib/nanogui/include/nanogui/window.h">
 			<Option target="nanogui-obj"/>
-		</Unit>
-		<Unit filename="/home/mattia/CLionProjects/Thesis/lib/nanogui/python/basics.cpp">
-			<Option target="nanogui-python-obj"/>
-		</Unit>
-		<Unit filename="/home/mattia/CLionProjects/Thesis/lib/nanogui/python/button.cpp">
-			<Option target="nanogui-python-obj"/>
-		</Unit>
-		<Unit filename="/home/mattia/CLionProjects/Thesis/lib/nanogui/python/constants.cpp">
-			<Option target="nanogui-python-obj"/>
-		</Unit>
-		<Unit filename="/home/mattia/CLionProjects/Thesis/lib/nanogui/python/eigen.cpp">
-			<Option target="nanogui-python-obj"/>
-		</Unit>
-		<Unit filename="/home/mattia/CLionProjects/Thesis/lib/nanogui/python/formhelper.cpp">
-			<Option target="nanogui-python-obj"/>
-		</Unit>
-		<Unit filename="/home/mattia/CLionProjects/Thesis/lib/nanogui/python/glcanvas.cpp">
-			<Option target="nanogui-python-obj"/>
-		</Unit>
-		<Unit filename="/home/mattia/CLionProjects/Thesis/lib/nanogui/python/glutil.cpp">
-			<Option target="nanogui-python-obj"/>
-		</Unit>
-		<Unit filename="/home/mattia/CLionProjects/Thesis/lib/nanogui/python/layout.cpp">
-			<Option target="nanogui-python-obj"/>
-		</Unit>
-		<Unit filename="/home/mattia/CLionProjects/Thesis/lib/nanogui/python/main.cpp">
-			<Option target="nanogui-python-obj"/>
-		</Unit>
-		<Unit filename="/home/mattia/CLionProjects/Thesis/lib/nanogui/python/misc.cpp">
-			<Option target="nanogui-python-obj"/>
-		</Unit>
-		<Unit filename="/home/mattia/CLionProjects/Thesis/lib/nanogui/python/nanovg.cpp">
-			<Option target="nanogui-python-obj"/>
-		</Unit>
-		<Unit filename="/home/mattia/CLionProjects/Thesis/lib/nanogui/python/py_doc.h">
-			<Option target="nanogui-python-obj"/>
-		</Unit>
-		<Unit filename="/home/mattia/CLionProjects/Thesis/lib/nanogui/python/python.h">
-			<Option target="nanogui-python-obj"/>
-		</Unit>
-		<Unit filename="/home/mattia/CLionProjects/Thesis/lib/nanogui/python/tabs.cpp">
-			<Option target="nanogui-python-obj"/>
-		</Unit>
-		<Unit filename="/home/mattia/CLionProjects/Thesis/lib/nanogui/python/textbox.cpp">
-			<Option target="nanogui-python-obj"/>
-		</Unit>
-		<Unit filename="/home/mattia/CLionProjects/Thesis/lib/nanogui/python/widget.cpp">
-			<Option target="nanogui-python-obj"/>
 		</Unit>
 		<Unit filename="/home/mattia/CLionProjects/Thesis/lib/nanogui/src/button.cpp">
 			<Option target="nanogui-obj"/>
@@ -4186,12 +3919,6 @@
 		</Unit>
 		<Unit filename="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\lib\nanogui\ext\glfw\src\"/>
-		</Unit>
-		<Unit filename="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/pybind11/tools/FindPythonLibsNew.cmake">
-			<Option virtualFolder="CMake Files\lib\nanogui\ext\pybind11\tools\"/>
-		</Unit>
-		<Unit filename="/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/pybind11/tools/FindPythonLibsNew.cmake">
-			<Option virtualFolder="CMake Files\lib\nanogui\ext\pybind11\tools\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>

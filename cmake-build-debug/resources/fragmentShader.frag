@@ -1,54 +1,26 @@
 #version 330
 
-in vec3 Position_worldSpace;
-in vec3 Normal_cameraspace;
-in vec3 EyeDirection_cameraspace;
-in vec3 LightDirection_cameraspace;
-
 out vec4 color;
 
-uniform vec3 LightPosition_worldspace;
-
 in vec4 frag_color;
+
+in vec3 faceNormal;
+in vec3 lightDir;
+in vec3 viewDir;
+
 void main() {
-    vec3 LightColor = vec3(1,1,1);
-    float LightPower = 0.1f;
-
-    // Material properties
-    vec3 MaterialDiffuseColor = (frag_color).rgb;
-    vec3 MaterialAmbientColor = vec3(0.5,0.5,0.5) * MaterialDiffuseColor;
-    vec3 MaterialSpecularColor = vec3(0.3,0.3,0.3);
-
-    // Distance to the light
-    float distance = length( LightPosition_worldspace - Position_worldSpace);
-
-    // Normal of the computed fragment, in camera space
-    vec3 n = normalize( Normal_cameraspace );
-    // Direction of the light (from the fragment to the light)
-    vec3 l = normalize( LightDirection_cameraspace );
-    // Cosine of the angle between the normal and the light direction,
-    // clamped above 0
-    //  - light is at the vertical of the triangle -> 1
-    //  - light is perpendicular to the triangle -> 0
-    //  - light is behind the triangle -> 0
-    float cosTheta = clamp( dot( n,l ), 0,1 );
-
-    // Eye vector (towards the camera)
-    vec3 E = normalize(EyeDirection_cameraspace);
-    // Direction in which the triangle reflects the light
-    vec3 R = reflect(-l,n);
-    // Cosine of the angle between the Eye vector and the Reflect vector,
-    // clamped to 0
-    //  - Looking into the reflection -> 1
-    //  - Looking elsewhere -> < 1
-    float cosAlpha = clamp( dot( E,R ), 0,1 );
-
-    color = vec4(
-    		// Ambient : simulates indirect lighting
-    		MaterialAmbientColor +
-    		// Diffuse : "color" of the object
-    		MaterialDiffuseColor * LightColor * LightPower * cosTheta / (distance*distance) +
-    		// Specular : reflective highlight, like a mirror
-    		MaterialSpecularColor * LightColor * LightPower * pow(cosAlpha,5) / (distance*distance)
-    		,1.0);
+    vec3 col = vec3(0.0);
+    col += vec3(1.0)*vec3(0.1, 0.1, 0.1);
+    vec3 normalizedNormals= normalize(faceNormal);
+    vec3 normalizedView= normalize(viewDir);
+    vec3 normalizedLight= normalize(lightDir);
+    float lambert = dot(normalizedNormals,normalizedLight);
+    if(lambert>0.0){
+        col += vec3(lambert);
+        vec3 normalizedView= normalize(viewDir);
+        vec3 reflection = reflect(-normalizedLight,normalizedNormals);
+        col += vec3(pow(max(dot(reflection, normalizedView),0.0), 90.0));
+    }
+    col *= frag_color.xyz;
+    color = vec4(col, frag_color.a);
 }

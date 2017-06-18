@@ -1,7 +1,55 @@
 /home/mattia/Programmi/Clion/clion-2016.3.3/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/mattia/CLionProjects/Thesis
--- Using X11 for window creation
--- NanoGUI: building the Python plugin.
+-- Performing Test standard_math_library_linked_to_automatically
+-- Performing Test standard_math_library_linked_to_automatically - Success
 -- Standard libraries to link to explicitly: none
+-- Performing Test COMPILER_SUPPORT_WERROR
+-- Performing Test COMPILER_SUPPORT_WERROR - Success
+-- Performing Test COMPILER_SUPPORT_pedantic
+-- Performing Test COMPILER_SUPPORT_pedantic - Success
+-- Performing Test COMPILER_SUPPORT_Wall
+-- Performing Test COMPILER_SUPPORT_Wall - Success
+-- Performing Test COMPILER_SUPPORT_Wextra
+-- Performing Test COMPILER_SUPPORT_Wextra - Success
+-- Performing Test COMPILER_SUPPORT_Wundef
+-- Performing Test COMPILER_SUPPORT_Wundef - Success
+-- Performing Test COMPILER_SUPPORT_Wcastalign
+-- Performing Test COMPILER_SUPPORT_Wcastalign - Success
+-- Performing Test COMPILER_SUPPORT_Wcharsubscripts
+-- Performing Test COMPILER_SUPPORT_Wcharsubscripts - Success
+-- Performing Test COMPILER_SUPPORT_Wnonvirtualdtor
+-- Performing Test COMPILER_SUPPORT_Wnonvirtualdtor - Success
+-- Performing Test COMPILER_SUPPORT_Wunusedlocaltypedefs
+-- Performing Test COMPILER_SUPPORT_Wunusedlocaltypedefs - Success
+-- Performing Test COMPILER_SUPPORT_Wpointerarith
+-- Performing Test COMPILER_SUPPORT_Wpointerarith - Success
+-- Performing Test COMPILER_SUPPORT_Wwritestrings
+-- Performing Test COMPILER_SUPPORT_Wwritestrings - Success
+-- Performing Test COMPILER_SUPPORT_Wformatsecurity
+-- Performing Test COMPILER_SUPPORT_Wformatsecurity - Success
+-- Performing Test COMPILER_SUPPORT_Wnopsabi
+-- Performing Test COMPILER_SUPPORT_Wnopsabi - Success
+-- Performing Test COMPILER_SUPPORT_Wnovariadicmacros
+-- Performing Test COMPILER_SUPPORT_Wnovariadicmacros - Success
+-- Performing Test COMPILER_SUPPORT_Wnolonglong
+-- Performing Test COMPILER_SUPPORT_Wnolonglong - Success
+-- Performing Test COMPILER_SUPPORT_fnochecknew
+-- Performing Test COMPILER_SUPPORT_fnochecknew - Success
+-- Performing Test COMPILER_SUPPORT_fnocommon
+-- Performing Test COMPILER_SUPPORT_fnocommon - Success
+-- Performing Test COMPILER_SUPPORT_fstrictaliasing
+-- Performing Test COMPILER_SUPPORT_fstrictaliasing - Success
+-- Performing Test COMPILER_SUPPORT_wd981
+-- Performing Test COMPILER_SUPPORT_wd981 - Failed
+-- Performing Test COMPILER_SUPPORT_wd2304
+-- Performing Test COMPILER_SUPPORT_wd2304 - Failed
+-- Performing Test COMPILER_SUPPORT_STRICTANSI
+-- Performing Test COMPILER_SUPPORT_STRICTANSI - Failed
+-- Performing Test COMPILER_SUPPORT_Qunusedarguments
+-- Performing Test COMPILER_SUPPORT_Qunusedarguments - Failed
+-- Performing Test COMPILER_SUPPORT_ansi
+-- Performing Test COMPILER_SUPPORT_ansi - Success
+-- Performing Test COMPILER_SUPPORT_OPENMP
+-- Performing Test COMPILER_SUPPORT_OPENMP - Success
 qmake: could not exec '/usr/lib/x86_64-linux-gnu/qt4/bin/qmake': No such file or directory
 -- Found unsuitable Qt version "" from NOTFOUND
 -- /home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext/eigen/test
@@ -14,6 +62,7 @@ qmake: could not exec '/usr/lib/x86_64-linux-gnu/qt4/bin/qmake': No such file or
 -- Could NOT find SPQR (missing:  SPQR_INCLUDES SPQR_LIBRARIES) 
 qmake: could not exec '/usr/lib/x86_64-linux-gnu/qt4/bin/qmake': No such file or directory
 -- Found unsuitable Qt version "" from NOTFOUND
+-- The Fortran compiler identification is unknown
 CMake Warning at lib/nanogui/ext/eigen/blas/CMakeLists.txt:32 (message):
    No fortran compiler has been detected, the blas build will be incomplete.
 
@@ -22,7 +71,10 @@ CMake Warning at lib/nanogui/ext/eigen/blas/CMakeLists.txt:32 (message):
 -- Could NOT find ADOLC (missing:  ADOLC_INCLUDES ADOLC_LIBRARIES) 
 -- Could NOT find MPFR (missing:  MPFR_INCLUDES MPFR_LIBRARIES MPFR_VERSION_OK) (Required is at least version "2.3.0")
 -- Could NOT find GMP (missing:  GMP_INCLUDES GMP_LIBRARIES) 
+-- Found PkgConfig: /usr/bin/pkg-config (found version "0.29.1") 
 -- Could NOT find FFTW (missing:  FFTW_INCLUDES FFTW_LIBRARIES) 
+-- Found OpenGL: /usr/lib/x86_64-linux-gnu/libGL.so  
+-- Found GLUT: /usr/lib/x86_64-linux-gnu/libglut.so  
 -- Found Glew: /usr/lib/x86_64-linux-gnu/libGLEW.so
 qmake: could not exec '/usr/lib/x86_64-linux-gnu/qt4/bin/qmake': No such file or directory
 -- Found unsuitable Qt version "" from NOTFOUND
@@ -39,7 +91,7 @@ qmake: could not exec '/usr/lib/x86_64-linux-gnu/qt4/bin/qmake': No such file or
 -- 
 -- Build type:        Debug
 -- Build site:        mattia
--- Build string:      linux-4.8.0-49-generic-_-6.2.0-sse2-64bit
+-- Build string:      linux-4.8.0-54-generic-_-6.2.0-sse2-64bit
 -- Enabled backends:  OpenGL, 
 -- Disabled backends: Cholmod,  UmfPack,  SuperLU,  PaStiX,  METIS,  Qt4 support,  GoogleHash,  Adolc,  MPFR C++,  fftw, 
 -- Default order:     Column-major
@@ -80,6 +132,7 @@ CXX:               /usr/bin/c++
 -- make blas     | Build BLAS library (not the same thing as Eigen)
 -- --------------+--------------------------------------------------------------
 -- 
+-- Using X11 for window creation
 -- Configuring done
 -- Generating done
 -- Build files have been written to: /home/mattia/CLionProjects/Thesis/cmake-build-debug

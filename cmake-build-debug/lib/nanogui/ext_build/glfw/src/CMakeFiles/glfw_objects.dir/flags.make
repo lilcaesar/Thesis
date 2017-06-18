@@ -6,5 +6,5 @@ C_FLAGS = -g -fPIC   -Wall
 
 C_DEFINES = -D_GLFW_USE_CONFIG_H
 
-C_INCLUDES = -I/home/mattia/CLionProjects/Thesis/src -I/home/mattia/CLionProjects/Thesis/resources -I/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/include -I/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src -I/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext_build/glfw/src 
+C_INCLUDES = -I/home/mattia/CLionProjects/Thesis/src -I/home/mattia/CLionProjects/Thesis/resources -I/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen/Eigen -I/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/nanovg/src -I/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/include -I/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src -I/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext_build/glfw/src 
 

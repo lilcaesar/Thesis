@@ -6,5 +6,5 @@ C_FLAGS = -g -fPIC   -fvisibility=hidden
 
 C_DEFINES = -Dglfw_EXPORTS
 
-C_INCLUDES = -I/home/mattia/CLionProjects/Thesis/src -I/home/mattia/CLionProjects/Thesis/resources 
+C_INCLUDES = -I/home/mattia/CLionProjects/Thesis/src -I/home/mattia/CLionProjects/Thesis/resources -I/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/eigen/Eigen -I/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/nanovg/src 
 

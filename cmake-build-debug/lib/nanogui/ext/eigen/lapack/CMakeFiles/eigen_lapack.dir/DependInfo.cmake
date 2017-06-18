@@ -18,7 +18,6 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../lib/nanogui/ext/eigen/lapack"
   "../src"
   "../resources"
-  "../lib/nanogui/include"
   "../lib/nanogui/ext/eigen"
   "lib/nanogui/ext/eigen"
   "../lib/nanogui/ext/eigen/lapack/../blas"

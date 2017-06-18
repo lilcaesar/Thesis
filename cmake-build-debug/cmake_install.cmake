@@ -34,8 +34,8 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/cmake_install.cmake")
   include("/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/ext/eigen/cmake_install.cmake")
+  include("/home/mattia/CLionProjects/Thesis/cmake-build-debug/lib/nanogui/cmake_install.cmake")
 
 endif()
 
