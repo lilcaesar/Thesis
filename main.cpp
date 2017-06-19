@@ -23,20 +23,24 @@ class NanoguiMeshViewer : public nanogui::Screen {
 public:
 
     NanoguiMeshViewer() : nanogui::Screen(Eigen::Vector2i(1000, 1000), "Nanogui Mesh Viewer") {
+
         using namespace nanogui;
 
         this->setBackground(Color(180,180,255,255));
 
-        Window *window = new Window(this, "Mesh Tools");
-        window->setPosition(Vector2i(0, 0));
-        window->setLayout(new GroupLayout());
+        Window *meshTools = new Window(this, "Mesh Tools");
+        meshTools->setPosition(Vector2i(0, 0));
+        meshTools->setLayout(new GroupLayout());
 
-        Button *loadMeshButton = new Button(window, "Load Mesh");
+        Button *loadMeshButton = new Button(meshTools, "Load Mesh");
         loadMeshButton->setCallback([this](){
             //Caricamento del file
             meshMatricesInitializer(vertices, normals, faces, nFaces,minXValue,maxXValue,minYValue,maxYValue,minZValue, maxZValue, minValue, maxValue, maxDistance);
 
             refreshArcball();
+
+            nanoguiCamera.modelZoom = 1.0;
+            nanoguiCamera.translation = nanoguiCamera.translationStart = Vector3f::Zero();
 
             vertexShaderFilePath = "./resources/vertexShader.vert";
             fragmentShaderFilePath = "./resources/fragmentShader.frag";
@@ -49,7 +53,7 @@ public:
             mShader.uploadAttrib("vertices", vertices);
         });
 
-        PopupButton *popupBtn = new PopupButton(window, "Shading Styles");
+        PopupButton *popupBtn = new PopupButton(meshTools, "Shading Styles");
         Popup *popup = popupBtn->popup();
         popup->setLayout(new GroupLayout());
         popup->setTooltip("Select type of shading for the mesh");
@@ -96,36 +100,160 @@ public:
             filledCB->setTooltip("Toggle filled version of wireframe shading");
         }
 
-        popupBtn = new PopupButton(window, "Colors");
+        popupBtn = new PopupButton(meshTools, "Colors");
         popup = popupBtn->popup();
         popup->setLayout(new GroupLayout());
         popup->setTooltip("Color settings for mesh and background");
 
         new Label(popup, "Background color");
-        ColorWheel *colorwheel = new ColorWheel(popup);
-        colorwheel->setColor(this->background());
-        colorwheel->setCallback([this](Color state){
+        colorwheelBG = new ColorWheel(popup);
+        colorwheelBG->setColor(this->background());
+        colorwheelBG->setCallback([this](Color state){
             this->setBackground(state);
-            this->shaderStateChange = true;
+        });
+
+        Widget *tools = new Widget(popup);
+        tools->setLayout(new BoxLayout(Orientation::Horizontal, Alignment::Middle, 0, 6));
+        new Label(tools, "R:");
+        rValueBG = new IntBox<int>(tools);
+        rValueBG->setValue(this->background().r()*255);
+        rValueBG->setEditable(true);
+        rValueBG->setMinMaxValues(0,255);
+        rValueBG->setCallback([this](int state){
+            Color c = this->background();
+            int c1,c2,c3;
+            c1 = c[1]*255;
+            c2 = c[2]*255;
+            c3 = c[3]*255;
+            this->setBackground(Color(state,c1,c2,c3));
+        });
+        new Label(tools, "G:");
+        gValueBG = new IntBox<int>(tools);
+        gValueBG->setValue(this->background().g()*255);
+        gValueBG->setEditable(true);
+        gValueBG->setMinMaxValues(0,255);
+        gValueBG->setCallback([this](int state){
+            Color c = this->background();
+            int c1,c2,c3;
+            c1 = c[0]*255;
+            c2 = c[2]*255;
+            c3 = c[3]*255;
+            this->setBackground(Color(c1,state,c2,c3));
+        });
+        new Label(tools, "B:");
+        bValueBG = new IntBox<int>(tools);
+        bValueBG->setValue(this->background().b()*255);
+        bValueBG->setEditable(true);
+        bValueBG->setMinMaxValues(0,255);
+        bValueBG->setCallback([this](int state){
+            Color c = this->background();
+            int c1,c2,c3;
+            c1 = c[0]*255;
+            c2 = c[1]*255;
+            c3 = c[3]*255;
+            this->setBackground(Color(c1,c2,state,c3));
         });
 
         new Label(popup, "Mesh color");
-        colorwheel = new ColorWheel(popup);
-        colorwheel->setColor(this->meshColor);
-        colorwheel->setCallback([this](Color state){
+        colorWheelMesh = new ColorWheel(popup);
+        colorWheelMesh->setColor(this->meshColor);
+        colorWheelMesh->setCallback([this](Color state){
             this->meshColor = state;
-            this->shaderStateChange = true;
         });
+
+        tools = new Widget(popup);
+        tools->setLayout(new BoxLayout(Orientation::Horizontal, Alignment::Middle, 0, 6));
+        new Label(tools, "R:");
+        rValueMesh = new IntBox<int>(tools);
+        rValueMesh->setValue(this->meshColor[0]*255);
+        rValueMesh->setEditable(true);
+        rValueMesh->setMinMaxValues(0,255);
+        rValueMesh->setCallback([this](int state){
+            Color c = this->meshColor;
+            int c1,c2,c3;
+            c1 = c[1]*255;
+            c2 = c[2]*255;
+            c3 = c[3]*255;
+            this->meshColor= Color(state,c1,c2,c3);
+        });
+        new Label(tools, "G:");
+        gValueMesh = new IntBox<int>(tools);
+        gValueMesh->setValue(this->meshColor[1]*255);
+        gValueMesh->setEditable(true);
+        gValueMesh->setMinMaxValues(0,255);
+        gValueMesh->setCallback([this](int state){
+            Color c = this->meshColor;
+            int c1,c2,c3;
+            c1 = c[0]*255;
+            c2 = c[2]*255;
+            c3 = c[3]*255;
+            this->meshColor= Color(c1,state,c2,c3);
+        });
+        new Label(tools, "B:");
+        bValueMesh = new IntBox<int>(tools);
+        bValueMesh->setValue(this->meshColor[2]*255);
+        bValueMesh->setEditable(true);
+        bValueMesh->setMinMaxValues(0,255);
+        bValueMesh->setCallback([this](int state){
+            Color c = this->meshColor;
+            int c1,c2,c3;
+            c1 = c[0]*255;
+            c2 = c[1]*255;
+            c3 = c[3]*255;
+            this->meshColor= Color(c1,c2,state,c3);
+        });
+
 
         new Label(popup, "Wireframe color");
-        colorwheel = new ColorWheel(popup);
-        colorwheel->setColor(this->wireframeColor);
-        colorwheel->setCallback([this](Color state){
-            this->wireframeColor = state;
-            this->shaderStateChange = true;
+        colorWheelWF = new ColorWheel(popup);
+        colorWheelWF->setColor(this->wireframeColor);
+        colorWheelWF->setCallback([this](Color state){
+            this->wireframeColor=state;
         });
 
-        popupBtn = new PopupButton(window, "Camera settings");
+        tools = new Widget(popup);
+        tools->setLayout(new BoxLayout(Orientation::Horizontal, Alignment::Middle, 0, 6));
+        new Label(tools, "R:");
+        rValueWF = new IntBox<int>(tools);
+        rValueWF->setValue(this->wireframeColor[0]*255);
+        rValueWF->setEditable(true);
+        rValueWF->setMinMaxValues(0,255);
+        rValueWF->setCallback([this](int state){
+            Color c = this->wireframeColor;
+            int c1,c2,c3;
+            c1 = c[1]*255;
+            c2 = c[2]*255;
+            c3 = c[3]*255;
+            this->wireframeColor= Color(state,c1,c2,c3);
+        });
+        new Label(tools, "G:");
+        gValueWF = new IntBox<int>(tools);
+        gValueWF->setValue(this->wireframeColor[1]*255);
+        gValueWF->setEditable(true);
+        gValueWF->setMinMaxValues(0,255);
+        gValueWF->setCallback([this](int state){
+            Color c = this->wireframeColor;
+            int c1,c2,c3;
+            c1 = c[0]*255;
+            c2 = c[2]*255;
+            c3 = c[3]*255;
+            this->wireframeColor= Color(c1,state,c2,c3);
+        });
+        new Label(tools, "B:");
+        bValueWF = new IntBox<int>(tools);
+        bValueWF->setValue(this->wireframeColor[2]*255);
+        bValueWF->setEditable(true);
+        bValueWF->setMinMaxValues(0,255);
+        bValueWF->setCallback([this](int state){
+            Color c = this->wireframeColor;
+            int c1,c2,c3;
+            c1 = c[0]*255;
+            c2 = c[1]*255;
+            c3 = c[3]*255;
+            this->wireframeColor= Color(c1,c2,state,c3);
+        });
+
+        popupBtn = new PopupButton(meshTools, "Camera settings");
         popup = popupBtn->popup();
         popup->setLayout(new GroupLayout());
         popup->setTooltip("Tools for the camera");
@@ -140,14 +268,51 @@ public:
             perspectiveCB->setTooltip("Toggle perspective view for the canvas");
         }
 
-        Button *help = new Button(window, "Help");
+        Button *help = new Button(meshTools, "Help");
         help->setCallback([&] {
             auto dlg = new MessageDialog(this, MessageDialog::Type::Information, "Starting informations", "This is an information message");
             dlg->setCallback([](int result) { cout << "Dialog result: " << result << endl; });
         });
         auto dlg = new MessageDialog(this, MessageDialog::Type::Information, "Starting informations", "This is an information message");
 
+        ///INFORMATION BAR
+
+        Window *informationBar = new Window(this, "Informations");
+        informationBar->setLayout(new BoxLayout(Orientation::Horizontal, Alignment::Middle, 0, 6));
+        informationBar->setPosition(Vector2i(177,0));
+
+        new Label(informationBar, "Vertices:", "sans-bold");
+        nVerticesIntBox = new IntBox<int>(informationBar);
+        nVerticesIntBox->setValue(nFaces*3);
+        new Label(informationBar, "Faces:", "sans-bold");
+        nFacesIntBox = new IntBox<int>(informationBar);
+        nFacesIntBox->setValue(nFaces);
+        new Label(informationBar, "Field of view:", "sans-bold");
+        FOVIntBox = new IntBox<int>(informationBar);
+        FOVIntBox->setValue(nanoguiCamera.cameraViewAngle);
+
         performLayout();
+    }
+
+    void refreshGUIElements(){
+        colorwheelBG->setColor(background());
+        rValueBG->setValue(background().r()*255);
+        gValueBG->setValue(background().g()*255);
+        bValueBG->setValue(background().b()*255);
+
+        colorWheelMesh->setColor(meshColor);
+        rValueMesh->setValue(meshColor[0]*255);
+        gValueMesh->setValue(meshColor[1]*255);
+        bValueMesh->setValue(meshColor[2]*255);
+
+        colorWheelWF->setColor(wireframeColor);
+        rValueWF->setValue(wireframeColor[0]*255);
+        gValueWF->setValue(wireframeColor[1]*255);
+        bValueWF->setValue(wireframeColor[2]*255);
+
+        nVerticesIntBox->setValue(nFaces*3);
+        nFacesIntBox->setValue(nFaces);
+        FOVIntBox->setValue(nanoguiCamera.cameraViewAngle);
     }
 
     virtual bool keyboardEvent(int key, int scancode, int action, int modifiers) {
@@ -224,6 +389,13 @@ public:
     }
 
     virtual void drawContents(){
+        //Azzero le variabili visibili nelle info che devono essere ancora inizializzate
+        if(start){
+            wireframeColor= Color(0,0,0,255);
+            nFaces=0;
+            start=false;
+        }
+        refreshGUIElements();
         using namespace nanogui;
 //        glEnable(GL_DEPTH_TEST) ->  Enable depth test
 //        glDepthFunc(GL_LESS) -> Accept fragment if it closer to the camera than the former one
@@ -375,12 +547,14 @@ private:
     Arcball lightArcball;
 
     /*Numero di triangoli caricati dal file*/
-    uint32_t nFaces;
+    //Forzo la gui ad assegnare il numero corretto di spazi per le informazioni della mesh
+    uint32_t nFaces=10000000;
 
     std::string vertexShaderFilePath, fragmentShaderFilePath,geometryShaderFilePath="";
 
-    bool wireframe= false, shaderStateChange=false, filled= false, flat = false, perspective = true;
+    bool wireframe= false, shaderStateChange=false, filled= true, flat = false, perspective = true;
     bool isTranslating = false;
+    bool start = true;
 
     //Matrice di vertici
     Eigen::MatrixXd vertices;
@@ -404,8 +578,15 @@ private:
     NanoguiCamera nanoguiCamera;
     float tarx = 0, tary = 0, tarz = 0;
 
-    Color meshColor = {0.5f,0.5f,0.5f,1.0f};
-    Color wireframeColor = {0.0f,0.0f,0.0f,1.0f};
+    Color meshColor = {128,128,128,255};
+    Color wireframeColor = {255,255,255,255};
+
+    //GUI elements that must be refreshed every frame
+    IntBox<int> *nVerticesIntBox, *nFacesIntBox, *FOVIntBox;
+    IntBox<int> *rValueMesh, *gValueMesh, *bValueMesh;
+    IntBox<int> *rValueBG, *gValueBG, *bValueBG;
+    IntBox<int> *rValueWF, *gValueWF, *bValueWF;
+    ColorWheel *colorwheelBG, *colorWheelMesh, *colorWheelWF;
 };
 
 int main(int /* argc */, char ** /* argv */) {
