@@ -7,7 +7,7 @@
 
 #include <importFiles.h>
 
-void meshMatricesInitializer(Eigen::MatrixXd &vertices, Eigen::MatrixXd &normals, Eigen::MatrixXi &faces, uint32_t &nFaces,
+void meshMatricesInitializer(Eigen::MatrixXd &vertices, Eigen::MatrixXd &normals, Eigen::MatrixXi &faces, uint32_t &nFaces,uint32_t &nVertices,
                              double &minXValue,double &maxXValue,double &minYValue,double &maxYValue,
                              double &minZValue,double &maxZValue,double &maxValue,double &minValue, double &maxDistance){
     std::vector<int> tempFaces;
@@ -28,7 +28,7 @@ void meshMatricesInitializer(Eigen::MatrixXd &vertices, Eigen::MatrixXd &normals
         loadDerivedVectors(tempVertices, tempFaces, vert2face, tempFaceNormals, tempVertNormals);
 
 //Salvo il numero di vertici e facce della mesh
-    unsigned long nVertices = (tempVertices.size()) / 3;
+    nVertices = (tempVertices.size()) / 3;
     nFaces = (uint32_t) (tempFaces.size()) / 3;
 
     std::vector<double> XValues;

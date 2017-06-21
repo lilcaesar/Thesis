@@ -35,7 +35,7 @@ public:
         Button *loadMeshButton = new Button(meshTools, "Load Mesh");
         loadMeshButton->setCallback([this](){
             //Caricamento del file
-            meshMatricesInitializer(vertices, normals, faces, nFaces,minXValue,maxXValue,minYValue,maxYValue,minZValue, maxZValue, minValue, maxValue, maxDistance);
+            meshMatricesInitializer(vertices, normals, faces, nFaces,nVertices,minXValue,maxXValue,minYValue,maxYValue,minZValue, maxZValue, minValue, maxValue, maxDistance);
 
             refreshArcball();
 
@@ -252,6 +252,15 @@ public:
             c3 = c[3]*255;
             this->wireframeColor= Color(c1,c2,state,c3);
         });
+        new Label(popup, "Line thickness:");
+        FloatBox<float> *wireframeLineFloatBox = new FloatBox<float>(popup);
+        wireframeLineFloatBox->setValue(this->wireframeLineThickness);
+        wireframeLineFloatBox->setEditable(true);
+        wireframeLineFloatBox->setSpinnable(true);
+        wireframeLineFloatBox->setMinMaxValues(0,10);
+        wireframeLineFloatBox->setCallback([this](float state){
+            this->wireframeLineThickness= state;
+        });
 
         popupBtn = new PopupButton(meshTools, "Camera settings");
         popup = popupBtn->popup();
@@ -283,7 +292,7 @@ public:
 
         new Label(informationBar, "Vertices:", "sans-bold");
         nVerticesIntBox = new IntBox<int>(informationBar);
-        nVerticesIntBox->setValue(nFaces*3);
+        nVerticesIntBox->setValue(nVertices);
         new Label(informationBar, "Faces:", "sans-bold");
         nFacesIntBox = new IntBox<int>(informationBar);
         nFacesIntBox->setValue(nFaces);
@@ -310,7 +319,7 @@ public:
         gValueWF->setValue(wireframeColor[1]*255);
         bValueWF->setValue(wireframeColor[2]*255);
 
-        nVerticesIntBox->setValue(nFaces*3);
+        nVerticesIntBox->setValue(nVertices);
         nFacesIntBox->setValue(nFaces);
         FOVIntBox->setValue(nanoguiCamera.cameraViewAngle);
     }
@@ -393,6 +402,7 @@ public:
         if(start){
             wireframeColor= Color(0,0,0,255);
             nFaces=0;
+            nVertices=0;
             start=false;
         }
         refreshGUIElements();
@@ -465,7 +475,7 @@ public:
             mShader.setUniform("filled", alphaWireframe);
             mShader.setUniform("flatColor", flatColoration);
 
-            mShader.setUniform("Line.Width", 0.5f);
+            mShader.setUniform("Line.Width", wireframeLineThickness);
             mShader.setUniform("Line.Color", Vector4f(wireframeColor));
             mShader.setUniform("Material.Kd", Vector4f(meshColor));
         }
@@ -549,6 +559,7 @@ private:
     /*Numero di triangoli caricati dal file*/
     //Forzo la gui ad assegnare il numero corretto di spazi per le informazioni della mesh
     uint32_t nFaces=10000000;
+    uint32_t nVertices=10000000;
 
     std::string vertexShaderFilePath, fragmentShaderFilePath,geometryShaderFilePath="";
 
@@ -577,6 +588,8 @@ private:
     float flatColoration=-1.0;
     NanoguiCamera nanoguiCamera;
     float tarx = 0, tary = 0, tarz = 0;
+
+    float wireframeLineThickness = 0.5f;
 
     Color meshColor = {128,128,128,255};
     Color wireframeColor = {255,255,255,255};
