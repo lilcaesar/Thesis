@@ -270,7 +270,7 @@ vector
 nanogui/widget.h
 -
 
-../src/MeshMatricesInitializer.h
+../src/MatricesInitializer.h
 importFiles.h
 -
 
@@ -313,8 +313,10 @@ GL/gl.h
 -
 VectorsOperations.h
 -
-MeshMatricesInitializer.h
+MatricesInitializer.h
 -
 GL/glu.h
+-
+GL/glut.h
 -
 

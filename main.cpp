@@ -8,8 +8,9 @@
 #include <nanogui/glutil.h>
 #include <GL/gl.h>
 #include <VectorsOperations.h>
-#include <MeshMatricesInitializer.h>
+#include <MatricesInitializer.h>
 #include <GL/glu.h>
+#include <GL/glut.h>
 
 /*TODO
  * -Modificare vettori temporanei in vettori di Eigen::Vector3
@@ -25,6 +26,8 @@ public:
     NanoguiMeshViewer() : nanogui::Screen(Eigen::Vector2i(1000, 1000), "Nanogui Mesh Viewer") {
 
         using namespace nanogui;
+
+        initializeArcball();
 
         this->setBackground(Color(180,180,255,255));
 
@@ -497,7 +500,18 @@ public:
         mShader.setUniform("proj", proj);
         mShader.setUniform("view", view);
 
-        /* Draw nFaces triangles starting at index 0 */
+        mShader.drawIndexed(GL_TRIANGLES, 0, nFaces);
+        drawArcball();
+    }
+
+    void initializeArcball(){
+        arcballMatricesInitializer(verticesArcball, normalsArcball, facesArcball, nFacesArcball, nVerticesArcball);
+    }
+
+    void drawArcball(){
+        std::string fragmentArcballShaderFilePath = "./resources/fragmentArcball.frag";
+        arcballShader.initFromFiles("Arcball Shader", "", fragmentArcballShaderFilePath.c_str());
+
         mShader.drawIndexed(GL_TRIANGLES, 0, nFaces);
     }
 
@@ -553,6 +567,7 @@ private:
         Vector3f translationStart = Vector3f::Zero();
     };
     nanogui::GLShader mShader;
+    nanogui::GLShader arcballShader;
 
     Arcball lightArcball;
 
@@ -560,6 +575,7 @@ private:
     //Forzo la gui ad assegnare il numero corretto di spazi per le informazioni della mesh
     uint32_t nFaces=10000000;
     uint32_t nVertices=10000000;
+    uint32_t nFacesArcball, nVerticesArcball;
 
     std::string vertexShaderFilePath, fragmentShaderFilePath,geometryShaderFilePath="";
 
@@ -571,6 +587,9 @@ private:
     Eigen::MatrixXd vertices;
     Eigen::MatrixXd normals;
     Eigen::MatrixXi faces;
+    Eigen::MatrixXd verticesArcball;
+    Eigen::MatrixXd normalsArcball;
+    Eigen::MatrixXi facesArcball;
 
     //Matrici per MVP
     Matrix4f  model, view, proj;
