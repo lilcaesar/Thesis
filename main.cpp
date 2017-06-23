@@ -27,8 +27,6 @@ public:
 
         using namespace nanogui;
 
-        initializeArcball();
-
         this->setBackground(Color(180,180,255,255));
 
         Window *meshTools = new Window(this, "Mesh Tools");
@@ -338,11 +336,12 @@ public:
     }
 
     bool mouseButtonEvent(const Vector2i &p, int button, bool down, int modifiers){
+        Vector2i delta(-(nanoguiCamera.translation[0]*mSize.x()/2),(nanoguiCamera.translation[1]*mSize.x()/2)); //delta necessario per ruotare la mesh premendo su di essa
         if(!Screen::mouseButtonEvent(p, button, down, modifiers)){
             if(button == GLFW_MOUSE_BUTTON_MIDDLE && modifiers == 0){
                 lightArcball.button(p,down);
             }else if(button == GLFW_MOUSE_BUTTON_1 && modifiers == 0){ // Rotazione mesh
-                nanoguiCamera.arcball.button(p, down);
+                nanoguiCamera.arcball.button(p+delta, down);
             } else if (button == GLFW_MOUSE_BUTTON_2 ||
                        (button == GLFW_MOUSE_BUTTON_1 && modifiers == GLFW_MOD_SHIFT)) {
                 nanoguiCamera.translationStart = nanoguiCamera.translation;
@@ -363,8 +362,9 @@ public:
     }
 
     bool mouseMotionEvent(const Vector2i &p, const Vector2i &rel, int button, int modifiers){
+        Vector2i delta(-(nanoguiCamera.translation[0]*mSize.x()/2),(nanoguiCamera.translation[1]*mSize.x()/2)); //delta necessario per ruotare la mesh premendo su di essa
         if(!Screen::mouseMotionEvent(p, rel, button, modifiers)){
-            if(nanoguiCamera.arcball.motion(p) || lightArcball.motion(p)){         //Passo informazioni sulla posizione del mouse alla trackball
+            if(nanoguiCamera.arcball.motion(p+delta) || lightArcball.motion(p)){         //Passo informazioni sulla posizione del mouse alla trackball
                 //
             }else if (isTranslating) {
                 Vector3f delta(p.x()-screenTranslationStart.x(), -(p.y()-screenTranslationStart.y()),0);
@@ -460,7 +460,6 @@ public:
 
         Vector3f lightPositionVector = lightArcball.matrix().block<3,3>(0,0) * lightPosition;
 
-
         //Caricamento shaders
         if(shaderStateChange && wireframe){
             shaderStateChange = false;
@@ -499,18 +498,6 @@ public:
         mShader.setUniform("model", model);
         mShader.setUniform("proj", proj);
         mShader.setUniform("view", view);
-
-        mShader.drawIndexed(GL_TRIANGLES, 0, nFaces);
-        drawArcball();
-    }
-
-    void initializeArcball(){
-        arcballMatricesInitializer(verticesArcball, normalsArcball, facesArcball, nFacesArcball, nVerticesArcball);
-    }
-
-    void drawArcball(){
-        std::string fragmentArcballShaderFilePath = "./resources/fragmentArcball.frag";
-        arcballShader.initFromFiles("Arcball Shader", "", fragmentArcballShaderFilePath.c_str());
 
         mShader.drawIndexed(GL_TRIANGLES, 0, nFaces);
     }
@@ -567,7 +554,6 @@ private:
         Vector3f translationStart = Vector3f::Zero();
     };
     nanogui::GLShader mShader;
-    nanogui::GLShader arcballShader;
 
     Arcball lightArcball;
 
@@ -575,9 +561,9 @@ private:
     //Forzo la gui ad assegnare il numero corretto di spazi per le informazioni della mesh
     uint32_t nFaces=10000000;
     uint32_t nVertices=10000000;
-    uint32_t nFacesArcball, nVerticesArcball;
 
     std::string vertexShaderFilePath, fragmentShaderFilePath,geometryShaderFilePath="";
+    std::string arcballVertexShaderFilePath, arcballFragmentShaderFilePath;
 
     bool wireframe= false, shaderStateChange=false, filled= true, flat = false, perspective = true;
     bool isTranslating = false;
@@ -587,9 +573,6 @@ private:
     Eigen::MatrixXd vertices;
     Eigen::MatrixXd normals;
     Eigen::MatrixXi faces;
-    Eigen::MatrixXd verticesArcball;
-    Eigen::MatrixXd normalsArcball;
-    Eigen::MatrixXi facesArcball;
 
     //Matrici per MVP
     Matrix4f  model, view, proj;

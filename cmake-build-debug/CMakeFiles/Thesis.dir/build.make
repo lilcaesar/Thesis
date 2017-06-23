@@ -117,11 +117,6 @@ Thesis: CMakeFiles/Thesis.dir/main.cpp.o
 Thesis: CMakeFiles/Thesis.dir/Fabrizio/importFiles.cpp.o
 Thesis: CMakeFiles/Thesis.dir/build.make
 Thesis: lib/nanogui/libnanogui.so
-Thesis: /usr/lib/x86_64-linux-gnu/libGLU.so
-Thesis: /usr/lib/x86_64-linux-gnu/libGL.so
-Thesis: /usr/lib/x86_64-linux-gnu/libglut.so
-Thesis: /usr/lib/x86_64-linux-gnu/libXmu.so
-Thesis: /usr/lib/x86_64-linux-gnu/libXi.so
 Thesis: CMakeFiles/Thesis.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/mattia/CLionProjects/Thesis/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable Thesis"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Thesis.dir/link.txt --verbose=$(VERBOSE)

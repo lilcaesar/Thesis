@@ -82,38 +82,4 @@ void meshMatricesInitializer(Eigen::MatrixXd &vertices, Eigen::MatrixXd &normals
         faces.col(i) << tempFaces[(3 * i)], tempFaces[(3 * i) + 1], tempFaces[(3 * i) + 2];
     }
 }
-
-void arcballMatricesInitializer(Eigen::MatrixXd &vertices, Eigen::MatrixXd &normals, Eigen::MatrixXi &faces, uint32_t &nFaces,uint32_t &nVertices){
-    std::vector<int> tempFaces;
-    std::vector<double> tempVertices;
-    std::vector<std::vector<int>> vert2face;
-    std::vector<double> tempFaceNormals;
-    std::vector<double> tempVertNormals;
-
-    bool hasNormals = loadOBJ("../resources/torus.obj", tempVertices, tempFaces, tempVertNormals);
-
-//Calcolo i vettori vert2face, tempFaceNormals e tempVertNormals in base ai dati della mesh
-    if(!hasNormals)
-        loadDerivedVectors(tempVertices, tempFaces, vert2face, tempFaceNormals, tempVertNormals);
-
-//Salvo il numero di vertici e facce della mesh
-    nVertices = (tempVertices.size()) / 3;
-    nFaces = (uint32_t) (tempFaces.size()) / 3;
-
-//CARICAMENTO VECTOR SU MATRIX
-    vertices.resize(3, nVertices);
-    normals.resize(3, nVertices);
-    for (unsigned long i = 0; i < nVertices; i++) {
-        vertices.col(i) << tempVertices[(3 * i)], tempVertices[(3 * i) + 1], tempVertices[(3 * i) + 2];
-        normals.col(i) << tempVertNormals[(3 * i)],
-                tempVertNormals[(3 * i) + 1],
-                tempVertNormals[(3 * i) + 2];
-    }
-
-    faces.resize(3, nFaces);
-    for (int32_t i = 0; i < nFaces; i++) {
-        faces.col(i) << tempFaces[(3 * i)], tempFaces[(3 * i) + 1], tempFaces[(3 * i) + 2];
-    }
-}
-
 #endif //THESIS_MESHMATRICESINITIALIZER_H

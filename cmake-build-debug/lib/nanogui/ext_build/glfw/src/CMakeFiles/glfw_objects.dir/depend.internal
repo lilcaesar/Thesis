@@ -3,6 +3,7 @@
 
 lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/context.c.o
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/include/GLFW/glfw3.h
+ /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/cocoa_joystick.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/cocoa_platform.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/context.c
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/egl_context.h
@@ -14,6 +15,7 @@ lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/context.c.o
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/posix_time.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/posix_tls.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/wgl_context.h
+ /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/win32_joystick.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/win32_platform.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/wl_platform.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/x11_platform.h
@@ -21,6 +23,7 @@ lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/context.c.o
  lib/nanogui/ext_build/glfw/src/glfw_config.h
 lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/egl_context.c.o
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/include/GLFW/glfw3.h
+ /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/cocoa_joystick.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/cocoa_platform.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/egl_context.c
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/egl_context.h
@@ -32,6 +35,7 @@ lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/egl_context.c.o
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/posix_time.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/posix_tls.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/wgl_context.h
+ /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/win32_joystick.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/win32_platform.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/wl_platform.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/x11_platform.h
@@ -39,6 +43,7 @@ lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/egl_context.c.o
  lib/nanogui/ext_build/glfw/src/glfw_config.h
 lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/glx_context.c.o
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/include/GLFW/glfw3.h
+ /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/cocoa_joystick.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/cocoa_platform.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/egl_context.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/glx_context.c
@@ -50,6 +55,7 @@ lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/glx_context.c.o
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/posix_time.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/posix_tls.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/wgl_context.h
+ /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/win32_joystick.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/win32_platform.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/wl_platform.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/x11_platform.h
@@ -57,6 +63,7 @@ lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/glx_context.c.o
  lib/nanogui/ext_build/glfw/src/glfw_config.h
 lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/init.c.o
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/include/GLFW/glfw3.h
+ /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/cocoa_joystick.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/cocoa_platform.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/egl_context.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/glx_context.h
@@ -68,6 +75,7 @@ lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/init.c.o
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/posix_time.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/posix_tls.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/wgl_context.h
+ /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/win32_joystick.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/win32_platform.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/wl_platform.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/x11_platform.h
@@ -75,6 +83,7 @@ lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/init.c.o
  lib/nanogui/ext_build/glfw/src/glfw_config.h
 lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/input.c.o
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/include/GLFW/glfw3.h
+ /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/cocoa_joystick.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/cocoa_platform.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/egl_context.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/glx_context.h
@@ -86,6 +95,7 @@ lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/input.c.o
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/posix_time.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/posix_tls.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/wgl_context.h
+ /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/win32_joystick.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/win32_platform.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/wl_platform.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/x11_platform.h
@@ -93,6 +103,7 @@ lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/input.c.o
  lib/nanogui/ext_build/glfw/src/glfw_config.h
 lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/linux_joystick.c.o
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/include/GLFW/glfw3.h
+ /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/cocoa_joystick.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/cocoa_platform.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/egl_context.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/glx_context.h
@@ -104,6 +115,7 @@ lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/linux_joystick.c.o
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/posix_time.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/posix_tls.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/wgl_context.h
+ /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/win32_joystick.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/win32_platform.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/wl_platform.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/x11_platform.h
@@ -111,6 +123,7 @@ lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/linux_joystick.c.o
  lib/nanogui/ext_build/glfw/src/glfw_config.h
 lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/monitor.c.o
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/include/GLFW/glfw3.h
+ /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/cocoa_joystick.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/cocoa_platform.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/egl_context.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/glx_context.h
@@ -122,6 +135,7 @@ lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/monitor.c.o
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/posix_time.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/posix_tls.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/wgl_context.h
+ /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/win32_joystick.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/win32_platform.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/wl_platform.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/x11_platform.h
@@ -129,6 +143,7 @@ lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/monitor.c.o
  lib/nanogui/ext_build/glfw/src/glfw_config.h
 lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/posix_time.c.o
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/include/GLFW/glfw3.h
+ /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/cocoa_joystick.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/cocoa_platform.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/egl_context.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/glx_context.h
@@ -140,6 +155,7 @@ lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/posix_time.c.o
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/posix_time.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/posix_tls.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/wgl_context.h
+ /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/win32_joystick.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/win32_platform.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/wl_platform.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/x11_platform.h
@@ -147,6 +163,7 @@ lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/posix_time.c.o
  lib/nanogui/ext_build/glfw/src/glfw_config.h
 lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/posix_tls.c.o
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/include/GLFW/glfw3.h
+ /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/cocoa_joystick.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/cocoa_platform.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/egl_context.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/glx_context.h
@@ -158,6 +175,7 @@ lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/posix_tls.c.o
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/posix_tls.c
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/posix_tls.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/wgl_context.h
+ /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/win32_joystick.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/win32_platform.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/wl_platform.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/x11_platform.h
@@ -165,6 +183,7 @@ lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/posix_tls.c.o
  lib/nanogui/ext_build/glfw/src/glfw_config.h
 lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/vulkan.c.o
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/include/GLFW/glfw3.h
+ /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/cocoa_joystick.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/cocoa_platform.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/egl_context.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/glx_context.h
@@ -176,6 +195,7 @@ lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/vulkan.c.o
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/posix_tls.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/vulkan.c
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/wgl_context.h
+ /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/win32_joystick.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/win32_platform.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/wl_platform.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/x11_platform.h
@@ -183,6 +203,7 @@ lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/vulkan.c.o
  lib/nanogui/ext_build/glfw/src/glfw_config.h
 lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/window.c.o
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/include/GLFW/glfw3.h
+ /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/cocoa_joystick.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/cocoa_platform.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/egl_context.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/glx_context.h
@@ -193,6 +214,7 @@ lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/window.c.o
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/posix_time.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/posix_tls.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/wgl_context.h
+ /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/win32_joystick.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/win32_platform.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/window.c
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/wl_platform.h
@@ -201,6 +223,7 @@ lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/window.c.o
  lib/nanogui/ext_build/glfw/src/glfw_config.h
 lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/x11_init.c.o
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/include/GLFW/glfw3.h
+ /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/cocoa_joystick.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/cocoa_platform.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/egl_context.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/glx_context.h
@@ -211,6 +234,7 @@ lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/x11_init.c.o
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/posix_time.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/posix_tls.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/wgl_context.h
+ /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/win32_joystick.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/win32_platform.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/wl_platform.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/x11_init.c
@@ -219,6 +243,7 @@ lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/x11_init.c.o
  lib/nanogui/ext_build/glfw/src/glfw_config.h
 lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/x11_monitor.c.o
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/include/GLFW/glfw3.h
+ /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/cocoa_joystick.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/cocoa_platform.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/egl_context.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/glx_context.h
@@ -229,6 +254,7 @@ lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/x11_monitor.c.o
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/posix_time.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/posix_tls.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/wgl_context.h
+ /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/win32_joystick.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/win32_platform.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/wl_platform.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/x11_monitor.c
@@ -237,6 +263,7 @@ lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/x11_monitor.c.o
  lib/nanogui/ext_build/glfw/src/glfw_config.h
 lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/x11_window.c.o
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/include/GLFW/glfw3.h
+ /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/cocoa_joystick.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/cocoa_platform.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/egl_context.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/glx_context.h
@@ -247,6 +274,7 @@ lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/x11_window.c.o
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/posix_time.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/posix_tls.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/wgl_context.h
+ /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/win32_joystick.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/win32_platform.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/wl_platform.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/x11_platform.h
@@ -255,6 +283,7 @@ lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/x11_window.c.o
  lib/nanogui/ext_build/glfw/src/glfw_config.h
 lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/xkb_unicode.c.o
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/include/GLFW/glfw3.h
+ /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/cocoa_joystick.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/cocoa_platform.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/egl_context.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/glx_context.h
@@ -265,6 +294,7 @@ lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/xkb_unicode.c.o
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/posix_time.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/posix_tls.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/wgl_context.h
+ /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/win32_joystick.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/win32_platform.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/wl_platform.h
  /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/x11_platform.h

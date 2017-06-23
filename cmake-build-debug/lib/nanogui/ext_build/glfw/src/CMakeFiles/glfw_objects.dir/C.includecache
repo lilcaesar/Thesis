@@ -9,6 +9,8 @@
 /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/include/GLFW/glfw3.h
 stddef.h
 -
+stdint.h
+-
 OpenGL/gl3.h
 -
 OpenGL/gl3ext.h
@@ -29,11 +31,13 @@ GLES2/gl2ext.h
 -
 GLES3/gl3.h
 -
-GLES3/gl2ext.h
+GLES2/gl2ext.h
 -
 GLES3/gl31.h
 -
-GLES3/gl2ext.h
+GLES2/gl2ext.h
+-
+vulkan/vulkan.h
 -
 GL/gl.h
 -
@@ -42,23 +46,41 @@ GL/glext.h
 GL/glu.h
 -
 
+/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/cocoa_joystick.h
+IOKit/IOKitLib.h
+-
+IOKit/IOCFPlugIn.h
+-
+IOKit/hid/IOHIDLib.h
+-
+IOKit/hid/IOHIDKeys.h
+-
+
 /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/cocoa_platform.h
 stdint.h
 -
+dlfcn.h
+-
+Carbon/Carbon.h
+-
 Cocoa/Cocoa.h
+-
+Carbon/Carbon.h
 -
 ApplicationServices/ApplicationServices.h
 -
 posix_tls.h
 /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/posix_tls.h
-iokit_joystick.h
-/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/iokit_joystick.h
+cocoa_joystick.h
+/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/cocoa_joystick.h
 nsgl_context.h
 /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/nsgl_context.h
 
 /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/context.c
 internal.h
 /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/internal.h
+assert.h
+-
 stdio.h
 -
 string.h
@@ -79,12 +101,8 @@ assert.h
 -
 
 /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/egl_context.h
-dlfcn.h
+EGL/eglplatform.h
 -
-EGL/egl.h
--
-../deps/EGL/eglext.h
-/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/deps/EGL/eglext.h
 
 /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/glx_context.c
 internal.h
@@ -95,14 +113,8 @@ stdlib.h
 -
 assert.h
 -
-dlfcn.h
--
 
 /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/glx_context.h
-GL/glx.h
--
-../deps/GL/glxext.h
-/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/deps/GL/glxext.h
 
 /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/init.c
 internal.h
@@ -119,9 +131,11 @@ stdarg.h
 /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/input.c
 internal.h
 /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/internal.h
-stdlib.h
+assert.h
 -
-malloc.h
+float.h
+-
+stdlib.h
 -
 
 /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/internal.h
@@ -129,8 +143,6 @@ glfw_config.h
 /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/glfw_config.h
 ../include/GLFW/glfw3.h
 /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/include/GLFW/glfw3.h
-../deps/GL/glext.h
-/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/deps/GL/glext.h
 cocoa_platform.h
 /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/cocoa_platform.h
 win32_platform.h
@@ -177,6 +189,8 @@ sys/queue.h
 -
 pthread.h
 -
+dlfcn.h
+-
 mir_toolkit/mir_client_library.h
 -
 posix_tls.h
@@ -193,6 +207,8 @@ egl_context.h
 /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/monitor.c
 internal.h
 /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/internal.h
+assert.h
+-
 math.h
 -
 float.h
@@ -237,22 +253,26 @@ stdlib.h
 -
 
 /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/wgl_context.h
-../deps/GL/wglext.h
-/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/deps/GL/wglext.h
+
+/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/win32_joystick.h
 
 /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/win32_platform.h
+wctype.h
+-
 windows.h
 -
 mmsystem.h
+-
+dinput.h
+-
+xinput.h
 -
 dbt.h
 -
 malloc.h
 -
-win32_tls.h
-/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/win32_tls.h
-winmm_joystick.h
-/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/winmm_joystick.h
+win32_joystick.h
+/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/win32_joystick.h
 wgl_context.h
 /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/wgl_context.h
 egl_context.h
@@ -261,15 +281,21 @@ egl_context.h
 /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/window.c
 internal.h
 /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/internal.h
+assert.h
+-
 string.h
 -
 stdlib.h
+-
+float.h
 -
 
 /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/wl_platform.h
 wayland-client.h
 -
 xkbcommon/xkbcommon.h
+-
+dlfcn.h
 -
 posix_tls.h
 /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/posix_tls.h
@@ -281,6 +307,10 @@ xkb_unicode.h
 /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/xkb_unicode.h
 egl_context.h
 /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/egl_context.h
+wayland-relative-pointer-unstable-v1-client-protocol.h
+/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/wayland-relative-pointer-unstable-v1-client-protocol.h
+wayland-pointer-constraints-unstable-v1-client-protocol.h
+/home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/wayland-pointer-constraints-unstable-v1-client-protocol.h
 
 /home/mattia/CLionProjects/Thesis/lib/nanogui/ext/glfw/src/x11_init.c
 internal.h
@@ -315,6 +345,8 @@ signal.h
 -
 stdint.h
 -
+dlfcn.h
+-
 X11/Xlib.h
 -
 X11/keysym.h
@@ -328,8 +360,6 @@ X11/extensions/Xrandr.h
 X11/XKBlib.h
 -
 X11/extensions/Xinerama.h
--
-X11/extensions/XInput2.h
 -
 X11/extensions/xf86vmode.h
 -

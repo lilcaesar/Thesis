@@ -93,8 +93,8 @@
       <config projectName="Thesis" targetName="geo_transformations_4" />
       <config projectName="Thesis" targetName="Tutorial_BlockOperations_colrow" />
       <config projectName="Thesis" targetName="geo_transformations_5" />
-      <config projectName="Thesis" targetName="geo_transformations_6" />
       <config projectName="Thesis" targetName="compile_SelfAdjointEigenSolver_SelfAdjointEigenSolver" />
+      <config projectName="Thesis" targetName="geo_transformations_6" />
       <config projectName="Thesis" targetName="cwiseop_1" />
       <config projectName="Thesis" targetName="umeyama" />
       <config projectName="Thesis" targetName="cwiseop_2" />
@@ -108,9 +108,9 @@
       <config projectName="Thesis" targetName="compile_TopicStorageOrders_example" />
       <config projectName="Thesis" targetName="stddeque_overload_4" />
       <config projectName="Thesis" targetName="stddeque_overload_3" />
-      <config projectName="Thesis" targetName="polynomialsolver_8" />
       <config projectName="Thesis" targetName="stdvector_overload_4" />
       <config projectName="Thesis" targetName="compile_MatrixBase_bottomRightCorner_int_int" />
+      <config projectName="Thesis" targetName="polynomialsolver_8" />
       <config projectName="Thesis" targetName="test_sparseLU" />
       <config projectName="Thesis" targetName="stddeque_overload_5" />
       <config projectName="Thesis" targetName="stdvector_overload_5" />
@@ -135,8 +135,8 @@
       <config projectName="Thesis" targetName="cholesky_8" />
       <config projectName="Thesis" targetName="cholesky_9" />
       <config projectName="Thesis" targetName="bicgstab_2" />
-      <config projectName="Thesis" targetName="jacobi" />
       <config projectName="Thesis" targetName="tut_arithmetic_matrix_mul" />
+      <config projectName="Thesis" targetName="jacobi" />
       <config projectName="Thesis" targetName="matrix_function_5" />
       <config projectName="Thesis" targetName="matrix_function_6" />
       <config projectName="Thesis" targetName="matrix_function_7" />
@@ -211,14 +211,14 @@
       <config projectName="Thesis" targetName="product_small_5" />
       <config projectName="Thesis" targetName="array_for_matrix_2" />
       <config projectName="Thesis" targetName="sparse_permutations_1" />
-      <config projectName="Thesis" targetName="array_for_matrix_5" />
       <config projectName="Thesis" targetName="product_small_6" />
       <config projectName="Thesis" targetName="compile_Cwise_abs" />
+      <config projectName="Thesis" targetName="array_for_matrix_5" />
       <config projectName="Thesis" targetName="compile_PartialRedux_minCoeff" />
       <config projectName="Thesis" targetName="product_extra_1" />
       <config projectName="Thesis" targetName="sparse_permutations_2" />
-      <config projectName="Thesis" targetName="compile_MatrixBase_setIdentity" />
       <config projectName="Thesis" targetName="array_for_matrix_4" />
+      <config projectName="Thesis" targetName="compile_MatrixBase_setIdentity" />
       <config projectName="Thesis" targetName="product_extra_2" />
       <config projectName="Thesis" targetName="array_for_matrix_7" />
       <config projectName="Thesis" targetName="product_extra_3" />
@@ -236,8 +236,8 @@
       <config projectName="Thesis" targetName="conservative_resize_5" />
       <config projectName="Thesis" targetName="product_trmm_22" />
       <config projectName="Thesis" targetName="product_trmm_21" />
-      <config projectName="Thesis" targetName="conservative_resize_6" />
       <config projectName="Thesis" targetName="NightlyMemCheck" />
+      <config projectName="Thesis" targetName="conservative_resize_6" />
       <config projectName="Thesis" targetName="conservative_resize_3" />
       <config projectName="Thesis" targetName="conservative_resize_4" />
       <config projectName="Thesis" targetName="conservative_resize_1" />
@@ -249,8 +249,8 @@
       <config projectName="Thesis" targetName="prec_inverse_4x4_1" />
       <config projectName="Thesis" targetName="prec_inverse_4x4_2" />
       <config projectName="Thesis" targetName="geo_quaternion" />
-      <config projectName="Thesis" targetName="product_trmm_31" />
       <config projectName="Thesis" targetName="adjoint_2" />
+      <config projectName="Thesis" targetName="product_trmm_31" />
       <config projectName="Thesis" targetName="eigensolver_selfadjoint" />
       <config projectName="Thesis" targetName="adjoint_3" />
       <config projectName="Thesis" targetName="array_replicate" />
@@ -279,8 +279,8 @@
       <config projectName="Thesis" targetName="visitor_9" />
       <config projectName="Thesis" targetName="product_trmm_14" />
       <config projectName="Thesis" targetName="visitor_8" />
-      <config projectName="Thesis" targetName="visitor_7" />
       <config projectName="Thesis" targetName="nanogui" />
+      <config projectName="Thesis" targetName="visitor_7" />
       <config projectName="Thesis" targetName="visitor_6" />
       <config projectName="Thesis" targetName="visitor_5" />
       <config projectName="Thesis" targetName="visitor_4" />
@@ -299,10 +299,10 @@
       <config projectName="Thesis" targetName="eigen2support_1" />
       <config projectName="Thesis" targetName="mapstride" />
       <config projectName="Thesis" targetName="simplicial_cholesky_2" />
-      <config projectName="Thesis" targetName="simplicial_cholesky_1" />
       <config projectName="Thesis" targetName="compile_HessenbergDecomposition_packedMatrix" />
-      <config projectName="Thesis" targetName="compile_MatrixBase_replicate" />
+      <config projectName="Thesis" targetName="simplicial_cholesky_1" />
       <config projectName="Thesis" targetName="NightlyStart" />
+      <config projectName="Thesis" targetName="compile_MatrixBase_replicate" />
       <config projectName="Thesis" targetName="compile_HessenbergDecomposition_matrixH" />
       <config projectName="Thesis" targetName="compile_class_FullPivLU" />
       <config projectName="Thesis" targetName="stdlist" />
@@ -423,11 +423,11 @@
       <config projectName="Thesis" targetName="diagonalmatrices_2" />
       <config projectName="Thesis" targetName="qr_fullpivoting_4" />
       <config projectName="Thesis" targetName="integer_types_1" />
-      <config projectName="Thesis" targetName="diagonalmatrices_5" />
       <config projectName="Thesis" targetName="qr_fullpivoting_7" />
+      <config projectName="Thesis" targetName="diagonalmatrices_5" />
       <config projectName="Thesis" targetName="integer_types_2" />
-      <config projectName="Thesis" targetName="qr_fullpivoting_6" />
       <config projectName="Thesis" targetName="diagonalmatrices_4" />
+      <config projectName="Thesis" targetName="qr_fullpivoting_6" />
       <config projectName="Thesis" targetName="diagonalmatrices_7" />
       <config projectName="Thesis" targetName="all_examples" />
       <config projectName="Thesis" targetName="diagonalmatrices_6" />
@@ -502,8 +502,8 @@
       <config projectName="Thesis" targetName="lu_9" />
       <config projectName="Thesis" targetName="compile_MatrixBase_select" />
       <config projectName="Thesis" targetName="lu_7" />
-      <config projectName="Thesis" targetName="BuildOfficial" />
       <config projectName="Thesis" targetName="lu_6" />
+      <config projectName="Thesis" targetName="BuildOfficial" />
       <config projectName="Thesis" targetName="ExperimentalStart" />
       <config projectName="Thesis" targetName="compile_MatrixBase_applyOnTheRight" />
       <config projectName="Thesis" targetName="lu_1" />
@@ -514,13 +514,13 @@
       <config projectName="Thesis" targetName="compile_MatrixBase_random_int" />
       <config projectName="Thesis" targetName="jacobisvd_3" />
       <config projectName="Thesis" targetName="mapstaticmethods_3" />
-      <config projectName="Thesis" targetName="compile_Matrix_resize_NoChange_int" />
       <config projectName="Thesis" targetName="jacobisvd_2" />
+      <config projectName="Thesis" targetName="compile_Matrix_resize_NoChange_int" />
       <config projectName="Thesis" targetName="mapstaticmethods_4" />
       <config projectName="Thesis" targetName="nomalloc_1" />
       <config projectName="Thesis" targetName="example_MatrixPower_optimal" />
-      <config projectName="Thesis" targetName="mapstaticmethods_5" />
       <config projectName="Thesis" targetName="jacobisvd_1" />
+      <config projectName="Thesis" targetName="mapstaticmethods_5" />
       <config projectName="Thesis" targetName="mapstaticmethods_6" />
       <config projectName="Thesis" targetName="compile_FullPivLU_kernel" />
       <config projectName="Thesis" targetName="dontalign_7" />
@@ -547,9 +547,9 @@
       <config projectName="Thesis" targetName="product_trmm_132" />
       <config projectName="Thesis" targetName="product_trmm_133" />
       <config projectName="Thesis" targetName="hessenberg_6" />
+      <config projectName="Thesis" targetName="product_trmm_134" />
       <config projectName="Thesis" targetName="hessenberg_5" />
       <config projectName="Thesis" targetName="jacobisvd_10" />
-      <config projectName="Thesis" targetName="product_trmm_134" />
       <config projectName="Thesis" targetName="hessenberg_2" />
       <config projectName="Thesis" targetName="hessenberg_1" />
       <config projectName="Thesis" targetName="visitor_10" />
@@ -606,8 +606,8 @@
       <config projectName="Thesis" targetName="product_trmv_6" />
       <config projectName="Thesis" targetName="check" />
       <config projectName="Thesis" targetName="NightlyBuild" />
-      <config projectName="Thesis" targetName="tut_matrix_resize_fixed_size" />
       <config projectName="Thesis" targetName="product_trmv_4" />
+      <config projectName="Thesis" targetName="tut_matrix_resize_fixed_size" />
       <config projectName="Thesis" targetName="product_trmv_5" />
       <config projectName="Thesis" targetName="smallvectors" />
       <config projectName="Thesis" targetName="compile_MatrixBase_applyOnTheLeft" />
@@ -624,8 +624,8 @@
       <config projectName="Thesis" targetName="stdlist_overload_5" />
       <config projectName="Thesis" targetName="stdlist_overload_4" />
       <config projectName="Thesis" targetName="stdlist_overload_3" />
-      <config projectName="Thesis" targetName="compile_MatrixBase_topRightCorner_int_int" />
       <config projectName="Thesis" targetName="eigen_lapack_static" />
+      <config projectName="Thesis" targetName="compile_MatrixBase_topRightCorner_int_int" />
       <config projectName="Thesis" targetName="ExperimentalConfigure" />
       <config projectName="Thesis" targetName="compile_Tutorial_AdvancedInitialization_Join" />
       <config projectName="Thesis" targetName="compile_Vectorwise_reverse" />
@@ -710,8 +710,8 @@
       <config projectName="Thesis" targetName="array_reverse_9" />
       <config projectName="Thesis" targetName="product_symm_8" />
       <config projectName="Thesis" targetName="product_symm_7" />
-      <config projectName="Thesis" targetName="product_symm_6" />
       <config projectName="Thesis" targetName="array_reverse_7" />
+      <config projectName="Thesis" targetName="product_symm_6" />
       <config projectName="Thesis" targetName="array_reverse_8" />
       <config projectName="Thesis" targetName="product_symm_5" />
       <config projectName="Thesis" targetName="ExperimentalTest" />
@@ -734,8 +734,8 @@
       <config projectName="Thesis" targetName="bdcsvd_3" />
       <config projectName="Thesis" targetName="bdcsvd_4" />
       <config projectName="Thesis" targetName="compile_MatrixBase_random_int_int" />
-      <config projectName="Thesis" targetName="compile_MatrixBase_col" />
       <config projectName="Thesis" targetName="sparseqr_1" />
+      <config projectName="Thesis" targetName="compile_MatrixBase_col" />
       <config projectName="Thesis" targetName="MatrixBase_cwise_const" />
       <config projectName="Thesis" targetName="buildtests" />
       <config projectName="Thesis" targetName="example3" />
@@ -932,9 +932,9 @@
       <config projectName="Thesis" targetName="mapped_matrix_1" />
       <config projectName="Thesis" targetName="mapped_matrix_2" />
       <config projectName="Thesis" targetName="mapped_matrix_3" />
-      <config projectName="Thesis" targetName="compile_Cwise_asin" />
       <config projectName="Thesis" targetName="mapped_matrix_4" />
       <config projectName="Thesis" targetName="compile_Tutorial_commainit_02" />
+      <config projectName="Thesis" targetName="compile_Cwise_asin" />
       <config projectName="Thesis" targetName="compile_Tutorial_solve_singular" />
       <config projectName="Thesis" targetName="mapped_matrix_5" />
       <config projectName="Thesis" targetName="compile_Tutorial_commainit_01" />
@@ -1081,8 +1081,8 @@
       <config projectName="Thesis" targetName="matrix_square_root" />
       <config projectName="Thesis" targetName="geo_homogeneous_1" />
       <config projectName="Thesis" targetName="conjugate_gradient_2" />
-      <config projectName="Thesis" targetName="geo_alignedbox_9" />
       <config projectName="Thesis" targetName="geo_homogeneous_3" />
+      <config projectName="Thesis" targetName="geo_alignedbox_9" />
       <config projectName="Thesis" targetName="geo_homogeneous_2" />
       <config projectName="Thesis" targetName="geo_alignedbox_8" />
       <config projectName="Thesis" targetName="geo_hyperplane" />
@@ -1100,8 +1100,8 @@
       <config projectName="Thesis" targetName="compile_Cwise_product" />
       <config projectName="Thesis" targetName="determinant_6" />
       <config projectName="Thesis" targetName="compile_Tutorial_solve_multiple_rhs" />
-      <config projectName="Thesis" targetName="eigensolver_generic_3" />
       <config projectName="Thesis" targetName="basicstuff_1" />
+      <config projectName="Thesis" targetName="eigensolver_generic_3" />
       <config projectName="Thesis" targetName="eigensolver_generic_2" />
       <config projectName="Thesis" targetName="basicstuff_2" />
       <config projectName="Thesis" targetName="compile_Cwise_sqrt" />
@@ -1125,9 +1125,9 @@
       <config projectName="Thesis" targetName="determinant_5" />
       <config projectName="Thesis" targetName="determinant_4" />
       <config projectName="Thesis" targetName="determinant_3" />
+      <config projectName="Thesis" targetName="compile_MatrixBase_set" />
       <config projectName="Thesis" targetName="schur_complex_5" />
       <config projectName="Thesis" targetName="determinant_2" />
-      <config projectName="Thesis" targetName="compile_MatrixBase_set" />
       <config projectName="Thesis" targetName="compile_MatrixBase_colwise" />
       <config projectName="Thesis" targetName="determinant_1" />
       <config projectName="Thesis" targetName="product_extra" />
@@ -1140,21 +1140,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a680da8-e369-473d-8d55-67ddcf1981b9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/fragmentArcball.frag" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Thesis.dir/main.cpp.o" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/MeshMatricesInitializer.h" afterPath="$PROJECT_DIR$/src/MatricesInitializer.h" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/fragmentArcball.frag" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/torus.obj" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Thesis.dir/main.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Thesis.dir/main.cpp.o" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/Thesis" afterPath="$PROJECT_DIR$/cmake-build-debug/Thesis" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CMakeLists.txt" afterPath="$PROJECT_DIR$/CMakeLists.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Thesis.dir/CXX.includecache" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Thesis.dir/CXX.includecache" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Thesis.dir/build.make" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Thesis.dir/build.make" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Thesis.dir/depend.internal" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Thesis.dir/depend.internal" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Thesis.dir/depend.make" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Thesis.dir/depend.make" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Thesis.dir/link.txt" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Thesis.dir/link.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/Thesis.cbp" afterPath="$PROJECT_DIR$/cmake-build-debug/Thesis.cbp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/language_tests/Fortran/CMakeFiles/3.7.2/CMakeSystem.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/language_tests/Fortran/CMakeFiles/3.7.2/CMakeSystem.cmake" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/language_tests/Fortran/CMakeFiles/CMakeOutput.log" afterPath="$PROJECT_DIR$/cmake-build-debug/language_tests/Fortran/CMakeFiles/CMakeOutput.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/C.includecache" afterPath="$PROJECT_DIR$/cmake-build-debug/lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/C.includecache" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/depend.internal" afterPath="$PROJECT_DIR$/cmake-build-debug/lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/depend.internal" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/depend.make" afterPath="$PROJECT_DIR$/cmake-build-debug/lib/nanogui/ext_build/glfw/src/CMakeFiles/glfw_objects.dir/depend.make" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.cpp" afterPath="$PROJECT_DIR$/main.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MatricesInitializer.h" afterPath="$PROJECT_DIR$/src/MatricesInitializer.h" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <ignored path="$PROJECT_DIR$/lib/nanogui/ext/eigen/CMakeFiles/" />
@@ -1175,8 +1174,8 @@
       <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="506" column="29" lean-forward="true" selection-start-line="506" selection-start-column="29" selection-end-line="506" selection-end-column="29" />
+            <state relative-caret-position="241">
+              <caret line="363" column="49" lean-forward="false" selection-start-line="363" selection-start-column="49" selection-end-line="363" selection-end-column="49" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -1184,21 +1183,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <file leaf-file-name="MatricesInitializer.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/MatricesInitializer.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+            <state relative-caret-position="272">
+              <caret line="56" column="56" lean-forward="false" selection-start-line="56" selection-start-column="56" selection-end-line="56" selection-end-column="56" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fragmentArcball.frag" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/fragmentArcball.frag">
+      <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="360">
+              <caret line="18" column="75" lean-forward="false" selection-start-line="18" selection-start-column="75" selection-end-line="18" selection-end-column="75" />
               <folding />
             </state>
           </provider>
@@ -1215,7 +1214,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>cout</find>
       <find>min</find>
       <find>maxV</find>
       <find>wire</find>
@@ -1245,6 +1243,7 @@
       <find>time</find>
       <find>draw</find>
       <find>glut</find>
+      <find>cout</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -1278,8 +1277,11 @@
         <option value="$PROJECT_DIR$/resources/geometryWireframe.geom" />
         <option value="$PROJECT_DIR$/resources/fragmentWireframe.frag" />
         <option value="$PROJECT_DIR$/src/MeshMatricesInitializer.h" />
-        <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/resources/fragmentArcball.frag" />
+        <option value="$PROJECT_DIR$/models/arcball.obj" />
+        <option value="$PROJECT_DIR$/resources/arcballFragmentShader.frag" />
+        <option value="$PROJECT_DIR$/resources/arcballVertexShader.vert" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/src/MatricesInitializer.h" />
         <option value="$PROJECT_DIR$/main.cpp" />
       </list>
@@ -1293,10 +1295,9 @@
   </component>
   <component name="OCFindUsagesOptions" text="false" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1" />
-    <option name="y" value="-11" />
-    <option name="width" value="1922" />
-    <option name="height" value="1092" />
+    <option name="y" value="-4" />
+    <option name="width" value="1920" />
+    <option name="height" value="1084" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -1366,14 +1367,15 @@
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/lib/nanogui" />
-      <recent name="$PROJECT_DIR$/resources" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/src" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources" />
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources" />
+      <recent name="$PROJECT_DIR$/models" />
+      <recent name="$PROJECT_DIR$/lib/nanogui" />
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
@@ -1837,6 +1839,8 @@
       <workItem from="1498128391084" duration="289000" />
       <workItem from="1498137663367" duration="629000" />
       <workItem from="1498148404562" duration="3661000" />
+      <workItem from="1498212892611" duration="733000" />
+      <workItem from="1498224079174" duration="11411000" />
     </task>
     <task id="LOCAL-00001" summary="Corretta visualizzazione nVertices">
       <created>1498049266172</created>
@@ -1849,22 +1853,23 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="426523000" />
+    <option name="totallyTimeSpent" value="438667000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="-11" width="1922" height="1092" extended-state="6" />
+    <frame x="0" y="-4" width="1920" height="1084" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13802083" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19164118" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29663607" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2517839" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29459736" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3282365" sideWeight="0.5018868" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2874618" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2874618" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.09174312" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12640163" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1893,17 +1898,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/main2.cpp" />
-    <entry file="file://$PROJECT_DIR$/lib/nanogui/python/widget.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="104" column="39" lean-forward="false" selection-start-line="104" selection-start-column="39" selection-end-line="104" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/vertexWireframe2.vert" />
-    <entry file="file://$PROJECT_DIR$/resources/fragmentWireframe2.frag" />
-    <entry file="file://$PROJECT_DIR$/resources/vertexShader2.vert" />
     <entry file="file://$PROJECT_DIR$/resources/fragmentShader2.frag" />
     <entry file="file://$PROJECT_DIR$/lib/nanogui/include/nanogui/textbox.h">
       <provider selected="true" editor-type-id="text-editor">
@@ -1931,13 +1925,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/nanogui/ext/eigen/Eigen/src/Geometry/Transform.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="962" column="0" lean-forward="false" selection-start-line="962" selection-start-column="0" selection-end-line="962" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/nanogui/src/screen.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
@@ -1960,17 +1947,17 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/nanogui/README.md">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="0">
             <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           </first_editor>
           <second_editor />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -2158,27 +2145,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/nanogui/include/nanogui/glutil.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="196" column="13" lean-forward="false" selection-start-line="196" selection-start-column="9" selection-end-line="196" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/include/GL/gl.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="925" column="7" lean-forward="false" selection-start-line="925" selection-start-column="3" selection-end-line="925" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/nanogui/src/glutil.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="260" column="15" lean-forward="false" selection-start-line="260" selection-start-column="15" selection-end-line="260" selection-end-column="15" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2186,38 +2156,94 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
           <caret line="397" column="25" lean-forward="false" selection-start-line="397" selection-start-column="25" selection-end-line="397" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/fragmentArcball.frag" />
+    <entry file="file://$PROJECT_DIR$/models/arcball.obj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="8" column="13" lean-forward="true" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/nanogui/ext/eigen/Eigen/src/Core/DiagonalMatrix.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="104" column="0" lean-forward="false" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/nanogui/ext/eigen/Eigen/src/Core/Assign.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="577" column="0" lean-forward="false" selection-start-line="577" selection-start-column="0" selection-end-line="577" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/nanogui/ext/eigen/Eigen/src/Geometry/Transform.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="279" column="0" lean-forward="false" selection-start-line="279" selection-start-column="0" selection-end-line="279" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/fragmentArcball.frag">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="360">
+          <caret line="18" column="75" lean-forward="false" selection-start-line="18" selection-start-column="75" selection-end-line="18" selection-end-column="75" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MatricesInitializer.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="92" column="32" lean-forward="false" selection-start-line="92" selection-start-column="32" selection-end-line="92" selection-end-column="32" />
+        <state relative-caret-position="272">
+          <caret line="56" column="56" lean-forward="false" selection-start-line="56" selection-start-column="56" selection-end-line="56" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/nanogui/src/glutil.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1764">
+          <caret line="271" column="18" lean-forward="true" selection-start-line="271" selection-start-column="4" selection-end-line="271" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/arcballFragmentShader.frag">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="7" column="36" lean-forward="false" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/arcballVertexShader.vert">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/nanogui/include/nanogui/glutil.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="456" column="9" lean-forward="false" selection-start-line="456" selection-start-column="9" selection-end-line="456" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="506" column="29" lean-forward="true" selection-start-line="506" selection-start-column="29" selection-end-line="506" selection-end-column="29" />
+        <state relative-caret-position="241">
+          <caret line="363" column="49" lean-forward="false" selection-start-line="363" selection-start-column="49" selection-end-line="363" selection-end-column="49" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
