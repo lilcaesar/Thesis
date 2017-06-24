@@ -29,7 +29,7 @@ public:
 
         this->setBackground(Color(180,180,255,255));
 
-        Window *meshTools = new Window(this, "Mesh Tools");
+        meshTools = new Window(this, "Mesh Tools");
         meshTools->setPosition(Vector2i(0, 0));
         meshTools->setLayout(new GroupLayout());
 
@@ -40,7 +40,6 @@ public:
 
             refreshArcball();
 
-            nanoguiCamera.modelZoom = 1.0;
             nanoguiCamera.translation = nanoguiCamera.translationStart = Vector3f::Zero();
 
             vertexShaderFilePath = "./resources/vertexShader.vert";
@@ -54,14 +53,14 @@ public:
             mShader.uploadAttrib("vertices", vertices);
         });
 
-        PopupButton *popupBtn = new PopupButton(meshTools, "Shading Styles");
-        Popup *popup = popupBtn->popup();
-        popup->setLayout(new GroupLayout());
-        popup->setTooltip("Select type of shading for the mesh");
+        popupBtnShaders = new PopupButton(meshTools, "Shading Styles");
+        popupShaders = popupBtnShaders->popup();
+        popupShaders->setLayout(new GroupLayout());
+        popupShaders->setTooltip("Select type of shading for the mesh");
 
         /* Wireframe widget */ {
-            new Label(popup, "Wireframe :", "sans-bold");
-            CheckBox *wireframeCB = new CheckBox(popup, "Wireframe");
+            new Label(popupShaders, "Wireframe :", "sans-bold");
+            CheckBox *wireframeCB = new CheckBox(popupShaders, "Wireframe");
             wireframeCB->setChecked(wireframe);
             wireframeCB->setFontSize(16);
             wireframeCB->setCallback([this](bool state) {
@@ -71,8 +70,8 @@ public:
             wireframeCB->setTooltip("Toggle wireframe shading on the mesh");
         }
         {
-            new Label(popup, "Flat Coloration :", "sans-bold");
-            CheckBox *flatCB = new CheckBox(popup, "Flat");
+            new Label(popupShaders, "Flat Coloration :", "sans-bold");
+            CheckBox *flatCB = new CheckBox(popupShaders, "Flat");
             flatCB->setChecked(flat);
             flatCB->setFontSize(16);
             flatCB->setCallback([this](bool state) {
@@ -86,8 +85,8 @@ public:
             flatCB->setTooltip("Toggle flat coloration on the inner area of the triangles during filled wireframe shading");
         }
         {
-            new Label(popup, "Filled :", "sans-bold");
-            CheckBox *filledCB = new CheckBox(popup, "Filled");
+            new Label(popupShaders, "Filled :", "sans-bold");
+            CheckBox *filledCB = new CheckBox(popupShaders, "Filled");
             filledCB->setChecked(filled);
             filledCB->setFontSize(16);
             filledCB->setCallback([this](bool state) {
@@ -101,19 +100,36 @@ public:
             filledCB->setTooltip("Toggle filled version of wireframe shading");
         }
 
-        popupBtn = new PopupButton(meshTools, "Colors");
-        popup = popupBtn->popup();
-        popup->setLayout(new GroupLayout());
-        popup->setTooltip("Color settings for mesh and background");
+        popupBtnColors = new PopupButton(meshTools, "Colors");
+        popupColors = popupBtnColors->popup();
+        popupColors->setLayout(new GroupLayout());
+        popupColors->setTooltip("Color settings for mesh and background");
 
-        new Label(popup, "Background color");
-        colorwheelBG = new ColorWheel(popup);
+        Widget *titleAndReset = new Widget(popupColors);
+        titleAndReset->setLayout(new BoxLayout(Orientation::Horizontal, Alignment::Middle, 0, 6));
+        new Label(titleAndReset, "Background color");
+        Button *resetAllColors = new Button(titleAndReset, "reset all");
+        resetAllColors->setFixedSize(Vector2i(60,15));
+        resetAllColors->setCallback([this]{
+            this->setBackground(this->startingBGColor);
+            this->meshColor = this->startingMeshColor;
+            this->wireframeColor = this->startingWireframeColor;
+            this->wireframeLineThickness = 0.5f;
+        });
+
+
+        Button *resetBGColor = new Button(popupColors, "reset");
+        resetBGColor->setFixedSize(Vector2i(42,15));
+        resetBGColor->setCallback([this]{
+            this->setBackground(this->startingBGColor);
+        });
+        colorwheelBG = new ColorWheel(popupColors);
         colorwheelBG->setColor(this->background());
         colorwheelBG->setCallback([this](Color state){
             this->setBackground(state);
         });
 
-        Widget *tools = new Widget(popup);
+        Widget *tools = new Widget(popupColors);
         tools->setLayout(new BoxLayout(Orientation::Horizontal, Alignment::Middle, 0, 6));
         new Label(tools, "R:");
         rValueBG = new IntBox<int>(tools);
@@ -155,14 +171,19 @@ public:
             this->setBackground(Color(c1,c2,state,c3));
         });
 
-        new Label(popup, "Mesh color");
-        colorWheelMesh = new ColorWheel(popup);
+        new Label(popupColors, "Mesh color");
+        Button *resetMeshColor = new Button(popupColors, "reset");
+        resetMeshColor->setFixedSize(Vector2i(42,15));
+        resetMeshColor->setCallback([this]{
+            this->meshColor = this->startingMeshColor;
+        });
+        colorWheelMesh = new ColorWheel(popupColors);
         colorWheelMesh->setColor(this->meshColor);
         colorWheelMesh->setCallback([this](Color state){
             this->meshColor = state;
         });
 
-        tools = new Widget(popup);
+        tools = new Widget(popupColors);
         tools->setLayout(new BoxLayout(Orientation::Horizontal, Alignment::Middle, 0, 6));
         new Label(tools, "R:");
         rValueMesh = new IntBox<int>(tools);
@@ -205,14 +226,19 @@ public:
         });
 
 
-        new Label(popup, "Wireframe color");
-        colorWheelWF = new ColorWheel(popup);
+        new Label(popupColors, "Wireframe color");
+        Button *resetWFColor = new Button(popupColors, "reset");
+        resetWFColor->setFixedSize(Vector2i(42,15));
+        resetWFColor->setCallback([this]{
+            this->wireframeColor = this->startingWireframeColor;
+        });
+        colorWheelWF = new ColorWheel(popupColors);
         colorWheelWF->setColor(this->wireframeColor);
         colorWheelWF->setCallback([this](Color state){
             this->wireframeColor=state;
         });
 
-        tools = new Widget(popup);
+        tools = new Widget(popupColors);
         tools->setLayout(new BoxLayout(Orientation::Horizontal, Alignment::Middle, 0, 6));
         new Label(tools, "R:");
         rValueWF = new IntBox<int>(tools);
@@ -253,8 +279,13 @@ public:
             c3 = c[3]*255;
             this->wireframeColor= Color(c1,c2,state,c3);
         });
-        new Label(popup, "Line thickness:");
-        FloatBox<float> *wireframeLineFloatBox = new FloatBox<float>(popup);
+        new Label(popupColors, "Line thickness:");
+        Button *resetLineThickness = new Button(popupColors, "reset");
+        resetLineThickness->setFixedSize(Vector2i(42,15));
+        resetLineThickness->setCallback([this]{
+            this->wireframeLineThickness = 0.5f;
+        });
+        wireframeLineFloatBox = new FloatBox<float>(popupColors);
         wireframeLineFloatBox->setValue(this->wireframeLineThickness);
         wireframeLineFloatBox->setEditable(true);
         wireframeLineFloatBox->setSpinnable(true);
@@ -263,20 +294,20 @@ public:
             this->wireframeLineThickness= state;
         });
 
-        popupBtn = new PopupButton(meshTools, "Camera settings");
-        popup = popupBtn->popup();
-        popup->setLayout(new GroupLayout());
-        popup->setTooltip("Tools for the camera");
-        {
-            new Label(popup, "Perspective View :", "sans-bold");
-            CheckBox *perspectiveCB = new CheckBox(popup, "Perspective");
-            perspectiveCB->setChecked(perspective);
-            perspectiveCB->setFontSize(16);
-            perspectiveCB->setCallback([this](bool state) {
-                this->perspective = state;
-            });
-            perspectiveCB->setTooltip("Toggle perspective view for the canvas");
-        }
+//        popupBtn = new PopupButton(meshTools, "Camera settings");
+//        popup = popupBtn->popup();
+//        popup->setLayout(new GroupLayout());
+//        popup->setTooltip("Tools for the camera");
+//        {
+//            new Label(popup, "Perspective View :", "sans-bold");
+//            CheckBox *perspectiveCB = new CheckBox(popup, "Perspective");
+//            perspectiveCB->setChecked(perspective);
+//            perspectiveCB->setFontSize(16);
+//            perspectiveCB->setCallback([this](bool state) {
+//                this->perspective = state;
+//            });
+//            perspectiveCB->setTooltip("Toggle perspective view for the canvas");
+//        }
 
         Button *help = new Button(meshTools, "Help");
         help->setCallback([&] {
@@ -287,19 +318,44 @@ public:
 
         ///INFORMATION BAR
 
-        Window *informationBar = new Window(this, "Informations");
+        informationBar = new Window(this, "Informations");
         informationBar->setLayout(new BoxLayout(Orientation::Horizontal, Alignment::Middle, 0, 6));
         informationBar->setPosition(Vector2i(177,0));
 
-        new Label(informationBar, "Vertices:", "sans-bold");
-        nVerticesIntBox = new IntBox<int>(informationBar);
+        meshInformations = new Widget(informationBar);
+        meshInformations->setLayout(new GroupLayout());
+
+        new Label(meshInformations, "Mesh", "sans-bold");
+        meshInformationsElements = new Widget(meshInformations);
+        meshInformationsElements->setLayout(new BoxLayout(Orientation::Horizontal, Alignment::Middle, 0, 6));
+
+        new Label(meshInformationsElements, "Vertices:", "sans");
+        nVerticesIntBox = new IntBox<int>(meshInformationsElements);
         nVerticesIntBox->setValue(nVertices);
-        new Label(informationBar, "Faces:", "sans-bold");
-        nFacesIntBox = new IntBox<int>(informationBar);
+        new Label(meshInformationsElements, "Faces:", "sans");
+        nFacesIntBox = new IntBox<int>(meshInformationsElements);
         nFacesIntBox->setValue(nFaces);
-        new Label(informationBar, "Field of view:", "sans-bold");
-        FOVIntBox = new IntBox<int>(informationBar);
-        FOVIntBox->setValue(nanoguiCamera.cameraViewAngle);
+
+        cameraInformations = new Widget(informationBar);
+        cameraInformations->setLayout(new GroupLayout());
+
+        new Label(cameraInformations, "Camera", "sans-bold");
+        cameraInformationsElements = new Widget(cameraInformations);
+        cameraInformationsElements->setLayout(new BoxLayout(Orientation::Horizontal, Alignment::Middle, 0, 6));
+
+        new Label(cameraInformationsElements, "FOV:", "sans");
+        FOVIntBox = new IntBox<int>(cameraInformationsElements);
+        FOVIntBox->setValue(200);                                           ///Valore forzato per creare lo spazio necessario in caso di 3 cifre
+        new Label(cameraInformationsElements, "Zoom:", "sans");
+        zoomFloatBox = new FloatBox<float>(cameraInformationsElements);
+        zoomFloatBox->setValue(1000);                                       ///Valore forzato per creare lo spazio necessario in caso di 4 cifre
+        new Label(cameraInformationsElements, "Near Plane:", "sans");
+        nearPlaneFloatBox = new FloatBox<float>(cameraInformationsElements);
+        nearPlaneFloatBox->setValue(nanoguiCamera.camera_dnear);
+        new Label(cameraInformationsElements, "Far Plane:", "sans");
+        farPlaneFloatBox = new FloatBox<float>(cameraInformationsElements);
+        farPlaneFloatBox->setValue(nanoguiCamera.camera_dfar);
+
 
         performLayout();
     }
@@ -320,9 +376,14 @@ public:
         gValueWF->setValue(wireframeColor[1]*255);
         bValueWF->setValue(wireframeColor[2]*255);
 
+        wireframeLineFloatBox->setValue(wireframeLineThickness);
+
         nVerticesIntBox->setValue(nVertices);
         nFacesIntBox->setValue(nFaces);
         FOVIntBox->setValue(nanoguiCamera.cameraViewAngle);
+        zoomFloatBox->setValue(nanoguiCamera.zoom);
+        nearPlaneFloatBox->setValue(nanoguiCamera.camera_dnear);
+        farPlaneFloatBox->setValue(nanoguiCamera.camera_dfar);
     }
 
     virtual bool keyboardEvent(int key, int scancode, int action, int modifiers) {
@@ -536,14 +597,12 @@ public:
         lightArcball = Arcball();
         nanoguiCamera.arcball.setSize(mSize);           //Assegno la dimensione del monitor
         lightArcball.setSize(mSize);
-        nanoguiCamera.modelZoom = getScaleFactor();
     }
 
 private:
     struct NanoguiCamera{
         int cameraViewAngle = 45;
         float zoom = 1.0;
-        float modelZoom = 1.0;
         float camera_dnear = 0.1;
         float camera_dfar = 100;
         Vector3f camPos = {0, 0, 1.5};
@@ -593,11 +652,21 @@ private:
 
     float wireframeLineThickness = 0.5f;
 
+    Color startingMeshColor = {128,128,128,255};
+    Color startingWireframeColor = {255,255,255,255};
+    Color startingBGColor = {180,180,255,255};
     Color meshColor = {128,128,128,255};
     Color wireframeColor = {255,255,255,255};
 
-    //GUI elements that must be refreshed every frame
+    //GUI elements
+    Window *meshTools;
+    Window *informationBar;
+    Widget *meshInformations,*meshInformationsElements, *cameraInformations, *cameraInformationsElements;
+    PopupButton *popupBtnShaders, *popupBtnColors;
+    Popup *popupShaders, *popupColors;
     IntBox<int> *nVerticesIntBox, *nFacesIntBox, *FOVIntBox;
+    FloatBox<float> *zoomFloatBox, *nearPlaneFloatBox, *farPlaneFloatBox;
+    FloatBox<float> *wireframeLineFloatBox;
     IntBox<int> *rValueMesh, *gValueMesh, *bValueMesh;
     IntBox<int> *rValueBG, *gValueBG, *bValueBG;
     IntBox<int> *rValueWF, *gValueWF, *bValueWF;
