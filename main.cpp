@@ -294,58 +294,24 @@ public:
             this->wireframeLineThickness= state;
         });
 
-//        popupBtn = new PopupButton(meshTools, "Camera settings");
-//        popup = popupBtn->popup();
-//        popup->setLayout(new GroupLayout());
-//        popup->setTooltip("Tools for the camera");
-//        {
-//            new Label(popup, "Perspective View :", "sans-bold");
-//            CheckBox *perspectiveCB = new CheckBox(popup, "Perspective");
-//            perspectiveCB->setChecked(perspective);
-//            perspectiveCB->setFontSize(16);
-//            perspectiveCB->setCallback([this](bool state) {
-//                this->perspective = state;
-//            });
-//            perspectiveCB->setTooltip("Toggle perspective view for the canvas");
-//        }
+        ///INFORMATION BARs
 
-        Button *help = new Button(meshTools, "Help");
-        help->setCallback([&] {
-            auto dlg = new MessageDialog(this, MessageDialog::Type::Information, "Starting informations", "This is an information message");
-            dlg->setCallback([](int result) { cout << "Dialog result: " << result << endl; });
-        });
-        auto dlg = new MessageDialog(this, MessageDialog::Type::Information, "Starting informations", "This is an information message");
-
-        ///INFORMATION BAR
-
-        informationBar = new Window(this, "Informations");
-        informationBar->setLayout(new BoxLayout(Orientation::Horizontal, Alignment::Middle, 0, 6));
-        informationBar->setPosition(Vector2i(177,0));
-
-        meshInformations = new Widget(informationBar);
-        meshInformations->setLayout(new GroupLayout());
-
-        new Label(meshInformations, "Mesh", "sans-bold");
-        meshInformationsElements = new Widget(meshInformations);
-        meshInformationsElements->setLayout(new BoxLayout(Orientation::Horizontal, Alignment::Middle, 0, 6));
-
-        new Label(meshInformationsElements, "Vertices:", "sans");
-        nVerticesIntBox = new IntBox<int>(meshInformationsElements);
-        nVerticesIntBox->setValue(nVertices);
-        new Label(meshInformationsElements, "Faces:", "sans");
-        nFacesIntBox = new IntBox<int>(meshInformationsElements);
-        nFacesIntBox->setValue(nFaces);
-
-        cameraInformations = new Widget(informationBar);
+        cameraInformations = new Window(this, "Camera Utilities");
         cameraInformations->setLayout(new GroupLayout());
-
-        new Label(cameraInformations, "Camera", "sans-bold");
+        cameraInformations->setPosition(Vector2i(170,0));
         cameraInformationsElements = new Widget(cameraInformations);
         cameraInformationsElements->setLayout(new BoxLayout(Orientation::Horizontal, Alignment::Middle, 0, 6));
 
         new Label(cameraInformationsElements, "FOV:", "sans");
         FOVIntBox = new IntBox<int>(cameraInformationsElements);
         FOVIntBox->setValue(200);                                           ///Valore forzato per creare lo spazio necessario in caso di 3 cifre
+        FOVIntBox->setSpinnable(true);
+        FOVIntBox->setEditable(true);
+        FOVIntBox->setMinMaxValues(1, 200);
+        FOVIntBox->setValueIncrement(1);
+        FOVIntBox->setCallback([this](int state){
+            this->nanoguiCamera.cameraViewAngle=state;
+        });
         new Label(cameraInformationsElements, "Zoom:", "sans");
         zoomFloatBox = new FloatBox<float>(cameraInformationsElements);
         zoomFloatBox->setValue(1000);                                       ///Valore forzato per creare lo spazio necessario in caso di 4 cifre
@@ -355,7 +321,55 @@ public:
         new Label(cameraInformationsElements, "Far Plane:", "sans");
         farPlaneFloatBox = new FloatBox<float>(cameraInformationsElements);
         farPlaneFloatBox->setValue(nanoguiCamera.camera_dfar);
+        new Label(cameraInformationsElements, "Light Distance:", "sans");
+        lightDistanceFloatBox = new FloatBox<float>(cameraInformationsElements);
+        lightDistanceFloatBox->setValue(100);
+        lightDistanceFloatBox->setSpinnable(true);
+        lightDistanceFloatBox->setEditable(true);
+        lightDistanceFloatBox->setMinMaxValues(0.1, 100.0);
+        lightDistanceFloatBox->setValueIncrement(0.1);
+        lightDistanceFloatBox->setCallback([this](float state){
+            this->lightPosition[2]=state;
+        });
 
+        CheckBox *perspectiveCB = new CheckBox(cameraInformationsElements, "Perspective");
+        perspectiveCB->setChecked(perspective);
+        perspectiveCB->setFontSize(16);
+        perspectiveCB->setCallback([this](bool state) {
+            this->perspective = state;
+        });
+        perspectiveCB->setTooltip("Toggle perspective view for the canvas");
+
+        meshInformations = new Window(this, "Mesh Utilities");
+        meshInformations->setLayout(new GroupLayout());
+        meshInformations->setPosition(Vector2i(170,80));
+        meshInformationsElements = new Widget(meshInformations);
+        meshInformationsElements->setLayout(new BoxLayout(Orientation::Horizontal, Alignment::Middle, 0, 6));
+
+
+        new Label(meshInformationsElements, "Vertices:", "sans");
+        nVerticesIntBox = new IntBox<int>(meshInformationsElements);
+        nVerticesIntBox->setValue(nVertices);
+        new Label(meshInformationsElements, "Faces:", "sans");
+        nFacesIntBox = new IntBox<int>(meshInformationsElements);
+        nFacesIntBox->setValue(nFaces);
+
+        Button *resetTranslation = new Button(meshInformationsElements, "Reset Translation");
+        resetTranslation->setCallback([this]{
+            this->nanoguiCamera.translation = Vector3f::Zero();
+        });
+        Button *resetRotation = new Button(meshInformationsElements, "Reset Rotation");
+        resetRotation->setCallback([this]{
+            this->nanoguiCamera.arcball = Arcball();
+        });
+
+        Button *help = new Button(meshTools, "Help");
+        help->setCallback([&] {
+            auto dlg = new MessageDialog(this, MessageDialog::Type::Information, "How to", "-Rotate the model using Left Mouse Button\n-Translate the model using Right Mouse Button\n-Rotate the light using Middle Mouse Button\n");
+        });
+        auto dlg = new MessageDialog(this, MessageDialog::Type::Information, "Important!",
+                                     "This is a viewer for OBJ trimesh. The file MUST be a triangular mesh, normals are the only valid extra informations that can be computed by the program!\nIf you need help for how to use the viewer press the button HELP on the left"
+        );
 
         performLayout();
     }
@@ -380,10 +394,16 @@ public:
 
         nVerticesIntBox->setValue(nVertices);
         nFacesIntBox->setValue(nFaces);
+
         FOVIntBox->setValue(nanoguiCamera.cameraViewAngle);
         zoomFloatBox->setValue(nanoguiCamera.zoom);
         nearPlaneFloatBox->setValue(nanoguiCamera.camera_dnear);
         farPlaneFloatBox->setValue(nanoguiCamera.camera_dfar);
+        lightDistanceFloatBox->setValue(lightPosition[2]);
+
+        if(wireframe){
+
+        }
     }
 
     virtual bool keyboardEvent(int key, int scancode, int action, int modifiers) {
@@ -660,12 +680,12 @@ private:
 
     //GUI elements
     Window *meshTools;
-    Window *informationBar;
-    Widget *meshInformations,*meshInformationsElements, *cameraInformations, *cameraInformationsElements;
+    Window *meshInformations, *cameraInformations;
+    Widget *meshInformationsElements, *cameraInformationsElements;
     PopupButton *popupBtnShaders, *popupBtnColors;
     Popup *popupShaders, *popupColors;
     IntBox<int> *nVerticesIntBox, *nFacesIntBox, *FOVIntBox;
-    FloatBox<float> *zoomFloatBox, *nearPlaneFloatBox, *farPlaneFloatBox;
+    FloatBox<float> *zoomFloatBox, *nearPlaneFloatBox, *farPlaneFloatBox, *lightDistanceFloatBox;
     FloatBox<float> *wireframeLineFloatBox;
     IntBox<int> *rValueMesh, *gValueMesh, *bValueMesh;
     IntBox<int> *rValueBG, *gValueBG, *bValueBG;
