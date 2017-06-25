@@ -8,7 +8,7 @@ void load    (const char            * filename,
               std::vector<int>      & faces,
               std::vector<double>   & normals);
 
-bool loadOBJ (const char            * filename,
+int loadOBJ (const char            * filename,
               std::vector<double>   & vertices,
               std::vector<int>      & faces,
               std::vector<double>   & normals);

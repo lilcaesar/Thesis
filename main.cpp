@@ -56,11 +56,21 @@ public:
         popupBtnShaders = new PopupButton(meshTools, "Shading Styles");
         popupShaders = popupBtnShaders->popup();
         popupShaders->setLayout(new GroupLayout());
-        popupShaders->setTooltip("Select type of shading for the mesh");
+        popupBtnShaders->setTooltip("Select type of shading for the mesh");
 
-        /* Wireframe widget */ {
+        /* Shading widgets */ {
+            new Label(popupShaders, "Cel Shading :", "sans-bold");
+            celShadingCB = new CheckBox(popupShaders, "Cel Shading");
+            celShadingCB->setChecked(celShading);
+            celShadingCB->setFontSize(16);
+            celShadingCB->setCallback([this](bool state) {
+                this->celShading = state;
+                this->shaderStateChange = true;
+            });
+            celShadingCB->setTooltip("Toggle Cel shading on the mesh");
+        }{
             new Label(popupShaders, "Wireframe :", "sans-bold");
-            CheckBox *wireframeCB = new CheckBox(popupShaders, "Wireframe");
+            wireframeCB = new CheckBox(popupShaders, "Wireframe");
             wireframeCB->setChecked(wireframe);
             wireframeCB->setFontSize(16);
             wireframeCB->setCallback([this](bool state) {
@@ -70,23 +80,8 @@ public:
             wireframeCB->setTooltip("Toggle wireframe shading on the mesh");
         }
         {
-            new Label(popupShaders, "Flat Coloration :", "sans-bold");
-            CheckBox *flatCB = new CheckBox(popupShaders, "Flat");
-            flatCB->setChecked(flat);
-            flatCB->setFontSize(16);
-            flatCB->setCallback([this](bool state) {
-                this->flat = state;
-                this->shaderStateChange=true;
-                if(flat)
-                    this->flatColoration = 1.0f;
-                else
-                    this->flatColoration = -1.0f;
-            });
-            flatCB->setTooltip("Toggle flat coloration on the inner area of the triangles during filled wireframe shading");
-        }
-        {
             new Label(popupShaders, "Filled :", "sans-bold");
-            CheckBox *filledCB = new CheckBox(popupShaders, "Filled");
+            filledCB = new CheckBox(popupShaders, "Filled");
             filledCB->setChecked(filled);
             filledCB->setFontSize(16);
             filledCB->setCallback([this](bool state) {
@@ -99,11 +94,26 @@ public:
             });
             filledCB->setTooltip("Toggle filled version of wireframe shading");
         }
+        {
+            new Label(popupShaders, "Flat Coloration :", "sans-bold");
+            flatCB = new CheckBox(popupShaders, "Flat");
+            flatCB->setChecked(flat);
+            flatCB->setFontSize(16);
+            flatCB->setCallback([this](bool state) {
+                this->flat = state;
+                this->shaderStateChange=true;
+                if(flat)
+                    this->flatColoration = 1.0f;
+                else
+                    this->flatColoration = -1.0f;
+            });
+            flatCB->setTooltip("Toggle flat coloration on the inner area of the triangles during filled wireframe shading");
+        }
 
         popupBtnColors = new PopupButton(meshTools, "Colors");
         popupColors = popupBtnColors->popup();
         popupColors->setLayout(new GroupLayout());
-        popupColors->setTooltip("Color settings for mesh and background");
+        popupBtnColors->setTooltip("Color settings for mesh and background");
 
         Widget *titleAndReset = new Widget(popupColors);
         titleAndReset->setLayout(new BoxLayout(Orientation::Horizontal, Alignment::Middle, 0, 6));
@@ -365,7 +375,7 @@ public:
 
         Button *help = new Button(meshTools, "Help");
         help->setCallback([&] {
-            auto dlg = new MessageDialog(this, MessageDialog::Type::Information, "How to", "-Rotate the model using Left Mouse Button\n-Translate the model using Right Mouse Button\n-Rotate the light using Middle Mouse Button\n");
+            auto dlg = new MessageDialog(this, MessageDialog::Type::Information, "How to", "-Rotate the model using Left Mouse Button\n-Translate the model using Right Mouse Button\n-Rotate the light using Middle Mouse Button\n-W activates Wireframe Shading\n-E activates filled wirefame coloration\n-R activates flat coloration on filled wireframe");
         });
         auto dlg = new MessageDialog(this, MessageDialog::Type::Information, "Important!",
                                      "This is a viewer for OBJ trimesh. The file MUST be a triangular mesh, normals are the only valid extra informations that can be computed by the program!\nIf you need help for how to use the viewer press the button HELP on the left"
@@ -400,9 +410,39 @@ public:
         nearPlaneFloatBox->setValue(nanoguiCamera.camera_dnear);
         farPlaneFloatBox->setValue(nanoguiCamera.camera_dfar);
         lightDistanceFloatBox->setValue(lightPosition[2]);
+        celShadingCB->setChecked(celShading);
+        wireframeCB->setChecked(wireframe);
+        flatCB->setChecked(flat);
+        filledCB->setChecked(filled);
 
         if(wireframe){
+            filledCB->setEnabled(true);
+            filledCB->setTooltip("Toggle filled version of wireframe shading");
+            colorWheelWF->setEnabled(true);
+            rValueWF->setEnabled(true);
+            gValueWF->setEnabled(true);
+            bValueWF->setEnabled(true);
 
+        }else{
+            flatCB->setEnabled(false);
+            flatCB->setTooltip("Toggle Wireframe Shading and Filled coloration to enable this Checkbox");
+            filledCB->setEnabled(false);
+            filledCB->setTooltip("Toggle Wireframe Shading to enable this Checkbox");
+            colorWheelWF->setEnabled(false);
+            colorWheelWF->setTooltip("Toggle Wireframe Shading to enable this Colorwheel");
+            rValueWF->setEnabled(false);
+            rValueWF->setTooltip("Toggle Wireframe Shading to enable this Field");
+            gValueWF->setEnabled(false);
+            gValueWF->setTooltip("Toggle Wireframe Shading to enable this Field");
+            bValueWF->setEnabled(false);
+            bValueWF->setTooltip("Toggle Wireframe Shading to enable this Field");
+        }
+        if(filled && wireframe){
+            flatCB->setEnabled(true);
+            flatCB->setTooltip("Toggle flat coloration on the inner area of the triangles during filled wireframe shading");
+        }else{
+            flatCB->setEnabled(false);
+            flatCB->setTooltip("Toggle Wireframe Shading and Filled coloration to enable this Checkbox");
         }
     }
 
@@ -411,6 +451,18 @@ public:
             return true;
         if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS) {
             setVisible(false);
+            return true;
+        }
+        if (key == GLFW_KEY_W && action == GLFW_PRESS) {
+            wireframe=!wireframe;
+            return true;
+        }
+        if (key == GLFW_KEY_R && action == GLFW_PRESS) {
+            flat=!flat;
+            return true;
+        }
+        if (key == GLFW_KEY_E && action == GLFW_PRESS) {
+            filled=!filled;
             return true;
         }
         return false;
@@ -520,7 +572,7 @@ public:
         nanoguiCamera.arcball.setSize(mSize);
         lightArcball.setSize(mSize);
 
-        Matrix4f modelView, viewportMatrix, normalMatrix;
+        Matrix4f modelView, viewportMatrix;
         model.setIdentity();
         view.setIdentity();
         proj.setIdentity();
@@ -535,9 +587,6 @@ public:
                         0.0,height()/2,0.0,0.0,
                         0.0,0.0,1.0,0.0,
                         width()/2, height()/2, 0.0, 1.0;
-
-        normalMatrix = modelView.inverse();
-        normalMatrix.transposeInPlace();
 
         Vector3f lightPositionVector = lightArcball.matrix().block<3,3>(0,0) * lightPosition;
 
@@ -563,17 +612,31 @@ public:
             mShader.setUniform("Material.Kd", Vector4f(meshColor));
         }
         if(shaderStateChange && !wireframe){
-            shaderStateChange = false;
-            mShader.free();
-            vertexShaderFilePath = "./resources/vertexShader.vert";
-            fragmentShaderFilePath = "./resources/fragmentShader.frag";
-            mShader.initFromFiles("Nanogui Shader", vertexShaderFilePath.c_str(), fragmentShaderFilePath.c_str());
-            mShader.bind();
-            mShader.uploadAttrib("normals", normals);
-            mShader.setUniform("color", Vector4f(meshColor));
-            mShader.setUniform("lightPosition_worldspace", lightPositionVector);
-            mShader.uploadIndices(faces);
-            mShader.uploadAttrib("vertices", vertices);
+            if(celShading){
+                shaderStateChange = false;
+                mShader.free();
+                vertexShaderFilePath = "./resources/celVertex.vert";
+                fragmentShaderFilePath = "./resources/celFragment.frag";
+                mShader.initFromFiles("Nanogui Shader", vertexShaderFilePath.c_str(), fragmentShaderFilePath.c_str());
+                mShader.bind();
+                mShader.uploadAttrib("normals", normals);
+                mShader.setUniform("color", Vector4f(meshColor));
+                mShader.setUniform("lightPosition_worldspace", lightPositionVector);
+                mShader.uploadIndices(faces);
+                mShader.uploadAttrib("vertices", vertices);
+            }else {
+                shaderStateChange = false;
+                mShader.free();
+                vertexShaderFilePath = "./resources/vertexShader.vert";
+                fragmentShaderFilePath = "./resources/fragmentShader.frag";
+                mShader.initFromFiles("Nanogui Shader", vertexShaderFilePath.c_str(), fragmentShaderFilePath.c_str());
+                mShader.bind();
+                mShader.uploadAttrib("normals", normals);
+                mShader.setUniform("color", Vector4f(meshColor));
+                mShader.setUniform("lightPosition_worldspace", lightPositionVector);
+                mShader.uploadIndices(faces);
+                mShader.uploadAttrib("vertices", vertices);
+            }
         }
 
         mShader.setUniform("model", model);
@@ -644,7 +707,7 @@ private:
     std::string vertexShaderFilePath, fragmentShaderFilePath,geometryShaderFilePath="";
     std::string arcballVertexShaderFilePath, arcballFragmentShaderFilePath;
 
-    bool wireframe= false, shaderStateChange=false, filled= true, flat = false, perspective = true;
+    bool wireframe= false, celShading= false, shaderStateChange=false, filled= true, flat = false, perspective = true;
     bool isTranslating = false;
     bool start = true;
 
@@ -682,6 +745,7 @@ private:
     Window *meshTools;
     Window *meshInformations, *cameraInformations;
     Widget *meshInformationsElements, *cameraInformationsElements;
+    CheckBox *celShadingCB, *wireframeCB, *flatCB, *filledCB;
     PopupButton *popupBtnShaders, *popupBtnColors;
     Popup *popupShaders, *popupColors;
     IntBox<int> *nVerticesIntBox, *nFacesIntBox, *FOVIntBox;

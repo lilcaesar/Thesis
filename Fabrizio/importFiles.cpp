@@ -39,7 +39,7 @@ void load    (const char            * filename,
    }
 }
 
-bool loadOBJ (const char            * filename,
+int loadOBJ (const char            * filename,
               std::vector<double>   & vertices,
               std::vector<int>      & faces,
               std::vector<double>   & normals)
@@ -52,7 +52,7 @@ bool loadOBJ (const char            * filename,
     if (!file.is_open())
     {
         cerr << "ERROR : " << __FILE__ << ", line " << __LINE__ << " : load_OBJ() : couldn't open input file " << filename << endl;
-        exit(-1);
+        return -1;
     }
 
     string line;
@@ -99,7 +99,10 @@ bool loadOBJ (const char            * filename,
         }
     }
     file.close();
-    return hasNormals;
+    if(hasNormals)
+        return 1;
+    else
+        return 0;
 }
 
 void loadPLY ( const char     * filename,
