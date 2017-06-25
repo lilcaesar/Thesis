@@ -1136,17 +1136,13 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a680da8-e369-473d-8d55-67ddcf1981b9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/celFragment.frag" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/celVertex.vert" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Thesis.dir/main.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Thesis.dir/main.cpp.o" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/Thesis" afterPath="$PROJECT_DIR$/cmake-build-debug/Thesis" />
+    <list default="true" id="0a680da8-e369-473d-8d55-67ddcf1981b9" name="Default" comment="Corretta visualizzazione nVertices">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NoWireframe.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WireframeFill.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WireframeFillFlat.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WireframeTransparent.png" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Fabrizio/importFiles.cpp" afterPath="$PROJECT_DIR$/Fabrizio/importFiles.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Fabrizio/importFiles.h" afterPath="$PROJECT_DIR$/Fabrizio/importFiles.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/Thesis.cbp" afterPath="$PROJECT_DIR$/cmake-build-debug/Thesis.cbp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.cpp" afterPath="$PROJECT_DIR$/main.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MatricesInitializer.h" afterPath="$PROJECT_DIR$/src/MatricesInitializer.h" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <ignored path="$PROJECT_DIR$/lib/nanogui/ext/eigen/CMakeFiles/" />
@@ -1164,64 +1160,27 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="244">
-              <caret line="35" column="20" lean-forward="false" selection-start-line="35" selection-start-column="16" selection-end-line="35" selection-end-column="20" />
+            <state relative-caret-position="40">
+              <caret line="2" column="19" lean-forward="true" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
               <folding>
-                <element signature="e#0#19#0" expanded="true" />
-                <element signature="e#19268#19958#0" expanded="false" />
-                <element signature="e#19964#21309#0" expanded="false" />
-                <element signature="e#21315#22128#0" expanded="false" />
-                <element signature="e#22134#22369#0" expanded="false" />
-                <element signature="e#22375#22529#0" expanded="false" />
-                <element signature="e#22535#22596#0" expanded="false" />
-                <element signature="e#22602#22744#0" expanded="false" />
-                <element signature="e#22750#22880#0" expanded="false" />
-                <element signature="e#27560#29090#0" expanded="false" />
-                <element signature="e#29096#29378#0" expanded="false" />
+                <element signature="e#383#16389#0" expanded="false" />
+                <element signature="e#16395#19111#0" expanded="false" />
+                <element signature="e#19117#19807#0" expanded="false" />
+                <element signature="e#19813#21158#0" expanded="false" />
+                <element signature="e#21164#21977#0" expanded="false" />
+                <element signature="e#21983#22218#0" expanded="false" />
+                <element signature="e#22224#22378#0" expanded="false" />
+                <element signature="e#22384#22445#0" expanded="false" />
+                <element signature="e#22451#22593#0" expanded="false" />
+                <element signature="e#22599#22729#0" expanded="false" />
+                <element signature="e#22735#27403#0" expanded="false" />
+                <element signature="e#27409#28939#0" expanded="false" />
+                <element signature="e#28945#29227#0" expanded="false" />
+                <element signature="e#29242#29766#1" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MatricesInitializer.h" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/MatricesInitializer.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="754">
-              <caret line="85" column="9" lean-forward="false" selection-start-line="85" selection-start-column="9" selection-end-line="85" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="18" column="75" lean-forward="false" selection-start-line="18" selection-start-column="75" selection-end-line="18" selection-end-column="75" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="celVertex.vert" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/celVertex.vert">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="14" column="60" lean-forward="false" selection-start-line="14" selection-start-column="60" selection-end-line="14" selection-end-column="60" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="celFragment.frag" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/celFragment.frag">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="22" column="8" lean-forward="false" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -1302,13 +1261,13 @@
         <option value="$PROJECT_DIR$/resources/arcballFragmentShader.frag" />
         <option value="$PROJECT_DIR$/resources/arcballVertexShader.vert" />
         <option value="$PROJECT_DIR$/resources/vertexShader.vert" />
-        <option value="$PROJECT_DIR$/main.cpp" />
         <option value="$PROJECT_DIR$/resources/celVertex.vert" />
         <option value="$PROJECT_DIR$/resources/celFragment.frag" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/Fabrizio/importFiles.cpp" />
         <option value="$PROJECT_DIR$/Fabrizio/importFiles.h" />
         <option value="$PROJECT_DIR$/src/MatricesInitializer.h" />
+        <option value="$PROJECT_DIR$/main.cpp" />
       </list>
     </option>
   </component>
@@ -1349,48 +1308,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Thesis" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Thesis" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Thesis" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Thesis" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Thesis" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Thesis" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Thesis" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Fabrizio" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1882,7 +1799,7 @@
       <workItem from="1498212892611" duration="733000" />
       <workItem from="1498224079174" duration="12830000" />
       <workItem from="1498313210479" duration="11163000" />
-      <workItem from="1498386021016" duration="8926000" />
+      <workItem from="1498386021016" duration="10477000" />
     </task>
     <task id="LOCAL-00001" summary="Corretta visualizzazione nVertices">
       <created>1498049266172</created>
@@ -1895,11 +1812,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="460175000" />
+    <option name="totallyTimeSpent" value="461726000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="-11" width="1922" height="1092" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13802083" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1907,11 +1823,11 @@
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29357797" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3282365" sideWeight="0.5018868" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2874618" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2874618" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12640163" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5086646" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1940,28 +1856,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lib/nanogui/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/nanogui/LICENSE.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-90">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/include/Eigen/src/Geometry/Translation.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1336">
@@ -2240,38 +2134,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="35" column="20" lean-forward="false" selection-start-line="35" selection-start-column="16" selection-end-line="35" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-            <element signature="e#19268#19958#0" expanded="false" />
-            <element signature="e#19964#21309#0" expanded="false" />
-            <element signature="e#21315#22128#0" expanded="false" />
-            <element signature="e#22134#22369#0" expanded="false" />
-            <element signature="e#22375#22529#0" expanded="false" />
-            <element signature="e#22535#22596#0" expanded="false" />
-            <element signature="e#22602#22744#0" expanded="false" />
-            <element signature="e#22750#22880#0" expanded="false" />
-            <element signature="e#27560#29090#0" expanded="false" />
-            <element signature="e#29096#29378#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Fabrizio/importFiles.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="104" column="16" lean-forward="false" selection-start-line="104" selection-start-column="16" selection-end-line="104" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/VectorsOperations.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="725">
-          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -2286,9 +2152,56 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MatricesInitializer.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="754">
+        <state relative-caret-position="1700">
           <caret line="85" column="9" lean-forward="false" selection-start-line="85" selection-start-column="9" selection-end-line="85" selection-end-column="9" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/Eigen/src/Core/PlainObjectBase.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="767" column="0" lean-forward="false" selection-start-line="767" selection-start-column="0" selection-end-line="767" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/Eigen/src/Core/Matrix.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="295" column="0" lean-forward="false" selection-start-line="295" selection-start-column="0" selection-end-line="295" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/VectorsOperations.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="632">
+          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="19" lean-forward="true" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+          <folding>
+            <element signature="e#383#16389#0" expanded="false" />
+            <element signature="e#16395#19111#0" expanded="false" />
+            <element signature="e#19117#19807#0" expanded="false" />
+            <element signature="e#19813#21158#0" expanded="false" />
+            <element signature="e#21164#21977#0" expanded="false" />
+            <element signature="e#21983#22218#0" expanded="false" />
+            <element signature="e#22224#22378#0" expanded="false" />
+            <element signature="e#22384#22445#0" expanded="false" />
+            <element signature="e#22451#22593#0" expanded="false" />
+            <element signature="e#22599#22729#0" expanded="false" />
+            <element signature="e#22735#27403#0" expanded="false" />
+            <element signature="e#27409#28939#0" expanded="false" />
+            <element signature="e#28945#29227#0" expanded="false" />
+            <element signature="e#29242#29766#1" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

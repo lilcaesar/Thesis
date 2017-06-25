@@ -12,12 +12,6 @@
 #include <GL/glu.h>
 #include <GL/glut.h>
 
-/*TODO
- * -Modificare vettori temporanei in vettori di Eigen::Vector3
- * -Implementare caricamento della colorazione
- * -Normali
- * -Illumninazione*/
-
 using namespace nanogui;
 
 class NanoguiMeshViewer : public nanogui::Screen {
