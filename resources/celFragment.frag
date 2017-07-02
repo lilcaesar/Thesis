@@ -14,11 +14,11 @@ void main()
 	vec3 n = normalize(normal);
 	intensity = dot(vec3(lightPosition_worldspace),n);
 
-	if (intensity > 0.95)
+	if (intensity > 3)
 		colorF = color;
 	else if (intensity > 0.5)
 		colorF = vec4(color.rgb*0.6,1.0);
-	else if (intensity > 0.25)
+	else if (intensity > -3)
 		colorF = vec4(color.rgb*0.4,1.0);
 	else
 		colorF = vec4(color.rgb*0.2,1.0);
