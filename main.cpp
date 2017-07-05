@@ -35,6 +35,7 @@ public:
             refreshArcball();
 
             nanoguiCamera.translation = nanoguiCamera.translationStart = Vector3f::Zero();
+            nanoguiCamera.zoom = 1.0;
 
             vertexShaderFilePath = "./resources/vertexShader.vert";
             fragmentShaderFilePath = "./resources/fragmentShader.frag";
